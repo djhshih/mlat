@@ -6,9 +6,12 @@
 #include "localmem.h"
 #include "linefile.h"
 #include "obscure.h"
-#include "bPlusTree.h"
 #include "twoBit.h"
 #include <limits.h>
+
+#ifdef ENABLE_BPT
+#include "bPlusTree.h"
+#endif
 
 static int countBlocksOfN(char *s, int size)
 /* Count number of blocks of N's (or n's) in s. */
@@ -241,7 +244,9 @@ void twoBitClose(struct twoBitFile **pTbf)
     carefulClose(&tbf->f);
     hashFree(&tbf->hash);
     /* The indexList is allocated out of the hash's memory pool. */
+#ifdef ENABLE_BPT
     bptFileClose(&tbf->bpt);
+#endif
     freez(pTbf);
   }
 }
@@ -301,6 +306,7 @@ struct twoBitFile *twoBitOpen(char *fileName)
   return tbf;
 }
 
+#ifdef ENABLE_BPT
 struct twoBitFile *twoBitOpenExternalBptIndex(char *twoBitName, char *bptName)
 /* Open file, read in header, but not regular index.  Instead use
  * bpt index.   Beware if you use this the indexList field will be NULL
@@ -313,6 +319,7 @@ struct twoBitFile *twoBitOpenExternalBptIndex(char *twoBitName, char *bptName)
              bptName);
   return tbf;
 }
+#endif
 
 static int findGreatestLowerBound(int blockCount, bits32 *pos, int val)
 /* Find index of greatest element in posArray that is less
@@ -341,12 +348,16 @@ static int findGreatestLowerBound(int blockCount, bits32 *pos, int val)
 static void twoBitSeekTo(struct twoBitFile *tbf, char *name)
 /* Seek to start of named record.  Abort if can't find it. */
 {
+#ifdef ENABLE_BPT
   if (tbf->bpt) {
     bits32 offset;
     if (!bptFileFind(tbf->bpt, name, strlen(name), &offset, sizeof(offset)))
       errAbort("%s is not in %s", name, tbf->bpt->fileName);
     fseek(tbf->f, offset, SEEK_SET);
   } else {
+#else
+  {
+#endif
     struct twoBitIndex *index = hashFindVal(tbf->hash, name);
     if (index == NULL)
       errAbort("%s is not in %s", name, tbf->fileName);

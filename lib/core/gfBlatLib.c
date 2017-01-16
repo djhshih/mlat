@@ -3,7 +3,6 @@
 /* Copyright 2001-2005 Jim Kent.  All rights reserved. */
 
 #include "common.h"
-#include "net.h"
 #include "linefile.h"
 #include "sqlNum.h"
 #include "dnaseq.h"
@@ -16,6 +15,11 @@
 #include "nib.h"
 #include "twoBit.h"
 #include "trans3.h"
+
+#ifdef ENABLE_NET
+#include "net.h"
+#endif
+
 
 static int ssAliCount = 16; /* Number of alignments returned by ssStitch. */
 
@@ -124,6 +128,7 @@ static void gfServerWarn(bioSeq *seq, char *warning)
   warn("couldn't process %s: %s", seq->name, warning);
 }
 
+#ifdef ENABLE_NET
 static struct gfRange *gfQuerySeq(int conn, struct dnaSeq *seq)
 /* Ask server for places sequence hits. */
 {
@@ -152,6 +157,7 @@ static struct gfRange *gfQuerySeq(int conn, struct dnaSeq *seq)
   slReverse(&rangeList);
   return rangeList;
 }
+#endif
 
 static int findTileSize(char *line)
 /* Parse through line/val pairs looking for tileSize. */
@@ -176,6 +182,7 @@ static int findTileSize(char *line)
   return tileSize;
 }
 
+#ifdef ENABLE_NET
 struct gfHit *getHitsFromServer(int conn, struct lm *lm)
 /* Read a lone line of hits from server. */
 {
@@ -196,7 +203,9 @@ struct gfHit *getHitsFromServer(int conn, struct lm *lm)
   slReverse(&hitList);
   return hitList;
 }
+#endif
 
+#ifdef ENABLE_NET
 static void gfQuerySeqTrans(int conn, aaSeq *seq, struct gfClump *clumps[2][3],
                             struct lm *lm, struct gfSeqSource **retSsList,
                             int *retTileSize)
@@ -259,7 +268,9 @@ static void gfQuerySeqTrans(int conn, aaSeq *seq, struct gfClump *clumps[2][3],
   *retSsList = ssList;
   *retTileSize = tileSize;
 }
+#endif
 
+#ifdef ENABLE_NET
 static void gfQuerySeqTransTrans(int conn, struct dnaSeq *seq,
                                  struct gfClump *clumps[2][3][3], struct lm *lm,
                                  struct gfSeqSource **retSsList,
@@ -327,6 +338,7 @@ static void gfQuerySeqTransTrans(int conn, struct dnaSeq *seq,
   *retSsList = ssList;
   *retTileSize = tileSize;
 }
+#endif
 
 struct gfRange *gfRangesBundle(struct gfRange *exonList, int maxIntron)
 /* Bundle a bunch of 'exons' into plausable 'genes'.  It's
@@ -511,6 +523,7 @@ static void getTargetName(char *tSpec, boolean includeFile, char *targetName)
     gfiGetSeqName(tSpec, targetName, NULL);
 }
 
+#ifdef ENABLE_NET
 void gfAlignStrand(int *pConn, char *tSeqDir, struct dnaSeq *seq, boolean isRc,
                    int minMatch, struct hash *tFileCache, struct gfOutput *out)
 /* Search genome on server with one strand of other sequence to find homology.
@@ -544,6 +557,7 @@ void gfAlignStrand(int *pConn, char *tSeqDir, struct dnaSeq *seq, boolean isRc,
   }
   gfRangeFreeList(&rangeList);
 }
+#endif
 
 char *clumpTargetName(struct gfClump *clump)
 /* Return target name of clump - whether it is in memory or on disk. */
@@ -967,6 +981,7 @@ static void loadHashT3Ranges(struct gfRange *rangeList, char *tSeqDir,
   *retT3RefList = t3RefList;
 }
 
+#ifdef ENABLE_NET
 void gfAlignTrans(int *pConn, char *tSeqDir, aaSeq *seq, int minMatch,
                   struct hash *tFileCache, struct gfOutput *out)
 /* Search indexed translated genome on server with an amino acid sequence.
@@ -1064,6 +1079,7 @@ void gfAlignTrans(int *pConn, char *tSeqDir, aaSeq *seq, int minMatch,
   slFreeList(&ssList);
   lmCleanup(&lm);
 }
+#endif
 
 void untranslateRangeList(struct gfRange *rangeList, int qFrame, int tFrame,
                           struct hash *t3Hash, struct trans3 *t3, int tOffset)
@@ -1083,6 +1099,7 @@ void untranslateRangeList(struct gfRange *rangeList, int qFrame, int tFrame,
   }
 }
 
+#ifdef ENABLE_NET
 void gfAlignTransTrans(int *pConn, char *tSeqDir, struct dnaSeq *qSeq,
                        boolean qIsRc, int minMatch, struct hash *tFileCache,
                        struct gfOutput *out, boolean isRna)
@@ -1184,6 +1201,7 @@ void gfAlignTransTrans(int *pConn, char *tSeqDir, struct dnaSeq *qSeq,
   slFreeList(&ssList);
   lmCleanup(&lm);
 }
+#endif
 
 static struct ssBundle *
 gfTransTransFindBundles(struct genoFind *gfs[3], struct dnaSeq *qSeq,

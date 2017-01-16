@@ -2,9 +2,9 @@ ROOT=../..
 
 include $(ROOT)/common.mk
 
+
 O =  \
 aliType.o \
-bPlusTree.o \
 bits.o \
 chain.o \
 chainBlock.o \
@@ -25,7 +25,6 @@ gfClientLib.o \
 gfInternal.o \
 gfOut.o \
 hash.o \
-kxTok.o \
 linefile.o \
 localmem.o \
 memalloc.o \
@@ -35,11 +34,14 @@ options.o \
 osunix.o \
 pipeline.o \
 psl.o \
-servcl.o \
 supStitch.o \
 trans3.o \
 twoBit.o \
 verbose.o \
+
+#kxTok.o \
+#bPlusTree.o \
+#servcl.o \
 
 all: $(O)
 	
