@@ -12,9 +12,12 @@
 #include "genoFind.h"
 #include "gfInternal.h"
 #include "errabort.h"
-#include "nib.h"
 #include "twoBit.h"
 #include "trans3.h"
+
+#ifdef ENABLE_NIB
+#include "nib.h"
+#endif
 
 #ifdef ENABLE_NET
 #include "net.h"
@@ -491,10 +494,13 @@ static void gfFileCacheFreeEl(struct hashEl *el)
 /* Free up one file cache info. */
 {
   char *name = el->name;
+#ifdef ENABLE_NIB
   if (nibIsFile(name)) {
     struct nibInfo *nib = el->val;
     nibInfoFree(&nib);
-  } else {
+  } else
+#endif
+	{
     struct twoBitFile *tbf = el->val;
     twoBitClose(&tbf);
   }

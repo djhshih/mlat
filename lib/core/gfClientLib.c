@@ -8,10 +8,13 @@
 #include "obscure.h"
 #include "dnaseq.h"
 #include "fa.h"
-#include "nib.h"
 #include "twoBit.h"
 #include "repMask.h"
 #include "gfClientLib.h"
+
+#ifdef ENABLE_NIB
+#include "nib.h"
+#endif
 
 void gfClientFileArray(char *fileName, char ***retFiles, int *retFileCount)
 /* Check if file if .2bit or .nib or .fa.  If so return just that
@@ -21,7 +24,11 @@ void gfClientFileArray(char *fileName, char ***retFiles, int *retFileCount)
   boolean gotSingle = FALSE;
   char *buf; /* This will leak memory but won't matter. */
 
+#ifdef ENABLE_NIB
   if (nibIsFile(fileName) || twoBitIsSpec(fileName) ||
+#else
+  if (twoBitIsSpec(fileName) ||
+#endif
       sameString(fileName, "stdin") || endsWith(fileName, ".Z") ||
       endsWith(fileName, ".gz") || endsWith(fileName, ".bz2"))
     gotSingle = TRUE;
@@ -163,9 +170,12 @@ bioSeq *gfClientSeqList(int fileCount, char *files[], boolean isProt,
     struct dnaSeq *list = NULL, sseq;
     ZeroVar(&sseq);
     fileName = files[i];
+#ifdef ENABLE_NIB
     if (nibIsFile(fileName))
       list = nibLoadAllMasked(NIB_MASK_MIXED | NIB_BASE_NAME, fileName);
-    else if (twoBitIsSpec(fileName))
+		else
+#endif
+    if (twoBitIsSpec(fileName))
       list = twoBitLoadAll(fileName);
     else if (isProt)
       list = faReadAllPep(fileName);

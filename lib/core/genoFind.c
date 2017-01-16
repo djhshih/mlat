@@ -6,7 +6,6 @@
 #include "obscure.h"
 #include "dnautil.h"
 #include "dnaseq.h"
-#include "nib.h"
 #include "twoBit.h"
 #include "fa.h"
 #include "dystring.h"
@@ -16,6 +15,11 @@
 #include "genoFind.h"
 #include "trans3.h"
 #include "binRange.h"
+
+#ifdef ENABLE_NIB
+#include "nib.h"
+#endif
+
 
 char *gfSignature()
 /* Return signature that starts each command to gfServer. Helps defend
@@ -220,6 +224,7 @@ static void gfCountSeq(struct genoFind *gf, bioSeq *seq)
   }
 }
 
+#ifdef ENBALE_NIB
 static int gfCountTilesInNib(struct genoFind *gf, int stepSize, char *fileName)
 /* Count all tiles in nib file.  Returns nib size. */
 {
@@ -244,6 +249,7 @@ static int gfCountTilesInNib(struct genoFind *gf, int stepSize, char *fileName)
   fclose(f);
   return nibSize;
 }
+#endif
 
 long long maxTotalBases()
 /* Return maximum bases we can index. */
@@ -501,9 +507,11 @@ struct genoFind *gfIndexNibsAndTwoBits(int fileCount, char *fileNames[],
       gfCountTilesInTwoBit(gf, stepSize, fileName, &seqCount, &baseCount);
       totalBases += baseCount;
       totalSeq += seqCount;
+#ifdef ENABLE_NIB
     } else if (nibIsFile(fileName)) {
       totalBases += gfCountTilesInNib(gf, stepSize, fileName);
       totalSeq += 1;
+#endif
     } else
       errAbort("Unrecognized file type %s", fileName);
     /* Warn if they exceed 4 gig. */
@@ -517,6 +525,7 @@ struct genoFind *gfIndexNibsAndTwoBits(int fileCount, char *fileNames[],
   ss = gf->sources;
   for (i = 0; i < fileCount; ++i) {
     fileName = fileNames[i];
+#ifdef ENABLE_NIB
     if (nibIsFile(fileName)) {
       nibSize = gfAddTilesInNib(gf, fileName, offset, stepSize);
       ss->fileName = fileName;
@@ -524,7 +533,9 @@ struct genoFind *gfIndexNibsAndTwoBits(int fileCount, char *fileNames[],
       offset += nibSize;
       ss->end = offset;
       ++ss;
-    } else {
+    } else
+#endif
+		{
       struct twoBitFile *tbf = twoBitOpen(fileName);
       struct twoBitIndex *index;
       char nameBuf[PATH_LEN + 256];
@@ -573,6 +584,7 @@ static void maskSimplePepRepeat(struct genoFind *gf)
   }
 }
 
+#ifdef ENABLE_NIB
 struct dnaSeq *readMaskedNib(char *fileName, boolean mask)
 /* Read nib, optionally turning masked bits to N's.
  * Result is lower case where not masked. */
@@ -586,6 +598,7 @@ struct dnaSeq *readMaskedNib(char *fileName, boolean mask)
     seq = nibLoadAll(fileName);
   return seq;
 }
+#endif
 
 struct dnaSeq *readMaskedTwoBit(struct twoBitFile *tbf, char *seqName,
                                 boolean mask)
@@ -684,13 +697,16 @@ void gfIndexTransNibsAndTwoBits(struct genoFind *transGf[2][3], int fileCount,
   for (i = 0; i < fileCount; ++i) {
     fileName = fileNames[i];
     printf("Counting %s\n", fileName);
+#ifdef ENABLE_NIB
     if (nibIsFile(fileName)) {
       seq = readMaskedNib(fileName, doMask);
       transCountBothStrands(seq, transGf);
       sourceCount += 1;
       totalBases += seq->size;
       freeDnaSeq(&seq);
-    } else if (twoBitIsFile(fileName)) {
+    } else 
+#endif
+    if (twoBitIsFile(fileName)) {
       struct twoBitFile *tbf = twoBitOpen(fileName);
       struct twoBitIndex *index;
       totalBases += twoBitCheckTotalSize(tbf);
@@ -725,12 +741,14 @@ void gfIndexTransNibsAndTwoBits(struct genoFind *transGf[2][3], int fileCount,
   for (i = 0; i < fileCount; ++i) {
     fileName = fileNames[i];
     printf("Indexing %s\n", fileName);
+#ifdef ENABLE_NIB
     if (nibIsFile(fileName)) {
       seq = readMaskedNib(fileName, doMask);
       transIndexBothStrands(seq, transGf, offset, sourceCount, fileName);
       freeDnaSeq(&seq);
       sourceCount += 1;
     } else /* .2bit file */
+#endif
     {
       struct twoBitFile *tbf = twoBitOpen(fileName);
       struct twoBitIndex *index;
@@ -1826,9 +1844,12 @@ void gfMakeOoc(char *outName, char *files[], int fileCount, int tileSize,
   for (i = 0; i < fileCount; ++i) {
     inName = files[i];
     printf("Loading %s\n", inName);
+#ifdef ENABLE_NIB
     if (nibIsFile(inName)) {
       seqList = nibLoadAll(inName);
-    } else if (twoBitIsFile(inName)) {
+    } else 
+#endif
+		if (twoBitIsFile(inName)) {
       seqList = twoBitLoadAll(inName);
       for (seq = seqList; seq != NULL; seq = seq->next)
         toLowerN(seq->dna, seq->size);

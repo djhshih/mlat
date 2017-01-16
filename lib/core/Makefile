@@ -28,7 +28,6 @@ hash.o \
 linefile.o \
 localmem.o \
 memalloc.o \
-nib.o \
 obscure.o \
 options.o \
 osunix.o \
@@ -39,6 +38,7 @@ trans3.o \
 twoBit.o \
 verbose.o \
 
+#nib.o \
 #kxTok.o \
 #bPlusTree.o \
 #servcl.o \

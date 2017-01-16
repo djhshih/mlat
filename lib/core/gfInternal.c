@@ -7,8 +7,11 @@
 #include "genoFind.h"
 #include "gfInternal.h"
 #include "errabort.h"
-#include "nib.h"
 #include "twoBit.h"
+
+#ifdef ENABLE_NIB
+#include "nib.h"
+#endif
 
 static int extendRespect(int oldX, int newX)
 /* Return newX modified slightly so as to be in same frame as oldX. */
@@ -65,6 +68,7 @@ gfiExpandAndLoadCached(struct gfRange *range, struct hash *tFileCache,
   char fileName[PATH_LEN + 256];
 
   safef(fileName, sizeof(fileName), "%s/%s", tSeqDir, range->tName);
+#ifdef ENABLE_NIB
   if (nibIsFile(fileName)) {
     struct nibInfo *nib = hashFindVal(tFileCache, fileName);
     if (nib == NULL) {
@@ -81,7 +85,9 @@ gfiExpandAndLoadCached(struct gfRange *range, struct hash *tFileCache,
       reverseIntRange(&range->tStart, &range->tEnd, nib->size);
     }
     *retTotalSeqSize = nib->size;
-  } else {
+  } else
+#endif
+	{
     struct twoBitFile *tbf = NULL;
     char *tSeqName = strchr(fileName, ':');
     int tSeqSize = 0;
@@ -112,11 +118,14 @@ void gfiGetSeqName(char *spec, char *name, char *file)
  * which includes nib and 2bit files.  (The file may be NULL
  * if you don't care.) */
 {
+#ifdef ENABLE_NIB
   if (nibIsFile(spec)) {
     splitPath(spec, NULL, name, NULL);
     if (file != NULL)
       strcpy(file, spec);
-  } else {
+  } else
+#endif
+	{
     char *s = strchr(spec, ':');
     if (s == NULL)
       errAbort("Expecting colon in %s", spec);
