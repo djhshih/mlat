@@ -8,7 +8,6 @@
 #include "dnautil.h"
 #include "dnaseq.h"
 #include "fa.h"
-#include "nib.h"
 #include "twoBit.h"
 #include "psl.h"
 #include "sig.h"
@@ -61,18 +60,14 @@ void usage()
       "usage:\n"
       "   blat database query [-ooc=11.ooc] output.psl\n"
       "where:\n"
-      "   database and query are each either a .fa , .nib or .2bit file,\n"
+      "   database and query are each either a .fa or .2bit file,\n"
       "   or a list these files one file name per line.\n"
       "   -ooc=11.ooc tells the program to load over-occurring 11-mers from\n"
       "               and external file.  This will increase the speed\n"
       "               by a factor of 40 in many cases, but is not required\n"
       "   output.psl is where to put the output.\n"
-      "   Subranges of nib and .2bit files may specified using the syntax:\n"
-      "      /path/file.nib:seqid:start-end\n"
-      "   or\n"
+      "   Subranges of .2bit files may specified using the syntax:\n"
       "      /path/file.2bit:seqid:start-end\n"
-      "   or\n"
-      "      /path/file.nib:start-end\n"
       "   With the second form, a sequence id of file:start-end will be used.\n"
       "options:\n"
       "   -t=type     Database type.  Type is one of:\n"
@@ -345,18 +340,7 @@ void searchOneIndex(int fileCount, char *files[], struct genoFind *gf,
   gfOutputHead(gvo, outFile);
   for (i = 0; i < fileCount; ++i) {
     fileName = files[i];
-    if (nibIsFile(fileName)) {
-      struct dnaSeq *seq;
-
-      if (isProt)
-        errAbort("%s: Can't use .nib files with -prot or d=prot option\n",
-                 fileName);
-      seq = nibLoadAllMasked(NIB_MASK_MIXED, fileName);
-      freez(&seq->name);
-      seq->name = cloneString(fileName);
-      searchOneMaskTrim(seq, isProt, gf, outFile, maskHash, &totalSize, &count);
-      freeDnaSeq(&seq);
-    } else if (twoBitIsSpec(fileName)) {
+    if (twoBitIsSpec(fileName)) {
       struct twoBitSpec *tbs = twoBitSpecNew(fileName);
       struct twoBitFile *tbf = twoBitOpen(tbs->fileName);
       if (isProt)
