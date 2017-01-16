@@ -1,0 +1,46 @@
+ROOT=../..
+
+include $(ROOT)/common.mk
+
+O =  \
+aliType.o \
+bPlusTree.o \
+bits.o \
+chain.o \
+chainBlock.o \
+common.o \
+dlist.o \
+dnaseq.o \
+dnautil.o \
+dystring.o \
+errabort.o \
+fa.o \
+ffAli.o \
+ffAliHelp.o \
+ffScore.o \
+fuzzyFind.o \
+genoFind.o \
+gfBlatLib.o \
+gfClientLib.o \
+gfInternal.o \
+gfOut.o \
+hash.o \
+kxTok.o \
+linefile.o \
+localmem.o \
+memalloc.o \
+nib.o \
+obscure.o \
+options.o \
+osunix.o \
+pipeline.o \
+psl.o \
+servcl.o \
+supStitch.o \
+trans3.o \
+twoBit.o \
+verbose.o \
+
+all: $(O)
+	
+
