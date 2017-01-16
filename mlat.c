@@ -34,7 +34,6 @@ int minMatch = 2;
 int minScore = 30;
 int maxGap = 2;
 int repMatch = 1024 * 4;
-int dotEvery = 0;
 boolean oneOff = FALSE;
 boolean noHead = FALSE;
 boolean trimA = FALSE;
@@ -148,7 +147,6 @@ void usage()
       "               them to be unmasked.  Default is 15.  Only relevant for "
       "\n"
       "               masking using RepeatMasker .out files.\n"
-      "   -dots=N     Output dot every N sequences to show program's progress\n"
       "   -trimT      Trim leading poly-T\n"
       "   -noTrimA    Don't trim trailing poly-A\n"
       "   -trimHardA  Remove poly-A tail from qSize as well as alignments in \n"
@@ -194,7 +192,6 @@ struct optionSpec options[] = {
     {"qMask", OPTION_STRING},
     {"repeats", OPTION_STRING},
     {"minRepDivergence", OPTION_FLOAT},
-    {"dots", OPTION_INT},
     {"trimT", OPTION_BOOLEAN},
     {"noTrimA", OPTION_BOOLEAN},
     {"trimHardA", OPTION_BOOLEAN},
@@ -235,24 +232,10 @@ void searchOneProt(aaSeq *seq, struct genoFind *gf, FILE *f)
   lmCleanup(&lm);
 }
 
-void dotOut()
-/* Put out a dot every now and then if user want's to. */
-{
-  static int mod = 1;
-  if (dotEvery > 0) {
-    if (--mod <= 0) {
-      fputc('.', stdout);
-      fflush(stdout);
-      mod = dotEvery;
-    }
-  }
-}
-
 void searchOne(bioSeq *seq, struct genoFind *gf, FILE *f, boolean isProt,
                struct hash *maskHash, Bits *qMaskBits)
 /* Search for seq on either strand in index. */
 {
-  dotOut();
   if (isProt) {
     searchOneProt(seq, gf, f);
   } else {
@@ -486,7 +469,6 @@ void bigBlat(struct dnaSeq *untransList, int queryCount, char *queryFiles[],
 
       lf = lineFileOpen(queryFiles[i], TRUE);
       while (faMixedSpeedReadNext(lf, &qSeq.dna, &qSeq.size, &qSeq.name)) {
-        dotOut();
         /* Put it into right case and optionally mask on case. */
         if (forceLower)
           toLowerN(qSeq.dna, qSeq.size);
@@ -594,8 +576,6 @@ void blat(char *dbFile, char *queryFile, char *outName)
   } else {
     errAbort("Unrecognized combination of target and query types\n");
   }
-  if (dotEvery > 0)
-    printf("\n");
   freeDnaSeqList(&dbSeqList);
 }
 
@@ -707,7 +687,6 @@ int main(int argc, char *argv[])
   if (mask != NULL) /* Mask setting will also set repeats. */
     repeats = mask;
   outputFormat = optionVal("out", outputFormat);
-  dotEvery = optionInt("dots", 0);
   /* set global for fuzzy find functions */
   setFfIntronMax(optionInt("maxIntron", ffIntronMaxDefault));
   setFfExtendThroughN(optionExists("extendThroughN"));
