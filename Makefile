@@ -18,5 +18,5 @@ mlatd:
 	$(CC) $(COPTS) $(CFLAGS) mlatd.c lib/core/*.o lib/aux/*.o lib/net/*.o -o mlatd
 
 clean:
-	rm -f bin/*
+	rm -f *.{o,gcda,gcno,gcov} lib/{core,aux,net}/*.{o,gcda,gcno,gcov}
 
