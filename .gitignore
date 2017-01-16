@@ -1,0 +1,7 @@
+test*.psl
+*.o
+*.a
+*.gcov
+*.gcno
+*.gcda
+*.log
