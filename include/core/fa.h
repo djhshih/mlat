@@ -43,19 +43,25 @@ struct dnaSeq *faReadAllMixedInLf(struct lineFile *lf);
 
 struct dnaSeq *faReadOneDnaSeq(FILE *f, char *name, boolean mustStartWithSign);
 /* Read one sequence from FA file. Assumes positioned at or before
- * the '>' at start of sequence. */  
+ * the '>' at start of sequence. */
 
-boolean faReadNext(FILE *f, char *defaultName, boolean mustStartWithComment, 
-    char **retCommentLine, struct dnaSeq **retSeq);
-/* Read next sequence from .fa file. Return sequence in retSeq.  If retCommentLine is non-null
- * return the '>' line in retCommentLine.   The whole thing returns FALSE at end of file. 
- * Assumes positioned at or before the '>' at start of sequence.  File must have been
+boolean faReadNext(FILE *f, char *defaultName, boolean mustStartWithComment,
+                   char **retCommentLine, struct dnaSeq **retSeq);
+/* Read next sequence from .fa file. Return sequence in retSeq.  If
+ * retCommentLine is non-null
+ * return the '>' line in retCommentLine.   The whole thing returns FALSE at end
+ * of file.
+ * Assumes positioned at or before the '>' at start of sequence.  File must have
+ * been
  * opened in binary mode! Note: sequence is mapped to lower case */
 
-boolean faReadMixedNext(FILE *f, boolean preserveCase, char *defaultName, 
-    boolean mustStartWithComment, char **retCommentLine, struct dnaSeq **retSeq);
-/* Read next sequence from .fa file. Return sequence in retSeq.  If retCommentLine is non-null
- * return the '>' line in retCommentLine.   The whole thing returns FALSE at end of file. Provides flag for preserving case in sequence */
+boolean faReadMixedNext(FILE *f, boolean preserveCase, char *defaultName,
+                        boolean mustStartWithComment, char **retCommentLine,
+                        struct dnaSeq **retSeq);
+/* Read next sequence from .fa file. Return sequence in retSeq.  If
+ * retCommentLine is non-null
+ * return the '>' line in retCommentLine.   The whole thing returns FALSE at end
+ * of file. Provides flag for preserving case in sequence */
 
 struct dnaSeq *faFromMemText(char *text);
 /* Return a sequence from a .fa file that's been read into
@@ -73,7 +79,7 @@ bioSeq *faNextSeqFromMemText(char **pText, boolean isDna);
  * record.  Returns NULL when no more sequences left. */
 
 bioSeq *faNextSeqFromMemTextRaw(char **pText);
-/* Same as faNextSeqFromMemText, but will leave in 
+/* Same as faNextSeqFromMemText, but will leave in
  * letters even if they aren't in DNA or protein alphabed. */
 
 bioSeq *faSeqListFromMemText(char *text, boolean isDna);
@@ -84,24 +90,29 @@ bioSeq *faSeqListFromMemTextRaw(char *text);
  * converting chars to N's. */
 
 boolean faFastReadNext(FILE *f, DNA **retDna, int *retSize, char **retName);
-/* Read in next FA entry as fast as we can. Return FALSE at EOF. 
+/* Read in next FA entry as fast as we can. Return FALSE at EOF.
  * The returned DNA and name will be overwritten by the next call
  * to this function. */
 
-boolean faSpeedReadNext(struct lineFile *lf, DNA **retDna, int *retSize, char **retName);
+boolean faSpeedReadNext(struct lineFile *lf, DNA **retDna, int *retSize,
+                        char **retName);
 /* Read in next FA entry as fast as we can. Faster than that old,
- * pokey faFastReadNext. Return FALSE at EOF. 
+ * pokey faFastReadNext. Return FALSE at EOF.
  * The returned DNA and name will be overwritten by the next call
  * to this function. */
 
-boolean faPepSpeedReadNext(struct lineFile *lf, DNA **retDna, int *retSize, char **retName);
+boolean faPepSpeedReadNext(struct lineFile *lf, DNA **retDna, int *retSize,
+                           char **retName);
 /* Read in next peptide FA entry as fast as we can.  */
 
-boolean faSomeSpeedReadNext(struct lineFile *lf, DNA **retDna, int *retSize, char **retName, boolean isDna);
+boolean faSomeSpeedReadNext(struct lineFile *lf, DNA **retDna, int *retSize,
+                            char **retName, boolean isDna);
 /* Read in DNA or Peptide FA record. */
 
-boolean faMixedSpeedReadNext(struct lineFile *lf, DNA **retDna, int *retSize, char **retName);
-/* Read in DNA or Peptide FA record in mixed case.   Allow any upper or lower case
+boolean faMixedSpeedReadNext(struct lineFile *lf, DNA **retDna, int *retSize,
+                             char **retName);
+/* Read in DNA or Peptide FA record in mixed case.   Allow any upper or lower
+ * case
  * letter, or the dash character in. */
 
 void faToProtein(char *poly, int size);

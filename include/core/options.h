@@ -1,4 +1,4 @@
-/* Stuff to process options out of command line. 
+/* Stuff to process options out of command line.
  *
  * This file is copyright 2002 Jim Kent, but license is hereby
  * granted for all use - public, private or commercial. */
@@ -9,23 +9,25 @@
 #include "common.h"
 
 /* Types for options */
-#define OPTION_BOOLEAN    0x01
-#define OPTION_STRING     0x02
-#define OPTION_INT        0x04
-#define OPTION_FLOAT      0x10
-#define OPTION_LONG_LONG  0x20
-#define OPTION_MULTI      0x40
-#define OPTION_DOUBLE	  0x80
+#define OPTION_BOOLEAN 0x01
+#define OPTION_STRING 0x02
+#define OPTION_INT 0x04
+#define OPTION_FLOAT 0x10
+#define OPTION_LONG_LONG 0x20
+#define OPTION_MULTI 0x40
+#define OPTION_DOUBLE 0x80
 
 /* Mask for option types (excluding OPTION_MULTI) */
-#define OPTION_TYPE_MASK (OPTION_BOOLEAN|OPTION_STRING|OPTION_INT|OPTION_FLOAT|OPTION_LONG_LONG|OPTION_DOUBLE)
+#define OPTION_TYPE_MASK                                                       \
+  (OPTION_BOOLEAN | OPTION_STRING | OPTION_INT | OPTION_FLOAT |                \
+   OPTION_LONG_LONG | OPTION_DOUBLE)
 
 struct optionSpec
 /* Specification of a single option.  An array of these are passed
  * to optionInit() to validate options. */
 {
-    char *name;      /* option name */
-    unsigned flags;  /* Flags for option, specifies types */
+  char *name;     /* option name */
+  unsigned flags; /* Flags for option, specifies types */
 };
 
 char *optionVal(char *name, char *defaultVal);
@@ -43,7 +45,8 @@ float optionFloat(char *name, float defaultVal);
 /* Return floating point value or default value if not set. */
 
 struct slName *optionMultiVal(char *name, struct slName *defaultVal);
-/* Returns a list of the values assocated with a named option if in options hash, otherwise default. */
+/* Returns a list of the values assocated with a named option if in options
+ * hash, otherwise default. */
 
 double optionDouble(char *name, double defaultVal);
 /* Return double value or default value if not set */
@@ -73,7 +76,7 @@ void optionInit(int *pArgc, char *argv[], struct optionSpec *optionSpecs);
  */
 
 void optionHash(int *pArgc, char *argv[]);
-/* Read options in command line into options hash.   
+/* Read options in command line into options hash.
  * Options come in three forms:
  *      -option         words starting with dash
  *      option=val      words with = in the middle
@@ -94,4 +97,3 @@ void optionFree();
 /* free the option hash */
 
 #endif /* OPTIONS_H */
-

@@ -14,55 +14,60 @@
 #endif
 
 enum nlType {
- nlt_undet, /* undetermined */
- nlt_unix,  /* lf   */
- nlt_dos,   /* crlf */
- nlt_mac    /* cr   */
+  nlt_undet, /* undetermined */
+  nlt_unix,  /* lf   */
+  nlt_dos,   /* crlf */
+  nlt_mac    /* cr   */
 };
 
 struct metaOutput
 /* struct to store list of file handles to output meta data to
  * meta data is text after # */
-    {
-    struct metaOutput *next;    /* next file handle */
-    FILE *metaFile;             /* file to write metadata to */
-    };
+{
+  struct metaOutput *next; /* next file handle */
+  FILE *metaFile;          /* file to write metadata to */
+};
 
 struct lineFile
 /* Structure to handle fast, line oriented
  * fileIo. */
-    {
-    struct lineFile *next;	/* Might need to be on a list. */
-    char *fileName;		/* Name of file. */
-    int fd;			/* File handle.  -1 for 'memory' files. */
-    int bufSize;		/* Size of buffer. */
-    off_t bufOffsetInFile;	/* Offset in file of first buffer byte. */
-    int bytesInBuf;		/* Bytes read into buffer. */
-    int reserved;		/* Reserved (zero for now). */
-    int lineIx;			/* Current line. */
-    int lineStart;		/* Offset of line in buffer. */
-    int lineEnd;		/* End of line in buffer. */
-    bool zTerm;			/* Replace '\n' with zero? */
-    enum nlType nlType;         /* type of line endings: dos, unix, mac or undet */
-    bool reuse;			/* Set if reusing input. */
-    char *buf;			/* Buffer. */
-    struct pipeline *pl;        /* pipeline if reading compressed */
-    struct metaOutput *metaOutput;   /* list of FILE handles to write metaData to */
-    bool isMetaUnique;          /* if set, do not repeat comments in output */
-    struct hash *metaLines;     /* save lines to suppress repetition */
+{
+  struct lineFile *next; /* Might need to be on a list. */
+  char *fileName;        /* Name of file. */
+  int fd;                /* File handle.  -1 for 'memory' files. */
+  int bufSize;           /* Size of buffer. */
+  off_t bufOffsetInFile; /* Offset in file of first buffer byte. */
+  int bytesInBuf;        /* Bytes read into buffer. */
+  int reserved;          /* Reserved (zero for now). */
+  int lineIx;            /* Current line. */
+  int lineStart;         /* Offset of line in buffer. */
+  int lineEnd;           /* End of line in buffer. */
+  bool zTerm;            /* Replace '\n' with zero? */
+  enum nlType nlType;    /* type of line endings: dos, unix, mac or undet */
+  bool reuse;            /* Set if reusing input. */
+  char *buf;             /* Buffer. */
+  struct pipeline *pl;   /* pipeline if reading compressed */
+  struct metaOutput *metaOutput; /* list of FILE handles to write metaData to */
+  bool isMetaUnique;             /* if set, do not repeat comments in output */
+  struct hash *metaLines;        /* save lines to suppress repetition */
 #ifdef USE_TABIX
-    tabix_t *tabix;		/* A tabix-compressed file and its binary index file (.tbi) */
-    ti_iter_t tabixIter;	/* An iterator to get decompressed indexed lines of text */
+  tabix_t *tabix; /* A tabix-compressed file and its binary index file (.tbi) */
+  ti_iter_t
+      tabixIter; /* An iterator to get decompressed indexed lines of text */
 #endif
-    struct dyString *fullLine;  // Filled with full line when a lineFileNextFull is called
-    struct dyString *rawLines;  // Filled with raw lines used to create the full line
-    boolean fullLineReuse;      // If TRUE, next call to lineFileNextFull will get
-                                // already built fullLine
-    void *dataForCallBack;                                 // ptr to data needed for callbacks
-    void(*checkSupport)(struct lineFile *lf, char *where); // check if operation supported 
-    boolean(*nextCallBack)(struct lineFile *lf, char **retStart, int *retSize); // next line callback
-    void(*closeCallBack)(struct lineFile *lf);             // close callback
-    };
+  struct dyString
+      *fullLine; // Filled with full line when a lineFileNextFull is called
+  struct dyString
+      *rawLines;         // Filled with raw lines used to create the full line
+  boolean fullLineReuse; // If TRUE, next call to lineFileNextFull will get
+                         // already built fullLine
+  void *dataForCallBack; // ptr to data needed for callbacks
+  void (*checkSupport)(struct lineFile *lf,
+                       char *where); // check if operation supported
+  boolean (*nextCallBack)(struct lineFile *lf, char **retStart,
+                          int *retSize);      // next line callback
+  void (*closeCallBack)(struct lineFile *lf); // close callback
+};
 
 char *getFileNameFromHdrSig(char *m);
 /* Check if header has signature of supported compression stream,
@@ -106,10 +111,11 @@ boolean lineFileNext(struct lineFile *lf, char **retStart, int *retSize);
 /* Fetch next line from file. */
 
 boolean lineFileNextFull(struct lineFile *lf, char **retFull, int *retFullSize,
-                        char **retRaw, int *retRawSize);
+                         char **retRaw, int *retRawSize);
 // Fetch next line from file joining up any that are continued by ending '\'
 // If requested, and was joined, the unjoined raw lines are also returned
-// NOTE: comment lines can't be continued!  ("# comment \ \n more comment" is 2 lines.)
+// NOTE: comment lines can't be continued!  ("# comment \ \n more comment" is 2
+// lines.)
 
 boolean lineFileNextReal(struct lineFile *lf, char **retStart);
 /* Fetch next line from file that is not blank and
@@ -144,9 +150,9 @@ void lineFileRewind(struct lineFile *lf);
 void lineFileAbort(struct lineFile *lf, char *format, ...)
 /* Print file name, line number, and error message, and abort. */
 #if defined(__GNUC__)
-__attribute__((format(printf, 2, 3)))
+    __attribute__((format(printf, 2, 3)))
 #endif
-;
+    ;
 
 void lineFileVaAbort(struct lineFile *lf, char *format, va_list args);
 /* Print file name, line number, and error message, and abort. */
@@ -170,7 +176,8 @@ boolean lineFileNextRow(struct lineFile *lf, char *words[], int wordCount);
 #define lineFileRow(lf, words) lineFileNextRow(lf, words, ArraySize(words))
 /* Read in line chopped into fixed size word array. */
 
-boolean lineFileNextCharRow(struct lineFile *lf, char sep, char *words[], int wordCount);
+boolean lineFileNextCharRow(struct lineFile *lf, char sep, char *words[],
+                            int wordCount);
 /* Return next non-blank line that doesn't start with '#' chopped into words
  * delimited by sep. Returns FALSE at EOF.  Aborts on error. */
 
@@ -178,8 +185,8 @@ boolean lineFileNextRowTab(struct lineFile *lf, char *words[], int wordCount);
 /* Return next non-blank line that doesn't start with '#' chopped into words
  * at tabs. Returns FALSE at EOF.  Aborts on error. */
 
-#define lineFileRowTab(lf, words) \
-	lineFileNextRowTab(lf, words, ArraySize(words))
+#define lineFileRowTab(lf, words)                                              \
+  lineFileNextRowTab(lf, words, ArraySize(words))
 /* Read in line chopped by tab into fixed size word array. */
 
 int lineFileChopNext(struct lineFile *lf, char *words[], int maxWords);
@@ -188,7 +195,8 @@ int lineFileChopNext(struct lineFile *lf, char *words[], int maxWords);
 #define lineFileChop(lf, words) lineFileChopNext(lf, words, ArraySize(words))
 /* Ease-of-usef macro for lineFileChopNext above. */
 
-int lineFileChopCharNext(struct lineFile *lf, char sep, char *words[], int maxWords);
+int lineFileChopCharNext(struct lineFile *lf, char sep, char *words[],
+                         int maxWords);
 /* Return next non-blank line that doesn't start with '#' chopped into
    words delimited by sep. */
 
@@ -196,13 +204,14 @@ int lineFileChopNextTab(struct lineFile *lf, char *words[], int maxWords);
 /* Return next non-blank line that doesn't start with '#' chopped into words
  * on tabs */
 
-#define lineFileChopTab(lf, words) lineFileChopNextTab(lf, words, ArraySize(words))
+#define lineFileChopTab(lf, words)                                             \
+  lineFileChopNextTab(lf, words, ArraySize(words))
 /* Ease-of-usef macro for lineFileChopNext above. */
 
-int lineFileCheckAllIntsNoAbort(char *s, void *val, 
-    boolean isSigned, int byteCount, char *typeString, boolean noNeg, 
-    char *errMsg, int errMsgSize);
-/* Convert string to (signed) integer of the size specified.  
+int lineFileCheckAllIntsNoAbort(char *s, void *val, boolean isSigned,
+                                int byteCount, char *typeString, boolean noNeg,
+                                char *errMsg, int errMsgSize);
+/* Convert string to (signed) integer of the size specified.
  * Unlike atol assumes all of string is number, no trailing trash allowed.
  * Returns 0 if conversion possible, and value is returned in 'val'
  * Otherwise 1 for empty string or trailing chars, and 2 for numeric overflow,
@@ -213,13 +222,17 @@ int lineFileCheckAllIntsNoAbort(char *s, void *val,
  * returns 4. */
 
 void lineFileAllInts(struct lineFile *lf, char *words[], int wordIx, void *val,
-  boolean isSigned,  int byteCount, char *typeString, boolean noNeg);
-/* Returns long long integer from converting the input string. Aborts on error. */
+                     boolean isSigned, int byteCount, char *typeString,
+                     boolean noNeg);
+/* Returns long long integer from converting the input string. Aborts on error.
+ */
 
-int lineFileAllIntsArray(struct lineFile *lf, char *words[], int wordIx, void *array, int arraySize,
-  boolean isSigned,  int byteCount, char *typeString, boolean noNeg);
+int lineFileAllIntsArray(struct lineFile *lf, char *words[], int wordIx,
+                         void *array, int arraySize, boolean isSigned,
+                         int byteCount, char *typeString, boolean noNeg);
 /* Convert comma separated list of numbers to an array.  Pass in
- * array and max size of array. Aborts on error. Returns number of elements in parsed array. */
+ * array and max size of array. Aborts on error. Returns number of elements in
+ * parsed array. */
 
 int lineFileNeedNum(struct lineFile *lf, char *words[], int wordIx);
 /* Make sure that words[wordIx] is an ascii integer, and return
@@ -236,7 +249,8 @@ double lineFileNeedDouble(struct lineFile *lf, char *words[], int wordIx);
 void lineFileSkip(struct lineFile *lf, int lineCount);
 /* Skip a number of lines. */
 
-char *lineFileSkipToLineStartingWith(struct lineFile *lf, char *start, int maxCount);
+char *lineFileSkipToLineStartingWith(struct lineFile *lf, char *start,
+                                     int maxCount);
 /* Skip to next line that starts with given string.  Return NULL
  * if no such line found, otherwise return the line. */
 
@@ -244,12 +258,12 @@ char *lineFileReadAll(struct lineFile *lf);
 /* Read remainder of lineFile and return it as a string. */
 
 boolean lineFileParseHttpHeader(struct lineFile *lf, char **hdr,
-				boolean *chunked, int *contentLength);
+                                boolean *chunked, int *contentLength);
 /* Extract HTTP response header from lf into hdr, tell if it's
  * "Transfer-Encoding: chunked" or if it has a contentLength. */
 
-struct dyString *lineFileSlurpHttpBody(struct lineFile *lf,
-				       boolean chunked, int contentLength);
+struct dyString *lineFileSlurpHttpBody(struct lineFile *lf, boolean chunked,
+                                       int contentLength);
 /* Return a dyString that contains the http response body in lf.  Handle
  * chunk-encoding and content-length. */
 
@@ -268,10 +282,11 @@ void lineFileRemoveInitialCustomTrackLines(struct lineFile *lf);
 
 /*----- Optionally-compiled wrapper on tabix (compression + indexing): -----*/
 
-#define COMPILE_WITH_TABIX "%s: Sorry, this functionality is available only when\n" \
-    "you have installed the tabix library from\n" \
-     "http://samtools.sourceforge.net/ and rebuilt kent/src with USE_TABIX=1\n" \
-     "(see http://genomewiki.ucsc.edu/index.php/Build_Environment_Variables)."
+#define COMPILE_WITH_TABIX                                                     \
+  "%s: Sorry, this functionality is available only when\n"                     \
+  "you have installed the tabix library from\n"                                \
+  "http://samtools.sourceforge.net/ and rebuilt kent/src with USE_TABIX=1\n"   \
+  "(see http://genomewiki.ucsc.edu/index.php/Build_Environment_Variables)."
 
 struct lineFile *lineFileTabixMayOpen(char *fileOrUrl, bool zTerm);
 /* Wrap a line file around a data file that has been compressed and indexed
@@ -280,10 +295,10 @@ struct lineFile *lineFileTabixMayOpen(char *fileOrUrl, bool zTerm);
  * This works only if kent/src has been compiled with USE_TABIX=1 and linked
  * with the tabix C library. */
 
-boolean lineFileSetTabixRegion(struct lineFile *lf, char *seqName, int start, int end);
-/* Assuming lf was created by lineFileTabixMayOpen, tell tabix to seek to the specified region
+boolean lineFileSetTabixRegion(struct lineFile *lf, char *seqName, int start,
+                               int end);
+/* Assuming lf was created by lineFileTabixMayOpen, tell tabix to seek to the
+ * specified region
  * and return TRUE (or if there are no items in region, return FALSE). */
 
 #endif /* LINEFILE_H */
-
-

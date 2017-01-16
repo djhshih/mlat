@@ -1,4 +1,4 @@
-/* Hash - a simple hash table that provides name/value pairs. 
+/* Hash - a simple hash table that provides name/value pairs.
  * The most common usage is to create a hash as so:
  *    struct hash *hash = hashNew(0);
  * to add elements to a hash as so:
@@ -14,7 +14,8 @@
  * The hash does support multiple values for the same key.  To use
  * this functionality, try the loop:
  *     struct hashEl *hel;
- *     for (hel = hashLookup(hash, name); hel != NULL; hel = hashLookupNext(hel))
+ *     for (hel = hashLookup(hash, name); hel != NULL; hel =
+ * hashLookupNext(hel))
  *         {
  *         value = hel->val;
  *         // Further processing here.
@@ -29,7 +30,7 @@
  *     for (hel = helList; hel != NULL; hel = hel->next)
  *        {
  *        value = hel->val;
- *        // Further processing of value here. 
+ *        // Further processing of value here.
  *        }
  *     hashElFreeList(&helList);
  * One can avoid the overhead of creating a list by using an iterator object
@@ -39,7 +40,7 @@
  *    while ((hel = hashNext(&cookie)) != NULL)
  *        {
  *        value = hel->val;
- * Finally one can use hashTraverseEls or hashTraverseVals with a callback 
+ * Finally one can use hashTraverseEls or hashTraverseVals with a callback
  * function that takes a hashEl, or the void *value as parameter respectively.
  *
  * There are various other functions involving hashes in this module as well
@@ -55,38 +56,37 @@
 
 struct hashEl
 /* An element in a hash list. */
-    {
-    struct hashEl *next;
-    char *name;
-    void *val;
-    bits32 hashVal;
-    };
+{
+  struct hashEl *next;
+  char *name;
+  void *val;
+  bits32 hashVal;
+};
 
-struct hash
-    {
-    struct hash *next;	/* Next in list. */
-    bits32 mask;	/* Mask hashCrc with this to get it to fit table. */
-    struct hashEl **table;	/* Hash buckets. */
-    int powerOfTwoSize;		/* Size of table as a power of two. */
-    int size;			/* Size of table. */
-    struct lm *lm;	/* Local memory pool. */
-    int elCount;		/* Count of elements. */
-    boolean autoExpand;         /* Automatically expand hash */
-    float expansionFactor;      /* Expand when elCount > size*expansionFactor */
-    int numResizes;             /* number of times resize was called */
-    };
+struct hash {
+  struct hash *next;     /* Next in list. */
+  bits32 mask;           /* Mask hashCrc with this to get it to fit table. */
+  struct hashEl **table; /* Hash buckets. */
+  int powerOfTwoSize;    /* Size of table as a power of two. */
+  int size;              /* Size of table. */
+  struct lm *lm;         /* Local memory pool. */
+  int elCount;           /* Count of elements. */
+  boolean autoExpand;    /* Automatically expand hash */
+  float expansionFactor; /* Expand when elCount > size*expansionFactor */
+  int numResizes;        /* number of times resize was called */
+};
 
 #define defaultExpansionFactor 1.0
 
-#define hashMaxSize 28 
+#define hashMaxSize 28
 
 struct hashCookie
 /* used by hashFirst/hashNext in tracking location in traversing hash */
-    {
-    struct hash *hash;      /* hash we are associated with */
-    int idx;                /* current index in hash */
-    struct hashEl *nextEl;  /* current element in hash */
-    };
+{
+  struct hash *hash;     /* hash we are associated with */
+  int idx;               /* current index in hash */
+  struct hashEl *nextEl; /* current element in hash */
+};
 
 bits32 hashString(char *string);
 /* Compute a hash value of a string. */
@@ -121,7 +121,7 @@ struct hashEl *hashAddN(struct hash *hash, char *name, int nameSize, void *val);
 /* Add name of given size to hash (no need to be zero terminated) */
 
 void *hashRemove(struct hash *hash, char *name);
-/* Remove item of the given name from hash table. 
+/* Remove item of the given name from hash table.
  * Returns value of removed item, or NULL if not in the table.
  * If their are multiple entries for name, the last one added
  * is removed (LIFO behavior).
@@ -130,7 +130,8 @@ void *hashRemove(struct hash *hash, char *name);
 struct hashEl *hashAddUnique(struct hash *hash, char *name, void *val);
 /* Add new element to hash table. Squawk and die if is already in table. */
 
-struct hashEl *hashAddSaveName(struct hash *hash, char *name, void *val, char **saveName);
+struct hashEl *hashAddSaveName(struct hash *hash, char *name, void *val,
+                               char **saveName);
 /* Add new element to hash table.  Save the name of the element, which is now
  * allocated in the hash table, to *saveName.  A typical usage would be:
  *    AllocVar(el);
@@ -141,11 +142,11 @@ struct hashEl *hashStore(struct hash *hash, char *name);
 /* If element in hash already return it, otherwise add it
  * and return it. */
 
-char  *hashStoreName(struct hash *hash, char *name);
+char *hashStoreName(struct hash *hash, char *name);
 /* Put name into hash table. */
 
 char *hashMustFindName(struct hash *hash, char *name);
-/* Return name as stored in hash table (in hel->name). 
+/* Return name as stored in hash table (in hel->name).
  * Abort if not found. */
 
 void *hashMustFindVal(struct hash *hash, char *name);
@@ -168,11 +169,11 @@ void hashIncInt(struct hash *hash, char *name);
 /* Increment integer value in hash */
 
 int hashIntVal(struct hash *hash, char *name);
-/* Return integer value associated with name in a simple 
+/* Return integer value associated with name in a simple
  * hash of ints. */
 
 int hashIntValDefault(struct hash *hash, char *name, int defaultInt);
-/* Return integer value associated with name in a simple 
+/* Return integer value associated with name in a simple
  * hash of ints or defaultInt if not found. */
 
 long long hashIntSum(struct hash *hash);
@@ -208,7 +209,7 @@ struct hashCookie hashFirst(struct hash *hash);
 /* Return an object to use by hashNext() to traverse the hash table.
  * The first call to hashNext will return the first entry in the table. */
 
-struct hashEl* hashNext(struct hashCookie *cookie);
+struct hashEl *hashNext(struct hashCookie *cookie);
 /* Return the next entry in the hash table, or NULL if no more. Do not modify
  * hash table while this is being used. (see note in code if you want to fix
  * this) */
@@ -223,11 +224,11 @@ char *hashNextName(struct hashCookie *cookie);
 
 struct hash *newHashExt(int powerOfTwoSize, boolean useLocalMem);
 /* Returns new hash table. Uses local memory optionally. */
-#define hashNewExt(a) newHashExt(a)	/* Synonym */
+#define hashNewExt(a) newHashExt(a) /* Synonym */
 
 #define newHash(a) newHashExt(a, TRUE)
 /* Returns new hash table using local memory. */
-#define hashNew(a) newHash(a)	/* Synonym */
+#define hashNew(a) newHash(a) /* Synonym */
 
 void hashResize(struct hash *hash, int powerOfTwoSize);
 /* Resize the hash to a new size */
@@ -238,13 +239,13 @@ struct hash *hashFromSlNameList(void *list);
 
 void freeHash(struct hash **pHash);
 /* Free up hash table. */
-#define hashFree(a) freeHash(a)	/* Synonym */
+#define hashFree(a) freeHash(a) /* Synonym */
 
 void freeHashAndVals(struct hash **pHash);
 /* Free up hash table and all values associated with it.
  * (Just calls freeMem on each hel->val) */
 
-void hashFreeWithVals(struct hash **pHash, void (freeFunc)());
+void hashFreeWithVals(struct hash **pHash, void(freeFunc)());
 /* Free up hash table and all values associated with it. freeFunc is a
  * function to free an entry, should take a pointer to a pointer to an
  * entry. */
@@ -276,4 +277,3 @@ int hashNumEntries(struct hash *hash);
 /* count the number of entries in a hash */
 
 #endif /* HASH_H */
-

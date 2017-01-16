@@ -6,4 +6,4 @@
 int netConnectHttps(char *hostName, int port);
 /* Return socket for https connection with server or -1 if error. */
 
-#endif//ndef NET_HTTPS_H
+#endif // ndef NET_HTTPS_H

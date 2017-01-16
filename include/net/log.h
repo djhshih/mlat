@@ -4,17 +4,17 @@
 #ifndef LOG_H
 #define LOG_H
 
-void logOpenSyslog(char* program, char *facility);
+void logOpenSyslog(char *program, char *facility);
 /* Initialize syslog using the specified facility.  Facility is the syslog
  * facility as specified in syslog.conf.  If facility is NULL, local0 is used.
  * This adds a warn and errAbort handlers that do logging.  If custom handlers
  * are added, they should call logErrorVa().
  */
 
-void logOpenFile(char* program, char *logFile);
+void logOpenFile(char *program, char *logFile);
 /* Initialize logging to the specified file.  Append to the file if it exists.
  * This adds a warn and errAbort handlers that do logging.  If custom handlers
- * are added, they should call logErrorVa(). 
+ * are added, they should call logErrorVa().
  */
 
 void logSetMinPriority(char *minPriority);
@@ -32,9 +32,9 @@ void logErrorVa(char *format, va_list args);
 void logError(char *format, ...)
 /* Log an error message. */
 #if defined(__GNUC__)
-__attribute__((format(printf, 1, 2)))
+    __attribute__((format(printf, 1, 2)))
 #endif
-;
+    ;
 
 void logWarnVa(char *format, va_list args);
 /* Variable args logWarn. */
@@ -42,9 +42,9 @@ void logWarnVa(char *format, va_list args);
 void logWarn(char *format, ...)
 /* Log a warn message. */
 #if defined(__GNUC__)
-__attribute__((format(printf, 1, 2)))
+    __attribute__((format(printf, 1, 2)))
 #endif
-;
+    ;
 
 void logInfoVa(char *format, va_list args);
 /* Variable args logInfo. */
@@ -52,9 +52,9 @@ void logInfoVa(char *format, va_list args);
 void logInfo(char *format, ...)
 /* Log an info message. */
 #if defined(__GNUC__)
-__attribute__((format(printf, 1, 2)))
+    __attribute__((format(printf, 1, 2)))
 #endif
-;
+    ;
 
 void logDebugVa(char *format, va_list args);
 /* Variable args logDebug. */
@@ -62,9 +62,9 @@ void logDebugVa(char *format, va_list args);
 void logDebug(char *format, ...)
 /* Log a debug message. */
 #if defined(__GNUC__)
-__attribute__((format(printf, 1, 2)))
+    __attribute__((format(printf, 1, 2)))
 #endif
-;
+    ;
 
 void logDaemonize(char *progName);
 /* daemonize server process: closing open file descriptors and

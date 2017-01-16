@@ -14,7 +14,8 @@
  * This file is copyright 2002 Jim Kent, but license is hereby
  * granted for all use - public, private or commercial. */
 
-void htmlSetCookie(char* name, char* value, char* expires, char* path, char* domain, boolean isSecure);
+void htmlSetCookie(char *name, char *value, char *expires, char *path,
+                   char *domain, boolean isSecure);
 /* create a cookie with the given stats */
 
 void htmlParagraph(char *line, ...);
@@ -45,17 +46,19 @@ char *htmlTextStripTags(char *s);
 /* Returns a cloned string with all html tags stripped out */
 
 char *htmlTextReplaceTagsWithChar(char *s, char ch);
-/* Returns a cloned string with all html tags replaced with given char (useful for tokenizing) */
+/* Returns a cloned string with all html tags replaced with given char (useful
+ * for tokenizing) */
 
 char *htmlEncodeText(char *s, boolean tagsOkay);
 /* Returns a cloned string with quotes replaced by html codes.
    Changes ',",\n and if not tagsOkay >,<,& to code equivalents.
    This differs from cgiEncode as it handles text that will
    be displayed in an html page or tooltip style title.  */
-#define htmlEncode(s) htmlEncodeText(s,FALSE)
+#define htmlEncode(s) htmlEncodeText(s, FALSE)
 
 char *attributeEncode(char *str);
-// encode double and single quotes in a string to be used as an element attribute
+// encode double and single quotes in a string to be used as an element
+// attribute
 
 void htmlMemDeath();
 /* Complain about lack of memory and abort.  */
@@ -67,13 +70,15 @@ void htmStart(FILE *f, char *title);
 /* Write the start of a stand alone .html file. */
 
 void printBodyTag(FILE *f);
-// print starting BODY tag, including any appropriate attributes (class, background and bgcolor). 
+// print starting BODY tag, including any appropriate attributes (class,
+// background and bgcolor).
 
 void htmStartWithHead(FILE *f, char *head, char *title);
 /* Write the start of a stand alone .html file, plus head info */
 
 void htmStartDirDepth(FILE *f, char *title, int dirDepth);
-/* Write the start of a stand alone .html file.  dirDepth is the number of levels
+/* Write the start of a stand alone .html file.  dirDepth is the number of
+ * levels
  * beneath apache root that caller's HTML will appear to the web client.
  * E.g. if writing HTML from cgi-bin, dirDepth is 1; if trash/body/, 2. */
 
@@ -99,7 +104,6 @@ void htmlSetStyleSheet(char *styleSheet);
 void htmlSetFormClass(char *formClass);
 /* Set class in the BODY part. */
 
-
 void htmlSetStyleTheme(char *style);
 /* Set theme style, these styles can overwrite document wide styles.
  * Needs to be called before htmlStart or htmShell. */
@@ -118,7 +122,7 @@ void htmlBadVar(char *varName);
 void htmlImage(char *fileName, int width, int height);
 /* Display centered image file. */
 
-jmp_buf htmlRecover;  /* Error recovery jump. Exposed for cart's use. */
+jmp_buf htmlRecover; /* Error recovery jump. Exposed for cart's use. */
 
 void htmlVaWarn(char *format, va_list args);
 /* Write an error message.  (Generally you just call warn() or errAbort().
@@ -153,7 +157,7 @@ void htmEmptyShell(void (*doMiddle)(), char *method);
  * Method should be "query" or "get" or "post" (or NULL
  * if you don't care)..
  */
-void htmShell( char *title, void (*doMiddle)(), char *method);
+void htmShell(char *title, void (*doMiddle)(), char *method);
 
 /* Wrap an html file around the passed in function.
  * The passed in function is already in the body. It
@@ -164,7 +168,8 @@ param head - The head text: can be a refresh directive or javascript
 param method - The function pointer to execute in the middle
 param method - The browser request method to use
  */
-void htmShellWithHead( char *title, char *head, void (*doMiddle)(), char *method);
+void htmShellWithHead(char *title, char *head, void (*doMiddle)(),
+                      char *method);
 
 /* tell htmlOut to not escape special HTML chars '<', '>' */
 void htmlNoEscape();

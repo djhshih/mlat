@@ -9,20 +9,19 @@
 #include "linefile.h"
 #endif
 
-
 #ifndef BITS_H
 #include "bits.h"
 #endif
 
 struct cBlock
 /* A gapless part of a chain. */
-    {
-    struct cBlock *next;	/* Next in list. */
-    int tStart,tEnd;		/* Range covered in target. */
-    int qStart,qEnd;		/* Range covered in query. */
-    int score;	 	 	/* Score of block. */
-    void *data;			/* Some associated data pointer. */
-    };
+{
+  struct cBlock *next; /* Next in list. */
+  int tStart, tEnd;    /* Range covered in target. */
+  int qStart, qEnd;    /* Range covered in query. */
+  int score;           /* Score of block. */
+  void *data;          /* Some associated data pointer. */
+};
 
 int cBlockCmpQuery(const void *va, const void *vb);
 /* Compare to sort based on query start. */
@@ -39,28 +38,28 @@ int cBlockCmpDiagQuery(const void *va, const void *vb);
 void cBlocksAddOffset(struct cBlock *blockList, int qOff, int tOff);
 /* Add offsets to block list. */
 
-struct cBlock *cBlocksFromAliSym(int symCount, char *qSym, char *tSym, 
-        int qPos, int tPos);
-/* Convert alignment from alignment symbol (bases and dashes) format 
+struct cBlock *cBlocksFromAliSym(int symCount, char *qSym, char *tSym, int qPos,
+                                 int tPos);
+/* Convert alignment from alignment symbol (bases and dashes) format
  * to a list of chain blocks.  The qPos and tPos correspond to the start
  * in the query and target sequences of the first letter in  qSym and tSym. */
 
 struct chain
 /* A chain of blocks.  Used for output of chainBlocks. */
-    {
-    struct chain *next;	  	  /* Next in list. */
-    struct cBlock *blockList;      /* List of blocks. */
-    double score;	  	  /* Total score for chain. */
-    char *tName;		  /* target name, allocated here. */
-    int tSize;			  /* Overall size of target. */
-    /* tStrand always + */
-    int tStart,tEnd;		  /* Range covered in target. */
-    char *qName;		  /* query name, allocated here. */
-    int qSize;			  /* Overall size of query. */
-    char qStrand;		  /* Query strand. */
-    int qStart,qEnd;		  /* Range covered in query. */
-    int id;			  /* ID of chain in file. */
-    };
+{
+  struct chain *next;       /* Next in list. */
+  struct cBlock *blockList; /* List of blocks. */
+  double score;             /* Total score for chain. */
+  char *tName;              /* target name, allocated here. */
+  int tSize;                /* Overall size of target. */
+  /* tStrand always + */
+  int tStart, tEnd; /* Range covered in target. */
+  char *qName;      /* query name, allocated here. */
+  int qSize;        /* Overall size of query. */
+  char qStrand;     /* Query strand. */
+  int qStart, qEnd; /* Range covered in query. */
+  int id;           /* ID of chain in file. */
+};
 
 void chainFree(struct chain **pChain);
 /* Free up a chain. */
@@ -93,7 +92,7 @@ void chainWriteHead(struct chain *chain, FILE *f);
 /* Write chain before block/insert list. */
 
 struct chain *chainRead(struct lineFile *lf);
-/* Read next chain from file.  Return NULL at EOF. 
+/* Read next chain from file.  Return NULL at EOF.
  * Note that chain block scores are not filled in by
  * this. */
 
@@ -114,16 +113,16 @@ void chainSwap(struct chain *chain);
 /* Swap target and query side of chain. */
 
 struct hash *chainReadUsedSwap(char *fileName, boolean swapQ, Bits *bits);
-/* Read chains that are marked as used in the 
+/* Read chains that are marked as used in the
  * bits array (which may be NULL) into a hash keyed by id. */
 
 struct hash *chainReadAllSwap(char *fileName, boolean swapQ);
-/* Read chains into a hash keyed by id. 
+/* Read chains into a hash keyed by id.
  * Set swapQ to True to read chain by query. */
-    
+
 struct hash *chainReadAll(char *fileName);
 /* Read chains into a hash keyed by id. */
-    
+
 struct hash *chainReadAllWithMeta(char *fileName, FILE *f);
 /* Read chains into a hash keyed by id and outputs meta data */
 
@@ -133,9 +132,9 @@ struct chain *chainFind(struct hash *hash, int id);
 struct chain *chainLookup(struct hash *hash, int id);
 /* Find chain in hash. */
 
-void chainSubsetOnT(struct chain *chain, int subStart, int subEnd, 
-    struct chain **retSubChain,  struct chain **retChainToFree);
-/* Get subchain of chain bounded by subStart-subEnd on 
+void chainSubsetOnT(struct chain *chain, int subStart, int subEnd,
+                    struct chain **retSubChain, struct chain **retChainToFree);
+/* Get subchain of chain bounded by subStart-subEnd on
  * target side.  Return result in *retSubChain.  In some
  * cases this may be the original chain, in which case
  * *retChainToFree is NULL.  When done call chainFree on
@@ -143,13 +142,14 @@ void chainSubsetOnT(struct chain *chain, int subStart, int subEnd,
  * properly filled in. */
 
 void chainFastSubsetOnT(struct chain *chain, struct cBlock *firstBlock,
-	int subStart, int subEnd, struct chain **retSubChain,  struct chain **retChainToFree);
+                        int subStart, int subEnd, struct chain **retSubChain,
+                        struct chain **retChainToFree);
 /* Get subchain as in chainSubsetOnT. Pass in initial block that may
  * be known from some index to speed things up. */
 
-void chainSubsetOnQ(struct chain *chain, int subStart, int subEnd, 
-    struct chain **retSubChain,  struct chain **retChainToFree);
-/* Get subchain of chain bounded by subStart-subEnd on 
+void chainSubsetOnQ(struct chain *chain, int subStart, int subEnd,
+                    struct chain **retSubChain, struct chain **retChainToFree);
+/* Get subchain of chain bounded by subStart-subEnd on
  * query side.  Return result in *retSubChain.  In some
  * cases this may be the original chain, in which case
  * *retChainToFree is NULL.  When done call chainFree on

@@ -31,10 +31,12 @@
 /* XI - same as IX but on big-endian (or is it little-endian) archetectures. */
 
 #define nt4Signature 0x12345678
-/* Signature at the beginning of an nt4 file - 2 bit a nucleotide binary file. */
+/* Signature at the beginning of an nt4 file - 2 bit a nucleotide binary file.
+ */
 
 #define lm2Signature 0x12131416
-/* Signature at the beginning of a lm2 file - a 2nd order markov model for nucleotides. */
+/* Signature at the beginning of a lm2 file - a 2nd order markov model for
+ * nucleotides. */
 
 #define oocSig 0x584155f2
 /* Signature of file that contains over-represented oligomers for patSpace
@@ -45,7 +47,8 @@
  * algorithm. */
 
 #define fofSig 0x13410da8
-/* Signature into fof type index file (that can index multiple external files). */
+/* Signature into fof type index file (that can index multiple external files).
+ */
 
 #define nibSig 0x6BE93D3A
 /* Signature into nib file (4 bits per nucleotide DNA file) */
@@ -69,7 +72,7 @@
 #define chromGraphSwapSig 0x1C422845
 /* Signature of byte-swapped chromGraph binary data file */
 
-#define genomeRangeTreeSig     0xf7fb8104
+#define genomeRangeTreeSig 0xf7fb8104
 /* Signature of genomeRangeTree binary data file */
 
 #define genomeRangeTreeSwapSig 0x0481fbf7
@@ -97,5 +100,3 @@
 /* Signature for a url data cache bitmap file. */
 
 #endif /* SIG_H */
-
-

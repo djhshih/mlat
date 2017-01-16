@@ -1,4 +1,4 @@
-/* bits - handle operations on arrays of bits. 
+/* bits - handle operations on arrays of bits.
  *
  * This file is copyright 2002 Jim Kent, but license is hereby
  * granted for all use - public, private or commercial. */
@@ -8,7 +8,7 @@
 
 typedef unsigned char Bits;
 
-#define bitToByteSize(bitSize) ((bitSize+7)/8)
+#define bitToByteSize(bitSize) ((bitSize + 7) / 8)
 /* Convert number of bits to number of bytes needed to store bits. */
 
 Bits *bitAlloc(int bitCount);
@@ -17,7 +17,7 @@ Bits *bitAlloc(int bitCount);
 Bits *bitRealloc(Bits *b, int bitCount, int newBitCount);
 /* Resize a bit array.  If b is null, allocate a new array */
 
-Bits *bitClone(Bits* orig, int bitCount);
+Bits *bitClone(Bits *orig, int bitCount);
 /* Clone bits. */
 
 void bitFree(Bits **pB);
@@ -62,7 +62,7 @@ void bitXor(Bits *a, Bits *b, int bitCount);
 void bitNot(Bits *a, int bitCount);
 /* Flip all bits in a. */
 
-void bitPrint(Bits *a, int startIx, int bitCount, FILE* out);
+void bitPrint(Bits *a, int startIx, int bitCount, FILE *out);
 /* Print part or all of bit map as a string of 0s and 1s.  Mostly useful for
  * debugging */
 
@@ -73,4 +73,3 @@ void bitsInByteInit();
 /* Initialize bitsInByte array. */
 
 #endif /* BITS_H */
-

@@ -17,7 +17,7 @@ int sqlByteArray(char *s, signed char *array, int arraySize);
 int sqlUbyteArray(char *s, unsigned char *array, int arraySize);
 int sqlCharArray(char *s, char *array, int arraySize);
 int sqlLongLongArray(char *s, long long *array, int arraySize);
-/* Convert comma separated list of numbers to an array.  Pass in 
+/* Convert comma separated list of numbers to an array.  Pass in
  * array and max size of array.  Returns actual array size.*/
 
 void sqlDoubleStaticArray(char *s, double **retArray, int *retSize);
@@ -47,14 +47,13 @@ void sqlLongLongDynamicArray(char *s, long long **retArray, int *retSize);
 /* Convert comma separated list of numbers to an dynamically allocated
  * array, which should be freeMem()'d when done. */
 
-
 int sqlStringArray(char *s, char **array, int maxArraySize);
-/* Convert comma separated list of strings to an array.  Pass in 
+/* Convert comma separated list of strings to an array.  Pass in
  * array and max size of array.  Returns actual size.  This will
  * only persist as long as s persists.... Use sqlStringDynamicArray
  * if calling repeatedly. */
 
-void sqlStringStaticArray(char *s, char  ***retArray, int *retSize);
+void sqlStringStaticArray(char *s, char ***retArray, int *retSize);
 /* Convert comma separated list of strings to an array which will be
  * overwritten next call to this function or to sqlUnsignedDynamicArray,
  * but need not be freed. */
@@ -66,17 +65,17 @@ void sqlStringDynamicArray(char *s, char ***retArray, int *retSize);
 void sqlStringFreeDynamicArray(char ***pArray);
 /* Free up a dynamic array (ends up freeing array and first string on it.) */
 
-char *sqlDoubleArrayToString( double *array, int arraySize);
-char *sqlFloatArrayToString( float *array, int arraySize);
-char *sqlUnsignedArrayToString( unsigned *array, int arraySize);
-char *sqlSignedArrayToString( int *array, int arraySize);
-char *sqlShortArrayToString( short *array, int arraySize);
-char *sqlUshortArrayToString( unsigned short *array, int arraySize);
-char *sqlByteArrayToString( signed char *array, int arraySize);
-char *sqlUbyteArrayToString( unsigned char *array, int arraySize);
-char *sqlCharArrayToString( char *array, int arraySize);
-char *sqlLongLongArrayToString( long long *array, int arraySize);
-char *sqlStringArrayToString( char **array, int arraySize);
+char *sqlDoubleArrayToString(double *array, int arraySize);
+char *sqlFloatArrayToString(float *array, int arraySize);
+char *sqlUnsignedArrayToString(unsigned *array, int arraySize);
+char *sqlSignedArrayToString(int *array, int arraySize);
+char *sqlShortArrayToString(short *array, int arraySize);
+char *sqlUshortArrayToString(unsigned short *array, int arraySize);
+char *sqlByteArrayToString(signed char *array, int arraySize);
+char *sqlUbyteArrayToString(unsigned char *array, int arraySize);
+char *sqlCharArrayToString(char *array, int arraySize);
+char *sqlLongLongArrayToString(long long *array, int arraySize);
+char *sqlStringArrayToString(char **array, int arraySize);
 /* Convert arrays into comma separated strings. The char *'s returned
  * should be freeMem()'d when done */
 
@@ -87,7 +86,7 @@ char *sqlEscapeString(const char *orig);
  * Example 1: The Gene's Name -> The Gene''s Name
  * Example 2: he said "order and orient" -> he said ""order and orient"" */
 
-char *sqlEscapeString2(char *to, const char* from);
+char *sqlEscapeString2(char *to, const char *from);
 /* Prepares a string for inclusion in a sql statement.  Output string
  * must be 2*strlen(from)+1 */
 
@@ -139,4 +138,3 @@ void sqlSetPrint(FILE *f, unsigned value, char **values);
 /* print a set column value */
 
 #endif /* SQLLIST_H */
-

@@ -17,27 +17,27 @@
 #include "hash.h"
 #endif
 
-#define COLOR_BG_DEFAULT         "#FFFEE8"
-#define COLOR_BG_ALTDEFAULT      "#FFF9D2"
-#define COLOR_BG_DEFAULT_DARKER  "#FCECC0"
+#define COLOR_BG_DEFAULT "#FFFEE8"
+#define COLOR_BG_ALTDEFAULT "#FFF9D2"
+#define COLOR_BG_DEFAULT_DARKER "#FCECC0"
 #define COLOR_BG_DEFAULT_DARKEST "#EED5B7"
-#define COLOR_BG_GHOST           "#EEEEEE"
-#define COLOR_BG_PALE            "#F8F8F8"
-#define COLOR_BG_HEADER_LTBLUE   "#D9E4F8"
-#define COLOR_DARKGREEN          "#008800"
-#define COLOR_LTGREEN            "#CCFFCC"
-#define COLOR_DARKBLUE           "#000088"
-#define COLOR_BLUE_BUTTON        "#91B3E6"
-#define COLOR_DARKGREY           "#666666"
-#define COLOR_LTGREY             "#CCCCCC"
-#define COLOR_YELLOW             "#FFFF00"
-#define COLOR_LTYELLOW           "#FFF380"
-#define COLOR_WHITE              "#FFFFFF"
-#define COLOR_RED                "#AA0000"
-#define COLOR_TRACKLIST_LEVEL1   COLOR_BG_DEFAULT
-#define COLOR_TRACKLIST_LEVEL2   COLOR_BG_ALTDEFAULT
-#define COLOR_TRACKLIST_LEVEL3   COLOR_BG_DEFAULT_DARKER
-#define COLOR_TRACKLIST_LEVEL4   COLOR_BG_DEFAULT_DARKEST
+#define COLOR_BG_GHOST "#EEEEEE"
+#define COLOR_BG_PALE "#F8F8F8"
+#define COLOR_BG_HEADER_LTBLUE "#D9E4F8"
+#define COLOR_DARKGREEN "#008800"
+#define COLOR_LTGREEN "#CCFFCC"
+#define COLOR_DARKBLUE "#000088"
+#define COLOR_BLUE_BUTTON "#91B3E6"
+#define COLOR_DARKGREY "#666666"
+#define COLOR_LTGREY "#CCCCCC"
+#define COLOR_YELLOW "#FFFF00"
+#define COLOR_LTYELLOW "#FFF380"
+#define COLOR_WHITE "#FFFFFF"
+#define COLOR_RED "#AA0000"
+#define COLOR_TRACKLIST_LEVEL1 COLOR_BG_DEFAULT
+#define COLOR_TRACKLIST_LEVEL2 COLOR_BG_ALTDEFAULT
+#define COLOR_TRACKLIST_LEVEL3 COLOR_BG_DEFAULT_DARKER
+#define COLOR_TRACKLIST_LEVEL4 COLOR_BG_DEFAULT_DARKEST
 
 void initSigHandlers(boolean dumpStack);
 /* set handler for various terminal signals for logging purposes.
@@ -45,14 +45,14 @@ void initSigHandlers(boolean dumpStack);
 
 struct cgiVar
 /* Info on one cgi variable. */
-    {
-    struct cgiVar *next;	/* Next in list. */
-    char *name;			/* Name - allocated in hash. */
-    char *val;  		/* Value - also not allocated here. */
-    boolean saved;		/* True if saved. */
-    };
+{
+  struct cgiVar *next; /* Next in list. */
+  char *name;          /* Name - allocated in hash. */
+  char *val;           /* Value - also not allocated here. */
+  boolean saved;       /* True if saved. */
+};
 
-struct cgiVar* cgiVarList();
+struct cgiVar *cgiVarList();
 /* return the list of cgiVar's */
 
 char *findCookieData(char *varName);
@@ -90,35 +90,35 @@ char *cgiRemoteAddr();
 /* Return IP address of client (or "unknown"). */
 
 char *cgiUserAgent();
-/* Return remote user agent (HTTP_USER_AGENT) or NULL if remote user agent is not known */
+/* Return remote user agent (HTTP_USER_AGENT) or NULL if remote user agent is
+ * not known */
 
 enum browserType
 /* How to look at a track. */
-    {
-    btUnknown=0, // Not yet known
-    btOpera=1,   // Opera
-    btIE=2,      // MS Internet Explorer
-    btFF=3,      // Firefox
-    btChrome=4,  // Google Chrome
-    btSafari=5,  // Safari
-    btOther=6    // Anything else
-    };
+{ btUnknown = 0, // Not yet known
+  btOpera = 1,   // Opera
+  btIE = 2,      // MS Internet Explorer
+  btFF = 3,      // Firefox
+  btChrome = 4,  // Google Chrome
+  btSafari = 5,  // Safari
+  btOther = 6    // Anything else
+};
 
 enum osType
 /* How to look at a track. */
-    {
-    osUnknown=0, // Not yet known
-    osWindows=1, // The evil empire
-    osLinux=2,   // Workhorse
-    osMac=3,     // ashion or Religion
-    osOther=4    // Anything else
-    };
+{ osUnknown = 0, // Not yet known
+  osWindows = 1, // The evil empire
+  osLinux = 2,   // Workhorse
+  osMac = 3,     // ashion or Religion
+  osOther = 4    // Anything else
+};
 
-enum browserType cgiClientBrowser(char **browserQualifier, enum osType *clientOs, 
+enum browserType cgiClientBrowser(char **browserQualifier,
+                                  enum osType *clientOs,
                                   char **clientOsQualifier);
 /* These routines abort the html output if the input isn't
  * there or is misformatted. */
-#define cgiBrowser() cgiClientBrowser(NULL,NULL,NULL)
+#define cgiBrowser() cgiClientBrowser(NULL, NULL, NULL)
 
 char *cgiString(char *varName);
 int cgiInt(char *varName);
@@ -175,10 +175,10 @@ double cgiOptionalDouble(char *varName, double defaultVal);
 
 struct cgiChoice
 /* Choice table */
-    {
-    char *name;
-    int value;
-    };
+{
+  char *name;
+  int value;
+};
 
 int cgiOneChoice(char *varName, struct cgiChoice *choices, int choiceSize);
 /* Returns value associated with string variable in choice table. */
@@ -207,7 +207,8 @@ char *cgiEncodeFull(char *inString);
 void cgiMakeButtonWithMsg(char *name, char *value, char *msg);
 /* Make 'submit' type button. Display msg on mouseover, if present*/
 
-void cgiMakeButtonWithOnClick(char *name, char *value, char *msg, char *onClick);
+void cgiMakeButtonWithOnClick(char *name, char *value, char *msg,
+                              char *onClick);
 /* Make 'submit' type button, with onclick javascript */
 
 void cgiMakeButton(char *name, char *value);
@@ -229,7 +230,7 @@ void cgiMakeRadioButton(char *name, char *value, boolean checked);
  * sent with checked on. */
 
 void cgiMakeOnClickRadioButton(char *name, char *value, boolean checked,
-                                        char *command);
+                               char *command);
 /* Make radio type button with onClick command.
  *  A group of radio buttons should have the
  * same name but different values.   The default selection should be
@@ -253,18 +254,23 @@ void cgiMakeCheckBoxWithId(char *name, boolean checked, char *id);
 void cgiMakeCheckBoxJS(char *name, boolean checked, char *javascript);
 /* Make check box with javascript */
 
-void cgiMakeCheckBoxIdAndJS(char *name, boolean checked, char *id, char *javascript);
+void cgiMakeCheckBoxIdAndJS(char *name, boolean checked, char *id,
+                            char *javascript);
 /* Make check box with ID and javascript. */
 
-void cgiMakeCheckBoxFourWay(char *name, boolean checked, boolean enabled, char *id, 
-                            char *classes, char *moreHtml);
-/* Make check box - with fourWay functionality (checked/unchecked by enabled/disabled
+void cgiMakeCheckBoxFourWay(char *name, boolean checked, boolean enabled,
+                            char *id, char *classes, char *moreHtml);
+/* Make check box - with fourWay functionality (checked/unchecked by
+ * enabled/disabled
  * Also makes a shadow hidden variable that supports the 2 boolean states. */
 
-void cgiMakeTextArea(char *varName, char *initialVal, int rowCount, int columnCount);
-/* Make a text area with area rowCount X columnCount and with text: intialVal. */
+void cgiMakeTextArea(char *varName, char *initialVal, int rowCount,
+                     int columnCount);
+/* Make a text area with area rowCount X columnCount and with text: intialVal.
+ */
 
-void cgiMakeTextAreaDisableable(char *varName, char *initialVal, int rowCount, int columnCount, boolean disabled);
+void cgiMakeTextAreaDisableable(char *varName, char *initialVal, int rowCount,
+                                int columnCount, boolean disabled);
 /* Make a text area that can be disabled. The rea has rowCount X
  * columnCount and with text: intialVal */
 
@@ -272,11 +278,12 @@ void cgiMakeTextVar(char *varName, char *initialVal, int charSize);
 /* Make a text control filled with initial value.  If charSize
  * is zero it's calculated from initialVal size. */
 
-void cgiMakeTextVarWithExtraHtml(char *varName, char *initialVal, int width, char *extra);
+void cgiMakeTextVarWithExtraHtml(char *varName, char *initialVal, int width,
+                                 char *extra);
 /* Make a text control filled with initial value. */
 
 void cgiMakeOnKeypressTextVar(char *varName, char *initialVal, int charSize,
-			      char *script);
+                              char *script);
 /* Make a text control filled with initial value, with a (java)script
  * to execute every time a key is pressed.  If charSize is zero it's
  * calculated from initialVal size. */
@@ -284,37 +291,44 @@ void cgiMakeOnKeypressTextVar(char *varName, char *initialVal, int charSize,
 void cgiMakeIntVar(char *varName, int initialVal, int maxDigits);
 /* Make a text control filled with initial integer value.  */
 
-#define NO_VALUE            -96669
-void cgiMakeIntVarInRange(char *varName, int initialVal, char *title, int width, 
+#define NO_VALUE -96669
+void cgiMakeIntVarInRange(char *varName, int initialVal, char *title, int width,
                           char *min, char *max);
 /* Make a integer control filled with initial value.
    If min and/or max are non-NULL will enforce range
    Requires utils.js jQuery.js and inputBox class */
-void cgiMakeIntVarWithLimits(char *varName, int initialVal, char *title, int width, 
-                             int min, int max);
-void cgiMakeIntVarWithMin(char *varName, int initialVal, char *title, int width, int min);
-void cgiMakeIntVarWithMax(char *varName, int initialVal, char *title, int width, int max);
-#define cgiMakeIntVarNoLimits(varName,initialVal,title,width) \
-        cgiMakeIntVarInRange(varName,initialVal,title,width,NULL,NULL)
-/* All four of these call cgiMakeIntVarInRange() and therefore require utils.js */
+void cgiMakeIntVarWithLimits(char *varName, int initialVal, char *title,
+                             int width, int min, int max);
+void cgiMakeIntVarWithMin(char *varName, int initialVal, char *title, int width,
+                          int min);
+void cgiMakeIntVarWithMax(char *varName, int initialVal, char *title, int width,
+                          int max);
+#define cgiMakeIntVarNoLimits(varName, initialVal, title, width)               \
+  cgiMakeIntVarInRange(varName, initialVal, title, width, NULL, NULL)
+/* All four of these call cgiMakeIntVarInRange() and therefore require utils.js
+ */
 
 void cgiMakeDoubleVar(char *varName, double initialVal, int maxDigits);
 /* Make a text control filled with initial floating-point value.  */
 
-void cgiMakeDoubleVarInRange(char *varName, double initialVal, char *title, int width, 
-                             char *min, char *max);
+void cgiMakeDoubleVarInRange(char *varName, double initialVal, char *title,
+                             int width, char *min, char *max);
 /* Make a floating point control filled with initial value.
    If min and/or max are non-NULL will enforce range
    Requires utils.js jQuery.js and inputBox class */
-void cgiMakeDoubleVarWithLimits(char *varName, double initialVal, char *title, int width, 
-                                double min, double max);
-void cgiMakeDoubleVarWithMin(char *varName, double initialVal, char *title, int width, double min);
-void cgiMakeDoubleVarWithMax(char *varName, double initialVal, char *title, int width, double max);
-#define cgiMakeDoubleVarNoLimits(varName,initialVal,title,width) \
-        cgiMakeDoubleVarInRange(varName,initialVal,title,width,NULL,NULL)
-/* All four of these call cgiMakeDoubleVarInRange() and therefore require utils.js */
+void cgiMakeDoubleVarWithLimits(char *varName, double initialVal, char *title,
+                                int width, double min, double max);
+void cgiMakeDoubleVarWithMin(char *varName, double initialVal, char *title,
+                             int width, double min);
+void cgiMakeDoubleVarWithMax(char *varName, double initialVal, char *title,
+                             int width, double max);
+#define cgiMakeDoubleVarNoLimits(varName, initialVal, title, width)            \
+  cgiMakeDoubleVarInRange(varName, initialVal, title, width, NULL, NULL)
+/* All four of these call cgiMakeDoubleVarInRange() and therefore require
+ * utils.js */
 
-void cgiMakeDropListClass(char *name, char *menu[], int menuSize, char *checked, char *class);
+void cgiMakeDropListClass(char *name, char *menu[], int menuSize, char *checked,
+                          char *class);
 /* Make a drop-down list with names and style sheet class. */
 
 void cgiMakeDropList(char *name, char *menu[], int menuSize, char *checked);
@@ -322,62 +336,74 @@ void cgiMakeDropList(char *name, char *menu[], int menuSize, char *checked);
  * uses style "normalText" */
 
 void cgiMakeDropListClassWithStyleAndJavascript(char *name, char *menu[],
-                                                int menuSize, char *checked, char *class,
-                                                char *style,char *javascript);
+                                                int menuSize, char *checked,
+                                                char *class, char *style,
+                                                char *javascript);
 /* Make a drop-down list with names, text class, style and javascript. */
 
-void cgiMakeDropListClassWithStyle(char *name, char *menu[],
-	int menuSize, char *checked, char *class, char *style);
+void cgiMakeDropListClassWithStyle(char *name, char *menu[], int menuSize,
+                                   char *checked, char *class, char *style);
 /* Make a drop-down list with names, text class and style. */
 
 void cgiMakeDropListWithVals(char *name, char *menu[], char *values[],
-                         int menuSize, char *checked);
+                             int menuSize, char *checked);
 /* Make a drop-down list with names and values. In this case checked
  * corresponds to a value, not a menu. */
 
-void cgiMakeDropListFull(char *name, char *menu[], char *values[], int menuSize, char *checked, char *extraAttribs);
+void cgiMakeDropListFull(char *name, char *menu[], char *values[], int menuSize,
+                         char *checked, char *extraAttribs);
 /* Make a drop-down list with names and values. */
 
 void cgiDropDownWithTextValsAndExtra(char *name, char *text[], char *values[],
                                      int count, char *selected, char *extra);
 /* Make a drop-down list with both text and values. */
 
-char *cgiMakeSelectDropList(boolean multiple, char *name, struct slPair *valsAndLabels,
-                            char *selected, char *anyAll,char *extraClasses, char *extraHtml);
+char *cgiMakeSelectDropList(boolean multiple, char *name,
+                            struct slPair *valsAndLabels, char *selected,
+                            char *anyAll, char *extraClasses, char *extraHtml);
 // Returns allocated string of HTML defining a drop-down select
 // (if multiple, REQUIRES ui-dropdownchecklist.js)
-// valsAndLabels: val (pair->name) must be filled in but label (pair->val) may be NULL.
-// selected: if not NULL is a val found in the valsAndLabels (multiple then comma delimited list).
+// valsAndLabels: val (pair->name) must be filled in but label (pair->val) may
+// be NULL.
+// selected: if not NULL is a val found in the valsAndLabels (multiple then
+// comma delimited list).
 //           If null and anyAll not NULL, that will be selected
-// anyAll: if not NULL is the string for an initial option. It can contain val and label,
+// anyAll: if not NULL is the string for an initial option. It can contain val
+// and label,
 //         delimited by a comma
 // extraHtml: if not NULL contains id, javascript calls and style.
 //            It does NOT contain class definitions
-#define cgiMakeMultiSelectDropList(name,valsAndLabels,selected,anyAll,extraClasses,extraHtml) \
-        cgiMakeSelectDropList(TRUE,(name),(valsAndLabels),(selected),(anyAll),\
-                              (extraClasses),(extraHtml))
-#define cgiMakeSingleSelectDropList(name,valsAndLabels,selected,anyAll,extraClasses,extraHtml) \
-        cgiMakeSelectDropList(FALSE,(name),(valsAndLabels),(selected),(anyAll),\
-                              (extraClasses),(extraHtml))
+#define cgiMakeMultiSelectDropList(name, valsAndLabels, selected, anyAll,      \
+                                   extraClasses, extraHtml)                    \
+  cgiMakeSelectDropList(TRUE, (name), (valsAndLabels), (selected), (anyAll),   \
+                        (extraClasses), (extraHtml))
+#define cgiMakeSingleSelectDropList(name, valsAndLabels, selected, anyAll,     \
+                                    extraClasses, extraHtml)                   \
+  cgiMakeSelectDropList(FALSE, (name), (valsAndLabels), (selected), (anyAll),  \
+                        (extraClasses), (extraHtml))
 
-void cgiMakeMultList(char *name, char *menu[], int menuSize, struct slName *checked, int length);
+void cgiMakeMultList(char *name, char *menu[], int menuSize,
+                     struct slName *checked, int length);
 /* Make a list of names which can have multiple selections.
  * Same as drop-down list except "multiple" is added to select tag */
 
-void cgiMakeCheckboxGroup(char *name, char *menu[], int menuSize, struct slName *checked,
-			  int tableColumns);
+void cgiMakeCheckboxGroup(char *name, char *menu[], int menuSize,
+                          struct slName *checked, int tableColumns);
 /* Make a table of checkboxes that have the same variable name but different
  * values (same behavior as a multi-select input). */
 
-void cgiMakeCheckboxGroupWithVals(char *name, char *menu[], char *values[], int menuSize,
-				  struct slName *checked, int tableColumns);
+void cgiMakeCheckboxGroupWithVals(char *name, char *menu[], char *values[],
+                                  int menuSize, struct slName *checked,
+                                  int tableColumns);
 /* Make a table of checkboxes that have the same variable name but different
- * values (same behavior as a multi-select input), with nice labels in menu[]. */
+ * values (same behavior as a multi-select input), with nice labels in menu[].
+ */
 
 void cgiMakeHiddenVarWithExtra(char *varName, char *string, char *extra);
 /* Store string in hidden input for next time around. */
 
-#define cgiMakeHiddenVar(name,val) cgiMakeHiddenVarWithExtra((name),(val),NULL)
+#define cgiMakeHiddenVar(name, val)                                            \
+  cgiMakeHiddenVarWithExtra((name), (val), NULL)
 /* Store string in hidden input for next time around. */
 
 void cgiContinueHiddenVar(char *varName);
@@ -434,7 +460,7 @@ boolean cgiFromFile(char *fileName);
  */
 
 boolean cgiParseInput(char *input, struct hash **retHash,
-	struct cgiVar **retList);
+                      struct cgiVar **retList);
 /* Parse cgi-style input into a hash table and list.  This will alter
  * the input data.  The hash table will contain references back
  * into input, so please don't free input until you're done with

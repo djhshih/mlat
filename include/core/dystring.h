@@ -3,7 +3,7 @@
  * This file is copyright 2002 Jim Kent, but license is hereby
  * granted for all use - public, private or commercial. */
 
-#ifndef DYSTRING_H	/* Wrapper to avoid including this twice. */
+#ifndef DYSTRING_H /* Wrapper to avoid including this twice. */
 #define DYSTRING_H
 
 #include "common.h"
@@ -11,12 +11,12 @@
 struct dyString
 /* Dynamically resizable string that you can do formatted
  * output to. */
-    {
-    struct dyString *next;	/* Next in list. */
-    char *string;		/* Current buffer. */
-    int bufSize;		/* Size of buffer. */
-    int stringSize;		/* Size of string. */
-    };
+{
+  struct dyString *next; /* Next in list. */
+  char *string;          /* Current buffer. */
+  int bufSize;           /* Size of buffer. */
+  int stringSize;        /* Size of string. */
+};
 
 struct dyString *newDyString(int initialBufSize);
 /* Allocate dynamic string with initial buffer size.  (Pass zero for default) */
@@ -45,12 +45,14 @@ char dyStringAppendC(struct dyString *ds, char c);
 void dyStringAppendMultiC(struct dyString *ds, char c, int n);
 /* Append N copies of char to end of string. */
 
-void dyStringAppendEscapeQuotes(struct dyString *dy, char *string,
-	char quot, char esc);
+void dyStringAppendEscapeQuotes(struct dyString *dy, char *string, char quot,
+                                char esc);
 /* Append escaped-for-quotation version of string to dy. */
 
-#define dyStringWriteOne(dy, var) dyStringAppendN(dy, (char *)(&var), sizeof(var))
-/* Write one variable (binary!) to dyString - for cases when want to treat string like
+#define dyStringWriteOne(dy, var)                                              \
+  dyStringAppendN(dy, (char *)(&var), sizeof(var))
+/* Write one variable (binary!) to dyString - for cases when want to treat
+ * string like
  * a file stream. */
 
 void dyStringVaPrintf(struct dyString *ds, char *format, va_list args);
@@ -59,7 +61,7 @@ void dyStringVaPrintf(struct dyString *ds, char *format, va_list args);
 void dyStringPrintf(struct dyString *ds, char *format, ...)
 /*  Printf to end of dyString. */
 #ifdef __GNUC__
-__attribute__((format(printf, 2, 3)))
+    __attribute__((format(printf, 2, 3)))
 #endif
     ;
 
@@ -69,7 +71,7 @@ struct dyString *dyStringCreate(char *format, ...);
 #define dyStringClear(ds) (ds->string[0] = ds->stringSize = 0)
 /* Clear string. */
 
-struct dyString * dyStringSub(char *orig, char *in, char *out);
+struct dyString *dyStringSub(char *orig, char *in, char *out);
 /* Make up a duplicate of orig with all occurences of in substituted
  * with out. */
 
@@ -95,4 +97,3 @@ void dyStringQuoteString(struct dyString *dy, char quotChar, char *text);
  * \-escaped) onto end of dy. */
 
 #endif /* DYSTRING_H */
-

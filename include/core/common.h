@@ -6,7 +6,7 @@
  * This file is copyright 2002-2005 Jim Kent, but license is hereby
  * granted for all use - public, private or commercial. */
 
-#ifndef COMMON_H	/* Wrapper to avoid including this twice. */
+#ifndef COMMON_H /* Wrapper to avoid including this twice. */
 #define COMMON_H
 
 /* Some stuff to support large files in Linux. */
@@ -64,63 +64,66 @@
 #endif
 
 #ifndef WIFEXITED
-#define WIFEXITED(stat)  (((*((int *) &(stat))) & 0xff) == 0)
+#define WIFEXITED(stat) (((*((int *)&(stat))) & 0xff) == 0)
 #endif
 
 #ifndef WEXITSTATUS
-#define WEXITSTATUS(stat) (short)(((*((int *) &(stat))) >> 8) & 0xffff)
+#define WEXITSTATUS(stat) (short)(((*((int *)&(stat))) >> 8) & 0xffff)
 #endif
 
 #ifndef WIFSIGNALED
-#define WIFSIGNALED(stat) (((*((int *) &(stat)))) && ((*((int *) &(stat))) == ((*((int *) &(stat))) &0x00ff)))
+#define WIFSIGNALED(stat)                                                      \
+  (((*((int *)&(stat)))) &&                                                    \
+   ((*((int *)&(stat))) == ((*((int *)&(stat))) & 0x00ff)))
 #endif
 
 #ifndef WTERMSIG
-#define WTERMSIG(stat)    ((*((int *) &(stat))) & 0x7f)
+#define WTERMSIG(stat) ((*((int *)&(stat))) & 0x7f)
 #endif
 
 #ifndef WIFSTOPPED
-#define WIFSTOPPED(stat)  (((*((int *) &(stat))) & 0xff) == 0177)
+#define WIFSTOPPED(stat) (((*((int *)&(stat))) & 0xff) == 0177)
 #endif
 
 #ifndef WSTOPSIG
-#define WSTOPSIG(stat)    (((*((int *) &(stat))) >> 8) & 0xff)
+#define WSTOPSIG(stat) (((*((int *)&(stat))) >> 8) & 0xff)
 #endif
 
 #ifndef HUGE
 #define HUGE MAXFLOAT
 #endif
 
-
 /* Let's pretend C has a boolean type. */
 #define TRUE 1
 #define FALSE 0
 #define boolean int
-#ifndef	__cplusplus
+#ifndef __cplusplus
 #ifndef bool
 #define bool char
 #endif
 #endif
 
 /* Some other type synonyms */
-#define UBYTE unsigned char   /* Wants to be unsigned 8 bits. */
-#define BYTE signed char      /* Wants to be signed 8 bits. */
-#define UWORD unsigned short  /* Wants to be unsigned 16 bits. */
-#define WORD short	      /* Wants to be signed 16 bits. */
-#define bits64 unsigned long long  /* Wants to be unsigned 64 bits. */
-#define bits32 unsigned       /* Wants to be unsigned 32 bits. */
-#define bits16 unsigned short /* Wants to be unsigned 16 bits. */
-#define bits8 unsigned char   /* Wants to be unsigned 8 bits. */
-#define signed32 int	      /* Wants to be signed 32 bits. */
-#define bits8 unsigned char   /* Wants to be unsigned 8 bits. */
+#define UBYTE unsigned char       /* Wants to be unsigned 8 bits. */
+#define BYTE signed char          /* Wants to be signed 8 bits. */
+#define UWORD unsigned short      /* Wants to be unsigned 16 bits. */
+#define WORD short                /* Wants to be signed 16 bits. */
+#define bits64 unsigned long long /* Wants to be unsigned 64 bits. */
+#define bits32 unsigned           /* Wants to be unsigned 32 bits. */
+#define bits16 unsigned short     /* Wants to be unsigned 16 bits. */
+#define bits8 unsigned char       /* Wants to be unsigned 8 bits. */
+#define signed32 int              /* Wants to be signed 32 bits. */
+#define bits8 unsigned char       /* Wants to be unsigned 8 bits. */
 
-#define BIGNUM 0x3fffffff	/* A really big number */
-#define BIGDOUBLE 1.7E+308	/* Close to biggest double-precision number */
+#define BIGNUM 0x3fffffff  /* A really big number */
+#define BIGDOUBLE 1.7E+308 /* Close to biggest double-precision number */
 
-#define LIMIT_2or8GB (2147483647 * ((sizeof(size_t)/4)*(sizeof(size_t)/4)))
+#define LIMIT_2or8GB                                                           \
+  (2147483647 * ((sizeof(size_t) / 4) * (sizeof(size_t) / 4)))
 /*      == 2 Gb for 32 bit machines, 8 Gb for 64 bit machines */
-#define LIMIT_2or6GB (2147483647 + (2147483647 * ((sizeof(size_t)/4)-1)) + \
-	(2147483647 * ((sizeof(size_t)/4)-1)))
+#define LIMIT_2or6GB                                                           \
+  (2147483647 + (2147483647 * ((sizeof(size_t) / 4) - 1)) +                    \
+   (2147483647 * ((sizeof(size_t) / 4) - 1)))
 /*      == 2 Gb for 32 bit machines, 6 Gb for 64 bit machines */
 
 /* Default size of directory path, file name and extension string buffers */
@@ -156,10 +159,10 @@
  * and create our own.  Our implementation is the same as used on Solaris.
  */
 #if defined(__va_copy) && !defined(va_copy)
-#   define va_copy __va_copy
+#define va_copy __va_copy
 #endif
 #if !defined(va_copy)
-#   define va_copy(to, from) ((to) = (from))
+#define va_copy(to, from) ((to) = (from))
 #endif
 
 /* Cast a pointer to a long long. Use to printf format points as long-longs
@@ -169,11 +172,11 @@
 #define ptrToLL(p) ((long long)((size_t)p))
 
 /* How big is this array? */
-#define ArraySize(a) (sizeof(a)/sizeof((a)[0]))
+#define ArraySize(a) (sizeof(a) / sizeof((a)[0]))
 
-#define uglyf printf  /* debugging printf */
+#define uglyf printf       /* debugging printf */
 #define uglyAbort errAbort /* debugging error abort. */
-#define uglyOut stdout /* debugging fprintf target. */
+#define uglyOut stdout     /* debugging fprintf target. */
 
 void *needMem(size_t size);
 /* Need mem calls abort if the memory allocation fails. The memory
@@ -186,11 +189,11 @@ void *needLargeMem(size_t size);
 void *needLargeZeroedMem(size_t size);
 /* Request a large block of memory and zero it. */
 
-void *needLargeMemResize(void* vp, size_t size);
+void *needLargeMemResize(void *vp, size_t size);
 /* Adjust memory size on a block, possibly relocating it.  If vp is NULL,
  * a new memory block is allocated.  Memory not initted. */
 
-void *needLargeZeroedMemResize(void* vp, size_t oldSize, size_t newSize);
+void *needLargeZeroedMemResize(void *vp, size_t oldSize, size_t newSize);
 /* Adjust memory size on a block, possibly relocating it.  If vp is NULL, a
  * new memory block is allocated.  If block is grown, new memory is zeroed. */
 
@@ -200,12 +203,12 @@ void *needHugeMem(size_t size);
 void *needHugeZeroedMem(size_t size);
 /* Request a large block of memory and zero it. */
 
-void *needHugeMemResize(void* vp, size_t size);
+void *needHugeMemResize(void *vp, size_t size);
 /* Adjust memory size on a block, possibly relocating it.  If vp is NULL,
  * a new memory block is allocated.  No checking on size.  Memory not
  * initted. */
 
-void *needHugeZeroedMemResize(void* vp, size_t oldSize, size_t newSize);
+void *needHugeZeroedMemResize(void *vp, size_t oldSize, size_t newSize);
 /* Adjust memory size on a block, possibly relocating it.  If vp is NULL, a
  * new memory block is allocated.  No checking on size.  If block is grown,
  * new memory is zeroed. */
@@ -242,56 +245,58 @@ void freez(void *ppt);
 #define AllocA(type) needMem(sizeof(type))
 /* Shortcut to allocating a variable on heap of a specific type. */
 
-#define AllocN(type,count) ((type*)needLargeZeroedMem(sizeof(type) * (count)))
+#define AllocN(type, count) ((type *)needLargeZeroedMem(sizeof(type) * (count)))
 /* Shortcut to allocating an array on the heap of a specific type. */
 
-#define ExpandArray(array, oldCount, newCount) \
-  (array = needMoreMem((array), (oldCount)*sizeof((array)[0]), (newCount)*sizeof((array)[0])))
+#define ExpandArray(array, oldCount, newCount)                                 \
+  (array = needMoreMem((array), (oldCount) * sizeof((array)[0]),               \
+                       (newCount) * sizeof((array)[0])))
 /* Expand size of dynamically allocated array. */
 
-#define CopyArray(source, dest,count) memcpy(dest,source,(count)*sizeof(dest[0]))
+#define CopyArray(source, dest, count)                                         \
+  memcpy(dest, source, (count) * sizeof(dest[0]))
 /* Copy count elements of array from source to dest. */
 
-#define CloneArray(a, count) cloneMem(a, (count)*sizeof(a[0]))
+#define CloneArray(a, count) cloneMem(a, (count) * sizeof(a[0]))
 /* Make new dynamic array initialized with  count elements of a */
 
 void errAbort(char *format, ...)
 /* Abort function, with optional (printf formatted) error message. */
 #if defined(__GNUC__)
-__attribute__((format(printf, 1, 2)))
+    __attribute__((format(printf, 1, 2)))
 #endif
-;
+    ;
 
 void errnoAbort(char *format, ...)
 /* Prints error message from UNIX errno first, then does errAbort. */
 #if defined(__GNUC__)
-__attribute__((format(printf, 1, 2)))
+    __attribute__((format(printf, 1, 2)))
 #endif
-;
+    ;
 
-#define internalErr()  errAbort("Internal error %s %d", __FILE__, __LINE__)
+#define internalErr() errAbort("Internal error %s %d", __FILE__, __LINE__)
 /* Generic internal error message */
 
 void warn(char *format, ...)
 /* Issue a warning message. */
 #if defined(__GNUC__)
-__attribute__((format(printf, 1, 2)))
+    __attribute__((format(printf, 1, 2)))
 #endif
-;
+    ;
 
 void warnWithBackTrace(char *format, ...)
 /* Issue a warning message and append backtrace. */
 #if defined(__GNUC__)
-__attribute__((format(printf, 1, 2)))
+    __attribute__((format(printf, 1, 2)))
 #endif
-;
+    ;
 
 void verbose(int verbosity, char *format, ...)
 /* Write printf formatted message to log (which by
  * default is stdout) if global verbose variable
  * is set to verbosity or higher.  Default level is 1. */
 #if defined(__GNUC__)
-__attribute__((format(printf, 2, 3)))
+    __attribute__((format(printf, 2, 3)))
 #endif
     ;
 
@@ -303,7 +308,7 @@ void verboseTime(int verbosity, char *label, ...)
  * initialized with verboseTimeInit, otherwise the elapsed time will be
  * zero. */
 #if defined(__GNUC__)
-__attribute__((format(printf, 2, 3)))
+    __attribute__((format(printf, 2, 3)))
 #endif
     ;
 
@@ -320,7 +325,7 @@ void verboseSetLevel(int verbosity);
 INLINE void zeroBytes(void *vpt, int count)
 /* fill a specified area of memory with zeroes */
 {
-memset(vpt, '\0', count);
+  memset(vpt, '\0', count);
 }
 
 #define ZeroVar(v) zeroBytes(v, sizeof(*v))
@@ -345,10 +350,9 @@ void swapBytes(char *a, char *b, int length);
 
 /* Some things to manage simple lists - structures that begin
  * with a pointer to the next element in the list. */
-struct slList
-    {
-    struct slList *next;
-    };
+struct slList {
+  struct slList *next;
+};
 
 int slCount(const void *list);
 /* Return # of elements in list.  */
@@ -368,10 +372,10 @@ INLINE void slAddHead(void *listPt, void *node)
  * that begin with a next pointer.
  */
 {
-struct slList **ppt = (struct slList **)listPt;
-struct slList *n = (struct slList *)node;
-n->next = *ppt;
-*ppt = n;
+  struct slList **ppt = (struct slList **)listPt;
+  struct slList *n = (struct slList *)node;
+  n->next = *ppt;
+  *ppt = n;
 }
 
 INLINE void slSafeAddHead(void *listPt, void *node)
@@ -379,7 +383,7 @@ INLINE void slSafeAddHead(void *listPt, void *node)
  * a macro, this function is obsolete.
  */
 {
-slAddHead(listPt, node);
+  slAddHead(listPt, node);
 }
 
 void slAddTail(void *listPt, void *node);
@@ -442,10 +446,10 @@ void slFreeList(void *listPt);
 
 struct slInt
 /* List of integers. */
-    {
-    struct slInt *next;	/* Next in list. */
-    int val;		/* Integer value. */
-    };
+{
+  struct slInt *next; /* Next in list. */
+  int val;            /* Integer value. */
+};
 
 struct slInt *slIntNew(int x);
 #define newSlInt slIntNew
@@ -457,7 +461,7 @@ int slIntCmp(const void *va, const void *vb);
 int slIntCmpRev(const void *va, const void *vb);
 /* Compare two slInts in reverse direction. */
 
-struct slInt * slIntFind(struct slInt *list, int target);
+struct slInt *slIntFind(struct slInt *list, int target);
 /* Find target in slInt list or return NULL */
 
 void doubleSort(int count, double *array);
@@ -468,15 +472,17 @@ double doubleMedian(int count, double *array);
  * the array as a side effect. */
 
 void doubleBoxWhiskerCalc(int count, double *array, double *retMin,
-	double *retQ1, double *retMedian, double *retQ3, double *retMax);
-/* Calculate what you need to draw a box and whiskers plot from an array of doubles. */
+                          double *retQ1, double *retMedian, double *retQ3,
+                          double *retMax);
+/* Calculate what you need to draw a box and whiskers plot from an array of
+ * doubles. */
 
 struct slDouble
 /* List of double-precision numbers. */
-    {
-    struct slDouble *next;	/* Next in list. */
-    double val;			/* Double-precision value. */
-    };
+{
+  struct slDouble *next; /* Next in list. */
+  double val;            /* Double-precision value. */
+};
 
 struct slDouble *slDoubleNew(double x);
 #define newSlDouble slDoubleNew
@@ -489,8 +495,10 @@ double slDoubleMedian(struct slDouble *list);
 /* Return median value on list. */
 
 void slDoubleBoxWhiskerCalc(struct slDouble *list, double *retMin,
-	double *retQ1, double *retMedian, double *retQ3, double *retMax);
-/* Calculate what you need to draw a box and whiskers plot from a list of slDoubles. */
+                            double *retQ1, double *retMedian, double *retQ3,
+                            double *retMax);
+/* Calculate what you need to draw a box and whiskers plot from a list of
+ * slDoubles. */
 
 void intSort(int count, int *array);
 /* Sort an array of ints. */
@@ -502,10 +510,10 @@ int intMedian(int count, int *array);
 struct slName
 /* List of names. The name array is allocated to accommodate full name
  */
-    {
-    struct slName *next;	/* Next in list. */
-    char name[1];               /* Allocated at run time to length of string. */
-    };
+{
+  struct slName *next; /* Next in list. */
+  char name[1];        /* Allocated at run time to length of string. */
+};
 
 struct slName *newSlName(char *name);
 
@@ -574,9 +582,10 @@ struct slName *slNameListFromString(char *s, char delimiter);
 #define slNameListFromComma(s) slNameListFromString(s, ',')
 /* Parse out comma-separated list. */
 
-struct slName *slNameListOfUniqueWords(char *text,boolean respectQuotes);
+struct slName *slNameListOfUniqueWords(char *text, boolean respectQuotes);
 // Return list of unique words found by parsing string delimited by whitespace.
-// If respectQuotes then ["Lucy and Ricky" 'Fred and Ethyl'] will yield 2 slNames no quotes
+// If respectQuotes then ["Lucy and Ricky" 'Fred and Ethyl'] will yield 2
+// slNames no quotes
 
 struct slName *slNameListFromStringArray(char *stringArray[], int arraySize);
 /* Return list of slNames from an array of strings of length arraySize.
@@ -595,10 +604,10 @@ struct slName *slNameIntersection(struct slName *a, struct slName *b);
 
 struct slRef
 /* Singly linked list of generic references. */
-    {
-    struct slRef *next;	/* Next in list. */
-    void *val;		/* A reference to something. */
-    };
+{
+  struct slRef *next; /* Next in list. */
+  void *val;          /* A reference to something. */
+};
 
 struct slRef *slRefNew(void *val);
 /* Create new slRef element. */
@@ -617,11 +626,11 @@ struct slRef *refListFromSlList(void *list);
 
 struct slPair
 /* A name/value pair. */
-    {
-    struct slPair *next;	/* Next in list. */
-    char *name;			/* Name of item. */
-    void *val;			/* Pointer to item data. */
-    };
+{
+  struct slPair *next; /* Next in list. */
+  char *name;          /* Name of item. */
+  void *val;           /* Pointer to item data. */
+};
 
 struct slPair *slPairNew(char *name, void *val);
 /* Allocate new name/value pair. */
@@ -647,20 +656,26 @@ struct slPair *slPairFind(struct slPair *list, char *name);
 void *slPairFindVal(struct slPair *list, char *name);
 /* Return value associated with name in list, or NULL if not found. */
 
-struct slPair *slPairListFromString(char *str,boolean respectQuotes);
-// Return slPair list parsed from list in string like:  [name1=val1 name2=val2 ...]
-// if respectQuotes then string can have double quotes: [name1="val 1" "name 2"=val2 ...]
+struct slPair *slPairListFromString(char *str, boolean respectQuotes);
+// Return slPair list parsed from list in string like:  [name1=val1 name2=val2
+// ...]
+// if respectQuotes then string can have double quotes: [name1="val 1" "name
+// 2"=val2 ...]
 //    resulting pair strips quotes: {name1}={val 1},{name 2}={val2}
 // Returns NULL if parse error.  Free this up with slPairFreeValsAndList.
-#define slPairFromString(s) slPairListFromString(s,FALSE)
+#define slPairFromString(s) slPairListFromString(s, FALSE)
 
-char *slPairListToString(struct slPair *list,boolean quoteIfSpaces);
+char *slPairListToString(struct slPair *list, boolean quoteIfSpaces);
 // Returns an allocated string of pairs in form of [name1=val1 name2=val2 ...]
-// If requested, will wrap name or val in quotes if contain spaces: [name1="val 1" "name 2"=val2]
+// If requested, will wrap name or val in quotes if contain spaces: [name1="val
+// 1" "name 2"=val2]
 
-char *slPairNameToString(struct slPair *list, char delimiter,boolean quoteIfSpaces);
-// Return string created by joining all names (ignoring vals) with the delimiter.
-// If requested, will wrap name in quotes if contain spaces: [name1,"name 2" ...]
+char *slPairNameToString(struct slPair *list, char delimiter,
+                         boolean quoteIfSpaces);
+// Return string created by joining all names (ignoring vals) with the
+// delimiter.
+// If requested, will wrap name in quotes if contain spaces: [name1,"name 2"
+// ...]
 
 int slPairCmpCase(const void *va, const void *vb);
 /* Compare two slPairs, ignore case. */
@@ -718,10 +733,10 @@ int differentWord(char *s1, char *s2);
  * the same (ignoring case) otherwise returns difference
  * between first non-matching characters. */
 
-#define sameWord(a,b) (!differentWord(a,b))
+#define sameWord(a, b) (!differentWord(a, b))
 /* Return TRUE if two strings are same ignoring case */
 
-#define differentString(a,b) (strcmp(a,b))
+#define differentString(a, b) (strcmp(a, b))
 /* Returns FALSE if two strings same. */
 
 int differentStringNullOk(char *a, char *b);
@@ -733,17 +748,17 @@ int differentStringNullOk(char *a, char *b);
  * the input.  If used in a sort the NULLs will end
  * up before any of the cases with data.   */
 
-#define sameOk(a,b) (differentStringNullOk(a,b) == 0)
+#define sameOk(a, b) (differentStringNullOk(a, b) == 0)
 /* returns TRUE if two strings same, NULLs OK */
 
-#define sameString(a,b) (strcmp(a,b)==0)
+#define sameString(a, b) (strcmp(a, b) == 0)
 /* Returns TRUE if two strings same. */
 
-#define sameStringN(a,b,c) (strncmp(a,b,c)==0)
+#define sameStringN(a, b, c) (strncmp(a, b, c) == 0)
 /* Returns TRUE if two strings start with the same c characters. */
 
 #define isEmpty(string) ((string) == NULL || (string)[0] == 0)
-#define isNotEmpty(string) (! isEmpty(string))
+#define isNotEmpty(string) (!isEmpty(string))
 
 int cmpStringsWithEmbeddedNumbers(const char *a, const char *b);
 /* Compare strings such as gene names that may have embedded numbers,
@@ -759,8 +774,9 @@ boolean startsWithWord(char *firstWord, char *line);
 /* Return TRUE if first white-space-delimited word in line
  * is same as firstWord.  Comparison is case sensitive. */
 
-boolean startsWithWordByDelimiter(char *firstWord,char delimit, char *line);
-/* Return TRUE if first word in line is same as firstWord as delimited by delimit.
+boolean startsWithWordByDelimiter(char *firstWord, char delimit, char *line);
+/* Return TRUE if first word in line is same as firstWord as delimited by
+   delimit.
    Comparison is case sensitive. Delimit of ' ' uses isspace() */
 
 #define stringIn(needle, haystack) strstr(haystack, needle)
@@ -775,7 +791,7 @@ char *stringBetween(char *start, char *end, char *haystack);
  * none found.  The first such instance is returned.
  * String must be freed by caller. */
 
-char * findWordByDelimiter(char *word,char delimit, char *line);
+char *findWordByDelimiter(char *word, char delimit, char *line);
 /* Return pointer to first word in line matching 'word' and delimited
    by 'delimit'. Comparison is case sensitive. Delimit of ' ' uses isspace() */
 
@@ -836,30 +852,32 @@ char *replaceChars(char *string, char *oldStr, char *newStr);
  Return value needs to be freeMem'd.
 */
 
-int strSwapStrs(char *string, int sz,char *oldStr, char *newStr);
-/* Swaps all occurrences of the oldStr with the newStr in string. Need not be same size
-   Swaps in place but restricted by sz.  Returns count of swaps or -1 for sz failure.*/
+int strSwapStrs(char *string, int sz, char *oldStr, char *newStr);
+/* Swaps all occurrences of the oldStr with the newStr in string. Need not be
+   same size
+   Swaps in place but restricted by sz.  Returns count of swaps or -1 for sz
+   failure.*/
 
-char * memSwapChar(char *s, int len, char oldChar, char newChar);
+char *memSwapChar(char *s, int len, char oldChar, char newChar);
 /* Substitute newChar for oldChar throughout memory of given length.
    old or new may be null */
-#define strSwapChar(s,old,new)   memSwapChar((s),strlen(s),(old),(new))
-#define subChar(s,old,new) (void)memSwapChar((s),strlen(s),(old),(new))
+#define strSwapChar(s, old, new) memSwapChar((s), strlen(s), (old), (new))
+#define subChar(s, old, new) (void)memSwapChar((s), strlen(s), (old), (new))
 /* Substitute newChar for oldChar throughout string s. */
 
 void stripChar(char *s, char c);
 /* Remove all occurences of c from s. */
 
-char *stripEnclosingChar(char *inout,char encloser);
+char *stripEnclosingChar(char *inout, char encloser);
 // Removes enclosing char if found at both beg and end, preserving pointer
 // Note: handles brackets '(','{' and '[' by complement at end
-#define stripEnclosingDoubleQuotes(inout) stripEnclosingChar((inout),'"')
-#define stripEnclosingSingleQuotes(inout) stripEnclosingChar((inout),'\'')
+#define stripEnclosingDoubleQuotes(inout) stripEnclosingChar((inout), '"')
+#define stripEnclosingSingleQuotes(inout) stripEnclosingChar((inout), '\'')
 
 void stripString(char *s, char *strip);
 /* Remove all occurences of strip from s. */
 
-int countCase(char *s,boolean upper);
+int countCase(char *s, boolean upper);
 // Count letters with case (upper or lower)
 
 int countChars(char *s, char c);
@@ -915,15 +933,17 @@ int chopByWhiteRespectDoubleQuotes(char *in, char *outArray[], int outSize);
 int chopByChar(char *in, char chopper, char *outArray[], int outSize);
 /* Chop based on a single character. */
 
-#define chopTabs(string, words) chopByChar(string, '\t', words, ArraySize(words))
+#define chopTabs(string, words)                                                \
+  chopByChar(string, '\t', words, ArraySize(words))
 /* Chop string by tabs. */
 
-#define chopCommas(string, words) chopByChar(string, ',', words, ArraySize(words))
+#define chopCommas(string, words)                                              \
+  chopByChar(string, ',', words, ArraySize(words))
 /* Chop string by commas. */
 
-
-char *skipBeyondDelimit(char *s,char delimit);
-/* Returns NULL or pointer to first char beyond one (or more contiguous) delimit char.
+char *skipBeyondDelimit(char *s, char delimit);
+/* Returns NULL or pointer to first char beyond one (or more contiguous) delimit
+   char.
    If delimit is ' ' then skips beyond first patch of whitespace. */
 
 char *skipLeadingSpaces(char *s);
@@ -970,7 +990,8 @@ char *nextWord(char **pLine);
  * word. Returns NULL when no more words. */
 
 char *nextWordRespectingQuotes(char **pLine);
-// return next word but respects single or double quotes surrounding sets of words.
+// return next word but respects single or double quotes surrounding sets of
+// words.
 
 char *cloneFirstWord(char *line);
 /* Clone first word in line */
@@ -978,18 +999,18 @@ char *cloneFirstWord(char *line);
 char *nextTabWord(char **pLine);
 /* Return next tab-separated word. */
 
-char *cloneFirstWordByDelimiter(char *line,char delimit);
+char *cloneFirstWordByDelimiter(char *line, char delimit);
 /* Returns a cloned first word, not harming the memory passed in
    Delimiter of ' ' will delimit by isspace() */
-#define cloneFirstWordInLine(line) cloneFirstWordByDelimiter((line),' ')
-#define cloneFirstWordByTab(line)  cloneFirstWordByDelimiter((line),'\t')
+#define cloneFirstWordInLine(line) cloneFirstWordByDelimiter((line), ' ')
+#define cloneFirstWordByTab(line) cloneFirstWordByDelimiter((line), '\t')
 /* Returns a cloned first word, not harming the memory passed in */
 
-char *cloneNextWordByDelimiter(char **line,char delimit);
+char *cloneNextWordByDelimiter(char **line, char delimit);
 /* Returns a cloned first word, advancing the line pointer
    but not harming memory passed in. Delimit ' ' uses isspace() */
-#define cloneNextWord(line)      cloneNextWordByDelimiter((line),' ')
-#define cloneNextWordByTab(line) cloneNextWordByDelimiter((line),'\t')
+#define cloneNextWord(line) cloneNextWordByDelimiter((line), ' ')
+#define cloneNextWordByTab(line) cloneNextWordByDelimiter((line), '\t')
 
 char *nextStringInList(char **pStrings);
 /* returns pointer to the first string and advances pointer to next in
@@ -1005,7 +1026,8 @@ int stringArrayIx(char *string, char *array[], int arraySize);
 int ptArrayIx(void *pt, void *array, int arraySize);
 /* Return index of pt in array or -1 if not there. */
 
-#define stringIx(string, array) stringArrayIx( (string), (array), ArraySize(array))
+#define stringIx(string, array)                                                \
+  stringArrayIx((string), (array), ArraySize(array))
 
 /* Some stuff that is left out of GNU .h files!? */
 #ifndef SEEK_SET
@@ -1022,7 +1044,7 @@ int ptArrayIx(void *pt, void *array, int arraySize);
 
 #ifndef FILEPATH_H
 void splitPath(char *path, char dir[PATH_LEN], char name[FILENAME_LEN],
-	       char extension[FILEEXT_LEN]);
+               char extension[FILEEXT_LEN]);
 /* Split a full path into components.  The dir component will include the
  * trailing / if any.  The extension component will include the starting
  * . if any.   Pass in NULL for dir, name, or extension if you don't care about
@@ -1079,11 +1101,14 @@ void mustWriteFd(int fd, void *buf, size_t size);
 /* Write size bytes to file descriptor fd or die.  (See man 2 write.) */
 
 off_t mustLseek(int fd, off_t offset, int whence);
-/* Seek to given offset, relative to whence (see man lseek) in file descriptor fd or errAbort.
- * Return final offset (e.g. if this is just an (fd, 0, SEEK_CUR) query for current position). */
+/* Seek to given offset, relative to whence (see man lseek) in file descriptor
+ * fd or errAbort.
+ * Return final offset (e.g. if this is just an (fd, 0, SEEK_CUR) query for
+ * current position). */
 
 void mustCloseFd(int *pFd);
-/* Close file descriptor *pFd if >= 0, abort if there's an error, set *pFd = -1. */
+/* Close file descriptor *pFd if >= 0, abort if there's an error, set *pFd = -1.
+ */
 
 #define writeOneFd(fd, var) mustWriteFd((fd), &(var), sizeof(var))
 /* Write out one variable to file descriptor fd. */
@@ -1137,11 +1162,11 @@ char *firstWordInFile(char *fileName, char *wordBuf, int wordBufSize);
 
 struct fileOffsetSize
 /* A piece of a file. */
-   {
-   struct fileOffsetSize *next;	/* Next in list. */
-   bits64	offset;		/* Start offset of block. */
-   bits64	size;		/* Size of block. */
-   };
+{
+  struct fileOffsetSize *next; /* Next in list. */
+  bits64 offset;               /* Start offset of block. */
+  bits64 size;                 /* Size of block. */
+};
 
 int fileOffsetSizeCmp(const void *va, const void *vb);
 /* Help sort fileOffsetSize by offset. */
@@ -1151,9 +1176,12 @@ struct fileOffsetSize *fileOffsetSizeMerge(struct fileOffsetSize *inList);
  * merged.  Best to use this with a sorted list. */
 
 void fileOffsetSizeFindGap(struct fileOffsetSize *list,
-	struct fileOffsetSize **pBeforeGap, struct fileOffsetSize **pAfterGap);
-/* Starting at list, find all items that don't have a gap between them and the previous item.
- * Return at gap, or at end of list, returning pointers to the items before and after the gap. */
+                           struct fileOffsetSize **pBeforeGap,
+                           struct fileOffsetSize **pAfterGap);
+/* Starting at list, find all items that don't have a gap between them and the
+ * previous item.
+ * Return at gap, or at end of list, returning pointers to the items before and
+ * after the gap. */
 
 void mustSystem(char *cmd);
 /* Execute cmd using "sh -c" or die.  (See man 3 system.) fail on errors */
@@ -1164,45 +1192,45 @@ int roundingScale(int a, int p, int q);
 int intAbs(int a);
 /* Return integer absolute value */
 
-#define logBase2(x)(log(x)/log(2))
+#define logBase2(x) (log(x) / log(2))
 /* return log base two of number */
 
-#define round(a) ((int)((a)+0.5))
+#define round(a) ((int)((a) + 0.5))
 /* Round floating point val to nearest integer. */
 
-#define roundll(a) ((long long)((a)+0.5))
+#define roundll(a) ((long long)((a) + 0.5))
 /* Round floating point val to nearest long long. */
 
 #ifndef min
-#define min(a,b) ( (a) < (b) ? (a) : (b) )
+#define min(a, b) ((a) < (b) ? (a) : (b))
 /* Return min of a and b. */
 #endif
 
 #ifndef max
-#define max(a,b) ( (a) > (b) ? (a) : (b) )
+#define max(a, b) ((a) > (b) ? (a) : (b))
 /* Return max of a and b. */
 #endif
 
-int  rangeIntersection(int start1, int end1, int start2, int end2);
+int rangeIntersection(int start1, int end1, int start2, int end2);
 /* Return amount of bases two ranges intersect over, 0 or negative if no
  * intersection. */
 
-int  positiveRangeIntersection(int start1, int end1, int start2, int end2);
+int positiveRangeIntersection(int start1, int end1, int start2, int end2);
 /* Return amount of bases two ranges intersect over, 0 if no
  * intersection. */
 
 INLINE void memRead(char **pPt, void *buf, int size)
 /* Copy memory from *pPt to buf, and advance *pPt by size. */
 {
-memcpy(buf, *pPt, size);
-*pPt += size;
+  memcpy(buf, *pPt, size);
+  *pPt += size;
 }
 
 INLINE void memWrite(char **pPt, void *buf, int size)
 /* Copy memory from buf to *pPt and advance *pPt by size. */
 {
-memcpy(*pPt, buf, size);
-*pPt += size;
+  memcpy(*pPt, buf, size);
+  *pPt += size;
 }
 
 #define memWriteOne(pPt, var) memWrite((pPt), &(var), sizeof(var))
@@ -1211,7 +1239,7 @@ memcpy(*pPt, buf, size);
 INLINE void memWriteFloat(char **pPt, float val)
 /* Write out floating point val to file.  Mostly to convert from double... */
 {
-memWriteOne(pPt, val);
+  memWriteOne(pPt, val);
 }
 
 bits64 byteSwap64(bits64 a);
@@ -1273,7 +1301,7 @@ float memReadFloat(char **pPt, boolean isSwapped);
 /* Read and optionally byte-swap single-precision floating point entity
  * from memory buffer pointed to by *pPt, and advance *pPt past read area. */
 
-void removeReturns(char* dest, char* src);
+void removeReturns(char *dest, char *src);
 /* Removes the '\r' character from a string.
  * the source and destination strings can be the same,
  * if there are no threads */
@@ -1286,7 +1314,7 @@ double doubleExp(char *text);
 /* Convert text to floating point expression and
  * evaluate. */
 
-char* readLine(FILE* fh);
+char *readLine(FILE *fh);
 /* Read a line of any size into dynamic memory, return null on EOF */
 
 off_t fileSize(char *fileName);
@@ -1303,17 +1331,17 @@ char *containsStringNoCase(char *haystack, char *needle);
 char *strstrNoCase(char *haystack, char *needle);
 /* A case-insensitive strstr */
 
-int vasafef(char* buffer, int bufSize, char *format, va_list args);
+int vasafef(char *buffer, int bufSize, char *format, va_list args);
 /* Format string to buffer, vsprintf style, only with buffer overflow
  * checking.  The resulting string is always terminated with zero byte. */
 
-int safef(char* buffer, int bufSize, char *format, ...)
+int safef(char *buffer, int bufSize, char *format, ...)
 /* Format string to buffer, vsprintf style, only with buffer overflow
  * checking.  The resulting string is always terminated with zero byte. */
 #ifdef __GNUC__
-__attribute__((format(printf, 3, 4)))
+    __attribute__((format(printf, 3, 4)))
 #endif
-;
+    ;
 
 void safecpy(char *buf, size_t bufSize, const char *src);
 /* copy a string to a buffer, with bounds checking.*/
@@ -1349,10 +1377,10 @@ void uglyTime(char *label, ...);
 
 /*	In case the development environment does not supply INFINITY	*/
 #if !defined(INFINITY)
-#define INFINITY (1.0/0.0)
+#define INFINITY (1.0 / 0.0)
 #endif
 
-void makeDirs(char* path);
+void makeDirs(char *path);
 /* make a directory, including parent directories */
 
 char *skipNumeric(char *s);
@@ -1362,7 +1390,8 @@ char *skipToNumeric(char *s);
 /* skip up to where numeric digits appear */
 
 char *splitOffNonNumeric(char *s);
-/* Split off non-numeric part, e.g. mm of mm8. Result should be freed when done */
+/* Split off non-numeric part, e.g. mm of mm8. Result should be freed when done
+ */
 
 char *splitOffNumber(char *db);
 /* Split off number part, e.g. 8 of mm8. Result should be freed when done */
@@ -1379,57 +1408,63 @@ void dumpStack(char *format, ...)
  * prints errors to stderr rather than aborts. For debugging purposes
  * only.  */
 #if defined(__GNUC__)
-__attribute__((format(printf, 1, 2)))
+    __attribute__((format(printf, 1, 2)))
 #endif
-;
+    ;
 
-// SETTING_ON set of macros are frequently used comparisons of string values for boolean questions.
+// SETTING_ON set of macros are frequently used comparisons of string values for
+// boolean questions.
 // Notice the subtle difference between NOT_ON and IS_OFF.
 //        NOT_ON could be NULL but IS_OFF must be explicitly set
-#define SETTING_IS_ON(setting) (  setting && (sameWord(setting,"on") || sameWord(setting,"true") \
-                               || sameWord(setting,"yes") || sameWord(setting,"enabled") \
-                               || atoi(setting) != 0) )
-#define SETTING_NOT_ON(setting)   (!SETTING_IS_ON(setting))
-#define SETTING_IS_OFF(setting) (  setting && (sameWord(setting,"off") \
-                                || sameWord(setting,"false") || sameWord(setting,"no") \
-                                || sameWord(setting,"disabled") || sameWord(setting,"0")) )
+#define SETTING_IS_ON(setting)                                                 \
+  (setting && (sameWord(setting, "on") || sameWord(setting, "true") ||         \
+               sameWord(setting, "yes") || sameWord(setting, "enabled") ||     \
+               atoi(setting) != 0))
+#define SETTING_NOT_ON(setting) (!SETTING_IS_ON(setting))
+#define SETTING_IS_OFF(setting)                                                \
+  (setting && (sameWord(setting, "off") || sameWord(setting, "false") ||       \
+               sameWord(setting, "no") || sameWord(setting, "disabled") ||     \
+               sameWord(setting, "0")))
 
 // Standard bit mask macros
-#define BITS_ADD(    flags,bits) ((flags) = ((flags) |  (bits)))
-#define BITS_REMOVE( flags,bits) ((flags) = ((flags) & ~(bits)))
-#define BITS_ARE_ON( flags,bits) (((flags) & (bits)) == (bits))
-#define BITS_ARE_OFF(flags,bits) (((flags) & (bits)) == 0)
+#define BITS_ADD(flags, bits) ((flags) = ((flags) | (bits)))
+#define BITS_REMOVE(flags, bits) ((flags) = ((flags) & ~(bits)))
+#define BITS_ARE_ON(flags, bits) (((flags) & (bits)) == (bits))
+#define BITS_ARE_OFF(flags, bits) (((flags) & (bits)) == 0)
 
-// It is sometimes useful to distinguish between 3 "boolean" states: TRUE, FALSE and UNKNOWN
-enum enumBool
-    {
-    beUnknown=0,              // Not yet set
-    ebYes=1,                  // already set to TRUE
-    ebNo=-1                   // already set to FALSE
-    };
-#define SET_TO_YES(ebool) { (ebool) = ebYes; }
-#define SET_TO_NO(ebool)  { (ebool) = ebNo; }
-#define IS_YES(ebool)     ((ebool) == ebYes)
-#define IS_NO(ebool)      ((ebool) == ebNo)
-#define IS_KNOWN(ebool)   (IS_YES(ebool) || IS_NO(ebool))
-#define IS_TRUE           IS_YES
-#define IS_FALSE          IS_NO
+// It is sometimes useful to distinguish between 3 "boolean" states: TRUE, FALSE
+// and UNKNOWN
+enum enumBool {
+  beUnknown = 0, // Not yet set
+  ebYes = 1,     // already set to TRUE
+  ebNo = -1      // already set to FALSE
+};
+#define SET_TO_YES(ebool)                                                      \
+  { (ebool) = ebYes; }
+#define SET_TO_NO(ebool)                                                       \
+  { (ebool) = ebNo; }
+#define IS_YES(ebool) ((ebool) == ebYes)
+#define IS_NO(ebool) ((ebool) == ebNo)
+#define IS_KNOWN(ebool) (IS_YES(ebool) || IS_NO(ebool))
+#define IS_TRUE IS_YES
+#define IS_FALSE IS_NO
 
-time_t mktimeFromUtc (struct tm *t);
+time_t mktimeFromUtc(struct tm *t);
 /* Return time_t for tm in UTC (GMT)
  * Useful for stuff like converting to time_t the
  * last-modified HTTP response header
  * which is always GMT. Returns -1 on failure of mktime */
 
-
-time_t dateToSeconds(const char *date,const char*format);
+time_t dateToSeconds(const char *date, const char *format);
 // Convert a string date to time_t
 
-boolean dateIsOld(const char *date,const char*format);
+boolean dateIsOld(const char *date, const char *format);
 // Is this string date older than now?
 
-char *dateAddTo(char *date,char *format,int addYears,int addMonths,int addDays);
-/* Add years,months,days to a formatted date and returns the new date as a cloned string
+char *dateAddTo(char *date, char *format, int addYears, int addMonths,
+                int addDays);
+/* Add years,months,days to a formatted date and returns the new date as a
+* cloned string
 *  format is a strptime/strftime format: %F = yyyy-mm-dd */
 
 #endif /* COMMON_H */

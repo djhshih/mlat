@@ -9,7 +9,7 @@ void verbose(int verbosity, char *format, ...)
  * default is stderr) if global verbose variable
  * is set to verbosity or higher. */
 #if defined(__GNUC__)
-__attribute__((format(printf, 2, 3)))
+    __attribute__((format(printf, 2, 3)))
 #endif
     ;
 
@@ -24,7 +24,7 @@ void verboseTime(int verbosity, char *label, ...)
  * initialized with verboseTimeInit, otherwise the elapsed time will be
  * zero. */
 #if defined(__GNUC__)
-__attribute__((format(printf, 2, 3)))
+    __attribute__((format(printf, 2, 3)))
 #endif
     ;
 
@@ -50,4 +50,3 @@ FILE *verboseLogFile();
 /* Get the verbose log file. */
 
 #endif /* VERBOSE_H */
-
