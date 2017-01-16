@@ -224,7 +224,7 @@ static void gfCountSeq(struct genoFind *gf, bioSeq *seq)
   }
 }
 
-#ifdef ENBALE_NIB
+#ifdef ENABLE_NIB
 static int gfCountTilesInNib(struct genoFind *gf, int stepSize, char *fileName)
 /* Count all tiles in nib file.  Returns nib size. */
 {
@@ -413,6 +413,7 @@ static void gfAddLargeSeq(struct genoFind *gf, bioSeq *seq, bits32 offset)
   }
 }
 
+#ifdef ENABLE_NIB
 static int gfAddTilesInNib(struct genoFind *gf, char *fileName, bits32 offset,
                            int stepSize)
 /* Add all tiles in nib file.  Returns size of nib file. */
@@ -438,6 +439,7 @@ static int gfAddTilesInNib(struct genoFind *gf, char *fileName, bits32 offset,
   fclose(f);
   return nibSize;
 }
+#endif
 
 static void gfZeroOverused(struct genoFind *gf)
 /* Zero out counts of overused tiles. */
