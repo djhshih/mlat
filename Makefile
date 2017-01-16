@@ -11,11 +11,11 @@ mlat:
 2bit:
 	$(CC) $(COPTS) $(CFLAGS) 2bit.c lib/core/*.o lib/aux/*.o -o 2bit
 
-mlatc:
-	$(CC) $(COPTS) $(CFLAGS) mlatc.c lib/core/*.o lib/aux/*.o lib/net/*.o -o mlatc
+blatc:
+	$(CC) $(COPTS) $(CFLAGS) blatc.c lib/core/*.o lib/aux/*.o lib/net/*.o -o blatc
 
-mlatd:
-	$(CC) $(COPTS) $(CFLAGS) mlatd.c lib/core/*.o lib/aux/*.o lib/net/*.o -o mlatd
+blatd:
+	$(CC) $(COPTS) $(CFLAGS) blatd.c lib/core/*.o lib/aux/*.o lib/net/*.o -o blatd
 
 clean:
 	rm -f *.{o,gcda,gcno,gcov} lib/{core,aux,net}/*.{o,gcda,gcno,gcov}
