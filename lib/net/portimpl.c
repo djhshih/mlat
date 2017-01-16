@@ -11,6 +11,8 @@
 #include "portimpl.h"
 #include <dirent.h>
 
+#ifdef ENABLE_CUSTOM_SERVERS
+
 static struct webServerSpecific *wss = NULL;
 
 static void setupWss() {
@@ -63,6 +65,34 @@ double machineSpeed()
   setupWss();
   return wss->speed();
 }
+
+#else
+
+static struct webServerSpecific *wss = &wssCommandLine;
+
+void makeTempName(struct tempName *tn, char *base, char *suffix)
+/* Figure out a temp name, and how CGI and HTML will access it. */
+{
+  wss->makeTempName(tn, base, suffix);
+}
+
+char *cgiDir() {
+  return wss->cgiDir();
+}
+
+char *trashDir()
+/* Return the relative path to trash directory for CGI binaries */
+{
+  return wss->trashDir();
+}
+
+double machineSpeed()
+/* Return relative speed of machine.  UCSC CSE dept. 1999 web server is 1.0 */
+{
+  return wss->speed();
+}
+
+#endif
 
 void envUpdate(char *name, char *value)
 /* Update an environment string */
