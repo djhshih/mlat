@@ -17,39 +17,66 @@
 #include "trans3.h"
 #include "gfClientLib.h"
 
-/* Variables shared with other modules.  Set in this module, read only
- * elsewhere. */
-char *databaseName;                /* File name of database. */
-int databaseSeqCount = 0;          /* Number of sequences in database. */
-unsigned long databaseLetters = 0; /* Number of bases in database. */
-
 enum constants {
   qWarnSize = 5000000, /* Warn if more than this many bases in one query. */
 };
 
 /* Variables that can be set from command line. */
-int tileSize = 11;
-int stepSize = 0; /* Default (same as tileSize) */
-int minMatch = 2;
-int minScore = 30;
-int maxGap = 2;
-int repMatch = 1024 * 4;
-boolean oneOff = FALSE;
-boolean noHead = FALSE;
-boolean trimA = FALSE;
-boolean trimHardA = FALSE;
-boolean trimT = FALSE;
-boolean fastMap = FALSE;
-char *makeOoc = NULL;
-char *ooc = NULL;
-enum gfType qType = gftDna;
-enum gfType tType = gftDna;
-char *mask = NULL;
-char *repeats = NULL;
-char *qMask = NULL;
-double minRepDivergence = 15;
-double minIdentity = 90;
-char *outputFormat = "psl";
+struct blatParams {
+  int tileSize;
+  int stepSize;
+  int minMatch;
+  int minScore;
+  int maxGap;
+  int repMatch;
+  boolean oneOff;
+  boolean noHead;
+  boolean trimA;
+  boolean trimHardA;
+  boolean trimT;
+  boolean fastMap;
+  char *makeOoc;
+  char *ooc;
+  enum gfType qType;
+  enum gfType tType;
+  char *mask;
+  char *repeats;
+  char *qMask;
+  double minRepDivergence;
+  double minIdentity;
+  char *outputFormat;
+};
+
+struct blatParams *makeBlatParams()
+{
+  struct blatParams *p;
+  AllocVar(p);
+
+  p->tileSize = 11;
+  p->stepSize = 0;  /* Default (same as tileSize) */
+  p->minMatch = 2;
+  p->minScore = 30;
+  p->maxGap = 2;
+  p->repMatch = 1024 * 4;
+  p->oneOff = FALSE;
+  p->noHead = FALSE;
+  p->trimA = FALSE;
+  p->trimHardA = FALSE;
+  p->trimT = FALSE;
+  p->fastMap = FALSE;
+  p->makeOoc = NULL;
+  p->ooc = NULL;
+  p->qType = gftDna;
+  p->tType = gftDna;
+  p->mask = NULL;
+  p->repeats = NULL;
+  p->qMask = NULL;
+  p->minRepDivergence = 15;
+  p->minIdentity = 90;
+  p->outputFormat = NULL;
+
+  return p;
+}
 
 void usage()
 /* Explain usage and exit. */
@@ -203,25 +230,24 @@ struct optionSpec options[] = {
     {NULL, 0},
 };
 
-/* Stuff to support various output formats. */
-struct gfOutput *gvo; /* Overall output controller */
 
 void searchOneStrand(struct dnaSeq *seq, struct genoFind *gf, FILE *psl,
-                     boolean isRc, struct hash *maskHash, Bits *qMaskBits)
+                     boolean isRc, struct hash *maskHash, Bits *qMaskBits,
+                     struct blatParams *p, struct gfOutput *gvo)
 /* Search for seq in index, align it, and write results to psl. */
 {
-  if (fastMap && (seq->size > MAXSINGLEPIECESIZE))
+  if (p->fastMap && (seq->size > MAXSINGLEPIECESIZE))
     errAbort(
         "Maximum single piece size (%d) exceeded by query %s of size (%d). "
         "Larger pieces will have to be split up until no larger than this "
         "limit "
         "when the -fastMap option is used.",
         MAXSINGLEPIECESIZE, seq->name, seq->size);
-  gfLongDnaInMem(seq, gf, isRc, minScore, qMaskBits, gvo, fastMap,
+  gfLongDnaInMem(seq, gf, isRc, p->minScore, qMaskBits, gvo, p->fastMap,
                  optionExists("fine"));
 }
 
-void searchOneProt(aaSeq *seq, struct genoFind *gf, FILE *f)
+void searchOneProt(aaSeq *seq, struct genoFind *gf, FILE *f, int minScore, struct gfOutput *gvo)
 /* Search for protein seq in index and write results to psl. */
 {
   int hitCount;
@@ -232,41 +258,42 @@ void searchOneProt(aaSeq *seq, struct genoFind *gf, FILE *f)
   lmCleanup(&lm);
 }
 
-void searchOne(bioSeq *seq, struct genoFind *gf, FILE *f, boolean isProt,
-               struct hash *maskHash, Bits *qMaskBits)
+void searchOne(bioSeq *seq, struct genoFind *gf, FILE *f,
+               struct hash *maskHash, Bits *qMaskBits, struct blatParams* p,
+               struct gfOutput *gvo)
 /* Search for seq on either strand in index. */
 {
-  if (isProt) {
-    searchOneProt(seq, gf, f);
+  if (p->tType == gftProt) {
+    searchOneProt(seq, gf, f, p->minScore, gvo);
   } else {
     gvo->maskHash = maskHash;
-    searchOneStrand(seq, gf, f, FALSE, maskHash, qMaskBits);
+    searchOneStrand(seq, gf, f, FALSE, maskHash, qMaskBits, p, gvo);
     reverseComplement(seq->dna, seq->size);
-    searchOneStrand(seq, gf, f, TRUE, maskHash, qMaskBits);
+    searchOneStrand(seq, gf, f, TRUE, maskHash, qMaskBits, p, gvo);
     reverseComplement(seq->dna, seq->size);
   }
   gfOutputQuery(gvo, f);
 }
 
-void trimSeq(struct dnaSeq *seq, struct dnaSeq *trimmed)
+void trimSeq(struct dnaSeq *seq, struct dnaSeq *trimmed, struct blatParams* p)
 /* Copy seq to trimmed (shallow copy) and optionally trim
  * off polyA tail or polyT head. */
 {
   DNA *dna = seq->dna;
   int size = seq->size;
   *trimmed = *seq;
-  if (trimT)
+  if (p->trimT)
     maskHeadPolyT(dna, size);
-  if (trimA || trimHardA) {
+  if (p->trimA || p->trimHardA) {
     int trimSize = maskTailPolyA(dna, size);
-    if (trimHardA) {
+    if (p->trimHardA) {
       trimmed->size -= trimSize;
       dna[size - trimSize] = 0;
     }
   }
 }
 
-Bits *maskQuerySeq(struct dnaSeq *seq, boolean isProt, boolean maskQuery,
+Bits *maskQuerySeq(struct dnaSeq *seq, boolean tIsProt, boolean maskQuery,
                    boolean lcMask)
 /* Massage query sequence a bit, converting it to correct
  * case (upper for protein/lower for DNA) and optionally
@@ -274,7 +301,7 @@ Bits *maskQuerySeq(struct dnaSeq *seq, boolean isProt, boolean maskQuery,
 {
   Bits *qMaskBits = NULL;
   verbose(2, "%s\n", seq->name);
-  if (isProt)
+  if (tIsProt)
     faToProtein(seq->dna, seq->size);
   else {
     if (maskQuery) {
@@ -291,28 +318,30 @@ Bits *maskQuerySeq(struct dnaSeq *seq, boolean isProt, boolean maskQuery,
   return qMaskBits;
 }
 
-void searchOneMaskTrim(struct dnaSeq *seq, boolean isProt, struct genoFind *gf,
-                       FILE *outFile, struct hash *maskHash,
+void searchOneMaskTrim(struct dnaSeq *seq, struct genoFind *gf, FILE *outFile,
+                       struct hash *maskHash, struct blatParams* p,
+                       struct gfOutput *gvo,
                        long long *retTotalSize, int *retCount)
 /* Search a single sequence against a single genoFind index. */
 {
-  boolean maskQuery = (qMask != NULL);
-  boolean lcMask = (qMask != NULL && sameWord(qMask, "lower"));
-  Bits *qMaskBits = maskQuerySeq(seq, isProt, maskQuery, lcMask);
+	boolean tIsProt = (p->tType == gftProt);
+  boolean maskQuery = (p->qMask != NULL);
+  boolean lcMask = (p->qMask != NULL && sameWord(p->qMask, "lower"));
+  Bits *qMaskBits = maskQuerySeq(seq, tIsProt, maskQuery, lcMask);
   struct dnaSeq trimmedSeq;
   ZeroVar(&trimmedSeq);
-  trimSeq(seq, &trimmedSeq);
-  if (qType == gftRna || qType == gftRnaX)
+  trimSeq(seq, &trimmedSeq, p);
+  if (p->qType == gftRna || p->qType == gftRnaX)
     memSwapChar(trimmedSeq.dna, trimmedSeq.size, 'u', 't');
-  searchOne(&trimmedSeq, gf, outFile, isProt, maskHash, qMaskBits);
+  searchOne(&trimmedSeq, gf, outFile, maskHash, qMaskBits, p, gvo);
   *retTotalSize += seq->size;
   *retCount += 1;
   bitFree(&qMaskBits);
 }
 
 void searchOneIndex(int fileCount, char *files[], struct genoFind *gf,
-                    char *outName, boolean isProt, struct hash *maskHash,
-                    FILE *outFile, boolean showStatus)
+                    char *outName, struct hash *maskHash, FILE *outFile, 
+                    boolean showStatus, struct blatParams* p, struct gfOutput *gvo)
 /* Search all sequences in all files against single genoFind index. */
 {
   int i;
@@ -326,7 +355,7 @@ void searchOneIndex(int fileCount, char *files[], struct genoFind *gf,
     if (twoBitIsSpec(fileName)) {
       struct twoBitSpec *tbs = twoBitSpecNew(fileName);
       struct twoBitFile *tbf = twoBitOpen(tbs->fileName);
-      if (isProt)
+      if (p->tType == gftProt)
         errAbort("%s is a two bit file, which doesn't work for proteins.",
                  fileName);
       if (tbs->seqs != NULL) {
@@ -334,16 +363,16 @@ void searchOneIndex(int fileCount, char *files[], struct genoFind *gf,
         for (ss = tbs->seqs; ss != NULL; ss = ss->next) {
           struct dnaSeq *seq =
               twoBitReadSeqFrag(tbf, ss->name, ss->start, ss->end);
-          searchOneMaskTrim(seq, isProt, gf, outFile, maskHash, &totalSize,
-                            &count);
+          searchOneMaskTrim(seq, gf, outFile, maskHash, p, gvo,
+                            &totalSize, &count);
           dnaSeqFree(&seq);
         }
       } else {
         struct twoBitIndex *index = NULL;
         for (index = tbf->indexList; index != NULL; index = index->next) {
           struct dnaSeq *seq = twoBitReadSeqFrag(tbf, index->name, 0, 0);
-          searchOneMaskTrim(seq, isProt, gf, outFile, maskHash, &totalSize,
-                            &count);
+          searchOneMaskTrim(seq, gf, outFile, maskHash, p, gvo,
+                            &totalSize, &count);
           dnaSeqFree(&seq);
         }
       }
@@ -352,8 +381,8 @@ void searchOneIndex(int fileCount, char *files[], struct genoFind *gf,
       static struct dnaSeq seq;
       struct lineFile *lf = lineFileOpen(fileName, TRUE);
       while (faMixedSpeedReadNext(lf, &seq.dna, &seq.size, &seq.name)) {
-        searchOneMaskTrim(&seq, isProt, gf, outFile, maskHash, &totalSize,
-                          &count);
+        searchOneMaskTrim(&seq, gf, outFile, maskHash, p, gvo,
+                          &totalSize, &count);
       }
       lineFileClose(&lf);
     }
@@ -389,7 +418,7 @@ struct trans3 *seqListToTrans3List(struct dnaSeq *seqList, aaSeq *transLists[3],
 }
 
 void tripleSearch(aaSeq *qSeq, struct genoFind *gfs[3], struct hash *t3Hash,
-                  boolean dbIsRc, FILE *f)
+                  boolean dbIsRc, FILE *f, int minScore, struct gfOutput *gvo)
 /* Look for qSeq in indices for three frames.  Then do rest of alignment. */
 {
   gvo->reportTargetStrand = TRUE;
@@ -398,7 +427,7 @@ void tripleSearch(aaSeq *qSeq, struct genoFind *gfs[3], struct hash *t3Hash,
 
 void transTripleSearch(struct dnaSeq *qSeq, struct genoFind *gfs[3],
                        struct hash *t3Hash, boolean dbIsRc, boolean qIsDna,
-                       FILE *f)
+                       FILE *f, int minScore, struct gfOutput *gvo)
 /* Translate qSeq three ways and look for each in three frames of index. */
 {
   int qIsRc;
@@ -413,7 +442,7 @@ void transTripleSearch(struct dnaSeq *qSeq, struct genoFind *gfs[3],
 
 void bigBlat(struct dnaSeq *untransList, int queryCount, char *queryFiles[],
              char *outFile, boolean transQuery, boolean qIsDna, FILE *out,
-             boolean showStatus)
+             boolean showStatus, struct blatParams *p, struct gfOutput *gvo)
 /* Run query against translated DNA database (3 frames on each strand). */
 {
   int frame, i;
@@ -438,11 +467,11 @@ void bigBlat(struct dnaSeq *untransList, int queryCount, char *queryFiles[],
    * upper case, generally, nucleotides in lower case.  But there
    * may be repeatMasking based on case as well. */
   if (transQuery) {
-    if (qMask == NULL)
+    if (p->qMask == NULL)
       forceLower = TRUE;
     else {
       maskUpper = TRUE;
-      toggle = !sameString(qMask, "upper");
+      toggle = !sameString(p->qMask, "upper");
     }
   } else {
     forceUpper = TRUE;
@@ -460,8 +489,8 @@ void bigBlat(struct dnaSeq *untransList, int queryCount, char *queryFiles[],
 
     t3List = seqListToTrans3List(untransList, dbSeqLists, &t3Hash);
     for (frame = 0; frame < 3; ++frame) {
-      gfs[frame] = gfIndexSeq(dbSeqLists[frame], minMatch, maxGap, tileSize,
-                              repMatch, ooc, TRUE, oneOff, FALSE, stepSize);
+      gfs[frame] = gfIndexSeq(dbSeqLists[frame], p->minMatch, p->maxGap, p->tileSize,
+                              p->repMatch, p->ooc, TRUE, p->oneOff, FALSE, p->stepSize);
     }
 
     for (i = 0; i < queryCount; ++i) {
@@ -483,11 +512,11 @@ void bigBlat(struct dnaSeq *untransList, int queryCount, char *queryFiles[],
           warn("Query sequence %s has size %d, it might take a while.",
                qSeq.name, qSeq.size);
         }
-        trimSeq(&qSeq, &trimmedSeq);
+        trimSeq(&qSeq, &trimmedSeq, p);
         if (transQuery)
-          transTripleSearch(&trimmedSeq, gfs, t3Hash, isRc, qIsDna, out);
+          transTripleSearch(&trimmedSeq, gfs, t3Hash, isRc, qIsDna, out, p->minScore, gvo);
         else
-          tripleSearch(&trimmedSeq, gfs, t3Hash, isRc, out);
+          tripleSearch(&trimmedSeq, gfs, t3Hash, isRc, out, p->minScore, gvo);
         gfOutputQuery(gvo, out);
       }
       lineFileClose(&lf);
@@ -507,45 +536,48 @@ void bigBlat(struct dnaSeq *untransList, int queryCount, char *queryFiles[],
   carefulClose(&out);
 }
 
-void blat(char *dbFile, char *queryFile, char *outName)
+void blat(char *dbFile, char *queryFile, char *outName, struct blatParams *p)
 /* blat - Standalone BLAT fast sequence search command line tool. */
 {
   char **dbFiles, **queryFiles;
   int dbCount, queryCount;
   struct dnaSeq *dbSeqList, *seq;
   struct genoFind *gf;
-  boolean tIsProt = (tType == gftProt);
-  boolean qIsProt = (qType == gftProt);
+  boolean tIsProt = (p->tType == gftProt);
+  boolean qIsProt = (p->qType == gftProt);
   boolean bothSimpleNuc =
-      (tType == gftDna && (qType == gftDna || qType == gftRna));
+      (p->tType == gftDna && (p->qType == gftDna || p->qType == gftRna));
   boolean bothSimpleProt = (tIsProt && qIsProt);
   FILE *f = mustOpen(outName, "w");
   boolean showStatus = (f != stdout);
+  int databaseSeqCount = 0;          /* Number of sequences in database. */
+  unsigned long databaseLetters = 0; /* Number of bases in database. */
+	/* Stuff to support various output formats. */
+	struct gfOutput *gvo; /* Overall output controller */
 
-  databaseName = dbFile;
   gfClientFileArray(dbFile, &dbFiles, &dbCount);
-  if (makeOoc != NULL) {
-    gfMakeOoc(makeOoc, dbFiles, dbCount, tileSize, repMatch, tType);
+  if (p->makeOoc != NULL) {
+    gfMakeOoc(p->makeOoc, dbFiles, dbCount, p->tileSize, p->repMatch, p->tType);
     if (showStatus)
-      printf("Done making %s\n", makeOoc);
+      printf("Done making %s\n", p->makeOoc);
     exit(0);
   }
   gfClientFileArray(queryFile, &queryFiles, &queryCount);
-  dbSeqList = gfClientSeqList(dbCount, dbFiles, tIsProt, tType == gftDnaX,
-                              repeats, minRepDivergence, showStatus);
+  dbSeqList = gfClientSeqList(dbCount, dbFiles, tIsProt, p->tType == gftDnaX,
+                              p->repeats, p->minRepDivergence, showStatus);
   databaseSeqCount = slCount(dbSeqList);
   for (seq = dbSeqList; seq != NULL; seq = seq->next)
     databaseLetters += seq->size;
 
-  gvo = gfOutputAny(outputFormat, minIdentity * 10, qIsProt, tIsProt, noHead,
-                    databaseName, databaseSeqCount, databaseLetters,
-                    minIdentity, f);
+  gvo = gfOutputAny(p->outputFormat, p->minIdentity * 10, qIsProt, tIsProt, p->noHead,
+                    dbFile, databaseSeqCount, databaseLetters,
+                    p->minIdentity, f);
 
   if (bothSimpleNuc || bothSimpleProt) {
     struct hash *maskHash = NULL;
 
     /* Save away masking info for output. */
-    if (repeats != NULL) {
+    if (p->repeats != NULL) {
       maskHash = newHash(0);
       for (seq = dbSeqList; seq != NULL; seq = seq->next) {
         Bits *maskedBits = maskFromUpperCaseSeq(seq);
@@ -557,22 +589,22 @@ void blat(char *dbFile, char *queryFile, char *outName)
      * to see unmasked sequence, otherwise we want it to see masked.  However
      * after indexing we always want it unmasked, because things are always
      * unmasked for the extension phase. */
-    if (mask == NULL && !bothSimpleProt)
+    if (p->mask == NULL && !bothSimpleProt)
       gfClientUnmask(dbSeqList);
-    gf = gfIndexSeq(dbSeqList, minMatch, maxGap, tileSize, repMatch, ooc,
-                    tIsProt, oneOff, FALSE, stepSize);
-    if (mask != NULL)
+    gf = gfIndexSeq(dbSeqList, p->minMatch, p->maxGap, p->tileSize, p->repMatch, p->ooc,
+                    tIsProt, p->oneOff, FALSE, p->stepSize);
+    if (p->mask != NULL)
       gfClientUnmask(dbSeqList);
 
-    searchOneIndex(queryCount, queryFiles, gf, outName, tIsProt, maskHash, f,
-                   showStatus);
+    searchOneIndex(queryCount, queryFiles, gf, outName, 
+                   maskHash, f, showStatus, p, gvo);
     freeHash(&maskHash);
-  } else if (tType == gftDnaX && qType == gftProt) {
+  } else if (p->tType == gftDnaX && p->qType == gftProt) {
     bigBlat(dbSeqList, queryCount, queryFiles, outName, FALSE, TRUE, f,
-            showStatus);
-  } else if (tType == gftDnaX && (qType == gftDnaX || qType == gftRnaX)) {
-    bigBlat(dbSeqList, queryCount, queryFiles, outName, TRUE, qType == gftDnaX,
-            f, showStatus);
+            showStatus, p, gvo);
+  } else if (p->tType == gftDnaX && (p->qType == gftDnaX || p->qType == gftRnaX)) {
+    bigBlat(dbSeqList, queryCount, queryFiles, outName, TRUE, p->qType == gftDnaX,
+            f, showStatus, p, gvo);
   } else {
     errAbort("Unrecognized combination of target and query types\n");
   }
@@ -583,6 +615,7 @@ int main(int argc, char *argv[])
 /* Process command line into global variables and call blat. */
 {
   boolean tIsProtLike, qIsProtLike;
+  struct blatParams *p = makeBlatParams();
 
 #ifdef DEBUG
   {
@@ -603,13 +636,13 @@ int main(int argc, char *argv[])
   /* Get database and query sequence types and make sure they are
    * legal and compatable. */
   if (optionExists("prot"))
-    qType = tType = gftProt;
+    p->qType = p->tType = gftProt;
   if (optionExists("t"))
-    tType = gfTypeFromName(optionVal("t", NULL));
-  trimA = optionExists("trimA") || optionExists("trima");
-  trimT = optionExists("trimT") || optionExists("trimt");
-  trimHardA = optionExists("trimHardA");
-  switch (tType) {
+    p->tType = gfTypeFromName(optionVal("t", NULL));
+  p->trimA = optionExists("trimA") || optionExists("trima");
+  p->trimT = optionExists("trimT") || optionExists("trimt");
+  p->trimHardA = optionExists("trimHardA");
+  switch (p->tType) {
   case gftProt:
   case gftDnaX:
     tIsProtLike = TRUE;
@@ -623,16 +656,16 @@ int main(int argc, char *argv[])
     break;
   }
   if (optionExists("q"))
-    qType = gfTypeFromName(optionVal("q", NULL));
-  if (qType == gftRnaX || qType == gftRna)
-    trimA = TRUE;
+    p->qType = gfTypeFromName(optionVal("q", NULL));
+  if (p->qType == gftRnaX || p->qType == gftRna)
+    p->trimA = TRUE;
   if (optionExists("noTrimA"))
-    trimA = FALSE;
-  switch (qType) {
+    p->trimA = FALSE;
+  switch (p->qType) {
   case gftProt:
   case gftDnaX:
   case gftRnaX:
-    minIdentity = 25;
+    p->minIdentity = 25;
     qIsProtLike = TRUE;
     break;
   default:
@@ -644,54 +677,57 @@ int main(int argc, char *argv[])
 
   /* Set default tile size for protein-based comparisons. */
   if (tIsProtLike) {
-    tileSize = 5;
-    minMatch = 1;
-    oneOff = FALSE;
-    maxGap = 0;
+    p->tileSize = 5;
+    p->minMatch = 1;
+    p->oneOff = FALSE;
+    p->maxGap = 0;
   }
 
   /* Get tile size and related parameters from user and make sure
    * they are within range. */
-  tileSize = optionInt("tileSize", tileSize);
-  stepSize = optionInt("stepSize", tileSize);
-  minMatch = optionInt("minMatch", minMatch);
-  oneOff = optionExists("oneOff");
-  fastMap = optionExists("fastMap");
-  minScore = optionInt("minScore", minScore);
-  maxGap = optionInt("maxGap", maxGap);
-  minRepDivergence = optionFloat("minRepDivergence", minRepDivergence);
-  minIdentity = optionFloat("minIdentity", minIdentity);
-  gfCheckTileSize(tileSize, tIsProtLike);
-  if (minMatch < 0)
+  p->tileSize = optionInt("tileSize", p->tileSize);
+  p->stepSize = optionInt("stepSize", p->tileSize);
+  p->minMatch = optionInt("minMatch", p->minMatch);
+  p->oneOff = optionExists("oneOff");
+  p->fastMap = optionExists("fastMap");
+  p->minScore = optionInt("minScore", p->minScore);
+  p->maxGap = optionInt("maxGap", p->maxGap);
+  p->minRepDivergence = optionFloat("minRepDivergence", p->minRepDivergence);
+  p->minIdentity = optionFloat("minIdentity", p->minIdentity);
+  gfCheckTileSize(p->tileSize, tIsProtLike);
+  if (p->minMatch < 0)
     errAbort("minMatch must be at least 1");
-  if (maxGap > 100)
+  if (p->maxGap > 100)
     errAbort("maxGap must be less than 100");
 
   /* Set repMatch parameter from command line, or
    * to reasonable value that depends on tile size. */
   if (optionExists("repMatch"))
-    repMatch = optionInt("repMatch", repMatch);
+    p->repMatch = optionInt("repMatch", p->repMatch);
   else
-    repMatch = gfDefaultRepMatch(tileSize, stepSize, tIsProtLike);
+    p->repMatch = gfDefaultRepMatch(p->tileSize, p->stepSize, tIsProtLike);
 
   /* Gather last few command line options. */
-  noHead = optionExists("noHead");
-  ooc = optionVal("ooc", NULL);
-  makeOoc = optionVal("makeOoc", NULL);
-  mask = optionVal("mask", NULL);
-  qMask = optionVal("qMask", NULL);
-  repeats = optionVal("repeats", NULL);
-  if (repeats != NULL && mask != NULL && differentString(repeats, mask))
+  p->noHead = optionExists("noHead");
+  p->ooc = optionVal("ooc", NULL);
+  p->makeOoc = optionVal("makeOoc", NULL);
+  p->mask = optionVal("mask", NULL);
+  p->qMask = optionVal("qMask", NULL);
+  p->repeats = optionVal("repeats", NULL);
+  if (p->repeats != NULL && p->mask != NULL && differentString(p->repeats, p->mask))
     errAbort("The -mask and -repeat settings disagree.  "
              "You can just omit -repeat if -mask is on");
-  if (mask != NULL) /* Mask setting will also set repeats. */
-    repeats = mask;
-  outputFormat = optionVal("out", outputFormat);
+  if (p->mask != NULL) /* Mask setting will also set repeats. */
+    p->repeats = p->mask;
+  p->outputFormat = optionVal("out", p->outputFormat);
   /* set global for fuzzy find functions */
   setFfIntronMax(optionInt("maxIntron", ffIntronMaxDefault));
   setFfExtendThroughN(optionExists("extendThroughN"));
 
   /* Call routine that does the work. */
-  blat(argv[1], argv[2], argv[3]);
+  blat(argv[1], argv[2], argv[3], p);
+
+	freez(&p);
+
   return 0;
 }
