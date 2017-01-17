@@ -50,4 +50,8 @@ void memTrackerStart();
 void memTrackerEnd();
 /* Free any remaining blocks and pop tracker memory handler. */
 
+void freeArrays(void **pt, size_t size);
+/* Free array of arrays. */
+
+
 #endif /* MEMALLOC_H */
