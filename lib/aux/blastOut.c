@@ -513,8 +513,8 @@ static void ncbiBlastOut(struct axtBundle *abList, int queryIx, boolean isProt,
       matches = countMatches(axt->qSym, axt->tSym, axt->symCount);
       identity = round(100.0 * matches / axt->symCount);
       /* skip output if minIdentity not reached */
-      if (identity < minIdentity)
-        continue;
+			/* this filter is specific to blast output and different than the minScore filter */
+      if (identity < minIdentity) continue;
 
       bit = blastzScoreToNcbiBits(axt->score);
       expectation = blastzScoreToNcbiExpectation(axt->score);
@@ -544,8 +544,8 @@ static void ncbiBlastOut(struct axtBundle *abList, int queryIx, boolean isProt,
       identity = round(100.0 * matches / axt->symCount);
 
       /* skip output if minIdentity not reached */
-      if (identity < minIdentity)
-        continue;
+			/* this filter is specific to blast output and different than the minScore filter */
+      if (identity < minIdentity) continue;
 
       /* print target sequence name and length only once */
       if (!sameWord(oldName, target->name)) {
