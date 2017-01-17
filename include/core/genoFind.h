@@ -134,7 +134,7 @@ struct gfOutput
   void (*out)(char *chromName, int chromSize, int chromOffset,
               struct ffAli *ali, bioSeq *tSeq, struct hash *t3Hash,
               bioSeq *qSeq, boolean qIsRc, boolean tIsRc,
-              enum ffStringency stringency, int minMatch, struct gfOutput *out);
+              enum ffStringency stringency, int score, struct gfOutput *out);
   /* This is the type of a client provided function to save an alignment.
    * The parameters are:
    *     chromName - name of target (aka genomic or database) sequence.
@@ -153,7 +153,7 @@ struct gfOutput
    *     qSeq - query sequence (this isn't segmented at all).
    *     isRc - True if query is reverse complemented.
    *     stringency - ffCdna, etc.  I'm hoping to move this elsewhere.
-   *     minMatch - minimum score to output.  Also should be moved elsewhere.
+   *     score - alignment score; used to be minMatch, minimum score to output: now moved upstream
    *     outputData - custom data for specific output function.
    * The interface is a bit complex - partly from the demands of translated
    * output, and partly from trying not to have the entire target sequence in
