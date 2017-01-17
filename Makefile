@@ -2,11 +2,17 @@ ROOT=.
 
 include $(ROOT)/common.mk
 
-bin:
-	mkdir bin
+all: mlat
+	
 
-mlat: 
-	$(CBUILD) mlat.c lib/core/*.o lib/aux/*.o -o mlat
+lib/libmlat.a:
+	cd lib && make libmlat.a
+
+mlat: lib/libmlat.a
+	$(CBUILD) mlat.c lib/libmlat.a -o mlat
+
+mlat-shared:
+	$(CBUILD) mlat.c -Llib -lmlat -o mlat-shared
 
 2bit:
 	$(CBUILD) 2bit.c lib/core/*.o lib/aux/*.o -o 2bit
