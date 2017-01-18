@@ -76,9 +76,7 @@ void makeTempName(struct tempName *tn, char *base, char *suffix)
   wss->makeTempName(tn, base, suffix);
 }
 
-char *cgiDir() {
-  return wss->cgiDir();
-}
+char *cgiDir() { return wss->cgiDir(); }
 
 char *trashDir()
 /* Return the relative path to trash directory for CGI binaries */

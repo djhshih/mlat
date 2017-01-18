@@ -23,7 +23,6 @@
 #include "net.h"
 #endif
 
-
 static int ssAliCount = 16; /* Number of alignments returned by ssStitch. */
 
 #ifdef DEBUG

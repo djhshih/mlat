@@ -1,13 +1,12 @@
 /* Copyright 2001-2004 Jim Kent.  All rights reserved. */
 #include "mlat.h"
 
-struct mlatParams *makeMlatParams()
-{
+struct mlatParams *makeMlatParams() {
   struct mlatParams *p;
   AllocVar(p);
 
   p->tileSize = 11;
-  p->stepSize = 0;  /* Default (same as tileSize) */
+  p->stepSize = 0; /* Default (same as tileSize) */
   p->minMatch = 2;
   p->minScore = 30;
   p->maxGap = 2;
@@ -48,7 +47,8 @@ void searchOneStrand(struct dnaSeq *seq, struct genoFind *gf, FILE *psl,
                  optionExists("fine"));
 }
 
-void searchOneProt(aaSeq *seq, struct genoFind *gf, FILE *f, int minScore, struct gfOutput *gvo)
+void searchOneProt(aaSeq *seq, struct genoFind *gf, FILE *f, int minScore,
+                   struct gfOutput *gvo)
 /* Search for protein seq in index and write results to psl. */
 {
   int hitCount;
@@ -59,9 +59,8 @@ void searchOneProt(aaSeq *seq, struct genoFind *gf, FILE *f, int minScore, struc
   lmCleanup(&lm);
 }
 
-void searchOne(bioSeq *seq, struct genoFind *gf, FILE *f,
-               struct hash *maskHash, Bits *qMaskBits, struct mlatParams* p,
-               struct gfOutput *gvo)
+void searchOne(bioSeq *seq, struct genoFind *gf, FILE *f, struct hash *maskHash,
+               Bits *qMaskBits, struct mlatParams *p, struct gfOutput *gvo)
 /* Search for seq on either strand in index. */
 {
   if (p->tType == gftProt) {
@@ -76,7 +75,7 @@ void searchOne(bioSeq *seq, struct genoFind *gf, FILE *f,
   gfOutputQuery(gvo, f);
 }
 
-void trimSeq(struct dnaSeq *seq, struct dnaSeq *trimmed, struct mlatParams* p)
+void trimSeq(struct dnaSeq *seq, struct dnaSeq *trimmed, struct mlatParams *p)
 /* Copy seq to trimmed (shallow copy) and optionally trim
  * off polyA tail or polyT head. */
 {
@@ -120,12 +119,12 @@ Bits *maskQuerySeq(struct dnaSeq *seq, boolean tIsProt, boolean maskQuery,
 }
 
 void searchOneMaskTrim(struct dnaSeq *seq, struct genoFind *gf, FILE *outFile,
-                       struct hash *maskHash, struct mlatParams* p,
-                       struct gfOutput *gvo,
-                       long long *retTotalSize, int *retCount)
+                       struct hash *maskHash, struct mlatParams *p,
+                       struct gfOutput *gvo, long long *retTotalSize,
+                       int *retCount)
 /* Search a single sequence against a single genoFind index. */
 {
-	boolean tIsProt = (p->tType == gftProt);
+  boolean tIsProt = (p->tType == gftProt);
   boolean maskQuery = (p->qMask != NULL);
   boolean lcMask = (p->qMask != NULL && sameWord(p->qMask, "lower"));
   Bits *qMaskBits = maskQuerySeq(seq, tIsProt, maskQuery, lcMask);
@@ -141,8 +140,9 @@ void searchOneMaskTrim(struct dnaSeq *seq, struct genoFind *gf, FILE *outFile,
 }
 
 void searchOneIndex(int fileCount, char *files[], struct genoFind *gf,
-                    char *outName, struct hash *maskHash, FILE *outFile, 
-                    boolean showStatus, struct mlatParams* p, struct gfOutput *gvo)
+                    char *outName, struct hash *maskHash, FILE *outFile,
+                    boolean showStatus, struct mlatParams *p,
+                    struct gfOutput *gvo)
 /* Search all query sequences in all files against a single genoFind index. */
 {
   int i;
@@ -164,16 +164,16 @@ void searchOneIndex(int fileCount, char *files[], struct genoFind *gf,
         for (ss = tbs->seqs; ss != NULL; ss = ss->next) {
           struct dnaSeq *seq =
               twoBitReadSeqFrag(tbf, ss->name, ss->start, ss->end);
-          searchOneMaskTrim(seq, gf, outFile, maskHash, p, gvo,
-                            &totalSize, &count);
+          searchOneMaskTrim(seq, gf, outFile, maskHash, p, gvo, &totalSize,
+                            &count);
           dnaSeqFree(&seq);
         }
       } else {
         struct twoBitIndex *index = NULL;
         for (index = tbf->indexList; index != NULL; index = index->next) {
           struct dnaSeq *seq = twoBitReadSeqFrag(tbf, index->name, 0, 0);
-          searchOneMaskTrim(seq, gf, outFile, maskHash, p, gvo,
-                            &totalSize, &count);
+          searchOneMaskTrim(seq, gf, outFile, maskHash, p, gvo, &totalSize,
+                            &count);
           dnaSeqFree(&seq);
         }
       }
@@ -182,8 +182,8 @@ void searchOneIndex(int fileCount, char *files[], struct genoFind *gf,
       static struct dnaSeq seq;
       struct lineFile *lf = lineFileOpen(fileName, TRUE);
       while (faMixedSpeedReadNext(lf, &seq.dna, &seq.size, &seq.name)) {
-        searchOneMaskTrim(&seq, gf, outFile, maskHash, p, gvo,
-                          &totalSize, &count);
+        searchOneMaskTrim(&seq, gf, outFile, maskHash, p, gvo, &totalSize,
+                          &count);
       }
       lineFileClose(&lf);
     }
@@ -290,8 +290,9 @@ void bigMlat(struct dnaSeq *untransList, int queryCount, char *queryFiles[],
 
     t3List = seqListToTrans3List(untransList, dbSeqLists, &t3Hash);
     for (frame = 0; frame < 3; ++frame) {
-      gfs[frame] = gfIndexSeq(dbSeqLists[frame], p->minMatch, p->maxGap, p->tileSize,
-                              p->repMatch, p->ooc, TRUE, p->oneOff, FALSE, p->stepSize);
+      gfs[frame] =
+          gfIndexSeq(dbSeqLists[frame], p->minMatch, p->maxGap, p->tileSize,
+                     p->repMatch, p->ooc, TRUE, p->oneOff, FALSE, p->stepSize);
     }
 
     for (i = 0; i < queryCount; ++i) {
@@ -315,7 +316,8 @@ void bigMlat(struct dnaSeq *untransList, int queryCount, char *queryFiles[],
         }
         trimSeq(&qSeq, &trimmedSeq, p);
         if (transQuery)
-          transTripleSearch(&trimmedSeq, gfs, t3Hash, isRc, qIsDna, out, p->minScore, gvo);
+          transTripleSearch(&trimmedSeq, gfs, t3Hash, isRc, qIsDna, out,
+                            p->minScore, gvo);
         else
           tripleSearch(&trimmedSeq, gfs, t3Hash, isRc, out, p->minScore, gvo);
         gfOutputQuery(gvo, out);
@@ -353,8 +355,8 @@ void mlat(char *dbFile, char *queryFile, char *outName, struct mlatParams *p)
   boolean showStatus = (f != stdout);
   int databaseSeqCount = 0;          /* Number of sequences in database. */
   unsigned long databaseLetters = 0; /* Number of bases in database. */
-	/* Stuff to support various output formats. */
-	struct gfOutput *gvo; /* Overall output controller */
+  /* Stuff to support various output formats. */
+  struct gfOutput *gvo; /* Overall output controller */
 
   gfClientFileArray(dbFile, &dbFiles, &dbCount);
   if (p->makeOoc != NULL) {
@@ -370,8 +372,8 @@ void mlat(char *dbFile, char *queryFile, char *outName, struct mlatParams *p)
   for (seq = dbSeqList; seq != NULL; seq = seq->next)
     databaseLetters += seq->size;
 
-  gvo = gfOutputAny(p->outputFormat, p->minIdentity * 10, qIsProt, tIsProt, p->noHead,
-                    dbFile, databaseSeqCount, databaseLetters,
+  gvo = gfOutputAny(p->outputFormat, p->minIdentity * 10, qIsProt, tIsProt,
+                    p->noHead, dbFile, databaseSeqCount, databaseLetters,
                     p->minIdentity, f);
 
   if (bothSimpleNuc || bothSimpleProt) {
@@ -389,35 +391,35 @@ void mlat(char *dbFile, char *queryFile, char *outName, struct mlatParams *p)
      * to see unmasked sequence, otherwise we want it to see masked.  However
      * after indexing we always want it unmasked, because things are always
      * unmasked for the extension phase. */
-		/* Is `!bothSimpleProt` correct? It does not seem to match the intended
-		 * behaviour described in usage: -mask. */
+    /* Is `!bothSimpleProt` correct? It does not seem to match the intended
+     * behaviour described in usage: -mask. */
     if (p->mask == NULL && !bothSimpleProt)
       gfClientUnmask(dbSeqList);
-    gf = gfIndexSeq(dbSeqList, p->minMatch, p->maxGap, p->tileSize, p->repMatch, p->ooc,
-                    tIsProt, p->oneOff, FALSE, p->stepSize);
+    gf = gfIndexSeq(dbSeqList, p->minMatch, p->maxGap, p->tileSize, p->repMatch,
+                    p->ooc, tIsProt, p->oneOff, FALSE, p->stepSize);
     if (p->mask != NULL)
       gfClientUnmask(dbSeqList);
 
-    searchOneIndex(queryCount, queryFiles, gf, outName, 
-                   maskHash, f, showStatus, p, gvo);
+    searchOneIndex(queryCount, queryFiles, gf, outName, maskHash, f, showStatus,
+                   p, gvo);
 
     freeHash(&maskHash);
-		genoFindFree(&gf);
+    genoFindFree(&gf);
 
-		// FIXME for some reason, bigMlat also frees the arrays below somehow?
-		freeArrays((void**)dbFiles, dbCount);
-		freeArrays((void**)queryFiles, queryCount);
+    // FIXME for some reason, bigMlat also frees the arrays below somehow?
+    freeArrays((void **)dbFiles, dbCount);
+    freeArrays((void **)queryFiles, queryCount);
 
   } else if (p->tType == gftDnaX && p->qType == gftProt) {
     bigMlat(dbSeqList, queryCount, queryFiles, outName, FALSE, TRUE, f,
             showStatus, p, gvo);
-  } else if (p->tType == gftDnaX && (p->qType == gftDnaX || p->qType == gftRnaX)) {
-    bigMlat(dbSeqList, queryCount, queryFiles, outName, TRUE, p->qType == gftDnaX,
-            f, showStatus, p, gvo);
+  } else if (p->tType == gftDnaX &&
+             (p->qType == gftDnaX || p->qType == gftRnaX)) {
+    bigMlat(dbSeqList, queryCount, queryFiles, outName, TRUE,
+            p->qType == gftDnaX, f, showStatus, p, gvo);
   } else {
     errAbort("Unrecognized combination of target and query types\n");
   }
 
   freeDnaSeqList(&dbSeqList);
 }
-

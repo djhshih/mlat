@@ -243,7 +243,7 @@ void twoBitClose(struct twoBitFile **pTbf)
     freez(&tbf->fileName);
     carefulClose(&tbf->f);
     hashFree(&tbf->hash);
-    /* The indexList is allocated out of the hash's memory pool. */
+/* The indexList is allocated out of the hash's memory pool. */
 #ifdef ENABLE_BPT
     bptFileClose(&tbf->bpt);
 #endif

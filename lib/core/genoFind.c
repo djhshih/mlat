@@ -20,7 +20,6 @@
 #include "nib.h"
 #endif
 
-
 char *gfSignature()
 /* Return signature that starts each command to gfServer. Helps defend
  * server from confused clients. */
@@ -537,7 +536,7 @@ struct genoFind *gfIndexNibsAndTwoBits(int fileCount, char *fileNames[],
       ++ss;
     } else
 #endif
-		{
+    {
       struct twoBitFile *tbf = twoBitOpen(fileName);
       struct twoBitIndex *index;
       char nameBuf[PATH_LEN + 256];
@@ -706,9 +705,9 @@ void gfIndexTransNibsAndTwoBits(struct genoFind *transGf[2][3], int fileCount,
       sourceCount += 1;
       totalBases += seq->size;
       freeDnaSeq(&seq);
-    } else 
+    } else
 #endif
-    if (twoBitIsFile(fileName)) {
+        if (twoBitIsFile(fileName)) {
       struct twoBitFile *tbf = twoBitOpen(fileName);
       struct twoBitIndex *index;
       totalBases += twoBitCheckTotalSize(tbf);
@@ -1849,9 +1848,9 @@ void gfMakeOoc(char *outName, char *files[], int fileCount, int tileSize,
 #ifdef ENABLE_NIB
     if (nibIsFile(inName)) {
       seqList = nibLoadAll(inName);
-    } else 
+    } else
 #endif
-		if (twoBitIsFile(inName)) {
+        if (twoBitIsFile(inName)) {
       seqList = twoBitLoadAll(inName);
       for (seq = seqList; seq != NULL; seq = seq->next)
         toLowerN(seq->dna, seq->size);

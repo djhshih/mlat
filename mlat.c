@@ -2,7 +2,6 @@
 /* Copyright 2001-2004 Jim Kent.  All rights reserved. */
 #include "mlat.h"
 
-
 void usage()
 /* Explain usage and exit. */
 {
@@ -258,7 +257,8 @@ int main(int argc, char *argv[])
   p->mask = optionVal("mask", NULL);
   p->qMask = optionVal("qMask", NULL);
   p->repeats = optionVal("repeats", NULL);
-  if (p->repeats != NULL && p->mask != NULL && differentString(p->repeats, p->mask))
+  if (p->repeats != NULL && p->mask != NULL &&
+      differentString(p->repeats, p->mask))
     errAbort("The -mask and -repeat settings disagree.  "
              "You can just omit -repeat if -mask is on");
   if (p->mask != NULL) /* Mask setting will also set repeats. */
@@ -271,8 +271,8 @@ int main(int argc, char *argv[])
   /* Call routine that does the work. */
   mlat(argv[1], argv[2], argv[3], p);
 
-	/* No members of p are dynamically allocated */
-	freez(&p);
+  /* No members of p are dynamically allocated */
+  freez(&p);
 
   return 0;
 }

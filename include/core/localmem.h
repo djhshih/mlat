@@ -8,7 +8,7 @@
  * granted for all use - public, private or commercial. */
 
 #ifndef LOCALMEM_H
-#define LOCALMEM_H 
+#define LOCALMEM_H
 
 struct lm *lmInit(int blockSize);
 /* Create a local memory pool. Parameters are:

@@ -13,16 +13,13 @@
 #include "genoFind.h"
 #include "trans3.h"
 
-
-struct gfAlignBlock
-{
-	int size;
-	int qStart;
-	int tStart;
+struct gfAlignBlock {
+  int size;
+  int qStart;
+  int tStart;
 };
 
-struct gfAlign
-{
+struct gfAlign {
   int qStart, qEnd;
   int tStart, tEnd;
   int qInsertBaseCount;
@@ -33,38 +30,36 @@ struct gfAlign
   int mismatchCount;
   int repMatchCount;
   int nCount;
-	char qStrand;
-	char tStrand;
-	int score;
-	struct gfAlignBlock* blocks;
-	size_t blockCount;
+  char qStrand;
+  char tStrand;
+  int score;
+  struct gfAlignBlock *blocks;
+  size_t blockCount;
 };
 
-struct gfResult
-{
-	char *tName;
-	char *qName;
+struct gfResult {
+  char *tName;
+  char *qName;
 
-	/* externally read-only members */
+  /* externally read-only members */
 
-	// alignment result
-	struct gfAlign *aligns;
-	// number of alignments
-	size_t size;
-	// currently allocated space
-	size_t capacity;
+  // alignment result
+  struct gfAlign *aligns;
+  // number of alignments
+  size_t size;
+  // currently allocated space
+  size_t capacity;
 };
 
 struct gfResult *newGfResult();
 
 void freeGfResult(struct gfResult **pp);
 
-struct gfAlign *gfResultNewHit(struct gfResult* r);
+struct gfAlign *gfResultNewHit(struct gfResult *r);
 
 // free with freeGfOutputResult
 struct gfOutput *gfOutputResult(int minGood, boolean qIsProt, boolean tIsProt);
 
 void freeGfOutputResult(struct gfOutput **pp);
-
 
 #endif /* GFRESULT_H */

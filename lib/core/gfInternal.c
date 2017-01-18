@@ -87,7 +87,7 @@ gfiExpandAndLoadCached(struct gfRange *range, struct hash *tFileCache,
     *retTotalSeqSize = nib->size;
   } else
 #endif
-	{
+  {
     struct twoBitFile *tbf = NULL;
     char *tSeqName = strchr(fileName, ':');
     int tSeqSize = 0;
@@ -125,7 +125,7 @@ void gfiGetSeqName(char *spec, char *name, char *file)
       strcpy(file, spec);
   } else
 #endif
-	{
+  {
     char *s = strchr(spec, ':');
     if (s == NULL)
       errAbort("Expecting colon in %s", spec);

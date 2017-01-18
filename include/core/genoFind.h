@@ -153,7 +153,8 @@ struct gfOutput
    *     qSeq - query sequence (this isn't segmented at all).
    *     isRc - True if query is reverse complemented.
    *     stringency - ffCdna, etc.  I'm hoping to move this elsewhere.
-   *     score - alignment score; used to be minMatch, minimum score to output: now moved upstream
+   *     score - alignment score; used to be minMatch, minimum score to output:
+   * now moved upstream
    *     outputData - custom data for specific output function.
    * The interface is a bit complex - partly from the demands of translated
    * output, and partly from trying not to have the entire target sequence in

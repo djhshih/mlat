@@ -214,15 +214,14 @@ void freeMem(void *pt)
 void freeArrays(void **pt, size_t size)
 /* Free array of arrays. */
 {
-	if (pt != NULL) {
-		size_t i;
-		for (i = 0; i < size; i++) { 
-				mhStack->free(pt[i]);
-		}
-		mhStack->free(pt);
-	}
+  if (pt != NULL) {
+    size_t i;
+    for (i = 0; i < size; i++) {
+      mhStack->free(pt[i]);
+    }
+    mhStack->free(pt);
+  }
 }
-
 
 void freez(void *vpt)
 /* Pass address of pointer.  Will free pointer and set it

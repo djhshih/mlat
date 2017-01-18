@@ -23,7 +23,7 @@ enum constants {
 };
 
 /* Parameters of mlat passed down the function call chain
- * 
+ *
  * Do not dynamically allocate char* members (e.g. using malloc, or Kent's
  * functions cloneString, AllocVar, AllocN, needMem, etc.).
  *
@@ -65,16 +65,16 @@ void searchOneStrand(struct dnaSeq *seq, struct genoFind *gf, FILE *psl,
                      struct mlatParams *p, struct gfOutput *gvo);
 
 /* Search for protein seq in index and write results to psl. */
-void searchOneProt(aaSeq *seq, struct genoFind *gf, FILE *f, int minScore, struct gfOutput *gvo);
+void searchOneProt(aaSeq *seq, struct genoFind *gf, FILE *f, int minScore,
+                   struct gfOutput *gvo);
 
 /* Search for seq on either strand in index. */
-void searchOne(bioSeq *seq, struct genoFind *gf, FILE *f,
-               struct hash *maskHash, Bits *qMaskBits, struct mlatParams* p,
-               struct gfOutput *gvo);
+void searchOne(bioSeq *seq, struct genoFind *gf, FILE *f, struct hash *maskHash,
+               Bits *qMaskBits, struct mlatParams *p, struct gfOutput *gvo);
 
 /* Copy seq to trimmed (shallow copy) and optionally trim
  * off polyA tail or polyT head. */
-void trimSeq(struct dnaSeq *seq, struct dnaSeq *trimmed, struct mlatParams* p);
+void trimSeq(struct dnaSeq *seq, struct dnaSeq *trimmed, struct mlatParams *p);
 
 /* Massage query sequence a bit, converting it to correct
  * case (upper for protein/lower for DNA) and optionally
@@ -84,14 +84,15 @@ Bits *maskQuerySeq(struct dnaSeq *seq, boolean tIsProt, boolean maskQuery,
 
 /* Search a single sequence against a single genoFind index. */
 void searchOneMaskTrim(struct dnaSeq *seq, struct genoFind *gf, FILE *outFile,
-                       struct hash *maskHash, struct mlatParams* p,
-                       struct gfOutput *gvo,
-                       long long *retTotalSize, int *retCount);
+                       struct hash *maskHash, struct mlatParams *p,
+                       struct gfOutput *gvo, long long *retTotalSize,
+                       int *retCount);
 
 /* Search all sequences in all files against single genoFind index. */
 void searchOneIndex(int fileCount, char *files[], struct genoFind *gf,
-                    char *outName, struct hash *maskHash, FILE *outFile, 
-                    boolean showStatus, struct mlatParams* p, struct gfOutput *gvo);
+                    char *outName, struct hash *maskHash, FILE *outFile,
+                    boolean showStatus, struct mlatParams *p,
+                    struct gfOutput *gvo);
 
 /* Convert sequence list to a trans3 list and lists for each of three frames. */
 struct trans3 *seqListToTrans3List(struct dnaSeq *seqList, aaSeq *transLists[3],

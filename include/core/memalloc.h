@@ -53,5 +53,4 @@ void memTrackerEnd();
 void freeArrays(void **pt, size_t size);
 /* Free array of arrays. */
 
-
 #endif /* MEMALLOC_H */

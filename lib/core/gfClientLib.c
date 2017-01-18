@@ -173,9 +173,9 @@ bioSeq *gfClientSeqList(int fileCount, char *files[], boolean isProt,
 #ifdef ENABLE_NIB
     if (nibIsFile(fileName))
       list = nibLoadAllMasked(NIB_MASK_MIXED | NIB_BASE_NAME, fileName);
-		else
+    else
 #endif
-    if (twoBitIsSpec(fileName))
+        if (twoBitIsSpec(fileName))
       list = twoBitLoadAll(fileName);
     else if (isProt)
       list = faReadAllPep(fileName);

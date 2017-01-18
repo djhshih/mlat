@@ -25,7 +25,6 @@
 #include "net.h"
 #endif
 
-
 static int ssAliCount = 16; /* Number of alignments returned by ssStitch. */
 
 static struct gfRange *gfRangeLoad(char **row)
@@ -384,7 +383,7 @@ static void gfFileCacheFreeEl(struct hashEl *el)
     nibInfoFree(&nib);
   } else
 #endif
-	{
+  {
     struct twoBitFile *tbf = el->val;
     twoBitClose(&tbf);
   }
@@ -1142,4 +1141,3 @@ static void gfAlignSomeClumps(struct genoFind *gf, struct gfClump *clumpList,
                               bioSeq *seq, boolean isRc, int minMatch,
                               struct gfOutput *out, boolean isProt,
                               enum ffStringency stringency);
-
