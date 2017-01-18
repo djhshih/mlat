@@ -1,6 +1,9 @@
 test*.psl
+.*.swp
 *.o
 *.a
+*.so
+*.dylib
 *.gcov
 *.gcno
 *.gcda
