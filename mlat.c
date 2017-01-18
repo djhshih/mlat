@@ -271,6 +271,7 @@ int main(int argc, char *argv[])
   /* Call routine that does the work. */
   mlat(argv[1], argv[2], argv[3], p);
 
+	/* No members of p are dynamically allocated */
 	freez(&p);
 
   return 0;

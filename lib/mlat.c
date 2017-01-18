@@ -143,7 +143,7 @@ void searchOneMaskTrim(struct dnaSeq *seq, struct genoFind *gf, FILE *outFile,
 void searchOneIndex(int fileCount, char *files[], struct genoFind *gf,
                     char *outName, struct hash *maskHash, FILE *outFile, 
                     boolean showStatus, struct mlatParams* p, struct gfOutput *gvo)
-/* Search all sequences in all files against single genoFind index. */
+/* Search all query sequences in all files against a single genoFind index. */
 {
   int i;
   char *fileName;
@@ -361,7 +361,7 @@ void mlat(char *dbFile, char *queryFile, char *outName, struct mlatParams *p)
     gfMakeOoc(p->makeOoc, dbFiles, dbCount, p->tileSize, p->repMatch, p->tType);
     if (showStatus)
       printf("Done making %s\n", p->makeOoc);
-    exit(0);
+    return;
   }
   gfClientFileArray(queryFile, &queryFiles, &queryCount);
   dbSeqList = gfClientSeqList(dbCount, dbFiles, tIsProt, p->tType == gftDnaX,
@@ -381,8 +381,7 @@ void mlat(char *dbFile, char *queryFile, char *outName, struct mlatParams *p)
     if (p->repeats != NULL) {
       maskHash = newHash(0);
       for (seq = dbSeqList; seq != NULL; seq = seq->next) {
-        Bits *maskedBits = maskFromUpperCaseSeq(seq);
-        hashAdd(maskHash, seq->name, maskedBits);
+        hashAdd(maskHash, seq->name, maskFromUpperCaseSeq(seq));
       }
     }
 
@@ -390,6 +389,8 @@ void mlat(char *dbFile, char *queryFile, char *outName, struct mlatParams *p)
      * to see unmasked sequence, otherwise we want it to see masked.  However
      * after indexing we always want it unmasked, because things are always
      * unmasked for the extension phase. */
+		/* Is `!bothSimpleProt` correct? It does not seem to match the intended
+		 * behaviour described in usage: -mask. */
     if (p->mask == NULL && !bothSimpleProt)
       gfClientUnmask(dbSeqList);
     gf = gfIndexSeq(dbSeqList, p->minMatch, p->maxGap, p->tileSize, p->repMatch, p->ooc,
@@ -399,7 +400,14 @@ void mlat(char *dbFile, char *queryFile, char *outName, struct mlatParams *p)
 
     searchOneIndex(queryCount, queryFiles, gf, outName, 
                    maskHash, f, showStatus, p, gvo);
+
     freeHash(&maskHash);
+		genoFindFree(&gf);
+
+		// FIXME for some reason, bigMlat also frees the arrays below somehow?
+		freeArrays((void**)dbFiles, dbCount);
+		freeArrays((void**)queryFiles, queryCount);
+
   } else if (p->tType == gftDnaX && p->qType == gftProt) {
     bigMlat(dbSeqList, queryCount, queryFiles, outName, FALSE, TRUE, f,
             showStatus, p, gvo);
@@ -409,6 +417,7 @@ void mlat(char *dbFile, char *queryFile, char *outName, struct mlatParams *p)
   } else {
     errAbort("Unrecognized combination of target and query types\n");
   }
+
   freeDnaSeqList(&dbSeqList);
 }
 

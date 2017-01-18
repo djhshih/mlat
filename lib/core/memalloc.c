@@ -214,11 +214,13 @@ void freeMem(void *pt)
 void freeArrays(void **pt, size_t size)
 /* Free array of arrays. */
 {
-	size_t i;
-	for (i = 0; i < size; i++) { 
-		  mhStack->free(pt[i]);
+	if (pt != NULL) {
+		size_t i;
+		for (i = 0; i < size; i++) { 
+				mhStack->free(pt[i]);
+		}
+		mhStack->free(pt);
 	}
-	mhStack->free(pt);
 }
 
 

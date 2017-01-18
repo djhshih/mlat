@@ -210,6 +210,8 @@ gfOutputBlast(int goodPpt, boolean qIsProt, boolean tIsProt, char *databaseName,
               double minIdentity, FILE *f);
 /* Setup output for blast/wublast format. */
 
+struct gfOutput *gfOutputInit(int goodPpt, boolean qIsProt, boolean tIsProt);
+
 void gfOutputQuery(struct gfOutput *out, FILE *f);
 /* Finish writing out results for a query to file. */
 

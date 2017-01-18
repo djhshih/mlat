@@ -478,8 +478,8 @@ static void saveAlignments(char *chromName, int chromSize, int chromOffset,
       t3List = hashMustFindVal(t3Hash, tSeq->name);
     score = scoreAli(ff, bun->isProt, stringency, tSeq, t3List);
     if (score >= minMatch) {
-			/* Pass score instead of minMatch. minMatch filtering has been disabled
-			 * downstream, since it is done here. */
+      /* Pass score instead of minMatch. minMatch filtering has been disabled
+       * downstream, since it is done here. */
       out->out(chromName, chromSize, chromOffset, ff, tSeq, t3Hash, qSeq, qIsRc,
                tIsRc, stringency, score, out);
     }
@@ -502,7 +502,7 @@ static void gfFileCacheFreeEl(struct hashEl *el)
     nibInfoFree(&nib);
   } else
 #endif
-	{
+  {
     struct twoBitFile *tbf = el->val;
     twoBitClose(&tbf);
   }

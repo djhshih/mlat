@@ -1,5 +1,3 @@
-/* Copyright 2001-2004 Jim Kent.  All rights reserved. */
-
 #ifndef _MLAT_H_
 #define _MLAT_H_
 
@@ -24,6 +22,16 @@ enum constants {
   qWarnSize = 5000000, /* Warn if more than this many bases in one query. */
 };
 
+/* Parameters of mlat passed down the function call chain
+ * 
+ * Do not dynamically allocate char* members (e.g. using malloc, or Kent's
+ * functions cloneString, AllocVar, AllocN, needMem, etc.).
+ *
+ * Simply assign char* members to point to statically allocated or dynamically
+ * allocated by the function that owns the memory.
+ *
+ * With this constraint, mlatParams* p can be deallocated by freez(&p).
+ */
 struct mlatParams {
   int tileSize;
   int stepSize;

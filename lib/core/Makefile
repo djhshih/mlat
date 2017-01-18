@@ -37,6 +37,7 @@ supStitch.o \
 trans3.o \
 twoBit.o \
 verbose.o \
+gfResult.o \
 
 #nib.o \
 #kxTok.o \

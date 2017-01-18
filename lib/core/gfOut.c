@@ -402,7 +402,7 @@ static void blastQueryOut(struct gfOutput *out, FILE *f)
   axtBundleFreeList(&aod->bundleList);
 }
 
-static struct gfOutput *gfOutputInit(int goodPpt, boolean qIsProt,
+struct gfOutput *gfOutputInit(int goodPpt, boolean qIsProt,
                                      boolean tIsProt)
 /* Allocate and initialize gfOutput.   You'll need to fill in
  * gfOutput.out at a minimum, and likely gfOutput.data before
