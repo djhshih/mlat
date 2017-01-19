@@ -57,7 +57,7 @@ struct mlatParams {
   char *outputFormat;
 };
 
-struct mlatParams *makeMlatParams();
+struct mlatParams *newMlatParams();
 
 /* Search for seq in index, align it, and write results to psl. */
 void searchOneStrand(struct dnaSeq *seq, struct genoFind *gf, FILE *psl,

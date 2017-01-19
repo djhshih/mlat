@@ -158,7 +158,7 @@ int main(int argc, char *argv[])
 /* Process command line into global variables and call blat. */
 {
   boolean tIsProtLike, qIsProtLike;
-  struct mlatParams *p = makeMlatParams();
+  struct mlatParams *p = newMlatParams();
 
 #ifdef DEBUG
   {

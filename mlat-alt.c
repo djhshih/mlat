@@ -1,7 +1,7 @@
 #include "mlat-alt.h"
 
 int main(int argc, char *argv[]) {
-  struct mlatParams *p = makeMlatParams();
+  struct mlatParams *p = newMlatParams();
   p->tileSize = 6;
   p->stepSize = 2;
   p->minScore = 0;

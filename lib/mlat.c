@@ -1,7 +1,7 @@
 /* Copyright 2001-2004 Jim Kent.  All rights reserved. */
 #include "mlat.h"
 
-struct mlatParams *makeMlatParams() {
+struct mlatParams *newMlatParams() {
   struct mlatParams *p;
   AllocVar(p);
 
