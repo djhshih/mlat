@@ -2,8 +2,11 @@ ROOT=.
 
 include $(ROOT)/common.mk
 
-all: mlat
-	
+targets=mlat mlat-alt mlat-shared 2bit blatc blatd
+
+all: $(targets)
+	mkdir -p bin
+	mv $(targets) bin
 
 lib/libmlat.a:
 	cd lib && make libmlat.a

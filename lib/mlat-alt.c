@@ -12,7 +12,7 @@ struct gfDb *newGfDb(char *dbFile, struct mlatParams *p) {
   AllocVar(db);
   db->maskHash = NULL;
 
-  boolean showStatus = TRUE;
+  const boolean showStatus = FALSE;
 
   bool bothSimpleNuc =
       (p->tType == gftDna && (p->qType == gftDna || p->qType == gftRna));
