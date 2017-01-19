@@ -38,10 +38,15 @@ bin/mlat-alt data/ref1.fna AGACGGTCGATCGGGATTCGAGGTCGA > out/out-5.0.tsv
 
 echo "Checking outputs..."
 
-cases=( 0.0 0.1 0.2 0.3 0.4 1.0 1.1 2.0 3.0 4.0 5.0 )
+cases=( \
+	0.0.psl 0.1.psl 0.2.psl 0.3.psl 0.4.psl \
+	1.0.psl 1.1.psl \
+	1.1.pslx 1.1.axt 1.1.maf 1.1.sim4 1.1.wublast 1.1.blast 1.1.blast8 1.1.blast9 \
+	2.0.psl 3.0.psl 4.0.psl 5.0.tsv \
+)
 
 for x in ${cases[@]}; do
-	echo "diff out/out-${x}.psl test/test-${x}.psl"
-	diff out/out-${x}.psl test/test-${x}.psl
+	echo "diff out/out-${x} test/test-${x}"
+	diff out/out-${x} test/test-${x}
 done
 
