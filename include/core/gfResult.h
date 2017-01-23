@@ -3,15 +3,7 @@
 #ifndef _GFRESULT_H_
 #define _GFRESULT_H_
 
-#include "common.h"
-#include "dnaseq.h"
-#include "fuzzyfind.h"
-#include "hash.h"
-#include "aliType.h"
-#include "localmem.h"
-#include "bits.h"
-#include "genoFind.h"
-#include "trans3.h"
+#include "typedefs.h"
 
 struct gfAlignBlock {
   int size;
@@ -54,14 +46,5 @@ struct gfResult {
 struct gfResult *newGfResult();
 
 void freeGfResult(struct gfResult **pp);
-
-/* free with freeGfOutputResult */
-struct gfOutput *gfOutputResult(int minGood, boolean qIsProt, boolean tIsProt);
-
-/* Free gfOutputResult */
-void freeGfOutputResult(struct gfOutput **pp);
-
-/* Free gfOutputResult but return the contained gfResult */
-struct gfResult *unpackGfOutputResult(struct gfOutput **pp);
 
 #endif /* GFRESULT_H */

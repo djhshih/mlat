@@ -37,9 +37,11 @@ supStitch.o \
 trans3.o \
 twoBit.o \
 verbose.o \
+gfOutputResult.o \
 gfResult.o \
+gfDb.o \
+mlatParams.o \
 mlatPriv.o \
-mlat.o \
 
 #nib.o \
 #kxTok.o \

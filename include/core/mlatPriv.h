@@ -1,5 +1,5 @@
-#ifndef _MLAT_H_
-#define _MLAT_H_
+#ifndef _MLATPRIV_H_
+#define _MLATPRIV_H_
 
 #include "common.h"
 #include "memalloc.h"
@@ -17,7 +17,7 @@
 #include "genoFind.h"
 #include "trans3.h"
 #include "gfClientLib.h"
-#include "mlat.h"
+#include "mlatParams.h"
 
 enum constants {
   qWarnSize = 5000000, /* Warn if more than this many bases in one query. */

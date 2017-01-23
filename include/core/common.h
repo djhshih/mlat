@@ -93,15 +93,7 @@
 #define HUGE MAXFLOAT
 #endif
 
-/* Let's pretend C has a boolean type. */
-#define TRUE 1
-#define FALSE 0
-#define boolean int
-#ifndef __cplusplus
-#ifndef bool
-#define bool char
-#endif
-#endif
+#include "typedefs.h"
 
 /* Some other type synonyms */
 #define UBYTE unsigned char       /* Wants to be unsigned 8 bits. */
