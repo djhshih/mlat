@@ -1,4 +1,4 @@
-#include "mlat-alt.h"
+#include "mlat.h"
 
 int main(int argc, char *argv[]) {
   struct mlatParams *p = newMlatParams();

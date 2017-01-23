@@ -17,9 +17,8 @@ lib/libmlatnet.a:
 mlat: lib/libmlat.a
 	$(CBUILD) mlat.c lib/libmlat.a -o mlat
 
-mlat-alt:
-	$(CBUILD) mlat-alt.c lib/core/*.o lib/aux/*.o lib/mlat-alt.o \
-		-o mlat-alt
+mlat-alt: lib/libmlat.a
+	$(CBUILD) mlat-alt.c lib/libmlat.a -o mlat-alt
 
 mlat-shared:
 	$(CBUILD) mlat.c -Llib -lmlat -o mlat-shared

@@ -3,7 +3,7 @@ ROOT=..
 include $(ROOT)/common.mk
 
 mlat_objs=core/*.o aux/*.o
-mlatnet_objs=$(mat_objs) net/*.o
+mlatnet_objs=$(mlat_objs) net/*.o
 
 libmlat.a: $(mlat_objs)
 	cd core && make

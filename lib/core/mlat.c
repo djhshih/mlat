@@ -1,4 +1,4 @@
-#include "mlat-alt.h"
+#include "mlat.h"
 
 /* TODO const-correctness on:
  * const char* querySeq -> const char* bioSeq.dna -> worms
