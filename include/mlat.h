@@ -66,7 +66,7 @@ void searchOneStrand(struct dnaSeq *seq, struct genoFind *gf, FILE *psl,
                      struct mlatParams *p, struct gfOutput *gvo);
 
 /* Search for protein seq in index and write results to psl. */
-void searchOneProt(aaSeq *seq, struct genoFind *gf, FILE *f, int minScore,
+void searchOneProt(aaSeq *seq, struct genoFind *gf, int minScore,
                    struct gfOutput *gvo);
 
 /* Search for seq on either strand in index. */

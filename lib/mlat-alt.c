@@ -114,7 +114,7 @@ struct gfOutput *searchSeq(struct gfDb *db, char *querySeq,
       gfOutputResult(p->minIdentity, p->qType == gftProt, p->tType == gftProt);
 
   if (p->tType == gftProt) {
-    searchOneProt(&seq, db->gf, NULL, p->minScore, gvo);
+    searchOneProt(&seq, db->gf, p->minScore, gvo);
   } else {
     gvo->maskHash = db->maskHash;
     // search forward strand

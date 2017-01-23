@@ -47,7 +47,7 @@ void searchOneStrand(struct dnaSeq *seq, struct genoFind *gf, FILE *psl,
                  p->fine);
 }
 
-void searchOneProt(aaSeq *seq, struct genoFind *gf, FILE *f, int minScore,
+void searchOneProt(aaSeq *seq, struct genoFind *gf, int minScore,
                    struct gfOutput *gvo)
 /* Search for protein seq in index and write results to psl. */
 {
@@ -64,7 +64,7 @@ void searchOne(bioSeq *seq, struct genoFind *gf, FILE *f, struct hash *maskHash,
 /* Search for seq on either strand in index. */
 {
   if (p->tType == gftProt) {
-    searchOneProt(seq, gf, f, p->minScore, gvo);
+    searchOneProt(seq, gf, p->minScore, gvo);
   } else {
     gvo->maskHash = maskHash;
     searchOneStrand(seq, gf, f, FALSE, maskHash, qMaskBits, p, gvo);
