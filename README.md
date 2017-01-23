@@ -16,5 +16,8 @@ and you can simply
 
     make
 
-Thereupon, binaries, libraries, and headers are placed in `build/`.
+Thereupon, binaries, libraries, and headers are placed in `build/`. To install
+to some other location (e.g. `/usr/local`)
+
+    make DESTDIR=/usr/local
 

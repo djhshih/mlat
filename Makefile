@@ -3,13 +3,14 @@ ROOT=.
 include $(ROOT)/common.mk
 
 targets=mlat 2bit blatc blatd
+DESTDIR?=build
 
 all: $(targets) demo/mlat-demo
-	mkdir -p build/{bin,include,lib}
-	cp lib/*.{a,so,dylib} build/lib || true
-	cp include/*.h build/include
-	cp -r include/mlat build/include
-	mv $(targets) build/bin
+	mkdir -p $(DESTDIR)/{bin,include,lib}
+	cp lib/libmlat.{a,so,dylib} $(DESTDIR)/lib || true
+	cp include/*.h $(DESTDIR)/include
+	cp -r include/mlat $(DESTDIR)/include
+	mv $(targets) $(DESTDIR)/bin
 
 shared:
 	cd lib && make libmlat.so
