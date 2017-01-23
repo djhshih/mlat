@@ -1,0 +1,12 @@
+# Development notes
+
+## Shedding weight
+
+osunix.c can probably go...  but it is kept because of the dumpStack and
+vaDumpStack functions, which are useful for debugging.  vaDumpStack uses
+Unix-specific function calls.
+
+sqlList.c can probably go... but it has useful functions.
+
+Other files with 0% executed code would probably be used if ooc is specified.
+
