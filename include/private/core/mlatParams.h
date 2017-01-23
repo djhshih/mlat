@@ -4,22 +4,24 @@
 #define _MLAT_PARAMS_H_
 
 #include "aliType.h"
-#include "typeDefs.h"
 
 struct mlatParams {
+  /* Integer parameters */
   int tileSize;
   int stepSize;
   int minMatch;
   int minScore;
   int maxGap;
   int repMatch;
-  boolean oneOff;
-  boolean noHead;
-  boolean trimA;
-  boolean trimHardA;
-  boolean trimT;
-  boolean fastMap;
-  boolean fine;
+  /* Boolean flags */
+  int oneOff;
+  int noHead;
+  int trimA;
+  int trimHardA;
+  int trimT;
+  int fastMap;
+  int fine;
+  /* Other parameters */
   char *makeOoc;
   char *ooc;
   enum gfType qType;
