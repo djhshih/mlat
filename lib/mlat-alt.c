@@ -82,9 +82,8 @@ void searchDnaStrand(struct gfDb *db, bioSeq *seq, boolean isRc,
         MAXSINGLEPIECESIZE, seq->name, seq->size);
   }
 
-  const boolean fine = FALSE; // TODO expose option
   gfLongDnaInMem(seq, db->gf, isRc, p->minScore, qMaskBits, gvo, p->fastMap,
-                 fine);
+                 p->fine);
 }
 
 /* Search a query sequence against a target database index */

@@ -44,7 +44,7 @@ void searchOneStrand(struct dnaSeq *seq, struct genoFind *gf, FILE *psl,
         "when the -fastMap option is used.",
         MAXSINGLEPIECESIZE, seq->name, seq->size);
   gfLongDnaInMem(seq, gf, isRc, p->minScore, qMaskBits, gvo, p->fastMap,
-                 optionExists("fine"));
+                 p->fine);
 }
 
 void searchOneProt(aaSeq *seq, struct genoFind *gf, FILE *f, int minScore,

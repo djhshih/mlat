@@ -45,6 +45,7 @@ struct mlatParams {
   boolean trimHardA;
   boolean trimT;
   boolean fastMap;
+  boolean fine;
   char *makeOoc;
   char *ooc;
   enum gfType qType;

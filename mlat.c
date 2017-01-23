@@ -233,6 +233,7 @@ int main(int argc, char *argv[])
   p->minMatch = optionInt("minMatch", p->minMatch);
   p->oneOff = optionExists("oneOff");
   p->fastMap = optionExists("fastMap");
+  p->fine = optionExists("fine");
   p->minScore = optionInt("minScore", p->minScore);
   p->maxGap = optionInt("maxGap", p->maxGap);
   p->minRepDivergence = optionFloat("minRepDivergence", p->minRepDivergence);
