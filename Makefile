@@ -8,7 +8,7 @@ DESTDIR?=build
 all: $(targets) demo/mlat-demo
 	mkdir -p $(DESTDIR)/{bin,include,lib}
 	cp lib/libmlat.{a,so,dylib} $(DESTDIR)/lib || true
-	cp include/*.h $(DESTDIR)/include
+	cp include/*.{h,hpp} $(DESTDIR)/include
 	cp -r include/mlat $(DESTDIR)/include
 	mv $(targets) $(DESTDIR)/bin
 
@@ -28,9 +28,14 @@ lib/libmlat.so:
 mlat: lib/libmlat.a
 	$(CBUILD) src/mlat.c lib/libmlat.a -o mlat
 
+example: demo/mlat-demo demo/mlat-demo-cpp
+	cp lib/libmlat.so demo
+
 demo/mlat-demo: lib/libmlat.so
 	$(CC) $(CFLAGS) -Iinclude -Llib -lmlat demo/mlat-demo.c -o demo/mlat-demo
-	cp lib/libmlat.so demo
+
+demo/mlat-demo-cpp: lib/libmlat.so
+	$(CXX) $(CFLAGS) -Iinclude -Llib -lmlat demo/mlat-demo.cpp -o demo/mlat-demo-cpp
 
 mlat-shared:
 	$(CBUILD) src/mlat.c -Llib -lmlat -o mlat-shared
