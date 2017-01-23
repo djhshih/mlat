@@ -1,0 +1,820 @@
+BLASTN 2.2.11 [blat]
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Query= M03848:190:000000000-ARTHA:1:2102:20955:15668
+         (75 letters)
+
+Database: data/hg38_tp53.2bit 
+           1 sequences; 19,149 total letters
+
+Searching.done
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+NC_000017.11:c7687550-7668402                                         135   7e-32
+NC_000017.11:c7687550-7668402                                         109   6e-24
+NC_000017.11:c7687550-7668402                                         103   2e-22
+NC_000017.11:c7687550-7668402                                         102   8e-22
+NC_000017.11:c7687550-7668402                                          94   1e-19
+NC_000017.11:c7687550-7668402                                          94   1e-19
+NC_000017.11:c7687550-7668402                                          62   5e-10
+NC_000017.11:c7687550-7668402                                          46   5e-05
+NC_000017.11:c7687550-7668402                                          28   1e+01
+
+
+
+>NC_000017.11:c7687550-7668402 
+          Length = 19149
+
+ Score = 135 bits (348), Expect = 7e-32
+ Identities = 74/77 (96%)
+ Strand = Plus / Plus
+
+Query: 1     tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaa 60
+             ||| ||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 13128 tcacgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaa 13187
+
+Query: 61    a--ggcctcccctgctt 75
+             |  ||||||||||||||
+Sbjct: 13188 aaaggcctcccctgctt 13204
+
+
+ Score = 109 bits (280), Expect = 6e-24
+ Identities = 57/61 (93%)
+ Strand = Plus / Plus
+
+Query: 1    tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaa 60
+            || ||||||||||||||||||||||||||||||| ||| | |||||||||||||||||||
+Sbjct: 4385 tcgtgccactgcactccagcctgggcgacagagcaagacttcatctcaaaaaaaaaaaaa 4444
+
+Query: 61   a 61
+            |
+Sbjct: 4445 a 4445
+
+
+ Score = 103 bits (267), Expect = 2e-22
+ Identities = 55/61 (90%)
+ Strand = Plus / Plus
+
+Query: 1    tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaa 60
+            || |||||||||||||||||||||| ||||||| |||| | | |||||||||||||||||
+Sbjct: 5275 tcgtgccactgcactccagcctgggtgacagagtgagacttcgtctcaaaaaaaaaaaaa 5334
+
+Query: 61   a 61
+            |
+Sbjct: 5335 a 5335
+
+
+ Score = 102 bits (262), Expect = 8e-22
+ Identities = 55/61 (90%)
+ Strand = Plus / Plus
+
+Query: 1     tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaa 60
+             |||||||||||  ||||||||| || ||||||| |||| |||||||||||||||||||||
+Sbjct: 10550 tcatgccactgtgctccagcctaggtgacagagagagactccatctcaaaaaaaaaaaaa 10609
+
+Query: 61    a 61
+             |
+Sbjct: 10610 a 10610
+
+
+ Score = 94 bits (244), Expect = 1e-19
+ Identities = 51/56 (91%)
+ Strand = Plus / Plus
+
+Query: 5    gccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaa 60
+            |||||||||||||||||||||||||||||| ||| |   |||||||||||||||||
+Sbjct: 5697 gccactgcactccagcctgggcgacagagcaagactgtgtctcaaaaaaaaaaaaa 5752
+
+
+ Score = 94 bits (243), Expect = 1e-19
+ Identities = 53/59 (90%)
+ Strand = Plus / Minus
+
+Query: 1     tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaa 59
+             ||||||||||||||||||||||||||||||||| |||| |   ||||||||||| ||||
+Sbjct: 15208 tcatgccactgcactccagcctgggcgacagagtgagactgagtctcaaaaaaataaaa 15150
+
+
+ Score = 62 bits (161), Expect = 5e-10
+ Identities = 32/34 (94%)
+ Strand = Plus / Minus
+
+Query: 5     gccactgcactccagcctgggcgacagagcgaga 38
+             ||||||||||||||||||||| ||||||| ||||
+Sbjct: 14469 gccactgcactccagcctgggtgacagagtgaga 14436
+
+
+ Score = 46 bits (118), Expect = 5e-05
+ Identities = 23/23 (100%)
+ Strand = Plus / Plus
+
+Query: 6    ccactgcactccagcctgggcga 28
+            |||||||||||||||||||||||
+Sbjct: 9527 ccactgcactccagcctgggcga 9549
+
+
+ Score = 28 bits (73), Expect = 1e+01
+ Identities = 15/15 (100%)
+ Strand = Plus / Minus
+
+Query: 47    caaaaaaaaaaaaaa 61
+             |||||||||||||||
+Sbjct: 14426 caaaaaaaaaaaaaa 14412
+
+  Database: data/hg38_tp53.2bit
+BLASTN 2.2.11 [blat]
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Query= M03848:190:000000000-ARTHA:1:1112:24053:17456
+         (75 letters)
+
+Database: data/hg38_tp53.2bit 
+           1 sequences; 19,149 total letters
+
+Searching.done
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+NC_000017.11:c7687550-7668402                                         146   4e-35
+NC_000017.11:c7687550-7668402                                         103   3e-22
+NC_000017.11:c7687550-7668402                                         102   6e-22
+NC_000017.11:c7687550-7668402                                          91   1e-18
+NC_000017.11:c7687550-7668402                                          74   1e-13
+NC_000017.11:c7687550-7668402                                          28   1e+01
+NC_000017.11:c7687550-7668402                                          10   3e+06
+
+
+
+>NC_000017.11:c7687550-7668402 
+          Length = 19149
+
+ Score = 146 bits (376), Expect = 4e-35
+ Identities = 74/75 (99%)
+ Strand = Plus / Plus
+
+Query: 1     ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgaca 60
+             ||||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||
+Sbjct: 13098 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgaca 13157
+
+Query: 61    gagcgagattccatc 75
+             |||||||||||||||
+Sbjct: 13158 gagcgagattccatc 13172
+
+
+ Score = 103 bits (265), Expect = 3e-22
+ Identities = 55/61 (90%)
+ Strand = Plus / Plus
+
+Query: 15    ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccat 74
+             |||||||||||||||||||||||||||  ||||||||| || ||||||| |||| |||||
+Sbjct: 10534 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccat 10593
+
+Query: 75    c 75
+             |
+Sbjct: 10594 c 10594
+
+
+ Score = 102 bits (263), Expect = 6e-22
+ Identities = 53/55 (96%)
+ Strand = Plus / Plus
+
+Query: 10   ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||||||||||||||  ||||||||||||||||||||||||||||||
+Sbjct: 5672 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc 5726
+
+
+ Score = 91 bits (235), Expect = 1e-18
+ Identities = 47/50 (94%)
+ Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||  ||||| |||||||||||||||||||||||||||||||
+Sbjct: 4369 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc 4418
+
+
+ Score = 74 bits (192), Expect = 1e-13
+ Identities = 38/39 (97%)
+ Strand = Plus / Minus
+
+Query: 30    atcatgccactgcactccagcctgggcgacagagcgaga 68
+             |||||||||||||||||||||||||||||||||| ||||
+Sbjct: 15209 atcatgccactgcactccagcctgggcgacagagtgaga 15171
+
+
+ Score = 28 bits (71), Expect = 1e+01
+ Identities = 14/14 (100%)
+ Strand = Plus / Minus
+
+Query: 16    tgcagtgagctgag 29
+             ||||||||||||||
+Sbjct: 15523 tgcagtgagctgag 15510
+
+
+ Score = 10 bits (25), Expect = 3e+06
+ Identities = 5/5 (100%)
+ Strand = Plus / Plus
+
+Query: 60   agagc 64
+            |||||
+Sbjct: 9552 agagc 9556
+
+  Database: data/hg38_tp53.2bit
+BLASTN 2.2.11 [blat]
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Query= M03848:190:000000000-ARTHA:1:1116:10371:23728
+         (75 letters)
+
+Database: data/hg38_tp53.2bit 
+           1 sequences; 19,149 total letters
+
+Searching.done
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+NC_000017.11:c7687550-7668402                                         146   4e-35
+NC_000017.11:c7687550-7668402                                         103   3e-22
+NC_000017.11:c7687550-7668402                                         102   6e-22
+NC_000017.11:c7687550-7668402                                          91   1e-18
+NC_000017.11:c7687550-7668402                                          74   1e-13
+NC_000017.11:c7687550-7668402                                          28   1e+01
+NC_000017.11:c7687550-7668402                                          10   3e+06
+
+
+
+>NC_000017.11:c7687550-7668402 
+          Length = 19149
+
+ Score = 146 bits (376), Expect = 4e-35
+ Identities = 74/75 (99%)
+ Strand = Plus / Plus
+
+Query: 1     ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgaca 60
+             ||||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||
+Sbjct: 13098 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgaca 13157
+
+Query: 61    gagcgagattccatc 75
+             |||||||||||||||
+Sbjct: 13158 gagcgagattccatc 13172
+
+
+ Score = 103 bits (265), Expect = 3e-22
+ Identities = 55/61 (90%)
+ Strand = Plus / Plus
+
+Query: 15    ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccat 74
+             |||||||||||||||||||||||||||  ||||||||| || ||||||| |||| |||||
+Sbjct: 10534 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccat 10593
+
+Query: 75    c 75
+             |
+Sbjct: 10594 c 10594
+
+
+ Score = 102 bits (263), Expect = 6e-22
+ Identities = 53/55 (96%)
+ Strand = Plus / Plus
+
+Query: 10   ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||||||||||||||  ||||||||||||||||||||||||||||||
+Sbjct: 5672 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc 5726
+
+
+ Score = 91 bits (235), Expect = 1e-18
+ Identities = 47/50 (94%)
+ Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||  ||||| |||||||||||||||||||||||||||||||
+Sbjct: 4369 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc 4418
+
+
+ Score = 74 bits (192), Expect = 1e-13
+ Identities = 38/39 (97%)
+ Strand = Plus / Minus
+
+Query: 30    atcatgccactgcactccagcctgggcgacagagcgaga 68
+             |||||||||||||||||||||||||||||||||| ||||
+Sbjct: 15209 atcatgccactgcactccagcctgggcgacagagtgaga 15171
+
+
+ Score = 28 bits (71), Expect = 1e+01
+ Identities = 14/14 (100%)
+ Strand = Plus / Minus
+
+Query: 16    tgcagtgagctgag 29
+             ||||||||||||||
+Sbjct: 15523 tgcagtgagctgag 15510
+
+
+ Score = 10 bits (25), Expect = 3e+06
+ Identities = 5/5 (100%)
+ Strand = Plus / Plus
+
+Query: 60   agagc 64
+            |||||
+Sbjct: 9552 agagc 9556
+
+  Database: data/hg38_tp53.2bit
+BLASTN 2.2.11 [blat]
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Query= M03848:190:000000000-ARTHA:1:1117:15534:14750
+         (75 letters)
+
+Database: data/hg38_tp53.2bit 
+           1 sequences; 19,149 total letters
+
+Searching.done
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+NC_000017.11:c7687550-7668402                                         146   4e-35
+NC_000017.11:c7687550-7668402                                         103   3e-22
+NC_000017.11:c7687550-7668402                                         102   6e-22
+NC_000017.11:c7687550-7668402                                          91   1e-18
+NC_000017.11:c7687550-7668402                                          74   1e-13
+NC_000017.11:c7687550-7668402                                          28   1e+01
+NC_000017.11:c7687550-7668402                                          10   3e+06
+
+
+
+>NC_000017.11:c7687550-7668402 
+          Length = 19149
+
+ Score = 146 bits (376), Expect = 4e-35
+ Identities = 74/75 (99%)
+ Strand = Plus / Plus
+
+Query: 1     ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgaca 60
+             ||||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||
+Sbjct: 13098 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgaca 13157
+
+Query: 61    gagcgagattccatc 75
+             |||||||||||||||
+Sbjct: 13158 gagcgagattccatc 13172
+
+
+ Score = 103 bits (265), Expect = 3e-22
+ Identities = 55/61 (90%)
+ Strand = Plus / Plus
+
+Query: 15    ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccat 74
+             |||||||||||||||||||||||||||  ||||||||| || ||||||| |||| |||||
+Sbjct: 10534 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccat 10593
+
+Query: 75    c 75
+             |
+Sbjct: 10594 c 10594
+
+
+ Score = 102 bits (263), Expect = 6e-22
+ Identities = 53/55 (96%)
+ Strand = Plus / Plus
+
+Query: 10   ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||||||||||||||  ||||||||||||||||||||||||||||||
+Sbjct: 5672 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc 5726
+
+
+ Score = 91 bits (235), Expect = 1e-18
+ Identities = 47/50 (94%)
+ Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||  ||||| |||||||||||||||||||||||||||||||
+Sbjct: 4369 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc 4418
+
+
+ Score = 74 bits (192), Expect = 1e-13
+ Identities = 38/39 (97%)
+ Strand = Plus / Minus
+
+Query: 30    atcatgccactgcactccagcctgggcgacagagcgaga 68
+             |||||||||||||||||||||||||||||||||| ||||
+Sbjct: 15209 atcatgccactgcactccagcctgggcgacagagtgaga 15171
+
+
+ Score = 28 bits (71), Expect = 1e+01
+ Identities = 14/14 (100%)
+ Strand = Plus / Minus
+
+Query: 16    tgcagtgagctgag 29
+             ||||||||||||||
+Sbjct: 15523 tgcagtgagctgag 15510
+
+
+ Score = 10 bits (25), Expect = 3e+06
+ Identities = 5/5 (100%)
+ Strand = Plus / Plus
+
+Query: 60   agagc 64
+            |||||
+Sbjct: 9552 agagc 9556
+
+  Database: data/hg38_tp53.2bit
+BLASTN 2.2.11 [blat]
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Query= M03848:190:000000000-ARTHA:1:2109:17847:21775
+         (75 letters)
+
+Database: data/hg38_tp53.2bit 
+           1 sequences; 19,149 total letters
+
+Searching.done
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+NC_000017.11:c7687550-7668402                                         146   4e-35
+NC_000017.11:c7687550-7668402                                         103   3e-22
+NC_000017.11:c7687550-7668402                                         102   6e-22
+NC_000017.11:c7687550-7668402                                          91   1e-18
+NC_000017.11:c7687550-7668402                                          74   1e-13
+NC_000017.11:c7687550-7668402                                          28   1e+01
+NC_000017.11:c7687550-7668402                                          10   3e+06
+
+
+
+>NC_000017.11:c7687550-7668402 
+          Length = 19149
+
+ Score = 146 bits (376), Expect = 4e-35
+ Identities = 74/75 (99%)
+ Strand = Plus / Plus
+
+Query: 1     ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgaca 60
+             ||||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||
+Sbjct: 13098 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgaca 13157
+
+Query: 61    gagcgagattccatc 75
+             |||||||||||||||
+Sbjct: 13158 gagcgagattccatc 13172
+
+
+ Score = 103 bits (265), Expect = 3e-22
+ Identities = 55/61 (90%)
+ Strand = Plus / Plus
+
+Query: 15    ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccat 74
+             |||||||||||||||||||||||||||  ||||||||| || ||||||| |||| |||||
+Sbjct: 10534 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccat 10593
+
+Query: 75    c 75
+             |
+Sbjct: 10594 c 10594
+
+
+ Score = 102 bits (263), Expect = 6e-22
+ Identities = 53/55 (96%)
+ Strand = Plus / Plus
+
+Query: 10   ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||||||||||||||  ||||||||||||||||||||||||||||||
+Sbjct: 5672 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc 5726
+
+
+ Score = 91 bits (235), Expect = 1e-18
+ Identities = 47/50 (94%)
+ Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||  ||||| |||||||||||||||||||||||||||||||
+Sbjct: 4369 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc 4418
+
+
+ Score = 74 bits (192), Expect = 1e-13
+ Identities = 38/39 (97%)
+ Strand = Plus / Minus
+
+Query: 30    atcatgccactgcactccagcctgggcgacagagcgaga 68
+             |||||||||||||||||||||||||||||||||| ||||
+Sbjct: 15209 atcatgccactgcactccagcctgggcgacagagtgaga 15171
+
+
+ Score = 28 bits (71), Expect = 1e+01
+ Identities = 14/14 (100%)
+ Strand = Plus / Minus
+
+Query: 16    tgcagtgagctgag 29
+             ||||||||||||||
+Sbjct: 15523 tgcagtgagctgag 15510
+
+
+ Score = 10 bits (25), Expect = 3e+06
+ Identities = 5/5 (100%)
+ Strand = Plus / Plus
+
+Query: 60   agagc 64
+            |||||
+Sbjct: 9552 agagc 9556
+
+  Database: data/hg38_tp53.2bit
+BLASTN 2.2.11 [blat]
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Query= M03848:190:000000000-ARTHA:1:2115:15976:15346
+         (75 letters)
+
+Database: data/hg38_tp53.2bit 
+           1 sequences; 19,149 total letters
+
+Searching.done
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+NC_000017.11:c7687550-7668402                                         146   4e-35
+NC_000017.11:c7687550-7668402                                         103   3e-22
+NC_000017.11:c7687550-7668402                                         102   6e-22
+NC_000017.11:c7687550-7668402                                          91   1e-18
+NC_000017.11:c7687550-7668402                                          74   1e-13
+NC_000017.11:c7687550-7668402                                          28   1e+01
+NC_000017.11:c7687550-7668402                                          10   3e+06
+
+
+
+>NC_000017.11:c7687550-7668402 
+          Length = 19149
+
+ Score = 146 bits (376), Expect = 4e-35
+ Identities = 74/75 (99%)
+ Strand = Plus / Plus
+
+Query: 1     ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgaca 60
+             ||||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||
+Sbjct: 13098 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgaca 13157
+
+Query: 61    gagcgagattccatc 75
+             |||||||||||||||
+Sbjct: 13158 gagcgagattccatc 13172
+
+
+ Score = 103 bits (265), Expect = 3e-22
+ Identities = 55/61 (90%)
+ Strand = Plus / Plus
+
+Query: 15    ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccat 74
+             |||||||||||||||||||||||||||  ||||||||| || ||||||| |||| |||||
+Sbjct: 10534 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccat 10593
+
+Query: 75    c 75
+             |
+Sbjct: 10594 c 10594
+
+
+ Score = 102 bits (263), Expect = 6e-22
+ Identities = 53/55 (96%)
+ Strand = Plus / Plus
+
+Query: 10   ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||||||||||||||  ||||||||||||||||||||||||||||||
+Sbjct: 5672 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc 5726
+
+
+ Score = 91 bits (235), Expect = 1e-18
+ Identities = 47/50 (94%)
+ Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||  ||||| |||||||||||||||||||||||||||||||
+Sbjct: 4369 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc 4418
+
+
+ Score = 74 bits (192), Expect = 1e-13
+ Identities = 38/39 (97%)
+ Strand = Plus / Minus
+
+Query: 30    atcatgccactgcactccagcctgggcgacagagcgaga 68
+             |||||||||||||||||||||||||||||||||| ||||
+Sbjct: 15209 atcatgccactgcactccagcctgggcgacagagtgaga 15171
+
+
+ Score = 28 bits (71), Expect = 1e+01
+ Identities = 14/14 (100%)
+ Strand = Plus / Minus
+
+Query: 16    tgcagtgagctgag 29
+             ||||||||||||||
+Sbjct: 15523 tgcagtgagctgag 15510
+
+
+ Score = 10 bits (25), Expect = 3e+06
+ Identities = 5/5 (100%)
+ Strand = Plus / Plus
+
+Query: 60   agagc 64
+            |||||
+Sbjct: 9552 agagc 9556
+
+  Database: data/hg38_tp53.2bit
+BLASTN 2.2.11 [blat]
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Query= M03848:190:000000000-ARTHA:1:2102:20955:15668
+         (75 letters)
+
+Database: data/hg38_tp53.2bit 
+           1 sequences; 19,149 total letters
+
+Searching.done
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+NC_000017.11:c7687550-7668402                                         148   1e-35
+
+
+
+>NC_000017.11:c7687550-7668402 
+          Length = 19149
+
+ Score = 148 bits (381), Expect = 1e-35
+ Identities = 75/75 (100%)
+ Strand = Plus / Minus
+
+Query: 1     ctggagtcttccagtgtgatgatggtgaggatgggcctccggttcatgccgcccatgcag 60
+             ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 13370 ctggagtcttccagtgtgatgatggtgaggatgggcctccggttcatgccgcccatgcag 13311
+
+Query: 61    gaactgttacacatg 75
+             |||||||||||||||
+Sbjct: 13310 gaactgttacacatg 13296
+
+  Database: data/hg38_tp53.2bit
+BLASTN 2.2.11 [blat]
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Query= M03848:190:000000000-ARTHA:1:1112:24053:17456
+         (75 letters)
+
+Database: data/hg38_tp53.2bit 
+           1 sequences; 19,149 total letters
+
+Searching.done
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+NC_000017.11:c7687550-7668402                                         147   2e-35
+
+
+
+>NC_000017.11:c7687550-7668402 
+          Length = 19149
+
+ Score = 147 bits (378), Expect = 2e-35
+ Identities = 75/75 (100%)
+ Strand = Plus / Minus
+
+Query: 1     ccatgcaggaactgttacacatgtagttgtagtggatggtggtacagtcagagccaacct 60
+             ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 13318 ccatgcaggaactgttacacatgtagttgtagtggatggtggtacagtcagagccaacct 13259
+
+Query: 61    aggagataacacagg 75
+             |||||||||||||||
+Sbjct: 13258 aggagataacacagg 13244
+
+  Database: data/hg38_tp53.2bit
+BLASTN 2.2.11 [blat]
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Query= M03848:190:000000000-ARTHA:1:1116:10371:23728
+         (75 letters)
+
+Database: data/hg38_tp53.2bit 
+           1 sequences; 19,149 total letters
+
+Searching.done
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+NC_000017.11:c7687550-7668402                                         147   2e-35
+
+
+
+>NC_000017.11:c7687550-7668402 
+          Length = 19149
+
+ Score = 147 bits (378), Expect = 2e-35
+ Identities = 75/75 (100%)
+ Strand = Plus / Minus
+
+Query: 1     ccatgcaggaactgttacacatgtagttgtagtggatggtggtacagtcagagccaacct 60
+             ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 13318 ccatgcaggaactgttacacatgtagttgtagtggatggtggtacagtcagagccaacct 13259
+
+Query: 61    aggagataacacagg 75
+             |||||||||||||||
+Sbjct: 13258 aggagataacacagg 13244
+
+  Database: data/hg38_tp53.2bit
+BLASTN 2.2.11 [blat]
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Query= M03848:190:000000000-ARTHA:1:1117:15534:14750
+         (75 letters)
+
+Database: data/hg38_tp53.2bit 
+           1 sequences; 19,149 total letters
+
+Searching.done
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+NC_000017.11:c7687550-7668402                                         147   2e-35
+
+
+
+>NC_000017.11:c7687550-7668402 
+          Length = 19149
+
+ Score = 147 bits (378), Expect = 2e-35
+ Identities = 75/75 (100%)
+ Strand = Plus / Minus
+
+Query: 1     ccatgcaggaactgttacacatgtagttgtagtggatggtggtacagtcagagccaacct 60
+             ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 13318 ccatgcaggaactgttacacatgtagttgtagtggatggtggtacagtcagagccaacct 13259
+
+Query: 61    aggagataacacagg 75
+             |||||||||||||||
+Sbjct: 13258 aggagataacacagg 13244
+
+  Database: data/hg38_tp53.2bit
+BLASTN 2.2.11 [blat]
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Query= M03848:190:000000000-ARTHA:1:2109:17847:21775
+         (75 letters)
+
+Database: data/hg38_tp53.2bit 
+           1 sequences; 19,149 total letters
+
+Searching.done
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+NC_000017.11:c7687550-7668402                                         147   2e-35
+
+
+
+>NC_000017.11:c7687550-7668402 
+          Length = 19149
+
+ Score = 147 bits (378), Expect = 2e-35
+ Identities = 75/75 (100%)
+ Strand = Plus / Minus
+
+Query: 1     ccatgcaggaactgttacacatgtagttgtagtggatggtggtacagtcagagccaacct 60
+             ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 13318 ccatgcaggaactgttacacatgtagttgtagtggatggtggtacagtcagagccaacct 13259
+
+Query: 61    aggagataacacagg 75
+             |||||||||||||||
+Sbjct: 13258 aggagataacacagg 13244
+
+  Database: data/hg38_tp53.2bit
+BLASTN 2.2.11 [blat]
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Query= M03848:190:000000000-ARTHA:1:2115:15976:15346
+         (75 letters)
+
+Database: data/hg38_tp53.2bit 
+           1 sequences; 19,149 total letters
+
+Searching.done
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+NC_000017.11:c7687550-7668402                                         147   2e-35
+
+
+
+>NC_000017.11:c7687550-7668402 
+          Length = 19149
+
+ Score = 147 bits (378), Expect = 2e-35
+ Identities = 75/75 (100%)
+ Strand = Plus / Minus
+
+Query: 1     ccatgcaggaactgttacacatgtagttgtagtggatggtggtacagtcagagccaacct 60
+             ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 13318 ccatgcaggaactgttacacatgtagttgtagtggatggtggtacagtcagagccaacct 13259
+
+Query: 61    aggagataacacagg 75
+             |||||||||||||||
+Sbjct: 13258 aggagataacacagg 13244
+
+  Database: data/hg38_tp53.2bit

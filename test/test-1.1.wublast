@@ -1,0 +1,863 @@
+BLASTN 2.0MP-WashU [blat]
+
+Copyright (C) 2000-2002 Jim Kent
+All Rights Reserved
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Notice:  this program and its default parameter settings are optimized to find
+nearly identical sequences very rapidly.  For slower but more sensitive
+alignments please use other methods.
+
+Query=  M03848:190:000000000-ARTHA:1:2102:20955:15668
+        (75 letters; record 1)
+
+Database:  data/hg38_tp53.2bit
+           1 sequences; 19,149 total letters
+Searching....10....20....30....40....50....60....70....80....90....100% done
+
+                                                                     Smallest
+                                                                       Sum
+                                                              High  Probability
+Sequences producing High-scoring Segment Pairs:              Score  P(N)      N
+
+NC_000017.11:c7687550-7668402                                  346   5.1e-58 11
+
+
+>NC_000017.11:c7687550-7668402
+        Length = 19149
+
+  Plus Strand HSPs:
+
+ Score = 346 (53.7 bits), Expect = 5.1e-58, P = 5.1e-58
+ Identities = 74/77 (96%), Positives = 74/77 (96%), Strand = Plus / Plus
+
+Query: 1     tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaa 60
+             ||| ||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 13128 tcacgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaa 13187
+
+Query: 61    a--ggcctcccctgctt 75
+             |  ||||||||||||||
+Sbjct: 13188 aaaggcctcccctgctt 13204
+
+ Score = 278 (43.2 bits), Expect = 5.7e-46, P = 5.7e-46
+ Identities = 57/61 (93%), Positives = 57/61 (93%), Strand = Plus / Plus
+
+Query: 1    tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaa 60
+            || ||||||||||||||||||||||||||||||| ||| | |||||||||||||||||||
+Sbjct: 4385 tcgtgccactgcactccagcctgggcgacagagcaagacttcatctcaaaaaaaaaaaaa 4444
+
+Query: 61   a 61
+            |
+Sbjct: 4445 a 4445
+
+ Score = 265 (41.2 bits), Expect = 1.3e-43, P = 1.3e-43
+ Identities = 55/61 (90%), Positives = 55/61 (90%), Strand = Plus / Plus
+
+Query: 1    tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaa 60
+            || |||||||||||||||||||||| ||||||| |||| | | |||||||||||||||||
+Sbjct: 5275 tcgtgccactgcactccagcctgggtgacagagtgagacttcgtctcaaaaaaaaaaaaa 5334
+
+Query: 61   a 61
+            |
+Sbjct: 5335 a 5335
+
+ Score = 260 (40.4 bits), Expect = 9.5e-43, P = 9.5e-43
+ Identities = 55/61 (90%), Positives = 55/61 (90%), Strand = Plus / Plus
+
+Query: 1     tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaa 60
+             |||||||||||  ||||||||| || ||||||| |||| |||||||||||||||||||||
+Sbjct: 10550 tcatgccactgtgctccagcctaggtgacagagagagactccatctcaaaaaaaaaaaaa 10609
+
+Query: 61    a 61
+             |
+Sbjct: 10610 a 10610
+
+ Score = 242 (37.6 bits), Expect = 1.6e-39, P = 1.6e-39
+ Identities = 51/56 (91%), Positives = 51/56 (91%), Strand = Plus / Plus
+
+Query: 5    gccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaa 60
+            |||||||||||||||||||||||||||||| ||| |   |||||||||||||||||
+Sbjct: 5697 gccactgcactccagcctgggcgacagagcaagactgtgtctcaaaaaaaaaaaaa 5752
+
+ Score = 226 (35.1 bits), Expect = 9.8e-37, P = 9.8e-37
+ Identities = 48/56 (86%), Positives = 48/56 (86%), Strand = Plus / Plus
+
+Query: 6     ccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaaa 61
+             ||||||  |||||||||| | |||||||| |||  | |||||||||||||||||||
+Sbjct: 12098 ccactgtgctccagcctgagtgacagagcaagaccctatctcaaaaaaaaaaaaaa 12153
+
+ Score = 117 (18.2 bits), Expect = 2.3e-17, P = 2.3e-17
+ Identities = 23/23 (100%), Positives = 23/23 (100%), Strand = Plus / Plus
+
+Query: 6    ccactgcactccagcctgggcga 28
+            |||||||||||||||||||||||
+Sbjct: 9527 ccactgcactccagcctgggcga 9549
+
+ Score = 98 (15.2 bits), Expect = 5.8e-14, P = 5.8e-14
+ Identities = 28/36 (78%), Positives = 28/36 (78%), Strand = Plus / Plus
+
+Query: 30   agagcgagattccatctcaaaaaa-----aaaaaaa 60
+            ||||| | | ||||||||||||||     |||||||
+Sbjct: 9552 agagccaaactccatctcaaaaaacaaacaaaaaaa 9587
+
+  Minus Strand HSPs:
+
+ Score = 241 (37.4 bits), Expect = 2.2e-39, P = 2.2e-39
+ Identities = 53/59 (90%), Positives = 53/59 (90%), Strand = Minus / Plus
+
+Query: 59    ttttttttttttgagatggaatctcgctctgtcgcccaggctggagtgcagtggcatga 1
+             |||| |||||||||||   | |||| |||||||||||||||||||||||||||||||||
+Sbjct: 15150 ttttatttttttgagactcagtctcactctgtcgcccaggctggagtgcagtggcatga 15208
+
+ Score = 159 (24.7 bits), Expect = 7.4e-25, P = 7.4e-25
+ Identities = 32/34 (94%), Positives = 32/34 (94%), Strand = Minus / Plus
+
+Query: 38    tctcgctctgtcgcccaggctggagtgcagtggc 5
+             |||| ||||||| |||||||||||||||||||||
+Sbjct: 14436 tctcactctgtcacccaggctggagtgcagtggc 14469
+
+ Score = 72 (11.2 bits), Expect = 2.7e-09, P = 2.7e-09
+ Identities = 15/15 (100%), Positives = 15/15 (100%), Strand = Minus / Plus
+
+Query: 61    ttttttttttttttg 47
+             |||||||||||||||
+Sbjct: 14412 ttttttttttttttg 14426
+
+BLASTN 2.0MP-WashU [blat]
+
+Copyright (C) 2000-2002 Jim Kent
+All Rights Reserved
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Notice:  this program and its default parameter settings are optimized to find
+nearly identical sequences very rapidly.  For slower but more sensitive
+alignments please use other methods.
+
+Query=  M03848:190:000000000-ARTHA:1:1112:24053:17456
+        (75 letters; record 2)
+
+Database:  data/hg38_tp53.2bit
+           1 sequences; 19,149 total letters
+Searching....10....20....30....40....50....60....70....80....90....100% done
+
+                                                                     Smallest
+                                                                       Sum
+                                                              High  Probability
+Sequences producing High-scoring Segment Pairs:              Score  P(N)      N
+
+NC_000017.11:c7687550-7668402                                  374   5.4e-63  8
+
+
+>NC_000017.11:c7687550-7668402
+        Length = 19149
+
+  Plus Strand HSPs:
+
+ Score = 374 (58.1 bits), Expect = 5.4e-63, P = 5.4e-63
+ Identities = 74/75 (99%), Positives = 74/75 (99%), Strand = Plus / Plus
+
+Query: 1     ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgaca 60
+             ||||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||
+Sbjct: 13098 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgaca 13157
+
+Query: 61    gagcgagattccatc 75
+             |||||||||||||||
+Sbjct: 13158 gagcgagattccatc 13172
+
+ Score = 263 (40.8 bits), Expect = 2.5e-43, P = 2.5e-43
+ Identities = 55/61 (90%), Positives = 55/61 (90%), Strand = Plus / Plus
+
+Query: 15    ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccat 74
+             |||||||||||||||||||||||||||  ||||||||| || ||||||| |||| |||||
+Sbjct: 10534 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccat 10593
+
+Query: 75    c 75
+             |
+Sbjct: 10594 c 10594
+
+ Score = 261 (40.5 bits), Expect = 5.8e-43, P = 5.8e-43
+ Identities = 53/55 (96%), Positives = 53/55 (96%), Strand = Plus / Plus
+
+Query: 10   ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||||||||||||||  ||||||||||||||||||||||||||||||
+Sbjct: 5672 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc 5726
+
+ Score = 233 (36.2 bits), Expect = 5.3e-38, P = 5.3e-38
+ Identities = 47/50 (94%), Positives = 47/50 (94%), Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||  ||||| |||||||||||||||||||||||||||||||
+Sbjct: 4369 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc 4418
+
+ Score = 172 (26.7 bits), Expect = 4.7e-27, P = 4.7e-27
+ Identities = 37/44 (84%), Positives = 37/44 (84%), Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcga 58
+            |||||||||||  |||     |||||||||||||||||||||||
+Sbjct: 9506 ttgcagtgagcctagactgcaccactgcactccagcctgggcga 9549
+
+ Score = 25 (3.9 bits), Expect = 6.0e-01, P = 6.0e-01
+ Identities = 5/5 (100%), Positives = 5/5 (100%), Strand = Plus / Plus
+
+Query: 60   agagc 64
+            |||||
+Sbjct: 9552 agagc 9556
+
+  Minus Strand HSPs:
+
+ Score = 191 (29.7 bits), Expect = 2.0e-30, P = 2.0e-30
+ Identities = 38/39 (97%), Positives = 38/39 (97%), Strand = Minus / Plus
+
+Query: 68    tctcgctctgtcgcccaggctggagtgcagtggcatgat 30
+             |||| ||||||||||||||||||||||||||||||||||
+Sbjct: 15171 tctcactctgtcgcccaggctggagtgcagtggcatgat 15209
+
+ Score = 70 (10.9 bits), Expect = 5.0e-09, P = 5.0e-09
+ Identities = 14/14 (100%), Positives = 14/14 (100%), Strand = Minus / Plus
+
+Query: 29    ctcagctcactgca 16
+             ||||||||||||||
+Sbjct: 15510 ctcagctcactgca 15523
+
+BLASTN 2.0MP-WashU [blat]
+
+Copyright (C) 2000-2002 Jim Kent
+All Rights Reserved
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Notice:  this program and its default parameter settings are optimized to find
+nearly identical sequences very rapidly.  For slower but more sensitive
+alignments please use other methods.
+
+Query=  M03848:190:000000000-ARTHA:1:1116:10371:23728
+        (75 letters; record 3)
+
+Database:  data/hg38_tp53.2bit
+           1 sequences; 19,149 total letters
+Searching....10....20....30....40....50....60....70....80....90....100% done
+
+                                                                     Smallest
+                                                                       Sum
+                                                              High  Probability
+Sequences producing High-scoring Segment Pairs:              Score  P(N)      N
+
+NC_000017.11:c7687550-7668402                                  374   5.4e-63  8
+
+
+>NC_000017.11:c7687550-7668402
+        Length = 19149
+
+  Plus Strand HSPs:
+
+ Score = 374 (58.1 bits), Expect = 5.4e-63, P = 5.4e-63
+ Identities = 74/75 (99%), Positives = 74/75 (99%), Strand = Plus / Plus
+
+Query: 1     ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgaca 60
+             ||||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||
+Sbjct: 13098 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgaca 13157
+
+Query: 61    gagcgagattccatc 75
+             |||||||||||||||
+Sbjct: 13158 gagcgagattccatc 13172
+
+ Score = 263 (40.8 bits), Expect = 2.5e-43, P = 2.5e-43
+ Identities = 55/61 (90%), Positives = 55/61 (90%), Strand = Plus / Plus
+
+Query: 15    ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccat 74
+             |||||||||||||||||||||||||||  ||||||||| || ||||||| |||| |||||
+Sbjct: 10534 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccat 10593
+
+Query: 75    c 75
+             |
+Sbjct: 10594 c 10594
+
+ Score = 261 (40.5 bits), Expect = 5.8e-43, P = 5.8e-43
+ Identities = 53/55 (96%), Positives = 53/55 (96%), Strand = Plus / Plus
+
+Query: 10   ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||||||||||||||  ||||||||||||||||||||||||||||||
+Sbjct: 5672 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc 5726
+
+ Score = 233 (36.2 bits), Expect = 5.3e-38, P = 5.3e-38
+ Identities = 47/50 (94%), Positives = 47/50 (94%), Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||  ||||| |||||||||||||||||||||||||||||||
+Sbjct: 4369 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc 4418
+
+ Score = 172 (26.7 bits), Expect = 4.7e-27, P = 4.7e-27
+ Identities = 37/44 (84%), Positives = 37/44 (84%), Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcga 58
+            |||||||||||  |||     |||||||||||||||||||||||
+Sbjct: 9506 ttgcagtgagcctagactgcaccactgcactccagcctgggcga 9549
+
+ Score = 25 (3.9 bits), Expect = 6.0e-01, P = 6.0e-01
+ Identities = 5/5 (100%), Positives = 5/5 (100%), Strand = Plus / Plus
+
+Query: 60   agagc 64
+            |||||
+Sbjct: 9552 agagc 9556
+
+  Minus Strand HSPs:
+
+ Score = 191 (29.7 bits), Expect = 2.0e-30, P = 2.0e-30
+ Identities = 38/39 (97%), Positives = 38/39 (97%), Strand = Minus / Plus
+
+Query: 68    tctcgctctgtcgcccaggctggagtgcagtggcatgat 30
+             |||| ||||||||||||||||||||||||||||||||||
+Sbjct: 15171 tctcactctgtcgcccaggctggagtgcagtggcatgat 15209
+
+ Score = 70 (10.9 bits), Expect = 5.0e-09, P = 5.0e-09
+ Identities = 14/14 (100%), Positives = 14/14 (100%), Strand = Minus / Plus
+
+Query: 29    ctcagctcactgca 16
+             ||||||||||||||
+Sbjct: 15510 ctcagctcactgca 15523
+
+BLASTN 2.0MP-WashU [blat]
+
+Copyright (C) 2000-2002 Jim Kent
+All Rights Reserved
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Notice:  this program and its default parameter settings are optimized to find
+nearly identical sequences very rapidly.  For slower but more sensitive
+alignments please use other methods.
+
+Query=  M03848:190:000000000-ARTHA:1:1117:15534:14750
+        (75 letters; record 4)
+
+Database:  data/hg38_tp53.2bit
+           1 sequences; 19,149 total letters
+Searching....10....20....30....40....50....60....70....80....90....100% done
+
+                                                                     Smallest
+                                                                       Sum
+                                                              High  Probability
+Sequences producing High-scoring Segment Pairs:              Score  P(N)      N
+
+NC_000017.11:c7687550-7668402                                  374   5.4e-63  8
+
+
+>NC_000017.11:c7687550-7668402
+        Length = 19149
+
+  Plus Strand HSPs:
+
+ Score = 374 (58.1 bits), Expect = 5.4e-63, P = 5.4e-63
+ Identities = 74/75 (99%), Positives = 74/75 (99%), Strand = Plus / Plus
+
+Query: 1     ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgaca 60
+             ||||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||
+Sbjct: 13098 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgaca 13157
+
+Query: 61    gagcgagattccatc 75
+             |||||||||||||||
+Sbjct: 13158 gagcgagattccatc 13172
+
+ Score = 263 (40.8 bits), Expect = 2.5e-43, P = 2.5e-43
+ Identities = 55/61 (90%), Positives = 55/61 (90%), Strand = Plus / Plus
+
+Query: 15    ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccat 74
+             |||||||||||||||||||||||||||  ||||||||| || ||||||| |||| |||||
+Sbjct: 10534 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccat 10593
+
+Query: 75    c 75
+             |
+Sbjct: 10594 c 10594
+
+ Score = 261 (40.5 bits), Expect = 5.8e-43, P = 5.8e-43
+ Identities = 53/55 (96%), Positives = 53/55 (96%), Strand = Plus / Plus
+
+Query: 10   ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||||||||||||||  ||||||||||||||||||||||||||||||
+Sbjct: 5672 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc 5726
+
+ Score = 233 (36.2 bits), Expect = 5.3e-38, P = 5.3e-38
+ Identities = 47/50 (94%), Positives = 47/50 (94%), Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||  ||||| |||||||||||||||||||||||||||||||
+Sbjct: 4369 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc 4418
+
+ Score = 172 (26.7 bits), Expect = 4.7e-27, P = 4.7e-27
+ Identities = 37/44 (84%), Positives = 37/44 (84%), Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcga 58
+            |||||||||||  |||     |||||||||||||||||||||||
+Sbjct: 9506 ttgcagtgagcctagactgcaccactgcactccagcctgggcga 9549
+
+ Score = 25 (3.9 bits), Expect = 6.0e-01, P = 6.0e-01
+ Identities = 5/5 (100%), Positives = 5/5 (100%), Strand = Plus / Plus
+
+Query: 60   agagc 64
+            |||||
+Sbjct: 9552 agagc 9556
+
+  Minus Strand HSPs:
+
+ Score = 191 (29.7 bits), Expect = 2.0e-30, P = 2.0e-30
+ Identities = 38/39 (97%), Positives = 38/39 (97%), Strand = Minus / Plus
+
+Query: 68    tctcgctctgtcgcccaggctggagtgcagtggcatgat 30
+             |||| ||||||||||||||||||||||||||||||||||
+Sbjct: 15171 tctcactctgtcgcccaggctggagtgcagtggcatgat 15209
+
+ Score = 70 (10.9 bits), Expect = 5.0e-09, P = 5.0e-09
+ Identities = 14/14 (100%), Positives = 14/14 (100%), Strand = Minus / Plus
+
+Query: 29    ctcagctcactgca 16
+             ||||||||||||||
+Sbjct: 15510 ctcagctcactgca 15523
+
+BLASTN 2.0MP-WashU [blat]
+
+Copyright (C) 2000-2002 Jim Kent
+All Rights Reserved
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Notice:  this program and its default parameter settings are optimized to find
+nearly identical sequences very rapidly.  For slower but more sensitive
+alignments please use other methods.
+
+Query=  M03848:190:000000000-ARTHA:1:2109:17847:21775
+        (75 letters; record 5)
+
+Database:  data/hg38_tp53.2bit
+           1 sequences; 19,149 total letters
+Searching....10....20....30....40....50....60....70....80....90....100% done
+
+                                                                     Smallest
+                                                                       Sum
+                                                              High  Probability
+Sequences producing High-scoring Segment Pairs:              Score  P(N)      N
+
+NC_000017.11:c7687550-7668402                                  374   5.4e-63  8
+
+
+>NC_000017.11:c7687550-7668402
+        Length = 19149
+
+  Plus Strand HSPs:
+
+ Score = 374 (58.1 bits), Expect = 5.4e-63, P = 5.4e-63
+ Identities = 74/75 (99%), Positives = 74/75 (99%), Strand = Plus / Plus
+
+Query: 1     ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgaca 60
+             ||||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||
+Sbjct: 13098 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgaca 13157
+
+Query: 61    gagcgagattccatc 75
+             |||||||||||||||
+Sbjct: 13158 gagcgagattccatc 13172
+
+ Score = 263 (40.8 bits), Expect = 2.5e-43, P = 2.5e-43
+ Identities = 55/61 (90%), Positives = 55/61 (90%), Strand = Plus / Plus
+
+Query: 15    ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccat 74
+             |||||||||||||||||||||||||||  ||||||||| || ||||||| |||| |||||
+Sbjct: 10534 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccat 10593
+
+Query: 75    c 75
+             |
+Sbjct: 10594 c 10594
+
+ Score = 261 (40.5 bits), Expect = 5.8e-43, P = 5.8e-43
+ Identities = 53/55 (96%), Positives = 53/55 (96%), Strand = Plus / Plus
+
+Query: 10   ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||||||||||||||  ||||||||||||||||||||||||||||||
+Sbjct: 5672 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc 5726
+
+ Score = 233 (36.2 bits), Expect = 5.3e-38, P = 5.3e-38
+ Identities = 47/50 (94%), Positives = 47/50 (94%), Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||  ||||| |||||||||||||||||||||||||||||||
+Sbjct: 4369 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc 4418
+
+ Score = 172 (26.7 bits), Expect = 4.7e-27, P = 4.7e-27
+ Identities = 37/44 (84%), Positives = 37/44 (84%), Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcga 58
+            |||||||||||  |||     |||||||||||||||||||||||
+Sbjct: 9506 ttgcagtgagcctagactgcaccactgcactccagcctgggcga 9549
+
+ Score = 25 (3.9 bits), Expect = 6.0e-01, P = 6.0e-01
+ Identities = 5/5 (100%), Positives = 5/5 (100%), Strand = Plus / Plus
+
+Query: 60   agagc 64
+            |||||
+Sbjct: 9552 agagc 9556
+
+  Minus Strand HSPs:
+
+ Score = 191 (29.7 bits), Expect = 2.0e-30, P = 2.0e-30
+ Identities = 38/39 (97%), Positives = 38/39 (97%), Strand = Minus / Plus
+
+Query: 68    tctcgctctgtcgcccaggctggagtgcagtggcatgat 30
+             |||| ||||||||||||||||||||||||||||||||||
+Sbjct: 15171 tctcactctgtcgcccaggctggagtgcagtggcatgat 15209
+
+ Score = 70 (10.9 bits), Expect = 5.0e-09, P = 5.0e-09
+ Identities = 14/14 (100%), Positives = 14/14 (100%), Strand = Minus / Plus
+
+Query: 29    ctcagctcactgca 16
+             ||||||||||||||
+Sbjct: 15510 ctcagctcactgca 15523
+
+BLASTN 2.0MP-WashU [blat]
+
+Copyright (C) 2000-2002 Jim Kent
+All Rights Reserved
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Notice:  this program and its default parameter settings are optimized to find
+nearly identical sequences very rapidly.  For slower but more sensitive
+alignments please use other methods.
+
+Query=  M03848:190:000000000-ARTHA:1:2115:15976:15346
+        (75 letters; record 6)
+
+Database:  data/hg38_tp53.2bit
+           1 sequences; 19,149 total letters
+Searching....10....20....30....40....50....60....70....80....90....100% done
+
+                                                                     Smallest
+                                                                       Sum
+                                                              High  Probability
+Sequences producing High-scoring Segment Pairs:              Score  P(N)      N
+
+NC_000017.11:c7687550-7668402                                  374   5.4e-63  8
+
+
+>NC_000017.11:c7687550-7668402
+        Length = 19149
+
+  Plus Strand HSPs:
+
+ Score = 374 (58.1 bits), Expect = 5.4e-63, P = 5.4e-63
+ Identities = 74/75 (99%), Positives = 74/75 (99%), Strand = Plus / Plus
+
+Query: 1     ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgaca 60
+             ||||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||
+Sbjct: 13098 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgaca 13157
+
+Query: 61    gagcgagattccatc 75
+             |||||||||||||||
+Sbjct: 13158 gagcgagattccatc 13172
+
+ Score = 263 (40.8 bits), Expect = 2.5e-43, P = 2.5e-43
+ Identities = 55/61 (90%), Positives = 55/61 (90%), Strand = Plus / Plus
+
+Query: 15    ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccat 74
+             |||||||||||||||||||||||||||  ||||||||| || ||||||| |||| |||||
+Sbjct: 10534 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccat 10593
+
+Query: 75    c 75
+             |
+Sbjct: 10594 c 10594
+
+ Score = 261 (40.5 bits), Expect = 5.8e-43, P = 5.8e-43
+ Identities = 53/55 (96%), Positives = 53/55 (96%), Strand = Plus / Plus
+
+Query: 10   ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||||||||||||||  ||||||||||||||||||||||||||||||
+Sbjct: 5672 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc 5726
+
+ Score = 233 (36.2 bits), Expect = 5.3e-38, P = 5.3e-38
+ Identities = 47/50 (94%), Positives = 47/50 (94%), Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
+            |||||||||||  ||||| |||||||||||||||||||||||||||||||
+Sbjct: 4369 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc 4418
+
+ Score = 172 (26.7 bits), Expect = 4.7e-27, P = 4.7e-27
+ Identities = 37/44 (84%), Positives = 37/44 (84%), Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcga 58
+            |||||||||||  |||     |||||||||||||||||||||||
+Sbjct: 9506 ttgcagtgagcctagactgcaccactgcactccagcctgggcga 9549
+
+ Score = 25 (3.9 bits), Expect = 6.0e-01, P = 6.0e-01
+ Identities = 5/5 (100%), Positives = 5/5 (100%), Strand = Plus / Plus
+
+Query: 60   agagc 64
+            |||||
+Sbjct: 9552 agagc 9556
+
+  Minus Strand HSPs:
+
+ Score = 191 (29.7 bits), Expect = 2.0e-30, P = 2.0e-30
+ Identities = 38/39 (97%), Positives = 38/39 (97%), Strand = Minus / Plus
+
+Query: 68    tctcgctctgtcgcccaggctggagtgcagtggcatgat 30
+             |||| ||||||||||||||||||||||||||||||||||
+Sbjct: 15171 tctcactctgtcgcccaggctggagtgcagtggcatgat 15209
+
+ Score = 70 (10.9 bits), Expect = 5.0e-09, P = 5.0e-09
+ Identities = 14/14 (100%), Positives = 14/14 (100%), Strand = Minus / Plus
+
+Query: 29    ctcagctcactgca 16
+             ||||||||||||||
+Sbjct: 15510 ctcagctcactgca 15523
+
+BLASTN 2.0MP-WashU [blat]
+
+Copyright (C) 2000-2002 Jim Kent
+All Rights Reserved
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Notice:  this program and its default parameter settings are optimized to find
+nearly identical sequences very rapidly.  For slower but more sensitive
+alignments please use other methods.
+
+Query=  M03848:190:000000000-ARTHA:1:2102:20955:15668
+        (75 letters; record 7)
+
+Database:  data/hg38_tp53.2bit
+           1 sequences; 19,149 total letters
+Searching....10....20....30....40....50....60....70....80....90....100% done
+
+                                                                     Smallest
+                                                                       Sum
+                                                              High  Probability
+Sequences producing High-scoring Segment Pairs:              Score  P(N)      N
+
+NC_000017.11:c7687550-7668402                                  379   8.6e-64  1
+
+
+>NC_000017.11:c7687550-7668402
+        Length = 19149
+
+  Minus Strand HSPs:
+
+ Score = 379 (58.9 bits), Expect = 8.6e-64, P = 8.6e-64
+ Identities = 75/75 (100%), Positives = 75/75 (100%), Strand = Minus / Plus
+
+Query: 75    catgtgtaacagttcctgcatgggcggcatgaaccggaggcccatcctcaccatcatcac 16
+             ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 13296 catgtgtaacagttcctgcatgggcggcatgaaccggaggcccatcctcaccatcatcac 13355
+
+Query: 15    actggaagactccag 1
+             |||||||||||||||
+Sbjct: 13356 actggaagactccag 13370
+
+BLASTN 2.0MP-WashU [blat]
+
+Copyright (C) 2000-2002 Jim Kent
+All Rights Reserved
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Notice:  this program and its default parameter settings are optimized to find
+nearly identical sequences very rapidly.  For slower but more sensitive
+alignments please use other methods.
+
+Query=  M03848:190:000000000-ARTHA:1:1112:24053:17456
+        (75 letters; record 8)
+
+Database:  data/hg38_tp53.2bit
+           1 sequences; 19,149 total letters
+Searching....10....20....30....40....50....60....70....80....90....100% done
+
+                                                                     Smallest
+                                                                       Sum
+                                                              High  Probability
+Sequences producing High-scoring Segment Pairs:              Score  P(N)      N
+
+NC_000017.11:c7687550-7668402                                  376   2.7e-63  1
+
+
+>NC_000017.11:c7687550-7668402
+        Length = 19149
+
+  Minus Strand HSPs:
+
+ Score = 376 (58.4 bits), Expect = 2.7e-63, P = 2.7e-63
+ Identities = 75/75 (100%), Positives = 75/75 (100%), Strand = Minus / Plus
+
+Query: 75    cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgta 16
+             ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 13244 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgta 13303
+
+Query: 15    acagttcctgcatgg 1
+             |||||||||||||||
+Sbjct: 13304 acagttcctgcatgg 13318
+
+BLASTN 2.0MP-WashU [blat]
+
+Copyright (C) 2000-2002 Jim Kent
+All Rights Reserved
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Notice:  this program and its default parameter settings are optimized to find
+nearly identical sequences very rapidly.  For slower but more sensitive
+alignments please use other methods.
+
+Query=  M03848:190:000000000-ARTHA:1:1116:10371:23728
+        (75 letters; record 9)
+
+Database:  data/hg38_tp53.2bit
+           1 sequences; 19,149 total letters
+Searching....10....20....30....40....50....60....70....80....90....100% done
+
+                                                                     Smallest
+                                                                       Sum
+                                                              High  Probability
+Sequences producing High-scoring Segment Pairs:              Score  P(N)      N
+
+NC_000017.11:c7687550-7668402                                  376   2.7e-63  1
+
+
+>NC_000017.11:c7687550-7668402
+        Length = 19149
+
+  Minus Strand HSPs:
+
+ Score = 376 (58.4 bits), Expect = 2.7e-63, P = 2.7e-63
+ Identities = 75/75 (100%), Positives = 75/75 (100%), Strand = Minus / Plus
+
+Query: 75    cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgta 16
+             ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 13244 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgta 13303
+
+Query: 15    acagttcctgcatgg 1
+             |||||||||||||||
+Sbjct: 13304 acagttcctgcatgg 13318
+
+BLASTN 2.0MP-WashU [blat]
+
+Copyright (C) 2000-2002 Jim Kent
+All Rights Reserved
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Notice:  this program and its default parameter settings are optimized to find
+nearly identical sequences very rapidly.  For slower but more sensitive
+alignments please use other methods.
+
+Query=  M03848:190:000000000-ARTHA:1:1117:15534:14750
+        (75 letters; record 10)
+
+Database:  data/hg38_tp53.2bit
+           1 sequences; 19,149 total letters
+Searching....10....20....30....40....50....60....70....80....90....100% done
+
+                                                                     Smallest
+                                                                       Sum
+                                                              High  Probability
+Sequences producing High-scoring Segment Pairs:              Score  P(N)      N
+
+NC_000017.11:c7687550-7668402                                  376   2.7e-63  1
+
+
+>NC_000017.11:c7687550-7668402
+        Length = 19149
+
+  Minus Strand HSPs:
+
+ Score = 376 (58.4 bits), Expect = 2.7e-63, P = 2.7e-63
+ Identities = 75/75 (100%), Positives = 75/75 (100%), Strand = Minus / Plus
+
+Query: 75    cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgta 16
+             ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 13244 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgta 13303
+
+Query: 15    acagttcctgcatgg 1
+             |||||||||||||||
+Sbjct: 13304 acagttcctgcatgg 13318
+
+BLASTN 2.0MP-WashU [blat]
+
+Copyright (C) 2000-2002 Jim Kent
+All Rights Reserved
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Notice:  this program and its default parameter settings are optimized to find
+nearly identical sequences very rapidly.  For slower but more sensitive
+alignments please use other methods.
+
+Query=  M03848:190:000000000-ARTHA:1:2109:17847:21775
+        (75 letters; record 11)
+
+Database:  data/hg38_tp53.2bit
+           1 sequences; 19,149 total letters
+Searching....10....20....30....40....50....60....70....80....90....100% done
+
+                                                                     Smallest
+                                                                       Sum
+                                                              High  Probability
+Sequences producing High-scoring Segment Pairs:              Score  P(N)      N
+
+NC_000017.11:c7687550-7668402                                  376   2.7e-63  1
+
+
+>NC_000017.11:c7687550-7668402
+        Length = 19149
+
+  Minus Strand HSPs:
+
+ Score = 376 (58.4 bits), Expect = 2.7e-63, P = 2.7e-63
+ Identities = 75/75 (100%), Positives = 75/75 (100%), Strand = Minus / Plus
+
+Query: 75    cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgta 16
+             ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 13244 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgta 13303
+
+Query: 15    acagttcctgcatgg 1
+             |||||||||||||||
+Sbjct: 13304 acagttcctgcatgg 13318
+
+BLASTN 2.0MP-WashU [blat]
+
+Copyright (C) 2000-2002 Jim Kent
+All Rights Reserved
+
+Reference:  Kent, WJ. (2002) BLAT - The BLAST-like alignment tool
+
+Notice:  this program and its default parameter settings are optimized to find
+nearly identical sequences very rapidly.  For slower but more sensitive
+alignments please use other methods.
+
+Query=  M03848:190:000000000-ARTHA:1:2115:15976:15346
+        (75 letters; record 12)
+
+Database:  data/hg38_tp53.2bit
+           1 sequences; 19,149 total letters
+Searching....10....20....30....40....50....60....70....80....90....100% done
+
+                                                                     Smallest
+                                                                       Sum
+                                                              High  Probability
+Sequences producing High-scoring Segment Pairs:              Score  P(N)      N
+
+NC_000017.11:c7687550-7668402                                  376   2.7e-63  1
+
+
+>NC_000017.11:c7687550-7668402
+        Length = 19149
+
+  Minus Strand HSPs:
+
+ Score = 376 (58.4 bits), Expect = 2.7e-63, P = 2.7e-63
+ Identities = 75/75 (100%), Positives = 75/75 (100%), Strand = Minus / Plus
+
+Query: 75    cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgta 16
+             ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 13244 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgta 13303
+
+Query: 15    acagttcctgcatgg 1
+             |||||||||||||||
+Sbjct: 13304 acagttcctgcatgg 13318
+

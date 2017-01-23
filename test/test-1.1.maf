@@ -1,0 +1,229 @@
+##maf version=1 scoring=blastz
+a score=1374.000000
+s NC_000017.11:c7687550-7668402                 14411 15 + 19149 ttttttttttttttg
+s M03848:190:000000000-ARTHA:1:2102:20955:15668    14 15 -    75 ttttttttttttttg
+
+a score=3039.000000
+s NC_000017.11:c7687550-7668402                 14435 34 + 19149 tctcactctgtcacccaggctggagtgcagtggc
+s M03848:190:000000000-ARTHA:1:2102:20955:15668    37 34 -    75 tctcgctctgtcgcccaggctggagtgcagtggc
+
+a score=4593.000000
+s NC_000017.11:c7687550-7668402                 15149 59 + 19149 ttttatttttttgagactcagtctcactctgtcgcccaggctggagtgcagtggcatga
+s M03848:190:000000000-ARTHA:1:2102:20955:15668    16 59 -    75 ttttttttttttgagatggaatctcgctctgtcgcccaggctggagtgcagtggcatga
+
+a score=4309.000000
+s NC_000017.11:c7687550-7668402                 12097 56 + 19149 ccactgtgctccagcctgagtgacagagcaagaccctatctcaaaaaaaaaaaaaa
+s M03848:190:000000000-ARTHA:1:2102:20955:15668     5 56 +    75 ccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaaa
+
+a score=2237.000000
+s NC_000017.11:c7687550-7668402                 9526 23 + 19149 ccactgcactccagcctgggcga
+s M03848:190:000000000-ARTHA:1:2102:20955:15668    5 23 +    75 ccactgcactccagcctgggcga
+
+a score=1874.000000
+s NC_000017.11:c7687550-7668402                 9551 36 + 19149 agagccaaactccatctcaaaaaacaaacaaaaaaa
+s M03848:190:000000000-ARTHA:1:2102:20955:15668   29 31 +    75 agagcgagattccatctcaaaaaa-----aaaaaaa
+
+a score=4608.000000
+s NC_000017.11:c7687550-7668402                 5696 56 + 19149 gccactgcactccagcctgggcgacagagcaagactgtgtctcaaaaaaaaaaaaa
+s M03848:190:000000000-ARTHA:1:2102:20955:15668    4 56 +    75 gccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaa
+
+a score=5044.000000
+s NC_000017.11:c7687550-7668402                 5274 61 + 19149 tcgtgccactgcactccagcctgggtgacagagtgagacttcgtctcaaaaaaaaaaaaaa
+s M03848:190:000000000-ARTHA:1:2102:20955:15668    0 61 +    75 tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaaa
+
+a score=4952.000000
+s NC_000017.11:c7687550-7668402                 10549 61 + 19149 tcatgccactgtgctccagcctaggtgacagagagagactccatctcaaaaaaaaaaaaaa
+s M03848:190:000000000-ARTHA:1:2102:20955:15668     0 61 +    75 tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaaa
+
+a score=5297.000000
+s NC_000017.11:c7687550-7668402                 4384 61 + 19149 tcgtgccactgcactccagcctgggcgacagagcaagacttcatctcaaaaaaaaaaaaaa
+s M03848:190:000000000-ARTHA:1:2102:20955:15668    0 61 +    75 tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaaa
+
+a score=6585.000000
+s NC_000017.11:c7687550-7668402                 13127 77 + 19149 tcacgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaaaaaggcctcccctgctt
+s M03848:190:000000000-ARTHA:1:2102:20955:15668     0 75 +    75 tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaaa--ggcctcccctgctt
+
+a score=3634.000000
+s NC_000017.11:c7687550-7668402                 15170 39 + 19149 tctcactctgtcgcccaggctggagtgcagtggcatgat
+s M03848:190:000000000-ARTHA:1:1112:24053:17456     7 39 -    75 tctcgctctgtcgcccaggctggagtgcagtggcatgat
+
+a score=1346.000000
+s NC_000017.11:c7687550-7668402                 15509 14 + 19149 ctcagctcactgca
+s M03848:190:000000000-ARTHA:1:1112:24053:17456    46 14 -    75 ctcagctcactgca
+
+a score=3274.000000
+s NC_000017.11:c7687550-7668402                 9505 44 + 19149 ttgcagtgagcctagactgcaccactgcactccagcctgggcga
+s M03848:190:000000000-ARTHA:1:1112:24053:17456   14 44 +    75 ttgcagtgagctgagatcatgccactgcactccagcctgggcga
+
+a score=482.000000
+s NC_000017.11:c7687550-7668402                 9551 5 + 19149 agagc
+s M03848:190:000000000-ARTHA:1:1112:24053:17456   59 5 +    75 agagc
+
+a score=4445.000000
+s NC_000017.11:c7687550-7668402                 4368 50 + 19149 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc
+s M03848:190:000000000-ARTHA:1:1112:24053:17456   14 50 +    75 ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
+
+a score=5015.000000
+s NC_000017.11:c7687550-7668402                 10533 61 + 19149 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccatc
+s M03848:190:000000000-ARTHA:1:1112:24053:17456    14 61 +    75 ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
+
+a score=4975.000000
+s NC_000017.11:c7687550-7668402                 5671 55 + 19149 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc
+s M03848:190:000000000-ARTHA:1:1112:24053:17456    9 55 +    75 ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
+
+a score=7117.000000
+s NC_000017.11:c7687550-7668402                 13097 75 + 19149 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgacagagcgagattccatc
+s M03848:190:000000000-ARTHA:1:1112:24053:17456     0 75 +    75 ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
+
+a score=3634.000000
+s NC_000017.11:c7687550-7668402                 15170 39 + 19149 tctcactctgtcgcccaggctggagtgcagtggcatgat
+s M03848:190:000000000-ARTHA:1:1116:10371:23728     7 39 -    75 tctcgctctgtcgcccaggctggagtgcagtggcatgat
+
+a score=1346.000000
+s NC_000017.11:c7687550-7668402                 15509 14 + 19149 ctcagctcactgca
+s M03848:190:000000000-ARTHA:1:1116:10371:23728    46 14 -    75 ctcagctcactgca
+
+a score=3274.000000
+s NC_000017.11:c7687550-7668402                 9505 44 + 19149 ttgcagtgagcctagactgcaccactgcactccagcctgggcga
+s M03848:190:000000000-ARTHA:1:1116:10371:23728   14 44 +    75 ttgcagtgagctgagatcatgccactgcactccagcctgggcga
+
+a score=482.000000
+s NC_000017.11:c7687550-7668402                 9551 5 + 19149 agagc
+s M03848:190:000000000-ARTHA:1:1116:10371:23728   59 5 +    75 agagc
+
+a score=4445.000000
+s NC_000017.11:c7687550-7668402                 4368 50 + 19149 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc
+s M03848:190:000000000-ARTHA:1:1116:10371:23728   14 50 +    75 ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
+
+a score=5015.000000
+s NC_000017.11:c7687550-7668402                 10533 61 + 19149 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccatc
+s M03848:190:000000000-ARTHA:1:1116:10371:23728    14 61 +    75 ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
+
+a score=4975.000000
+s NC_000017.11:c7687550-7668402                 5671 55 + 19149 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc
+s M03848:190:000000000-ARTHA:1:1116:10371:23728    9 55 +    75 ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
+
+a score=7117.000000
+s NC_000017.11:c7687550-7668402                 13097 75 + 19149 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgacagagcgagattccatc
+s M03848:190:000000000-ARTHA:1:1116:10371:23728     0 75 +    75 ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
+
+a score=3634.000000
+s NC_000017.11:c7687550-7668402                 15170 39 + 19149 tctcactctgtcgcccaggctggagtgcagtggcatgat
+s M03848:190:000000000-ARTHA:1:1117:15534:14750     7 39 -    75 tctcgctctgtcgcccaggctggagtgcagtggcatgat
+
+a score=1346.000000
+s NC_000017.11:c7687550-7668402                 15509 14 + 19149 ctcagctcactgca
+s M03848:190:000000000-ARTHA:1:1117:15534:14750    46 14 -    75 ctcagctcactgca
+
+a score=3274.000000
+s NC_000017.11:c7687550-7668402                 9505 44 + 19149 ttgcagtgagcctagactgcaccactgcactccagcctgggcga
+s M03848:190:000000000-ARTHA:1:1117:15534:14750   14 44 +    75 ttgcagtgagctgagatcatgccactgcactccagcctgggcga
+
+a score=482.000000
+s NC_000017.11:c7687550-7668402                 9551 5 + 19149 agagc
+s M03848:190:000000000-ARTHA:1:1117:15534:14750   59 5 +    75 agagc
+
+a score=4445.000000
+s NC_000017.11:c7687550-7668402                 4368 50 + 19149 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc
+s M03848:190:000000000-ARTHA:1:1117:15534:14750   14 50 +    75 ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
+
+a score=5015.000000
+s NC_000017.11:c7687550-7668402                 10533 61 + 19149 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccatc
+s M03848:190:000000000-ARTHA:1:1117:15534:14750    14 61 +    75 ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
+
+a score=4975.000000
+s NC_000017.11:c7687550-7668402                 5671 55 + 19149 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc
+s M03848:190:000000000-ARTHA:1:1117:15534:14750    9 55 +    75 ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
+
+a score=7117.000000
+s NC_000017.11:c7687550-7668402                 13097 75 + 19149 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgacagagcgagattccatc
+s M03848:190:000000000-ARTHA:1:1117:15534:14750     0 75 +    75 ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
+
+a score=3634.000000
+s NC_000017.11:c7687550-7668402                 15170 39 + 19149 tctcactctgtcgcccaggctggagtgcagtggcatgat
+s M03848:190:000000000-ARTHA:1:2109:17847:21775     7 39 -    75 tctcgctctgtcgcccaggctggagtgcagtggcatgat
+
+a score=1346.000000
+s NC_000017.11:c7687550-7668402                 15509 14 + 19149 ctcagctcactgca
+s M03848:190:000000000-ARTHA:1:2109:17847:21775    46 14 -    75 ctcagctcactgca
+
+a score=3274.000000
+s NC_000017.11:c7687550-7668402                 9505 44 + 19149 ttgcagtgagcctagactgcaccactgcactccagcctgggcga
+s M03848:190:000000000-ARTHA:1:2109:17847:21775   14 44 +    75 ttgcagtgagctgagatcatgccactgcactccagcctgggcga
+
+a score=482.000000
+s NC_000017.11:c7687550-7668402                 9551 5 + 19149 agagc
+s M03848:190:000000000-ARTHA:1:2109:17847:21775   59 5 +    75 agagc
+
+a score=4445.000000
+s NC_000017.11:c7687550-7668402                 4368 50 + 19149 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc
+s M03848:190:000000000-ARTHA:1:2109:17847:21775   14 50 +    75 ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
+
+a score=5015.000000
+s NC_000017.11:c7687550-7668402                 10533 61 + 19149 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccatc
+s M03848:190:000000000-ARTHA:1:2109:17847:21775    14 61 +    75 ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
+
+a score=4975.000000
+s NC_000017.11:c7687550-7668402                 5671 55 + 19149 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc
+s M03848:190:000000000-ARTHA:1:2109:17847:21775    9 55 +    75 ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
+
+a score=7117.000000
+s NC_000017.11:c7687550-7668402                 13097 75 + 19149 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgacagagcgagattccatc
+s M03848:190:000000000-ARTHA:1:2109:17847:21775     0 75 +    75 ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
+
+a score=3634.000000
+s NC_000017.11:c7687550-7668402                 15170 39 + 19149 tctcactctgtcgcccaggctggagtgcagtggcatgat
+s M03848:190:000000000-ARTHA:1:2115:15976:15346     7 39 -    75 tctcgctctgtcgcccaggctggagtgcagtggcatgat
+
+a score=1346.000000
+s NC_000017.11:c7687550-7668402                 15509 14 + 19149 ctcagctcactgca
+s M03848:190:000000000-ARTHA:1:2115:15976:15346    46 14 -    75 ctcagctcactgca
+
+a score=3274.000000
+s NC_000017.11:c7687550-7668402                 9505 44 + 19149 ttgcagtgagcctagactgcaccactgcactccagcctgggcga
+s M03848:190:000000000-ARTHA:1:2115:15976:15346   14 44 +    75 ttgcagtgagctgagatcatgccactgcactccagcctgggcga
+
+a score=482.000000
+s NC_000017.11:c7687550-7668402                 9551 5 + 19149 agagc
+s M03848:190:000000000-ARTHA:1:2115:15976:15346   59 5 +    75 agagc
+
+a score=4445.000000
+s NC_000017.11:c7687550-7668402                 4368 50 + 19149 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc
+s M03848:190:000000000-ARTHA:1:2115:15976:15346   14 50 +    75 ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
+
+a score=5015.000000
+s NC_000017.11:c7687550-7668402                 10533 61 + 19149 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccatc
+s M03848:190:000000000-ARTHA:1:2115:15976:15346    14 61 +    75 ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
+
+a score=4975.000000
+s NC_000017.11:c7687550-7668402                 5671 55 + 19149 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc
+s M03848:190:000000000-ARTHA:1:2115:15976:15346    9 55 +    75 ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
+
+a score=7117.000000
+s NC_000017.11:c7687550-7668402                 13097 75 + 19149 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgacagagcgagattccatc
+s M03848:190:000000000-ARTHA:1:2115:15976:15346     0 75 +    75 ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
+
+a score=7203.000000
+s NC_000017.11:c7687550-7668402                 13295 75 + 19149 catgtgtaacagttcctgcatgggcggcatgaaccggaggcccatcctcaccatcatcacactggaagactccag
+s M03848:190:000000000-ARTHA:1:2102:20955:15668     0 75 -    75 catgtgtaacagttcctgcatgggcggcatgaaccggaggcccatcctcaccatcatcacactggaagactccag
+
+a score=7149.000000
+s NC_000017.11:c7687550-7668402                 13243 75 + 19149 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
+s M03848:190:000000000-ARTHA:1:1112:24053:17456     0 75 -    75 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
+
+a score=7149.000000
+s NC_000017.11:c7687550-7668402                 13243 75 + 19149 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
+s M03848:190:000000000-ARTHA:1:1116:10371:23728     0 75 -    75 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
+
+a score=7149.000000
+s NC_000017.11:c7687550-7668402                 13243 75 + 19149 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
+s M03848:190:000000000-ARTHA:1:1117:15534:14750     0 75 -    75 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
+
+a score=7149.000000
+s NC_000017.11:c7687550-7668402                 13243 75 + 19149 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
+s M03848:190:000000000-ARTHA:1:2109:17847:21775     0 75 -    75 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
+
+a score=7149.000000
+s NC_000017.11:c7687550-7668402                 13243 75 + 19149 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
+s M03848:190:000000000-ARTHA:1:2115:15976:15346     0 75 -    75 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
+
