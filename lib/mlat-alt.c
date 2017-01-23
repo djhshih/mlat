@@ -7,6 +7,7 @@
 
 /* Open and read a database sequence, mask, and index it */
 /* Free gfDb* with freeGfDb */
+/* TODO support other tType and qType with calls to bigMlat */
 struct gfDb *newGfDb(char *dbFile, struct mlatParams *p) {
   struct gfDb *db;
   AllocVar(db);
@@ -71,7 +72,8 @@ void freeGfDb(struct gfDb **pDb) {
 }
 
 /* Search for a query sequence in the database index on one DNA strand */
-void searchDnaStrand(struct gfDb *db, bioSeq *seq, boolean isRc,
+/* FIXME reconsile with searchOneStrand */
+static void searchDnaStrand(struct gfDb *db, bioSeq *seq, boolean isRc,
                      Bits *qMaskBits, struct mlatParams *p,
                      struct gfOutput *gvo) {
   if (p->fastMap && (seq->size > MAXSINGLEPIECESIZE)) {

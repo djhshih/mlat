@@ -61,7 +61,7 @@ struct mlatParams {
 struct mlatParams *newMlatParams();
 
 /* Search for seq in index, align it, and write results to psl. */
-void searchOneStrand(struct dnaSeq *seq, struct genoFind *gf, FILE *psl,
+void searchOneStrand(struct dnaSeq *seq, struct genoFind *gf,
                      boolean isRc, struct hash *maskHash, Bits *qMaskBits,
                      struct mlatParams *p, struct gfOutput *gvo);
 
@@ -101,16 +101,16 @@ struct trans3 *seqListToTrans3List(struct dnaSeq *seqList, aaSeq *transLists[3],
 
 /* Look for qSeq in indices for three frames.  Then do rest of alignment. */
 void tripleSearch(aaSeq *qSeq, struct genoFind *gfs[3], struct hash *t3Hash,
-                  boolean dbIsRc, FILE *f, int minScore, struct gfOutput *gvo);
+                  boolean dbIsRc, int minScore, struct gfOutput *gvo);
 
 /* Translate qSeq three ways and look for each in three frames of index. */
 void transTripleSearch(struct dnaSeq *qSeq, struct genoFind *gfs[3],
                        struct hash *t3Hash, boolean dbIsRc, boolean qIsDna,
-                       FILE *f, int minScore, struct gfOutput *gvo);
+                       int minScore, struct gfOutput *gvo);
 
 /* Run query against translated DNA database (3 frames on each strand). */
 void bigMlat(struct dnaSeq *untransList, int queryCount, char *queryFiles[],
-             char *outFile, boolean transQuery, boolean qIsDna, FILE *out,
+             boolean transQuery, boolean qIsDna, FILE *out,
              boolean showStatus, struct mlatParams *p, struct gfOutput *gvo);
 
 /* mlat - Minimal BLAT fast sequence search command line tool. */
