@@ -17,6 +17,7 @@
 #include "genoFind.h"
 #include "trans3.h"
 #include "gfClientLib.h"
+#include "mlat.h"
 
 enum constants {
   qWarnSize = 5000000, /* Warn if more than this many bases in one query. */
@@ -32,37 +33,10 @@ enum constants {
  *
  * With this constraint, mlatParams* p can be deallocated by freez(&p).
  */
-struct mlatParams {
-  int tileSize;
-  int stepSize;
-  int minMatch;
-  int minScore;
-  int maxGap;
-  int repMatch;
-  boolean oneOff;
-  boolean noHead;
-  boolean trimA;
-  boolean trimHardA;
-  boolean trimT;
-  boolean fastMap;
-  boolean fine;
-  char *makeOoc;
-  char *ooc;
-  enum gfType qType;
-  enum gfType tType;
-  char *mask;
-  char *repeats;
-  char *qMask;
-  double minRepDivergence;
-  double minIdentity;
-  char *outputFormat;
-};
-
-struct mlatParams *newMlatParams();
 
 /* Search for seq in index, align it, and write results to psl. */
-void searchOneStrand(struct dnaSeq *seq, struct genoFind *gf,
-                     boolean isRc, struct hash *maskHash, Bits *qMaskBits,
+void searchOneStrand(struct dnaSeq *seq, struct genoFind *gf, boolean isRc,
+                     struct hash *maskHash, Bits *qMaskBits,
                      struct mlatParams *p, struct gfOutput *gvo);
 
 /* Search for protein seq in index and write results to psl. */
@@ -110,8 +84,8 @@ void transTripleSearch(struct dnaSeq *qSeq, struct genoFind *gfs[3],
 
 /* Run query against translated DNA database (3 frames on each strand). */
 void bigMlat(struct dnaSeq *untransList, int queryCount, char *queryFiles[],
-             boolean transQuery, boolean qIsDna, FILE *out,
-             boolean showStatus, struct mlatParams *p, struct gfOutput *gvo);
+             boolean transQuery, boolean qIsDna, FILE *out, boolean showStatus,
+             struct mlatParams *p, struct gfOutput *gvo);
 
 /* mlat - Minimal BLAT fast sequence search command line tool. */
 void mlat(char *dbFile, char *queryFile, char *outName, struct mlatParams *p);

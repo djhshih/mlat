@@ -2,7 +2,7 @@ ROOT=.
 
 include $(ROOT)/common.mk
 
-targets=mlat mlat-alt mlat-shared 2bit blatc blatd
+targets=mlat mlat-example mlat-shared 2bit blatc blatd
 
 all: $(targets)
 	mkdir -p bin
@@ -17,8 +17,8 @@ lib/libmlatnet.a:
 mlat: lib/libmlat.a
 	$(CBUILD) mlat.c lib/libmlat.a -o mlat
 
-mlat-alt: lib/libmlat.a
-	$(CBUILD) mlat-alt.c lib/libmlat.a -o mlat-alt
+mlat-example: lib/libmlat.a
+	$(CBUILD) mlat-example.c lib/libmlat.a -o mlat-example
 
 mlat-shared:
 	$(CBUILD) mlat.c -Llib -lmlat -o mlat-shared

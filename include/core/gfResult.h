@@ -43,11 +43,11 @@ struct gfResult {
 
   /* externally read-only members */
 
-  // alignment result
+  /* alignment result */
   struct gfAlign *aligns;
-  // number of alignments
+  /* number of alignments */
   size_t size;
-  // currently allocated space
+  /* currently allocated space */
   size_t capacity;
 };
 
@@ -55,11 +55,13 @@ struct gfResult *newGfResult();
 
 void freeGfResult(struct gfResult **pp);
 
-struct gfAlign *gfResultNewHit(struct gfResult *r);
-
-// free with freeGfOutputResult
+/* free with freeGfOutputResult */
 struct gfOutput *gfOutputResult(int minGood, boolean qIsProt, boolean tIsProt);
 
+/* Free gfOutputResult */
 void freeGfOutputResult(struct gfOutput **pp);
+
+/* Free gfOutputResult but return the contained gfResult */
+struct gfResult *unpackGfOutputResult(struct gfOutput **pp);
 
 #endif /* GFRESULT_H */

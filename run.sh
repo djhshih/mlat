@@ -33,7 +33,7 @@ bin/mlat -t=prot -q=prot data/protein_tp53.faa data/peptides_tp53.faa out/out-3.
 
 bin/mlat -t=dnax -q=prot data/hg38_tp53.2bit data/peptides_tp53.faa out/out-4.0.psl
 
-bin/mlat-alt data/ref1.fna AGACGGTCGATCGGGATTCGAGGTCGA > out/out-5.0.tsv
+bin/mlat-example data/ref1.fna AGACGGTCGATCGGGATTCGAGGTCGA > out/out-5.0.tsv
 
 
 echo "Checking outputs..."

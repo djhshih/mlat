@@ -1,9 +1,50 @@
 #include "mlat.h"
+#include "mlatPriv.h"
+#include "gfResult.h"
 
 /* TODO const-correctness on:
  * const char* querySeq -> const char* bioSeq.dna -> worms
  * const struct mlatParams* p
  */
+
+struct gfDb {
+  struct genoFind *gf;
+  bioSeq *seqList;
+  int seqCount;
+  struct hash *maskHash;
+};
+
+struct mlatParams *newMlatParams() {
+  struct mlatParams *p;
+  AllocVar(p);
+
+  p->tileSize = 11;
+  p->stepSize = 0; /* Default (same as tileSize) */
+  p->minMatch = 2;
+  p->minScore = 30;
+  p->maxGap = 2;
+  p->repMatch = 1024 * 4;
+  p->oneOff = FALSE;
+  p->noHead = FALSE;
+  p->trimA = FALSE;
+  p->trimHardA = FALSE;
+  p->trimT = FALSE;
+  p->fastMap = FALSE;
+  p->makeOoc = NULL;
+  p->ooc = NULL;
+  p->qType = gftDna;
+  p->tType = gftDna;
+  p->mask = NULL;
+  p->repeats = NULL;
+  p->qMask = NULL;
+  p->minRepDivergence = 15;
+  p->minIdentity = 90;
+  p->outputFormat = NULL;
+
+  return p;
+}
+
+void freeMlatParams(struct mlatParams **pp) { freez(pp); }
 
 /* Open and read a database sequence, mask, and index it */
 /* Free gfDb* with freeGfDb */
@@ -74,8 +115,8 @@ void freeGfDb(struct gfDb **pDb) {
 /* Search for a query sequence in the database index on one DNA strand */
 /* FIXME reconsile with searchOneStrand */
 static void searchDnaStrand(struct gfDb *db, bioSeq *seq, boolean isRc,
-                     Bits *qMaskBits, struct mlatParams *p,
-                     struct gfOutput *gvo) {
+                            Bits *qMaskBits, struct mlatParams *p,
+                            struct gfOutput *gvo) {
   if (p->fastMap && (seq->size > MAXSINGLEPIECESIZE)) {
     errAbort(
         "Maximum single piece size (%d) exceeded by query %s of size (%d). "
@@ -89,8 +130,8 @@ static void searchDnaStrand(struct gfDb *db, bioSeq *seq, boolean isRc,
 }
 
 /* Search a query sequence against a target database index */
-/* Free gfOutput* with freeGfOutputResult */
-struct gfOutput *searchSeq(struct gfDb *db, char *querySeq,
+/* Free gfResult* with freeGfResult */
+struct gfResult *searchSeq(struct gfDb *db, char *querySeq,
                            struct mlatParams *p) {
   // create temporary shallow copy
   bioSeq seq0;
@@ -130,5 +171,5 @@ struct gfOutput *searchSeq(struct gfDb *db, char *querySeq,
 
   bitFree(&qMaskBits);
 
-  return gvo;
+  return unpackGfOutputResult(&gvo);
 }

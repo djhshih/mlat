@@ -5,12 +5,12 @@ include $(ROOT)/common.mk
 mlat_objs=core/*.o aux/*.o
 mlatnet_objs=$(mlat_objs) net/*.o
 
-libmlat.a: $(mlat_objs)
+libmlat.a:
 	cd core && make
 	cd aux && make
 	ar rcus libmlat.a $(mlat_objs)
 
-libmlatnet.a: $(mlatnet_objs)
+libmlatnet.a:
 	cd core && make
 	cd aux && make
 	cd net && make

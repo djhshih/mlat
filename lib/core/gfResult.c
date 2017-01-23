@@ -2,6 +2,16 @@
 
 #include "gfResult.h"
 
+static struct gfAlign *gfResultNewHit(struct gfResult *r) {
+  ++(r->size);
+  if (r->size > r->capacity) {
+    size_t oldCapacity = r->capacity;
+    r->size *= 2;
+    ExpandArray(r->aligns, oldCapacity, r->capacity);
+  }
+  return &r->aligns[r->size - 1];
+}
+
 static void gfResultOut(char *qName, int qSize, int qOffset,
                         struct ffAli *align, bioSeq *tSeq, struct hash *t3Hash,
                         bioSeq *qSeq, boolean qIsRc, boolean tIsRc,
@@ -168,16 +178,6 @@ struct gfResult *newGfResult() {
   return r;
 }
 
-struct gfAlign *gfResultNewHit(struct gfResult *r) {
-  ++(r->size);
-  if (r->size > r->capacity) {
-    size_t oldCapacity = r->capacity;
-    r->size *= 2;
-    ExpandArray(r->aligns, oldCapacity, r->capacity);
-  }
-  return &r->aligns[r->size - 1];
-}
-
 void freeGfResult(struct gfResult **pp) {
   struct gfResult *p = *pp;
   if (p != NULL) {
@@ -207,4 +207,15 @@ void freeGfOutputResult(struct gfOutput **pp) {
     freeGfResult((struct gfResult **)&p->data);
     freez(pp);
   }
+}
+
+/* Free gfOutputResult but return the contained gfResult */
+struct gfResult *unpackGfOutputResult(struct gfOutput **pp) {
+  struct gfOutput *p = *pp;
+  if (p != NULL) {
+    struct gfResult *r = p->data;
+    freez(pp);
+    return r;
+  }
+  return NULL;
 }

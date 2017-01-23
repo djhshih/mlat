@@ -1,38 +1,8 @@
 /* Copyright 2001-2004 Jim Kent.  All rights reserved. */
 #include "mlatPriv.h"
 
-struct mlatParams *newMlatParams() {
-  struct mlatParams *p;
-  AllocVar(p);
-
-  p->tileSize = 11;
-  p->stepSize = 0; /* Default (same as tileSize) */
-  p->minMatch = 2;
-  p->minScore = 30;
-  p->maxGap = 2;
-  p->repMatch = 1024 * 4;
-  p->oneOff = FALSE;
-  p->noHead = FALSE;
-  p->trimA = FALSE;
-  p->trimHardA = FALSE;
-  p->trimT = FALSE;
-  p->fastMap = FALSE;
-  p->makeOoc = NULL;
-  p->ooc = NULL;
-  p->qType = gftDna;
-  p->tType = gftDna;
-  p->mask = NULL;
-  p->repeats = NULL;
-  p->qMask = NULL;
-  p->minRepDivergence = 15;
-  p->minIdentity = 90;
-  p->outputFormat = NULL;
-
-  return p;
-}
-
-void searchOneStrand(struct dnaSeq *seq, struct genoFind *gf,
-                     boolean isRc, struct hash *maskHash, Bits *qMaskBits,
+void searchOneStrand(struct dnaSeq *seq, struct genoFind *gf, boolean isRc,
+                     struct hash *maskHash, Bits *qMaskBits,
                      struct mlatParams *p, struct gfOutput *gvo)
 /* Search for seq in index, align it, and write results to psl. */
 {
@@ -141,7 +111,6 @@ void searchOneMaskTrim(struct dnaSeq *seq, struct genoFind *gf, FILE *outFile,
   bitFree(&qMaskBits);
 }
 
-
 /* FIXME make gvo store outFile */
 void searchOneIndex(int fileCount, char *files[], struct genoFind *gf,
                     char *outName, struct hash *maskHash, FILE *outFile,
@@ -246,8 +215,8 @@ void transTripleSearch(struct dnaSeq *qSeq, struct genoFind *gfs[3],
 }
 
 void bigMlat(struct dnaSeq *untransList, int queryCount, char *queryFiles[],
-             boolean transQuery, boolean qIsDna, FILE *out,
-             boolean showStatus, struct mlatParams *p, struct gfOutput *gvo)
+             boolean transQuery, boolean qIsDna, FILE *out, boolean showStatus,
+             struct mlatParams *p, struct gfOutput *gvo)
 /* Run query against translated DNA database (3 frames on each strand). */
 {
   int frame, i;
@@ -320,8 +289,8 @@ void bigMlat(struct dnaSeq *untransList, int queryCount, char *queryFiles[],
         }
         trimSeq(&qSeq, &trimmedSeq, p);
         if (transQuery)
-          transTripleSearch(&trimmedSeq, gfs, t3Hash, isRc, qIsDna,
-                            p->minScore, gvo);
+          transTripleSearch(&trimmedSeq, gfs, t3Hash, isRc, qIsDna, p->minScore,
+                            gvo);
         else
           tripleSearch(&trimmedSeq, gfs, t3Hash, isRc, p->minScore, gvo);
         gfOutputQuery(gvo, out);
@@ -415,12 +384,12 @@ void mlat(char *dbFile, char *queryFile, char *outName, struct mlatParams *p)
     freeArrays((void **)queryFiles, queryCount);
 
   } else if (p->tType == gftDnaX && p->qType == gftProt) {
-    bigMlat(dbSeqList, queryCount, queryFiles, FALSE, TRUE, f,
-            showStatus, p, gvo);
+    bigMlat(dbSeqList, queryCount, queryFiles, FALSE, TRUE, f, showStatus, p,
+            gvo);
   } else if (p->tType == gftDnaX &&
              (p->qType == gftDnaX || p->qType == gftRnaX)) {
-    bigMlat(dbSeqList, queryCount, queryFiles, TRUE,
-            p->qType == gftDnaX, f, showStatus, p, gvo);
+    bigMlat(dbSeqList, queryCount, queryFiles, TRUE, p->qType == gftDnaX, f,
+            showStatus, p, gvo);
   } else {
     errAbort("Unrecognized combination of target and query types\n");
   }

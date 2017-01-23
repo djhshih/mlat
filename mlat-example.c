@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "mlat.h"
 
 int main(int argc, char *argv[]) {
@@ -5,6 +6,12 @@ int main(int argc, char *argv[]) {
   p->tileSize = 6;
   p->stepSize = 2;
   p->minScore = 0;
+
+  if (argc < 2) {
+    fprintf(stderr, "usage: %s <database> <sequence> [<sequence> ...]\n",
+            argv[0]);
+    return 1;
+  }
 
   char *dbFile = argv[1];
   struct gfDb *db = newGfDb(dbFile, p);
@@ -17,20 +24,18 @@ int main(int argc, char *argv[]) {
     fprintf(stderr, "INFO: query %zu\n", i);
 
     char *querySeq = argv[i + 2];
-    struct gfOutput *out = searchSeq(db, querySeq, p);
+    struct gfResult *res = searchSeq(db, querySeq, p);
 
-    fprintf(stderr, "INFO: got gfOutput *out == %p in %s\n", out, __func__);
-
-    struct gfResult *res = out->data;
+    fprintf(stderr, "INFO: got gfResult *res == %p in %s\n", res, __func__);
 
     if (res->size == 0) {
       // no match: move onto next query
       continue;
     }
 
-    struct gfAlign *hit = &res->aligns[0];
+    struct gfAlign *align = &res->aligns[0];
 
-    fprintf(stderr, "INFO: got gfAlign *hit == %p in %s\n", hit, __func__);
+    fprintf(stderr, "INFO: got gfAlign *align == %p in %s\n", align, __func__);
 
     fprintf(stderr, "INFO: got res->size == %zu in %s\n", res->size, __func__);
     fprintf(stderr, "INFO: got res->capacity == %zu in %s\n", res->capacity,
@@ -42,14 +47,15 @@ int main(int argc, char *argv[]) {
             "mismatchCount", "repMatchCount", "nCount", "qInsertCount",
             "qInsertBaseCount", "tInsertCount", "tInsertBaseCount",
             "qStrand/tStrand");
-    fprintf(stdout, "%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%c%c\n", hit->matchCount,
-            hit->mismatchCount, hit->repMatchCount, hit->nCount,
-            hit->qInsertCount, hit->qInsertBaseCount, hit->tInsertCount,
-            hit->tInsertBaseCount, hit->qStrand, hit->tStrand);
+    fprintf(stdout, "%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%c%c\n", align->matchCount,
+            align->mismatchCount, align->repMatchCount, align->nCount,
+            align->qInsertCount, align->qInsertBaseCount, align->tInsertCount,
+            align->tInsertBaseCount, align->qStrand, align->tStrand);
 
-    fprintf(stderr, "INFO: freeing out in %s\n", __func__);
-    freeGfOutputResult(&out);
-    fprintf(stderr, "INFO: freed out in %s\n", __func__);
+    fprintf(stderr, "INFO: freeing res in %s\n", __func__);
+    freeGfResult(&res);
+    fprintf(stderr, "INFO: freed res in %s\n", __func__);
+
     fprintf(stderr, "\n");
   }
 
@@ -59,7 +65,7 @@ int main(int argc, char *argv[]) {
 
   fprintf(stderr, "INFO: freed db in %s\n", __func__);
 
-  freez(&p);
+  freeMlatParams(&p);
 
   fprintf(stderr, "INFO: freed p in %s\n", __func__);
 
