@@ -2,18 +2,19 @@ ROOT=..
 
 include $(ROOT)/common.mk
 
-mlat_objs=core/*.o aux/*.o mlat.o
+mlat_objs=core/*.o aux/*.o
+mlatnet_objs=$(mat_objs) net/*.o
 
-libmlat.a: mlat.o
+libmlat.a: $(mlat_objs)
 	cd core && make
 	cd aux && make
 	ar rcus libmlat.a $(mlat_objs)
 
-libmlatnet.a: mlat.o
+libmlatnet.a: $(mlatnet_objs)
 	cd core && make
 	cd aux && make
 	cd net && make
-	ar rcus libmlatnet.a $(mlat_objs) net/*.o
+	ar rcus libmlatnet.a $(mlatnet_objs)
 
 libmlat.so: mlat.o
 	$(CBUILD) -shared -o libmlat.so $(mlat_objs)

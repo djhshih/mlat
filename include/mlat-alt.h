@@ -1,4 +1,4 @@
-#include "mlat.h"
+#include "mlatPriv.h"
 #include "gfResult.h"
 
 #ifndef _MLAT_ALT_H_

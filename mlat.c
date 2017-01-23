@@ -1,6 +1,6 @@
 /* mlat - Minimal BLAT fast sequence search command line tool. */
 /* Copyright 2001-2004 Jim Kent.  All rights reserved. */
-#include "mlat.h"
+#include "mlatPriv.h"
 
 void usage()
 /* Explain usage and exit. */

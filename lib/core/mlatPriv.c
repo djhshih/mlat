@@ -1,5 +1,5 @@
 /* Copyright 2001-2004 Jim Kent.  All rights reserved. */
-#include "mlat.h"
+#include "mlatPriv.h"
 
 struct mlatParams *newMlatParams() {
   struct mlatParams *p;

@@ -38,6 +38,7 @@ trans3.o \
 twoBit.o \
 verbose.o \
 gfResult.o \
+mlatPriv.o \
 
 #nib.o \
 #kxTok.o \
