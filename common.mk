@@ -1,4 +1,4 @@
-COPTS=-I$(ROOT)/include -I$(ROOT)/include/core -I$(ROOT)/include/aux -I$(ROOT)/include/net
+COPTS=-I$(ROOT)/include -I$(ROOT)/include/private/core -I$(ROOT)/include/private/aux -I$(ROOT)/include/private/net
 CFLAGS=-O3 -Os
 #CFLAGS=-g
 #CFLAGS=-coverage -O0

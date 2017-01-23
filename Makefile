@@ -18,7 +18,7 @@ mlat: lib/libmlat.a
 	$(CBUILD) mlat.c lib/libmlat.a -o mlat
 
 mlat-example: lib/libmlat.a
-	$(CBUILD) mlat-example.c lib/libmlat.a -o mlat-example
+	$(CC) $(CFLAGS) -Iinclude mlat-example.c lib/libmlat.a -o mlat-example
 
 mlat-shared:
 	$(CBUILD) mlat.c -Llib -lmlat -o mlat-shared

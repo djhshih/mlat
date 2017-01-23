@@ -3,7 +3,7 @@
 #ifndef _GFRESULT_H_
 #define _GFRESULT_H_
 
-#include "typedefs.h"
+#include "typeDefs.h"
 
 struct gfAlignBlock {
   int size;

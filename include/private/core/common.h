@@ -93,7 +93,7 @@
 #define HUGE MAXFLOAT
 #endif
 
-#include "typedefs.h"
+#include "typeDefs.h"
 
 /* Some other type synonyms */
 #define UBYTE unsigned char       /* Wants to be unsigned 8 bits. */
