@@ -5,7 +5,7 @@ int main(int argc, char *argv[]) {
   struct mlatParams *p = newMlatParams();
   p->tileSize = 6;
   p->stepSize = 2;
-  p->minScore = 0;
+  p->minScore = 1;
 
   if (argc < 2) {
     fprintf(stderr, "usage: %s <database> <sequence> [<sequence> ...]\n",

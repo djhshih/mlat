@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
   mlatParams& p = m.params();
   p.tileSize = 6;
   p.stepSize = 2;
-  p.minScore = 0;
+  p.minScore = 1;
 
   fprintf(stderr, "INFO: allocated gfDb in %s\n", __func__);
   fprintf(stderr, "\n");
