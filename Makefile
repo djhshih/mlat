@@ -2,14 +2,18 @@ ROOT=.
 
 include $(ROOT)/common.mk
 
-targets=mlat mlat-demo 2bit blatc blatd
+targets=mlat 2bit blatc blatd
 
-all: $(targets)
+all: $(targets) demo/mlat-demo
 	mkdir -p build/{bin,include,lib}
 	cp lib/*.{a,so,dylib} build/lib || true
 	cp include/*.h build/include
 	cp -r include/mlat build/include
 	mv $(targets) build/bin
+
+shared:
+	cd lib && make libmlat.so
+	cp lib/*.so build/lib
 
 lib/libmlat.a:
 	cd lib && make libmlat.a
@@ -17,11 +21,15 @@ lib/libmlat.a:
 lib/libmlatnet.a:
 	cd lib && make libmlatnet.a
 
+lib/libmlat.so:
+	cd lib && make libmlat.so
+
 mlat: lib/libmlat.a
 	$(CBUILD) src/mlat.c lib/libmlat.a -o mlat
 
-mlat-demo:
-	$(CC) $(CFLAGS) -Iinclude -Llib -lmlat src/mlat-demo.c -o mlat-demo
+demo/mlat-demo: lib/libmlat.so
+	$(CC) $(CFLAGS) -Iinclude -Llib -lmlat demo/mlat-demo.c -o demo/mlat-demo
+	cp lib/libmlat.so demo
 
 mlat-shared:
 	$(CBUILD) src/mlat.c -Llib -lmlat -o mlat-shared
@@ -34,6 +42,9 @@ blatc: lib/libmlatnet.a
 
 blatd: lib/libmlatnet.a
 	$(CBUILD) src/blatd.c lib/libmlatnet.a -o blatd
+
+test: build/bin/mlat demo/mlat-demo
+	./test.sh
 
 clean:
 	rm -f *.{o,a,gcda,gcno,gcov} lib/{.,core,aux,net}/*.{o,a,gcda,gcno,gcov}

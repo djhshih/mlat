@@ -16,9 +16,9 @@ libmlatnet.a:
 	cd net && make
 	ar rcus libmlatnet.a $(mlatnet_objs)
 
-libmlat.so: mlat.o
+libmlat.so:
 	$(CBUILD) -shared -o libmlat.so $(mlat_objs)
 
-libmlat.dylib: mlat.o
+libmlat.dylib:
 	$(CBUILD) -dynamiclib -o libmlat.dylib $(mlat_objs)
 
