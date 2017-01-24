@@ -12,7 +12,7 @@
 #include "trans3.h"
 
 
-static struct gfAlign *gfResultNewHit(struct gfResult *r) {
+static struct gfAlign *gfResultNewAlign(struct gfResult *r) {
   ++(r->size);
   if (r->size > r->capacity) {
     size_t oldCapacity = r->capacity;
@@ -140,7 +140,7 @@ static void gfResultOut(char *qName, int qSize, int qOffset,
       }
 
       // get pointer for new hit
-      struct gfAlign *hit = gfResultNewHit(r);
+      struct gfAlign *hit = gfResultNewAlign(r);
       hit->qStart = nStart;
       hit->qEnd = nEnd;
       hit->tStart = hStart;

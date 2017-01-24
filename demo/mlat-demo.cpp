@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
   }
 
   char *dbFile = argv[1];
-  Mlat m = Mlat(dbFile);
+  mlat::Database m(dbFile);
 
   mlatParams& p = m.params();
   p.tileSize = 6;
@@ -26,24 +26,24 @@ int main(int argc, char *argv[]) {
 
     char *querySeq = argv[i + 2];
 
-    gfResult* res = m.search(querySeq);
+    mlat::Result res = m.search(querySeq);
 
-    fprintf(stderr, "INFO: got gfResult *res == %p in %s\n", res, __func__);
+    fprintf(stderr, "INFO: got gfResult *res == %p in %s\n", &res, __func__);
 
-    if (res->size == 0) {
+    if (res.size() == 0) {
       // no match: move onto next query
       continue;
     }
 
-    struct gfAlign *align = &res->aligns[0];
+    const gfAlign *align = &res[0];
 
     fprintf(stderr, "INFO: got gfAlign *align == %p in %s\n", align, __func__);
 
-    fprintf(stderr, "INFO: got res->size == %zu in %s\n", res->size, __func__);
-    fprintf(stderr, "INFO: got res->capacity == %zu in %s\n", res->capacity,
+    fprintf(stderr, "INFO: got res->size == %zu in %s\n", res.size(), __func__);
+    fprintf(stderr, "INFO: got res->capacity == %zu in %s\n", res.capacity(),
             __func__);
-    fprintf(stderr, "INFO: got res->tName == %p in %s\n", res->tName, __func__);
-    fprintf(stderr, "INFO: got res->qName == %p in %s\n", res->qName, __func__);
+    fprintf(stderr, "INFO: got res->tName == %p in %s\n", res.target(), __func__);
+    fprintf(stderr, "INFO: got res->qName == %p in %s\n", res.query(), __func__);
 
     fprintf(stdout, "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", "matchCount",
             "mismatchCount", "repMatchCount", "nCount", "qInsertCount",

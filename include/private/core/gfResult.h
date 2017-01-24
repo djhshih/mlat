@@ -45,6 +45,9 @@ struct gfResult {
 
 struct gfResult *newGfResult();
 
+struct gfResult *cloneGfResult(struct gfResult *other);
+
+
 void freeGfResult(struct gfResult **pp);
 
 #endif /* GFRESULT_H */
