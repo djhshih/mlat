@@ -28,8 +28,8 @@ public:
   Result(const Result &that) : rep(cloneGfResult(that.rep)) {}
 
   Result & operator=(const Result &that) {
-    if (this != &other) {
-      freeGfResult(rep);
+    if (this != &that) {
+      freeGfResult(&rep);
       rep = cloneGfResult(that.rep);
     }
     return *this;
