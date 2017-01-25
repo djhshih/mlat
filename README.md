@@ -3,10 +3,12 @@
 MLAT is a tool for sequence alignment.
 
 This is a fork of the BLAT package (v35) written by Jim Kent. The package has
-been significantly restructured and stripped down. Header and source files have
-been modified, and a minimal C CPI is now provided.
+been significantly restructured and stripped down to minimize code footprint.
+Header and source files have been modified, and a minimal C CPI is now provided.
 
-This package itself is licensed under GPLv3. Use of BLAT is subject to the terms of its license in `LICENSE_blat.txt`.
+This package itself is licensed under GPLv3. Use of BLAT (and hence MLAT) is
+subject to the terms of the BLAT non-commercial license (see
+`LICENSE_blat.txt`).
 
 
 # Installation
@@ -16,8 +18,8 @@ and you can simply
 
     make
 
-Thereupon, binaries, libraries, and headers are placed in `build/`. To install
-to some other location (e.g. `/usr/local`)
+Thereupon, binaries, libraries, and headers will be installed in `build/`. To
+install to some other location (e.g. `/usr/local`),
 
     make DESTDIR=/usr/local
 
