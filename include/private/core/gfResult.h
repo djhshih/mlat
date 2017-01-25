@@ -12,6 +12,8 @@ struct gfAlignBlock {
 };
 
 struct gfAlign {
+  char *tName;
+  char *qName;
   int qStart, qEnd;
   int tStart, tEnd;
   int qInsertBaseCount;
@@ -30,9 +32,6 @@ struct gfAlign {
 };
 
 struct gfResult {
-  char *tName;
-  char *qName;
-
   /* externally read-only members */
 
   /* alignment result */

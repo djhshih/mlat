@@ -41,9 +41,6 @@ static void gfResultOut(char *qName, int qSize, int qOffset,
   struct ffAli *right = ffRightmost(align);
 
   struct gfResult *r = out->data;
-  // clone the strings because they may be deallocated during r's lifetime
-  r->tName = cloneString(tSeq->name);
-  r->qName = cloneString(qSeq->name);
 
   DNA *needle = qSeq->dna;
   DNA *hay = tSeq->dna;
@@ -141,6 +138,9 @@ static void gfResultOut(char *qName, int qSize, int qOffset,
 
       // get pointer for new hit
       struct gfAlign *hit = gfResultNewAlign(r);
+      // clone the strings because they may be deallocated during hit's lifetime
+      hit->tName = cloneString(tSeq->name);
+      hit->qName = cloneString(qSeq->name);
       hit->qStart = nStart;
       hit->qEnd = nEnd;
       hit->tStart = hStart;

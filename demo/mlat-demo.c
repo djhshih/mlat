@@ -28,6 +28,10 @@ int main(int argc, char *argv[]) {
 
     fprintf(stderr, "INFO: got gfResult *res == %p in %s\n", res, __func__);
 
+    fprintf(stderr, "INFO: got res->size == %zu in %s\n", res->size, __func__);
+    fprintf(stderr, "INFO: got res->capacity == %zu in %s\n", res->capacity,
+            __func__);
+
     if (res->size == 0) {
       // no match: move onto next query
       continue;
@@ -37,11 +41,8 @@ int main(int argc, char *argv[]) {
 
     fprintf(stderr, "INFO: got gfAlign *align == %p in %s\n", align, __func__);
 
-    fprintf(stderr, "INFO: got res->size == %zu in %s\n", res->size, __func__);
-    fprintf(stderr, "INFO: got res->capacity == %zu in %s\n", res->capacity,
-            __func__);
-    fprintf(stderr, "INFO: got res->tName == %p in %s\n", res->tName, __func__);
-    fprintf(stderr, "INFO: got res->qName == %p in %s\n", res->qName, __func__);
+    fprintf(stderr, "INFO: got align->tName == %s in %s\n", align->tName, __func__);
+    fprintf(stderr, "INFO: got align->qName == %s in %s\n", align->qName, __func__);
 
     fprintf(stdout, "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", "matchCount",
             "mismatchCount", "repMatchCount", "nCount", "qInsertCount",

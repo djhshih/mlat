@@ -20,6 +20,9 @@ static struct gfAlign *cloneGfAlign(struct gfAlign *other) {
   AllocVar(x);
   *x = *other;
 
+  x->tName = cloneString(other->tName);
+  x->qName = cloneString(other->qName);
+
   x->blocks = AllocN(struct gfAlignBlock, x->blockCount);
   for (size_t i = 0; i < x->blockCount; ++i) {
     x->blocks[i] = other->blocks[i];
@@ -30,9 +33,6 @@ static struct gfAlign *cloneGfAlign(struct gfAlign *other) {
 
 struct gfResult *cloneGfResult(struct gfResult *other) {
   struct gfResult *x = newGfResult();
-  x->tName = cloneString(other->tName);
-  x->qName = cloneString(other->qName);
-
   x->size = other->size;
   x->capacity = other->capacity;
 
@@ -53,10 +53,10 @@ struct gfResult *cloneGfResult(struct gfResult *other) {
 void freeGfResult(struct gfResult **pp) {
   struct gfResult *p = *pp;
   if (p != NULL) {
-    freeMem(p->tName);
-    freeMem(p->qName);
     size_t i;
     for (i = 0; i < p->size; ++i) {
+      freeMem(p->aligns[i].tName);
+      freeMem(p->aligns[i].qName);
       freeMem(p->aligns[i].blocks);
     }
     freeMem(p->aligns);

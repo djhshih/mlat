@@ -35,10 +35,6 @@ public:
     return *this;
   }
 
-  const char *target() const { return rep->tName; }
-
-  const char *query() const { return rep->qName; }
-
   const size_t size() const { return rep->size; }
 
   const size_t capacity() const { return rep->capacity; }

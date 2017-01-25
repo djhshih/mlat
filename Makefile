@@ -53,6 +53,7 @@ test: build/bin/mlat demo/mlat-demo
 	./test.sh
 
 clean:
-	rm -f *.{o,a,gcda,gcno,gcov} lib/{.,core,aux,net}/*.{o,a,gcda,gcno,gcov}
+	rm -f *.{o,a,gcda,gcno,gcov} lib/{.,core,aux,net}/*.{o,a,gcda,gcno,gcov,so,dylib}
 	rm -rf build
+	rm -f demo/mlat-demo demo/mlat-demo-cpp
 
