@@ -4,7 +4,8 @@ MLAT is a tool for sequence alignment.
 
 This is a fork of the BLAT package (v35) written by Jim Kent. The package has
 been significantly restructured and stripped down to minimize code footprint.
-Header and source files have been modified, and a minimal C CPI is now provided.
+Header and source files have been modified, and minimal C and C++ API's are now
+provided.
 
 This package itself is licensed under GPLv3. Use of BLAT (and hence MLAT) is
 subject to the terms of the BLAT non-commercial license (see
