@@ -140,7 +140,6 @@ static void gfResultOut(char *qName, int qSize, int qOffset,
       struct gfAlign *hit = gfResultNewAlign(r);
       // clone the strings because they may be deallocated during hit's lifetime
       hit->tName = cloneString(tSeq->name);
-      hit->qName = cloneString(qSeq->name);
       hit->qStart = nStart;
       hit->qEnd = nEnd;
       hit->tStart = hStart;

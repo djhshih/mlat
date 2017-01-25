@@ -21,7 +21,6 @@ static struct gfAlign *cloneGfAlign(struct gfAlign *other) {
   *x = *other;
 
   x->tName = cloneString(other->tName);
-  x->qName = cloneString(other->qName);
 
   x->blocks = AllocN(struct gfAlignBlock, x->blockCount);
   for (size_t i = 0; i < x->blockCount; ++i) {
@@ -56,7 +55,6 @@ void freeGfResult(struct gfResult **pp) {
     size_t i;
     for (i = 0; i < p->size; ++i) {
       freeMem(p->aligns[i].tName);
-      freeMem(p->aligns[i].qName);
       freeMem(p->aligns[i].blocks);
     }
     freeMem(p->aligns);

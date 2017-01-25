@@ -13,7 +13,6 @@ struct gfAlignBlock {
 
 struct gfAlign {
   char *tName;
-  char *qName;
   int qStart, qEnd;
   int tStart, tEnd;
   int qInsertBaseCount;
