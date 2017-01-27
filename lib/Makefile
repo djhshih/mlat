@@ -8,13 +8,13 @@ mlatnet_objs=$(mlat_objs) net/*.o
 libmlat.a:
 	cd core && make
 	cd aux && make
-	ar rcus libmlat.a $(mlat_objs)
+	ar rcs libmlat.a $(mlat_objs)
 
 libmlatnet.a:
 	cd core && make
 	cd aux && make
 	cd net && make
-	ar rcus libmlatnet.a $(mlatnet_objs)
+	ar rcs libmlatnet.a $(mlatnet_objs)
 
 libmlat.so:
 	$(CBUILD) -shared -o libmlat.so $(mlat_objs)
