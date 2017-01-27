@@ -1,0 +1,15 @@
+psLayout version 3
+
+match	mis- 	rep. 	N's	Q gap	Q gap	T gap	T gap	strand	Q        	Q   	Q    	Q  	T        	T   	T    	T  	block	blockSizes 	qStarts	 tStarts
+     	match	match	   	count	bases	count	bases	      	name     	size	start	end	name     	size	start	end	count
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+39	0	0	0	0	0	0	0	+	read1.1	39	0	39	seq1	91	5	44	1	39,	0,	5,
+26	0	0	0	0	0	0	0	+	read1.2	26	0	26	seq1	91	49	75	1	26,	0,	49,
+26	0	0	0	0	0	0	0	+	read1.3	26	0	26	seq1	91	49	75	1	26,	0,	49,
+15	0	0	0	0	0	0	0	+	read1.4	15	0	15	seq1	91	62	77	1	15,	0,	62,
+56	0	0	0	0	0	0	0	+	read2.1	56	0	56	seq2	95	0	56	1	56,	0,	0,
+22	0	0	0	0	0	0	0	+	read2.2	22	0	22	seq2	95	72	94	1	22,	0,	72,
+12	0	0	0	0	0	0	0	+	read3	12	0	12	seq3	54	42	54	1	12,	0,	42,
+12	0	0	0	0	0	0	0	+	read3	12	0	12	seq2	95	56	68	1	12,	0,	56,
+12	0	0	0	0	0	0	0	-	read3	12	0	12	seq3	54	42	54	1	12,	0,	42,
+12	0	0	0	0	0	0	0	-	read3	12	0	12	seq2	95	56	68	1	12,	0,	56,
