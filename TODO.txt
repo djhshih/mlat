@@ -16,7 +16,7 @@ Other files with 0% executed code would probably be used if ooc is specified.
 Compilers tried:
 
 clang-3.5 (on MacOS; Apple LLVM version 6.0)
-gcc-4.4.7 (link against 
+gcc-4.4.7
 gcc-5.4.0
 gcc-6.3.0
 
@@ -27,5 +27,7 @@ Code compiles with gcc-5.4.0 and gcc-6.3.0, some tests show some differences in 
 Using the -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE C flags did not help.
 Using -O2 vs. -O3 did not make a difference.
 
-Therefore, program behaviour is compiler-dependent!
+However, compiling using gcc-4.4.7 with -O1 or no -O flag produced functional programs.
+
+Therefore, code is not compatible with -O flag with gcc-4.4.7.
 

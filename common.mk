@@ -8,7 +8,7 @@ CFLAGS_COV=-coverage -O0
 # disable fortify to circumvent missing __memchk in glibc
 CFLAGS_STATIC=-O2 -Os -static -static-libgcc -D_STATIC -D_FORTIFY_SOURCE=0
 
-CFLAGS=$(CFLAGS_RELEASE)
+CFLAGS=
 
 CBUILD=$(CC) $(COPTS) $(CFLAGS)
 
