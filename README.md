@@ -24,3 +24,25 @@ install to some other location (e.g. `/usr/local`),
 
     make DESTDIR=/usr/local
 
+
+# Known bugs
+
+Code compilation was tested with 
+
+```
+gcc-4.4.7
+gcc-5.4.0
+gcc-6.3.0
+clang-3.5
+```
+
+The code is not compatible with `-O2` and `-O3` optimization flags when compiled
+with `gcc-4.4.7`. Use `-O2` or `-O3` only when compiling with `gcc-5.4.0` or
+higher.
+
+Unit tests were built using programs compiled with `clang-3.5`. Moderate
+differences exist when compiled using a different compiler. Sometimes, programs
+also produce moderate differences for different compilations with the same
+compiler: the cause of these differences is inherited upstream from BLAT and
+remains unresolved.
+
