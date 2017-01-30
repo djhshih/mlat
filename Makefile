@@ -52,7 +52,7 @@ demo/mlat-demo: lib/libmlat.a
 demo/mlat-demo-cpp: lib/libmlat.a
 	$(CXX) $(CFLAGS) -Iinclude -Llib demo/mlat-demo.cpp -lmlat -lm -o demo/mlat-demo-cpp
 
-test: build/bin/mlat demo/mlat-demo
+check: build/bin/mlat demo/mlat-demo
 	./test.sh
 
 clean:
