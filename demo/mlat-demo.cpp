@@ -39,20 +39,25 @@ int main(int argc, char *argv[]) {
       continue;
     }
 
-    const gfAlign *align = &res[0];
+    for (size_t j = 0; j < res.size(); ++j) {
 
-    fprintf(stderr, "INFO: got gfAlign *align == %p in %s\n", align, __func__);
+      const gfAlign *align = &res[j];
 
-    fprintf(stderr, "INFO: got align->tName == %s in %s\n", align->tName, __func__);
+      fprintf(stderr, "INFO: got gfAlign *align == %p in %s\n", align, __func__);
 
-    fprintf(stdout, "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", "matchCount",
-            "mismatchCount", "repMatchCount", "nCount", "qInsertCount",
-            "qInsertBaseCount", "tInsertCount", "tInsertBaseCount",
-            "qStrand/tStrand");
-    fprintf(stdout, "%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%c%c\n", align->matchCount,
-            align->mismatchCount, align->repMatchCount, align->nCount,
-            align->qInsertCount, align->qInsertBaseCount, align->tInsertCount,
-            align->tInsertBaseCount, align->qStrand, align->tStrand);
+      fprintf(stderr, "INFO: got align->tName == %s in %s\n", align->tName, __func__);
+
+      fprintf(stdout, "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", "matchCount",
+              "mismatchCount", "repMatchCount", "nCount", "qInsertCount",
+              "qInsertBaseCount", "tInsertCount", "tInsertBaseCount",
+              "qStrand/tStrand", "qStart", "qEnd", "tStart", "tEnd");
+      fprintf(stdout, "%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%c%c\t%d\t%d\t%d\t%d\n", align->matchCount,
+              align->mismatchCount, align->repMatchCount, align->nCount,
+              align->qInsertCount, align->qInsertBaseCount, align->tInsertCount,
+              align->tInsertBaseCount, align->qStrand, align->tStrand,
+              align->qStart, align->qEnd, align->tStart, align->tEnd);
+
+    }
 
     fprintf(stderr, "\n");
   }

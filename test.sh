@@ -13,7 +13,7 @@ $path/mlat || true
 # fail
 $path/mlat database query out/out-fail.psl || true
 
-small="-tileSize=6 -stepSize=2 -minScore=0"
+small="-tileSize=6 -stepSize=2 -minScore=1"
 $path/mlat $small data/ref1.fna data/query1.fna out/out-0.0.psl
 $path/mlat $small -mask=lower -qMask=lower data/ref1.fna data/query1.fna out/out-0.1.psl
 $path/mlat $small -trimT -trimHardA data/ref1.fna data/query1.fna out/out-0.2.psl
