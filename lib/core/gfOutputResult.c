@@ -3,7 +3,7 @@
 #include "gfResult.h"
 #include "common.h"
 #include "dnaseq.h"
-#include "fuzzyfind.h"
+#include "fuzzyFind.h"
 #include "hash.h"
 #include "aliType.h"
 #include "localmem.h"

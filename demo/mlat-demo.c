@@ -20,7 +20,8 @@ int main(int argc, char *argv[]) {
   fprintf(stderr, "\n");
 
   size_t queryCount = argc - 2;
-  for (size_t i = 0; i < queryCount; ++i) {
+	size_t i;
+  for (i = 0; i < queryCount; ++i) {
     fprintf(stderr, "INFO: query %zu\n", i);
 
     char *querySeq = argv[i + 2];

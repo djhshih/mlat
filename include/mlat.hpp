@@ -9,7 +9,7 @@ namespace mlat {
 
 namespace detail {
 
-bool gfAlignGreater(gfAlign &lhs, gfAlign &rhs) {
+bool gfAlignGreater(const gfAlign &lhs, const gfAlign &rhs) {
   return lhs.score > rhs.score;
 }
 

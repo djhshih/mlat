@@ -1,10 +1,14 @@
 #!/bin/sh
 
+set -o nounset
+set -o pipefail
+
+
 path=build/bin
 
 mkdir -p out
 
-$path/mlat
+$path/mlat || true
 
 # fail
 $path/mlat database query out/out-fail.psl || true
@@ -34,7 +38,9 @@ $path/mlat -t=prot -q=prot data/protein_tp53.faa data/peptides_tp53.faa out/out-
 
 $path/mlat -t=dnax -q=prot data/hg38_tp53.2bit data/peptides_tp53.faa out/out-4.0.psl
 
-cd demo && ./mlat-demo ../data/ref1.fna AGACGGTCGATCGGGATTCGAGGTCGA > ../out/out-5.0.tsv && cd ..
+cd demo
+./mlat-demo ../data/ref1.fna AGACGGTCGATCGGGATTCGAGGTCGA > ../out/out-5.0.tsv
+cd ..
 
 
 echo "Checking outputs..."
