@@ -11,6 +11,14 @@ a score=4593.000000
 s NC_000017.11:c7687550-7668402                 15149 59 + 19149 ttttatttttttgagactcagtctcactctgtcgcccaggctggagtgcagtggcatga
 s M03848:190:000000000-ARTHA:1:2102:20955:15668    16 59 -    75 ttttttttttttgagatggaatctcgctctgtcgcccaggctggagtgcagtggcatga
 
+a score=1606.000000
+s NC_000017.11:c7687550-7668402                 6985 18 + 19149 gcaacagagcgagattcc
+s M03848:190:000000000-ARTHA:1:2102:20955:15668   24 18 +    75 gcgacagagcgagattcc
+
+a score=1847.000000
+s NC_000017.11:c7687550-7668402                 7035 20 + 19149 atctcaaaaaaaaaaaaaag
+s M03848:190:000000000-ARTHA:1:2102:20955:15668   42 20 +    75 atctcaaaaaaaaaaaaaag
+
 a score=4309.000000
 s NC_000017.11:c7687550-7668402                 12097 56 + 19149 ccactgtgctccagcctgagtgacagagcaagaccctatctcaaaaaaaaaaaaaa
 s M03848:190:000000000-ARTHA:1:2102:20955:15668     5 56 +    75 ccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaaa
@@ -23,17 +31,21 @@ a score=1874.000000
 s NC_000017.11:c7687550-7668402                 9551 36 + 19149 agagccaaactccatctcaaaaaacaaacaaaaaaa
 s M03848:190:000000000-ARTHA:1:2102:20955:15668   29 31 +    75 agagcgagattccatctcaaaaaa-----aaaaaaa
 
-a score=4608.000000
-s NC_000017.11:c7687550-7668402                 5696 56 + 19149 gccactgcactccagcctgggcgacagagcaagactgtgtctcaaaaaaaaaaaaa
-s M03848:190:000000000-ARTHA:1:2102:20955:15668    4 56 +    75 gccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaa
+a score=3170.000000
+s NC_000017.11:c7687550-7668402                 5696 34 + 19149 gccactgcactccagcctgggcgacagagcaaga
+s M03848:190:000000000-ARTHA:1:2102:20955:15668    4 34 +    75 gccactgcactccagcctgggcgacagagcgaga
 
-a score=5044.000000
-s NC_000017.11:c7687550-7668402                 5274 61 + 19149 tcgtgccactgcactccagcctgggtgacagagtgagacttcgtctcaaaaaaaaaaaaaa
-s M03848:190:000000000-ARTHA:1:2102:20955:15668    0 61 +    75 tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaaa
+a score=1904.000000
+s NC_000017.11:c7687550-7668402                 6353 23 + 19149 ttccatgtcaaaaaaaaaaaaaa
+s M03848:190:000000000-ARTHA:1:2102:20955:15668   38 23 +    75 ttccatctcaaaaaaaaaaaaaa
 
 a score=4952.000000
 s NC_000017.11:c7687550-7668402                 10549 61 + 19149 tcatgccactgtgctccagcctaggtgacagagagagactccatctcaaaaaaaaaaaaaa
 s M03848:190:000000000-ARTHA:1:2102:20955:15668     0 61 +    75 tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaaa
+
+a score=5044.000000
+s NC_000017.11:c7687550-7668402                 5274 61 + 19149 tcgtgccactgcactccagcctgggtgacagagtgagacttcgtctcaaaaaaaaaaaaaa
+s M03848:190:000000000-ARTHA:1:2102:20955:15668    0 61 +    75 tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaaa
 
 a score=5297.000000
 s NC_000017.11:c7687550-7668402                 4384 61 + 19149 tcgtgccactgcactccagcctgggcgacagagcaagacttcatctcaaaaaaaaaaaaaa

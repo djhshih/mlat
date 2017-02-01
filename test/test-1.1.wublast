@@ -21,7 +21,7 @@ Searching....10....20....30....40....50....60....70....80....90....100% done
                                                               High  Probability
 Sequences producing High-scoring Segment Pairs:              Score  P(N)      N
 
-NC_000017.11:c7687550-7668402                                  346   5.1e-58 11
+NC_000017.11:c7687550-7668402                                  346   5.1e-58 14
 
 
 >NC_000017.11:c7687550-7668402
@@ -73,19 +73,19 @@ Query: 61    a 61
              |
 Sbjct: 10610 a 10610
 
- Score = 242 (37.6 bits), Expect = 1.6e-39, P = 1.6e-39
- Identities = 51/56 (91%), Positives = 51/56 (91%), Strand = Plus / Plus
-
-Query: 5    gccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaa 60
-            |||||||||||||||||||||||||||||| ||| |   |||||||||||||||||
-Sbjct: 5697 gccactgcactccagcctgggcgacagagcaagactgtgtctcaaaaaaaaaaaaa 5752
-
  Score = 226 (35.1 bits), Expect = 9.8e-37, P = 9.8e-37
  Identities = 48/56 (86%), Positives = 48/56 (86%), Strand = Plus / Plus
 
 Query: 6     ccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaaa 61
              ||||||  |||||||||| | |||||||| |||  | |||||||||||||||||||
 Sbjct: 12098 ccactgtgctccagcctgagtgacagagcaagaccctatctcaaaaaaaaaaaaaa 12153
+
+ Score = 166 (25.8 bits), Expect = 4.4e-26, P = 4.4e-26
+ Identities = 33/34 (97%), Positives = 33/34 (97%), Strand = Plus / Plus
+
+Query: 5    gccactgcactccagcctgggcgacagagcgaga 38
+            |||||||||||||||||||||||||||||| |||
+Sbjct: 5697 gccactgcactccagcctgggcgacagagcaaga 5730
 
  Score = 117 (18.2 bits), Expect = 2.3e-17, P = 2.3e-17
  Identities = 23/23 (100%), Positives = 23/23 (100%), Strand = Plus / Plus
@@ -94,12 +94,33 @@ Query: 6    ccactgcactccagcctgggcga 28
             |||||||||||||||||||||||
 Sbjct: 9527 ccactgcactccagcctgggcga 9549
 
+ Score = 100 (15.5 bits), Expect = 3.0e-14, P = 3.0e-14
+ Identities = 22/23 (96%), Positives = 22/23 (96%), Strand = Plus / Plus
+
+Query: 39   ttccatctcaaaaaaaaaaaaaa 61
+            |||||| ||||||||||||||||
+Sbjct: 6354 ttccatgtcaaaaaaaaaaaaaa 6376
+
  Score = 98 (15.2 bits), Expect = 5.8e-14, P = 5.8e-14
  Identities = 28/36 (78%), Positives = 28/36 (78%), Strand = Plus / Plus
 
 Query: 30   agagcgagattccatctcaaaaaa-----aaaaaaa 60
             ||||| | | ||||||||||||||     |||||||
 Sbjct: 9552 agagccaaactccatctcaaaaaacaaacaaaaaaa 9587
+
+ Score = 97 (15.1 bits), Expect = 1.0e-13, P = 1.0e-13
+ Identities = 20/20 (100%), Positives = 20/20 (100%), Strand = Plus / Plus
+
+Query: 43   atctcaaaaaaaaaaaaaag 62
+            ||||||||||||||||||||
+Sbjct: 7036 atctcaaaaaaaaaaaaaag 7055
+
+ Score = 84 (13.0 bits), Expect = 1.8e-11, P = 1.8e-11
+ Identities = 17/18 (94%), Positives = 17/18 (94%), Strand = Plus / Plus
+
+Query: 25   gcgacagagcgagattcc 42
+            || |||||||||||||||
+Sbjct: 6986 gcaacagagcgagattcc 7003
 
   Minus Strand HSPs:
 

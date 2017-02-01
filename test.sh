@@ -47,7 +47,9 @@ cd demo
 cd ..
 
 
+echo
 echo "Checking outputs..."
+echo
 
 cases=( \
 	0.0.psl 0.1.psl 0.2.psl 0.3.psl 0.4.psl \

@@ -17,9 +17,12 @@ NC_000017.11:c7687550-7668402                                         109   6e-2
 NC_000017.11:c7687550-7668402                                         103   2e-22
 NC_000017.11:c7687550-7668402                                         102   8e-22
 NC_000017.11:c7687550-7668402                                          94   1e-19
-NC_000017.11:c7687550-7668402                                          94   1e-19
+NC_000017.11:c7687550-7668402                                          65   8e-11
 NC_000017.11:c7687550-7668402                                          62   5e-10
 NC_000017.11:c7687550-7668402                                          46   5e-05
+NC_000017.11:c7687550-7668402                                          39   5e-03
+NC_000017.11:c7687550-7668402                                          38   1e-02
+NC_000017.11:c7687550-7668402                                          33   4e-01
 NC_000017.11:c7687550-7668402                                          28   1e+01
 
 
@@ -79,15 +82,6 @@ Query: 61    a 61
 Sbjct: 10610 a 10610
 
 
- Score = 94 bits (244), Expect = 1e-19
- Identities = 51/56 (91%)
- Strand = Plus / Plus
-
-Query: 5    gccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaa 60
-            |||||||||||||||||||||||||||||| ||| |   |||||||||||||||||
-Sbjct: 5697 gccactgcactccagcctgggcgacagagcaagactgtgtctcaaaaaaaaaaaaa 5752
-
-
  Score = 94 bits (243), Expect = 1e-19
  Identities = 53/59 (90%)
  Strand = Plus / Minus
@@ -95,6 +89,15 @@ Sbjct: 5697 gccactgcactccagcctgggcgacagagcaagactgtgtctcaaaaaaaaaaaaa 5752
 Query: 1     tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaa 59
              ||||||||||||||||||||||||||||||||| |||| |   ||||||||||| ||||
 Sbjct: 15208 tcatgccactgcactccagcctgggcgacagagtgagactgagtctcaaaaaaataaaa 15150
+
+
+ Score = 65 bits (168), Expect = 8e-11
+ Identities = 33/34 (97%)
+ Strand = Plus / Plus
+
+Query: 5    gccactgcactccagcctgggcgacagagcgaga 38
+            |||||||||||||||||||||||||||||| |||
+Sbjct: 5697 gccactgcactccagcctgggcgacagagcaaga 5730
 
 
  Score = 62 bits (161), Expect = 5e-10
@@ -113,6 +116,33 @@ Sbjct: 14469 gccactgcactccagcctgggtgacagagtgaga 14436
 Query: 6    ccactgcactccagcctgggcga 28
             |||||||||||||||||||||||
 Sbjct: 9527 ccactgcactccagcctgggcga 9549
+
+
+ Score = 39 bits (101), Expect = 5e-03
+ Identities = 22/23 (96%)
+ Strand = Plus / Plus
+
+Query: 39   ttccatctcaaaaaaaaaaaaaa 61
+            |||||| ||||||||||||||||
+Sbjct: 6354 ttccatgtcaaaaaaaaaaaaaa 6376
+
+
+ Score = 38 bits (98), Expect = 1e-02
+ Identities = 20/20 (100%)
+ Strand = Plus / Plus
+
+Query: 43   atctcaaaaaaaaaaaaaag 62
+            ||||||||||||||||||||
+Sbjct: 7036 atctcaaaaaaaaaaaaaag 7055
+
+
+ Score = 33 bits (85), Expect = 4e-01
+ Identities = 17/18 (94%)
+ Strand = Plus / Plus
+
+Query: 25   gcgacagagcgagattcc 42
+            || |||||||||||||||
+Sbjct: 6986 gcaacagagcgagattcc 7003
 
 
  Score = 28 bits (73), Expect = 1e+01
