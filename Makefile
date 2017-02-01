@@ -9,7 +9,7 @@ all: $(targets)
 	mkdir -p $(DESTDIR)/{bin,include,lib}
 	cp lib/libmlat.{a,so,dylib} $(DESTDIR)/lib || true
 	cp include/*.{h,hpp} $(DESTDIR)/include
-	cp -r include/mlat $(DESTDIR)/include
+	cp -rL include/mlat $(DESTDIR)/include
 	mv $(targets) $(DESTDIR)/bin
 
 shared:
@@ -52,7 +52,7 @@ demo/mlat-demo: lib/libmlat.a
 demo/mlat-demo-cpp: lib/libmlat.a
 	$(CXX) $(CFLAGS) -Iinclude -Llib demo/mlat-demo.cpp -lmlat -lm -o demo/mlat-demo-cpp
 
-check: build/bin/mlat demo/mlat-demo
+check: build/bin/mlat demo/mlat-demo demo/mlat-demo-cpp
 	./test.sh
 
 clean:
