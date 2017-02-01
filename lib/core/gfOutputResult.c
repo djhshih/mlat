@@ -16,7 +16,7 @@ static struct gfAlign *gfResultNewAlign(struct gfResult *r) {
   ++(r->size);
   if (r->size > r->capacity) {
     size_t oldCapacity = r->capacity;
-    r->size *= 2;
+    r->capacity *= 2;
     ExpandArray(r->aligns, oldCapacity, r->capacity);
   }
   return &r->aligns[r->size - 1];
