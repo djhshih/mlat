@@ -22,3 +22,9 @@ libmlat.so:
 libmlat.dylib:
 	$(CBUILD) -dynamiclib -o libmlat.dylib $(mlat_objs)
 
+clean:
+	cd core && make clean
+	cd aux && make clean
+	cd net && make clean
+	rm -f *.{a,so,dylib}
+

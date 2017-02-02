@@ -20,3 +20,6 @@ gfBlatNetLib.o \
 all: $(O)
 	
 
+clean:
+	rm -f *.{o,gcov,gcda,gcno,log}
+
