@@ -1,0 +1,7 @@
+language: c
+script:
+  - make
+after_success:
+  - make clean
+  - make coverage CFLAGS='-coverage -O0'
+  - bash <(curl -s https://codecov.io/bash)
