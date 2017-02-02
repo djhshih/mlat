@@ -1,5 +1,9 @@
 # MLAT: Minimal BLAT
 
+[![travis-ci](https://travis-ci.org/djhshih/mlat.svg?branch=master)](https://travis-ci.org/djhshih/mlat)
+[![codecov](https://codecov.io/gh/djhshih/mlat/branch/master/graph/badge.svg)](https://codecov.io/gh/djhshih/mlat)
+
+
 MLAT is a tool for sequence alignment.
 
 This is a fork of the BLAT package (v35) written by Jim Kent. The package has
