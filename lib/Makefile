@@ -26,5 +26,5 @@ clean:
 	cd core && make clean
 	cd aux && make clean
 	cd net && make clean
-	rm -f *.{a,so,dylib}
+	rm -f libmlat.*
 
