@@ -64,7 +64,7 @@ echo
 
 cases=( \
 	0.0.psl 0.1.psl 0.2.psl 0.3.psl 0.4.psl \
-	1.0.psl 1.1.psl 1.1.c.psl \
+	1.0.psl 1.1.psl \
 	1.1.pslx 1.1.axt 1.1.maf 1.1.sim4 1.1.wublast 1.1.blast 1.1.blast8 1.1.blast9 \
 	2.0.psl 3.0.psl 4.0.psl \
 	5.0.tsv 5.1.tsv 6.0.tsv 6.1.tsv 7.0.tsv 7.1.tsv \

@@ -11,8 +11,11 @@ all: base
 
 base:
 	cd lib && make libmlat.a
-	cd lib && make libmlatnet.a
 	cd src && make
+
+server: base
+	cd lib && make libmlatnet.a
+	cd src && make server
 
 shared:
 	cd lib && make libmlat.so
@@ -22,6 +25,9 @@ example:
 
 check: base example
 	./test.sh
+
+check-server: server
+	./test-server.sh
 
 coverage: base example check
 	./gcov.sh

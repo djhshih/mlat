@@ -2,7 +2,10 @@ ROOT=..
 
 include $(ROOT)/common.mk
 
-all: mlat 2bit blatc blatd
+all: mlat 2bit
+	
+
+server: blatd blatc 
 	
 
 mlat: $(ROOT)/lib/libmlat.a
