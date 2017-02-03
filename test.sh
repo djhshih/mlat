@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -o nounset
 set -o pipefail
@@ -54,6 +54,9 @@ cd demo
 ./mlat-demo-cpp ../data/ref1.fna CCCCCCCCCCCCCCCCCCCCCCCCC > ../out/out-7.1.tsv
 cd ..
 
+$path/2bit || true
+$path/2bit data/hg38_tp53.fna out/hg38_tp53.2bit
+
 
 echo
 echo "Checking outputs..."
@@ -61,7 +64,7 @@ echo
 
 cases=( \
 	0.0.psl 0.1.psl 0.2.psl 0.3.psl 0.4.psl \
-	1.0.psl 1.1.psl \
+	1.0.psl 1.1.psl 1.1.c.psl \
 	1.1.pslx 1.1.axt 1.1.maf 1.1.sim4 1.1.wublast 1.1.blast 1.1.blast8 1.1.blast9 \
 	2.0.psl 3.0.psl 4.0.psl \
 	5.0.tsv 5.1.tsv 6.0.tsv 6.1.tsv 7.0.tsv 7.1.tsv \
@@ -71,4 +74,6 @@ for x in ${cases[@]}; do
 	echo "diff out/out-${x} test/test-${x}"
 	diff out/out-${x} test/test-${x}
 done
+
+diff <(xxd data/hg38_tp53.2bit) <(xxd out/hg38_tp53.2bit)
 
