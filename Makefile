@@ -30,7 +30,8 @@ check-server: server
 	./test-server.sh
 
 coverage: base example check
-	./gcov.sh
+	cd src && gcov mlat.c 2bit.c
+	cd demo && gcov mlat-demo.c mlat-demo-cpp.cpp
 
 install: base
 	mkdir -p $(DESTDIR)/{bin,include,include/mlat,lib}
