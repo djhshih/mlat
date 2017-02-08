@@ -7,11 +7,11 @@ struct mlatParams *newMlatParams() {
   AllocVar(p);
 
   p->tileSize = 11;
-  p->stepSize = 0; /* Default (same as tileSize) */
+  p->stepSize = 5;
   p->minMatch = 2;
   p->minScore = 30;
   p->maxGap = 2;
-  p->repMatch = 1024 * 4;
+  p->repMatch = 1024 * p->tileSize / p->stepSize;
   p->oneOff = FALSE;
   p->noHead = FALSE;
   p->trimA = FALSE;
