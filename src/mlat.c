@@ -65,7 +65,7 @@ void usage()
       "genome.\n"
       "   -repMatch=N sets the number of repetitions of a tile allowed before\n"
       "               it is marked as overused.  Default is set based on tileSize\n"
-		  "              	and stepSize. Typically only comes into play with makeOoc.\n"
+      "               and stepSize. Typically only comes into play with makeOoc.\n"
       "   -mask=type  Mask out repeats.  Alignments won't be started in masked "
       "region\n"
       "               but may extend through it in nucleotide searches.  "
