@@ -17,13 +17,18 @@ NC_000017.11:c7687550-7668402                                         109   6e-2
 NC_000017.11:c7687550-7668402                                         103   2e-22
 NC_000017.11:c7687550-7668402                                         102   8e-22
 NC_000017.11:c7687550-7668402                                          94   1e-19
-NC_000017.11:c7687550-7668402                                          65   8e-11
 NC_000017.11:c7687550-7668402                                          62   5e-10
+NC_000017.11:c7687550-7668402                                          62   5e-10
+NC_000017.11:c7687550-7668402                                          62   5e-10
+NC_000017.11:c7687550-7668402                                          50   2e-06
+NC_000017.11:c7687550-7668402                                          48   1e-05
 NC_000017.11:c7687550-7668402                                          46   5e-05
 NC_000017.11:c7687550-7668402                                          39   5e-03
 NC_000017.11:c7687550-7668402                                          38   1e-02
-NC_000017.11:c7687550-7668402                                          33   4e-01
+NC_000017.11:c7687550-7668402                                          34   2e-01
 NC_000017.11:c7687550-7668402                                          28   1e+01
+NC_000017.11:c7687550-7668402                                          28   1e+01
+NC_000017.11:c7687550-7668402                                          22   9e+02
 
 
 
@@ -91,13 +96,22 @@ Query: 1     tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaa 59
 Sbjct: 15208 tcatgccactgcactccagcctgggcgacagagtgagactgagtctcaaaaaaataaaa 15150
 
 
- Score = 65 bits (168), Expect = 8e-11
- Identities = 33/34 (97%)
+ Score = 62 bits (161), Expect = 5e-10
+ Identities = 32/34 (94%)
  Strand = Plus / Plus
 
 Query: 5    gccactgcactccagcctgggcgacagagcgaga 38
-            |||||||||||||||||||||||||||||| |||
-Sbjct: 5697 gccactgcactccagcctgggcgacagagcaaga 5730
+            |||||||||||||||||||||| |||||| ||||
+Sbjct: 3779 gccactgcactccagcctgggcaacagagtgaga 3812
+
+
+ Score = 62 bits (161), Expect = 5e-10
+ Identities = 32/34 (94%)
+ Strand = Plus / Plus
+
+Query: 5     gccactgcactccagcctgggcgacagagcgaga 38
+             |||||||||||||||||||||||| |||| ||||
+Sbjct: 16189 gccactgcactccagcctgggcgatagagtgaga 16222
 
 
  Score = 62 bits (161), Expect = 5e-10
@@ -107,6 +121,24 @@ Sbjct: 5697 gccactgcactccagcctgggcgacagagcaaga 5730
 Query: 5     gccactgcactccagcctgggcgacagagcgaga 38
              ||||||||||||||||||||| ||||||| ||||
 Sbjct: 14469 gccactgcactccagcctgggtgacagagtgaga 14436
+
+
+ Score = 50 bits (130), Expect = 2e-06
+ Identities = 26/28 (93%)
+ Strand = Plus / Plus
+
+Query: 1    tcatgccactgcactccagcctgggcga 28
+            || ||||||| |||||||||||||||||
+Sbjct: 2039 tcgtgccactacactccagcctgggcga 2066
+
+
+ Score = 48 bits (124), Expect = 1e-05
+ Identities = 24/24 (100%)
+ Strand = Plus / Plus
+
+Query: 5    gccactgcactccagcctgggcga 28
+            ||||||||||||||||||||||||
+Sbjct: 5697 gccactgcactccagcctgggcga 5720
 
 
  Score = 46 bits (118), Expect = 5e-05
@@ -136,13 +168,13 @@ Query: 43   atctcaaaaaaaaaaaaaag 62
 Sbjct: 7036 atctcaaaaaaaaaaaaaag 7055
 
 
- Score = 33 bits (85), Expect = 4e-01
- Identities = 17/18 (94%)
+ Score = 34 bits (88), Expect = 2e-01
+ Identities = 18/18 (100%)
  Strand = Plus / Plus
 
-Query: 25   gcgacagagcgagattcc 42
-            || |||||||||||||||
-Sbjct: 6986 gcaacagagcgagattcc 7003
+Query: 44   tctcaaaaaaaaaaaaaa 61
+            ||||||||||||||||||
+Sbjct: 8610 tctcaaaaaaaaaaaaaa 8627
 
 
  Score = 28 bits (73), Expect = 1e+01
@@ -152,6 +184,24 @@ Sbjct: 6986 gcaacagagcgagattcc 7003
 Query: 47    caaaaaaaaaaaaaa 61
              |||||||||||||||
 Sbjct: 14426 caaaaaaaaaaaaaa 14412
+
+
+ Score = 28 bits (71), Expect = 1e+01
+ Identities = 14/14 (100%)
+ Strand = Plus / Plus
+
+Query: 29   cagagcgagattcc 42
+            ||||||||||||||
+Sbjct: 6990 cagagcgagattcc 7003
+
+
+ Score = 22 bits (56), Expect = 9e+02
+ Identities = 12/13 (92%)
+ Strand = Plus / Plus
+
+Query: 48    aaaaaaaaaaaaa 60
+             |||||||| ||||
+Sbjct: 16234 aaaaaaaagaaaa 16246
 
   Database: data/hg38_tp53.2bit
 BLASTN 2.2.11 [blat]
@@ -169,11 +219,16 @@ Searching.done
 Sequences producing significant alignments:                      (bits) Value
 
 NC_000017.11:c7687550-7668402                                         146   4e-35
-NC_000017.11:c7687550-7668402                                         103   3e-22
 NC_000017.11:c7687550-7668402                                         102   6e-22
+NC_000017.11:c7687550-7668402                                          98   1e-20
 NC_000017.11:c7687550-7668402                                          91   1e-18
+NC_000017.11:c7687550-7668402                                          80   2e-15
 NC_000017.11:c7687550-7668402                                          74   1e-13
+NC_000017.11:c7687550-7668402                                          73   3e-13
+NC_000017.11:c7687550-7668402                                          58   9e-09
+NC_000017.11:c7687550-7668402                                          54   1e-07
 NC_000017.11:c7687550-7668402                                          28   1e+01
+NC_000017.11:c7687550-7668402                                          19   6e+03
 NC_000017.11:c7687550-7668402                                          10   3e+06
 
 
@@ -194,19 +249,6 @@ Query: 61    gagcgagattccatc 75
 Sbjct: 13158 gagcgagattccatc 13172
 
 
- Score = 103 bits (265), Expect = 3e-22
- Identities = 55/61 (90%)
- Strand = Plus / Plus
-
-Query: 15    ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccat 74
-             |||||||||||||||||||||||||||  ||||||||| || ||||||| |||| |||||
-Sbjct: 10534 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccat 10593
-
-Query: 75    c 75
-             |
-Sbjct: 10594 c 10594
-
-
  Score = 102 bits (263), Expect = 6e-22
  Identities = 53/55 (96%)
  Strand = Plus / Plus
@@ -214,6 +256,15 @@ Sbjct: 10594 c 10594
 Query: 10   ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
             |||||||||||||||||||||||  ||||||||||||||||||||||||||||||
 Sbjct: 5672 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc 5726
+
+
+ Score = 98 bits (252), Expect = 1e-20
+ Identities = 53/59 (90%)
+ Strand = Plus / Minus
+
+Query: 10    ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgaga 68
+             |||| ||||||||||| ||||||  ||||||||||||||||||||| ||||||| ||||
+Sbjct: 14494 ggaggttgcagtgagccgagatcccgccactgcactccagcctgggtgacagagtgaga 14436
 
 
  Score = 91 bits (235), Expect = 1e-18
@@ -225,6 +276,15 @@ Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
 Sbjct: 4369 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc 4418
 
 
+ Score = 80 bits (208), Expect = 2e-15
+ Identities = 42/46 (91%)
+ Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgaca 60
+            |||||||||||  ||||| ||||||| |||||||||||||||||||
+Sbjct: 2023 ttgcagtgagccaagatcgtgccactacactccagcctgggcgaca 2068
+
+
  Score = 74 bits (192), Expect = 1e-13
  Identities = 38/39 (97%)
  Strand = Plus / Minus
@@ -234,6 +294,33 @@ Query: 30    atcatgccactgcactccagcctgggcgacagagcgaga 68
 Sbjct: 15209 atcatgccactgcactccagcctgggcgacagagtgaga 15171
 
 
+ Score = 73 bits (189), Expect = 3e-13
+ Identities = 38/41 (93%)
+ Strand = Plus / Plus
+
+Query: 28   agatcatgccactgcactccagcctgggcgacagagcgaga 68
+            ||||| |||||||||||||||||||||| ||||||| ||||
+Sbjct: 5272 agatcgtgccactgcactccagcctgggtgacagagtgaga 5312
+
+
+ Score = 58 bits (150), Expect = 9e-09
+ Identities = 30/32 (94%)
+ Strand = Plus / Plus
+
+Query: 37    cactgcactccagcctgggcgacagagcgaga 68
+             |||||||||||||||||||||| |||| ||||
+Sbjct: 16191 cactgcactccagcctgggcgatagagtgaga 16222
+
+
+ Score = 54 bits (141), Expect = 1e-07
+ Identities = 29/30 (97%)
+ Strand = Plus / Plus
+
+Query: 7    ggtggagcttgcagtgagctgagatcatgc 36
+            ||||||| ||||||||||||||||||||||
+Sbjct: 6938 ggtggaggttgcagtgagctgagatcatgc 6967
+
+
  Score = 28 bits (71), Expect = 1e+01
  Identities = 14/14 (100%)
  Strand = Plus / Minus
@@ -241,6 +328,15 @@ Sbjct: 15209 atcatgccactgcactccagcctgggcgacagagtgaga 15171
 Query: 16    tgcagtgagctgag 29
              ||||||||||||||
 Sbjct: 15523 tgcagtgagctgag 15510
+
+
+ Score = 19 bits (49), Expect = 6e+03
+ Identities = 10/11 (91%)
+ Strand = Plus / Plus
+
+Query: 65    gagattccatc 75
+             |||| ||||||
+Sbjct: 10584 gagactccatc 10594
 
 
  Score = 10 bits (25), Expect = 3e+06
@@ -267,11 +363,16 @@ Searching.done
 Sequences producing significant alignments:                      (bits) Value
 
 NC_000017.11:c7687550-7668402                                         146   4e-35
-NC_000017.11:c7687550-7668402                                         103   3e-22
 NC_000017.11:c7687550-7668402                                         102   6e-22
+NC_000017.11:c7687550-7668402                                          98   1e-20
 NC_000017.11:c7687550-7668402                                          91   1e-18
+NC_000017.11:c7687550-7668402                                          80   2e-15
 NC_000017.11:c7687550-7668402                                          74   1e-13
+NC_000017.11:c7687550-7668402                                          73   3e-13
+NC_000017.11:c7687550-7668402                                          58   9e-09
+NC_000017.11:c7687550-7668402                                          54   1e-07
 NC_000017.11:c7687550-7668402                                          28   1e+01
+NC_000017.11:c7687550-7668402                                          19   6e+03
 NC_000017.11:c7687550-7668402                                          10   3e+06
 
 
@@ -292,19 +393,6 @@ Query: 61    gagcgagattccatc 75
 Sbjct: 13158 gagcgagattccatc 13172
 
 
- Score = 103 bits (265), Expect = 3e-22
- Identities = 55/61 (90%)
- Strand = Plus / Plus
-
-Query: 15    ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccat 74
-             |||||||||||||||||||||||||||  ||||||||| || ||||||| |||| |||||
-Sbjct: 10534 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccat 10593
-
-Query: 75    c 75
-             |
-Sbjct: 10594 c 10594
-
-
  Score = 102 bits (263), Expect = 6e-22
  Identities = 53/55 (96%)
  Strand = Plus / Plus
@@ -312,6 +400,15 @@ Sbjct: 10594 c 10594
 Query: 10   ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
             |||||||||||||||||||||||  ||||||||||||||||||||||||||||||
 Sbjct: 5672 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc 5726
+
+
+ Score = 98 bits (252), Expect = 1e-20
+ Identities = 53/59 (90%)
+ Strand = Plus / Minus
+
+Query: 10    ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgaga 68
+             |||| ||||||||||| ||||||  ||||||||||||||||||||| ||||||| ||||
+Sbjct: 14494 ggaggttgcagtgagccgagatcccgccactgcactccagcctgggtgacagagtgaga 14436
 
 
  Score = 91 bits (235), Expect = 1e-18
@@ -323,6 +420,15 @@ Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
 Sbjct: 4369 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc 4418
 
 
+ Score = 80 bits (208), Expect = 2e-15
+ Identities = 42/46 (91%)
+ Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgaca 60
+            |||||||||||  ||||| ||||||| |||||||||||||||||||
+Sbjct: 2023 ttgcagtgagccaagatcgtgccactacactccagcctgggcgaca 2068
+
+
  Score = 74 bits (192), Expect = 1e-13
  Identities = 38/39 (97%)
  Strand = Plus / Minus
@@ -332,6 +438,33 @@ Query: 30    atcatgccactgcactccagcctgggcgacagagcgaga 68
 Sbjct: 15209 atcatgccactgcactccagcctgggcgacagagtgaga 15171
 
 
+ Score = 73 bits (189), Expect = 3e-13
+ Identities = 38/41 (93%)
+ Strand = Plus / Plus
+
+Query: 28   agatcatgccactgcactccagcctgggcgacagagcgaga 68
+            ||||| |||||||||||||||||||||| ||||||| ||||
+Sbjct: 5272 agatcgtgccactgcactccagcctgggtgacagagtgaga 5312
+
+
+ Score = 58 bits (150), Expect = 9e-09
+ Identities = 30/32 (94%)
+ Strand = Plus / Plus
+
+Query: 37    cactgcactccagcctgggcgacagagcgaga 68
+             |||||||||||||||||||||| |||| ||||
+Sbjct: 16191 cactgcactccagcctgggcgatagagtgaga 16222
+
+
+ Score = 54 bits (141), Expect = 1e-07
+ Identities = 29/30 (97%)
+ Strand = Plus / Plus
+
+Query: 7    ggtggagcttgcagtgagctgagatcatgc 36
+            ||||||| ||||||||||||||||||||||
+Sbjct: 6938 ggtggaggttgcagtgagctgagatcatgc 6967
+
+
  Score = 28 bits (71), Expect = 1e+01
  Identities = 14/14 (100%)
  Strand = Plus / Minus
@@ -339,6 +472,15 @@ Sbjct: 15209 atcatgccactgcactccagcctgggcgacagagtgaga 15171
 Query: 16    tgcagtgagctgag 29
              ||||||||||||||
 Sbjct: 15523 tgcagtgagctgag 15510
+
+
+ Score = 19 bits (49), Expect = 6e+03
+ Identities = 10/11 (91%)
+ Strand = Plus / Plus
+
+Query: 65    gagattccatc 75
+             |||| ||||||
+Sbjct: 10584 gagactccatc 10594
 
 
  Score = 10 bits (25), Expect = 3e+06
@@ -365,11 +507,16 @@ Searching.done
 Sequences producing significant alignments:                      (bits) Value
 
 NC_000017.11:c7687550-7668402                                         146   4e-35
-NC_000017.11:c7687550-7668402                                         103   3e-22
 NC_000017.11:c7687550-7668402                                         102   6e-22
+NC_000017.11:c7687550-7668402                                          98   1e-20
 NC_000017.11:c7687550-7668402                                          91   1e-18
+NC_000017.11:c7687550-7668402                                          80   2e-15
 NC_000017.11:c7687550-7668402                                          74   1e-13
+NC_000017.11:c7687550-7668402                                          73   3e-13
+NC_000017.11:c7687550-7668402                                          58   9e-09
+NC_000017.11:c7687550-7668402                                          54   1e-07
 NC_000017.11:c7687550-7668402                                          28   1e+01
+NC_000017.11:c7687550-7668402                                          19   6e+03
 NC_000017.11:c7687550-7668402                                          10   3e+06
 
 
@@ -390,19 +537,6 @@ Query: 61    gagcgagattccatc 75
 Sbjct: 13158 gagcgagattccatc 13172
 
 
- Score = 103 bits (265), Expect = 3e-22
- Identities = 55/61 (90%)
- Strand = Plus / Plus
-
-Query: 15    ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccat 74
-             |||||||||||||||||||||||||||  ||||||||| || ||||||| |||| |||||
-Sbjct: 10534 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccat 10593
-
-Query: 75    c 75
-             |
-Sbjct: 10594 c 10594
-
-
  Score = 102 bits (263), Expect = 6e-22
  Identities = 53/55 (96%)
  Strand = Plus / Plus
@@ -410,6 +544,15 @@ Sbjct: 10594 c 10594
 Query: 10   ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
             |||||||||||||||||||||||  ||||||||||||||||||||||||||||||
 Sbjct: 5672 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc 5726
+
+
+ Score = 98 bits (252), Expect = 1e-20
+ Identities = 53/59 (90%)
+ Strand = Plus / Minus
+
+Query: 10    ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgaga 68
+             |||| ||||||||||| ||||||  ||||||||||||||||||||| ||||||| ||||
+Sbjct: 14494 ggaggttgcagtgagccgagatcccgccactgcactccagcctgggtgacagagtgaga 14436
 
 
  Score = 91 bits (235), Expect = 1e-18
@@ -421,6 +564,15 @@ Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
 Sbjct: 4369 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc 4418
 
 
+ Score = 80 bits (208), Expect = 2e-15
+ Identities = 42/46 (91%)
+ Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgaca 60
+            |||||||||||  ||||| ||||||| |||||||||||||||||||
+Sbjct: 2023 ttgcagtgagccaagatcgtgccactacactccagcctgggcgaca 2068
+
+
  Score = 74 bits (192), Expect = 1e-13
  Identities = 38/39 (97%)
  Strand = Plus / Minus
@@ -430,6 +582,33 @@ Query: 30    atcatgccactgcactccagcctgggcgacagagcgaga 68
 Sbjct: 15209 atcatgccactgcactccagcctgggcgacagagtgaga 15171
 
 
+ Score = 73 bits (189), Expect = 3e-13
+ Identities = 38/41 (93%)
+ Strand = Plus / Plus
+
+Query: 28   agatcatgccactgcactccagcctgggcgacagagcgaga 68
+            ||||| |||||||||||||||||||||| ||||||| ||||
+Sbjct: 5272 agatcgtgccactgcactccagcctgggtgacagagtgaga 5312
+
+
+ Score = 58 bits (150), Expect = 9e-09
+ Identities = 30/32 (94%)
+ Strand = Plus / Plus
+
+Query: 37    cactgcactccagcctgggcgacagagcgaga 68
+             |||||||||||||||||||||| |||| ||||
+Sbjct: 16191 cactgcactccagcctgggcgatagagtgaga 16222
+
+
+ Score = 54 bits (141), Expect = 1e-07
+ Identities = 29/30 (97%)
+ Strand = Plus / Plus
+
+Query: 7    ggtggagcttgcagtgagctgagatcatgc 36
+            ||||||| ||||||||||||||||||||||
+Sbjct: 6938 ggtggaggttgcagtgagctgagatcatgc 6967
+
+
  Score = 28 bits (71), Expect = 1e+01
  Identities = 14/14 (100%)
  Strand = Plus / Minus
@@ -437,6 +616,15 @@ Sbjct: 15209 atcatgccactgcactccagcctgggcgacagagtgaga 15171
 Query: 16    tgcagtgagctgag 29
              ||||||||||||||
 Sbjct: 15523 tgcagtgagctgag 15510
+
+
+ Score = 19 bits (49), Expect = 6e+03
+ Identities = 10/11 (91%)
+ Strand = Plus / Plus
+
+Query: 65    gagattccatc 75
+             |||| ||||||
+Sbjct: 10584 gagactccatc 10594
 
 
  Score = 10 bits (25), Expect = 3e+06
@@ -463,11 +651,16 @@ Searching.done
 Sequences producing significant alignments:                      (bits) Value
 
 NC_000017.11:c7687550-7668402                                         146   4e-35
-NC_000017.11:c7687550-7668402                                         103   3e-22
 NC_000017.11:c7687550-7668402                                         102   6e-22
+NC_000017.11:c7687550-7668402                                          98   1e-20
 NC_000017.11:c7687550-7668402                                          91   1e-18
+NC_000017.11:c7687550-7668402                                          80   2e-15
 NC_000017.11:c7687550-7668402                                          74   1e-13
+NC_000017.11:c7687550-7668402                                          73   3e-13
+NC_000017.11:c7687550-7668402                                          58   9e-09
+NC_000017.11:c7687550-7668402                                          54   1e-07
 NC_000017.11:c7687550-7668402                                          28   1e+01
+NC_000017.11:c7687550-7668402                                          19   6e+03
 NC_000017.11:c7687550-7668402                                          10   3e+06
 
 
@@ -488,19 +681,6 @@ Query: 61    gagcgagattccatc 75
 Sbjct: 13158 gagcgagattccatc 13172
 
 
- Score = 103 bits (265), Expect = 3e-22
- Identities = 55/61 (90%)
- Strand = Plus / Plus
-
-Query: 15    ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccat 74
-             |||||||||||||||||||||||||||  ||||||||| || ||||||| |||| |||||
-Sbjct: 10534 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccat 10593
-
-Query: 75    c 75
-             |
-Sbjct: 10594 c 10594
-
-
  Score = 102 bits (263), Expect = 6e-22
  Identities = 53/55 (96%)
  Strand = Plus / Plus
@@ -508,6 +688,15 @@ Sbjct: 10594 c 10594
 Query: 10   ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
             |||||||||||||||||||||||  ||||||||||||||||||||||||||||||
 Sbjct: 5672 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc 5726
+
+
+ Score = 98 bits (252), Expect = 1e-20
+ Identities = 53/59 (90%)
+ Strand = Plus / Minus
+
+Query: 10    ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgaga 68
+             |||| ||||||||||| ||||||  ||||||||||||||||||||| ||||||| ||||
+Sbjct: 14494 ggaggttgcagtgagccgagatcccgccactgcactccagcctgggtgacagagtgaga 14436
 
 
  Score = 91 bits (235), Expect = 1e-18
@@ -519,6 +708,15 @@ Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
 Sbjct: 4369 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc 4418
 
 
+ Score = 80 bits (208), Expect = 2e-15
+ Identities = 42/46 (91%)
+ Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgaca 60
+            |||||||||||  ||||| ||||||| |||||||||||||||||||
+Sbjct: 2023 ttgcagtgagccaagatcgtgccactacactccagcctgggcgaca 2068
+
+
  Score = 74 bits (192), Expect = 1e-13
  Identities = 38/39 (97%)
  Strand = Plus / Minus
@@ -528,6 +726,33 @@ Query: 30    atcatgccactgcactccagcctgggcgacagagcgaga 68
 Sbjct: 15209 atcatgccactgcactccagcctgggcgacagagtgaga 15171
 
 
+ Score = 73 bits (189), Expect = 3e-13
+ Identities = 38/41 (93%)
+ Strand = Plus / Plus
+
+Query: 28   agatcatgccactgcactccagcctgggcgacagagcgaga 68
+            ||||| |||||||||||||||||||||| ||||||| ||||
+Sbjct: 5272 agatcgtgccactgcactccagcctgggtgacagagtgaga 5312
+
+
+ Score = 58 bits (150), Expect = 9e-09
+ Identities = 30/32 (94%)
+ Strand = Plus / Plus
+
+Query: 37    cactgcactccagcctgggcgacagagcgaga 68
+             |||||||||||||||||||||| |||| ||||
+Sbjct: 16191 cactgcactccagcctgggcgatagagtgaga 16222
+
+
+ Score = 54 bits (141), Expect = 1e-07
+ Identities = 29/30 (97%)
+ Strand = Plus / Plus
+
+Query: 7    ggtggagcttgcagtgagctgagatcatgc 36
+            ||||||| ||||||||||||||||||||||
+Sbjct: 6938 ggtggaggttgcagtgagctgagatcatgc 6967
+
+
  Score = 28 bits (71), Expect = 1e+01
  Identities = 14/14 (100%)
  Strand = Plus / Minus
@@ -535,6 +760,15 @@ Sbjct: 15209 atcatgccactgcactccagcctgggcgacagagtgaga 15171
 Query: 16    tgcagtgagctgag 29
              ||||||||||||||
 Sbjct: 15523 tgcagtgagctgag 15510
+
+
+ Score = 19 bits (49), Expect = 6e+03
+ Identities = 10/11 (91%)
+ Strand = Plus / Plus
+
+Query: 65    gagattccatc 75
+             |||| ||||||
+Sbjct: 10584 gagactccatc 10594
 
 
  Score = 10 bits (25), Expect = 3e+06
@@ -561,11 +795,16 @@ Searching.done
 Sequences producing significant alignments:                      (bits) Value
 
 NC_000017.11:c7687550-7668402                                         146   4e-35
-NC_000017.11:c7687550-7668402                                         103   3e-22
 NC_000017.11:c7687550-7668402                                         102   6e-22
+NC_000017.11:c7687550-7668402                                          98   1e-20
 NC_000017.11:c7687550-7668402                                          91   1e-18
+NC_000017.11:c7687550-7668402                                          80   2e-15
 NC_000017.11:c7687550-7668402                                          74   1e-13
+NC_000017.11:c7687550-7668402                                          73   3e-13
+NC_000017.11:c7687550-7668402                                          58   9e-09
+NC_000017.11:c7687550-7668402                                          54   1e-07
 NC_000017.11:c7687550-7668402                                          28   1e+01
+NC_000017.11:c7687550-7668402                                          19   6e+03
 NC_000017.11:c7687550-7668402                                          10   3e+06
 
 
@@ -586,19 +825,6 @@ Query: 61    gagcgagattccatc 75
 Sbjct: 13158 gagcgagattccatc 13172
 
 
- Score = 103 bits (265), Expect = 3e-22
- Identities = 55/61 (90%)
- Strand = Plus / Plus
-
-Query: 15    ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccat 74
-             |||||||||||||||||||||||||||  ||||||||| || ||||||| |||| |||||
-Sbjct: 10534 ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccat 10593
-
-Query: 75    c 75
-             |
-Sbjct: 10594 c 10594
-
-
  Score = 102 bits (263), Expect = 6e-22
  Identities = 53/55 (96%)
  Strand = Plus / Plus
@@ -606,6 +832,15 @@ Sbjct: 10594 c 10594
 Query: 10   ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
             |||||||||||||||||||||||  ||||||||||||||||||||||||||||||
 Sbjct: 5672 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc 5726
+
+
+ Score = 98 bits (252), Expect = 1e-20
+ Identities = 53/59 (90%)
+ Strand = Plus / Minus
+
+Query: 10    ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgaga 68
+             |||| ||||||||||| ||||||  ||||||||||||||||||||| ||||||| ||||
+Sbjct: 14494 ggaggttgcagtgagccgagatcccgccactgcactccagcctgggtgacagagtgaga 14436
 
 
  Score = 91 bits (235), Expect = 1e-18
@@ -617,6 +852,15 @@ Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc 64
 Sbjct: 4369 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc 4418
 
 
+ Score = 80 bits (208), Expect = 2e-15
+ Identities = 42/46 (91%)
+ Strand = Plus / Plus
+
+Query: 15   ttgcagtgagctgagatcatgccactgcactccagcctgggcgaca 60
+            |||||||||||  ||||| ||||||| |||||||||||||||||||
+Sbjct: 2023 ttgcagtgagccaagatcgtgccactacactccagcctgggcgaca 2068
+
+
  Score = 74 bits (192), Expect = 1e-13
  Identities = 38/39 (97%)
  Strand = Plus / Minus
@@ -626,6 +870,33 @@ Query: 30    atcatgccactgcactccagcctgggcgacagagcgaga 68
 Sbjct: 15209 atcatgccactgcactccagcctgggcgacagagtgaga 15171
 
 
+ Score = 73 bits (189), Expect = 3e-13
+ Identities = 38/41 (93%)
+ Strand = Plus / Plus
+
+Query: 28   agatcatgccactgcactccagcctgggcgacagagcgaga 68
+            ||||| |||||||||||||||||||||| ||||||| ||||
+Sbjct: 5272 agatcgtgccactgcactccagcctgggtgacagagtgaga 5312
+
+
+ Score = 58 bits (150), Expect = 9e-09
+ Identities = 30/32 (94%)
+ Strand = Plus / Plus
+
+Query: 37    cactgcactccagcctgggcgacagagcgaga 68
+             |||||||||||||||||||||| |||| ||||
+Sbjct: 16191 cactgcactccagcctgggcgatagagtgaga 16222
+
+
+ Score = 54 bits (141), Expect = 1e-07
+ Identities = 29/30 (97%)
+ Strand = Plus / Plus
+
+Query: 7    ggtggagcttgcagtgagctgagatcatgc 36
+            ||||||| ||||||||||||||||||||||
+Sbjct: 6938 ggtggaggttgcagtgagctgagatcatgc 6967
+
+
  Score = 28 bits (71), Expect = 1e+01
  Identities = 14/14 (100%)
  Strand = Plus / Minus
@@ -633,6 +904,15 @@ Sbjct: 15209 atcatgccactgcactccagcctgggcgacagagtgaga 15171
 Query: 16    tgcagtgagctgag 29
              ||||||||||||||
 Sbjct: 15523 tgcagtgagctgag 15510
+
+
+ Score = 19 bits (49), Expect = 6e+03
+ Identities = 10/11 (91%)
+ Strand = Plus / Plus
+
+Query: 65    gagattccatc 75
+             |||| ||||||
+Sbjct: 10584 gagactccatc 10594
 
 
  Score = 10 bits (25), Expect = 3e+06

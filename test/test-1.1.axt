@@ -10,231 +10,391 @@ tctcgctctgtcgcccaggctggagtgcagtggc
 ttttatttttttgagactcagtctcactctgtcgcccaggctggagtgcagtggcatga
 ttttttttttttgagatggaatctcgctctgtcgcccaggctggagtgcagtggcatga
 
-3 NC_000017.11:c7687550-7668402 6986 7003 M03848:190:000000000-ARTHA:1:2102:20955:15668 25 42 + 1606
-gcaacagagcgagattcc
-gcgacagagcgagattcc
+3 NC_000017.11:c7687550-7668402 2039 2066 M03848:190:000000000-ARTHA:1:2102:20955:15668 1 28 + 2457
+tcgtgccactacactccagcctgggcga
+tcatgccactgcactccagcctgggcga
 
-4 NC_000017.11:c7687550-7668402 7036 7055 M03848:190:000000000-ARTHA:1:2102:20955:15668 43 62 + 1847
-atctcaaaaaaaaaaaaaag
-atctcaaaaaaaaaaaaaag
+4 NC_000017.11:c7687550-7668402 8610 8627 M03848:190:000000000-ARTHA:1:2102:20955:15668 44 61 + 1656
+tctcaaaaaaaaaaaaaa
+tctcaaaaaaaaaaaaaa
 
-5 NC_000017.11:c7687550-7668402 12098 12153 M03848:190:000000000-ARTHA:1:2102:20955:15668 6 61 + 4309
+5 NC_000017.11:c7687550-7668402 16189 16222 M03848:190:000000000-ARTHA:1:2102:20955:15668 5 38 + 3039
+gccactgcactccagcctgggcgatagagtgaga
+gccactgcactccagcctgggcgacagagcgaga
+
+6 NC_000017.11:c7687550-7668402 16234 16246 M03848:190:000000000-ARTHA:1:2102:20955:15668 48 60 + 1061
+aaaaaaaagaaaa
+aaaaaaaaaaaaa
+
+7 NC_000017.11:c7687550-7668402 12098 12153 M03848:190:000000000-ARTHA:1:2102:20955:15668 6 61 + 4309
 ccactgtgctccagcctgagtgacagagcaagaccctatctcaaaaaaaaaaaaaa
 ccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaaa
 
-6 NC_000017.11:c7687550-7668402 9527 9549 M03848:190:000000000-ARTHA:1:2102:20955:15668 6 28 + 2237
+8 NC_000017.11:c7687550-7668402 9527 9549 M03848:190:000000000-ARTHA:1:2102:20955:15668 6 28 + 2237
 ccactgcactccagcctgggcga
 ccactgcactccagcctgggcga
 
-7 NC_000017.11:c7687550-7668402 9552 9587 M03848:190:000000000-ARTHA:1:2102:20955:15668 30 60 + 1874
+9 NC_000017.11:c7687550-7668402 9552 9587 M03848:190:000000000-ARTHA:1:2102:20955:15668 30 60 + 1874
 agagccaaactccatctcaaaaaacaaacaaaaaaa
 agagcgagattccatctcaaaaaa-----aaaaaaa
 
-8 NC_000017.11:c7687550-7668402 5697 5730 M03848:190:000000000-ARTHA:1:2102:20955:15668 5 38 + 3170
-gccactgcactccagcctgggcgacagagcaaga
+10 NC_000017.11:c7687550-7668402 3779 3812 M03848:190:000000000-ARTHA:1:2102:20955:15668 5 38 + 3039
+gccactgcactccagcctgggcaacagagtgaga
 gccactgcactccagcctgggcgacagagcgaga
 
-9 NC_000017.11:c7687550-7668402 6354 6376 M03848:190:000000000-ARTHA:1:2102:20955:15668 39 61 + 1904
+11 NC_000017.11:c7687550-7668402 6354 6376 M03848:190:000000000-ARTHA:1:2102:20955:15668 39 61 + 1904
 ttccatgtcaaaaaaaaaaaaaa
 ttccatctcaaaaaaaaaaaaaa
 
-10 NC_000017.11:c7687550-7668402 10550 10610 M03848:190:000000000-ARTHA:1:2102:20955:15668 1 61 + 4952
+12 NC_000017.11:c7687550-7668402 5697 5720 M03848:190:000000000-ARTHA:1:2102:20955:15668 5 28 + 2337
+gccactgcactccagcctgggcga
+gccactgcactccagcctgggcga
+
+13 NC_000017.11:c7687550-7668402 6990 7003 M03848:190:000000000-ARTHA:1:2102:20955:15668 29 42 + 1346
+cagagcgagattcc
+cagagcgagattcc
+
+14 NC_000017.11:c7687550-7668402 7036 7055 M03848:190:000000000-ARTHA:1:2102:20955:15668 43 62 + 1847
+atctcaaaaaaaaaaaaaag
+atctcaaaaaaaaaaaaaag
+
+15 NC_000017.11:c7687550-7668402 10550 10610 M03848:190:000000000-ARTHA:1:2102:20955:15668 1 61 + 4952
 tcatgccactgtgctccagcctaggtgacagagagagactccatctcaaaaaaaaaaaaaa
 tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaaa
 
-11 NC_000017.11:c7687550-7668402 5275 5335 M03848:190:000000000-ARTHA:1:2102:20955:15668 1 61 + 5044
+16 NC_000017.11:c7687550-7668402 5275 5335 M03848:190:000000000-ARTHA:1:2102:20955:15668 1 61 + 5044
 tcgtgccactgcactccagcctgggtgacagagtgagacttcgtctcaaaaaaaaaaaaaa
 tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaaa
 
-12 NC_000017.11:c7687550-7668402 4385 4445 M03848:190:000000000-ARTHA:1:2102:20955:15668 1 61 + 5297
+17 NC_000017.11:c7687550-7668402 4385 4445 M03848:190:000000000-ARTHA:1:2102:20955:15668 1 61 + 5297
 tcgtgccactgcactccagcctgggcgacagagcaagacttcatctcaaaaaaaaaaaaaa
 tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaaa
 
-13 NC_000017.11:c7687550-7668402 13128 13204 M03848:190:000000000-ARTHA:1:2102:20955:15668 1 75 + 6585
+18 NC_000017.11:c7687550-7668402 13128 13204 M03848:190:000000000-ARTHA:1:2102:20955:15668 1 75 + 6585
 tcacgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaaaaaggcctcccctgctt
 tcatgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaaa--ggcctcccctgctt
 
-14 NC_000017.11:c7687550-7668402 15171 15209 M03848:190:000000000-ARTHA:1:1112:24053:17456 8 46 - 3634
+19 NC_000017.11:c7687550-7668402 15171 15209 M03848:190:000000000-ARTHA:1:1112:24053:17456 8 46 - 3634
 tctcactctgtcgcccaggctggagtgcagtggcatgat
 tctcgctctgtcgcccaggctggagtgcagtggcatgat
 
-15 NC_000017.11:c7687550-7668402 15510 15523 M03848:190:000000000-ARTHA:1:1112:24053:17456 47 60 - 1346
+20 NC_000017.11:c7687550-7668402 15510 15523 M03848:190:000000000-ARTHA:1:1112:24053:17456 47 60 - 1346
 ctcagctcactgca
 ctcagctcactgca
 
-16 NC_000017.11:c7687550-7668402 9506 9549 M03848:190:000000000-ARTHA:1:1112:24053:17456 15 58 + 3274
+21 NC_000017.11:c7687550-7668402 14436 14494 M03848:190:000000000-ARTHA:1:1112:24053:17456 8 66 - 4757
+tctcactctgtcacccaggctggagtgcagtggcgggatctcggctcactgcaacctcc
+tctcgctctgtcgcccaggctggagtgcagtggcatgatctcagctcactgcaagctcc
+
+22 NC_000017.11:c7687550-7668402 17570 17611 M03848:190:000000000-ARTHA:1:1112:24053:17456 15 56 + 3196
+ttgcggtgagctgagatctcaccattacactccagcctgggc
+ttgcagtgagctgagatcatgccactgcactccagcctgggc
+
+23 NC_000017.11:c7687550-7668402 9506 9549 M03848:190:000000000-ARTHA:1:1112:24053:17456 15 58 + 3274
 ttgcagtgagcctagactgcaccactgcactccagcctgggcga
 ttgcagtgagctgagatcatgccactgcactccagcctgggcga
 
-17 NC_000017.11:c7687550-7668402 9552 9556 M03848:190:000000000-ARTHA:1:1112:24053:17456 60 64 + 482
+24 NC_000017.11:c7687550-7668402 9552 9556 M03848:190:000000000-ARTHA:1:1112:24053:17456 60 64 + 482
 agagc
 agagc
 
-18 NC_000017.11:c7687550-7668402 4369 4418 M03848:190:000000000-ARTHA:1:1112:24053:17456 15 64 + 4445
+25 NC_000017.11:c7687550-7668402 5272 5312 M03848:190:000000000-ARTHA:1:1112:24053:17456 28 68 + 3572
+agatcgtgccactgcactccagcctgggtgacagagtgaga
+agatcatgccactgcactccagcctgggcgacagagcgaga
+
+26 NC_000017.11:c7687550-7668402 2023 2068 M03848:190:000000000-ARTHA:1:1112:24053:17456 15 60 + 3923
+ttgcagtgagccaagatcgtgccactacactccagcctgggcgaca
+ttgcagtgagctgagatcatgccactgcactccagcctgggcgaca
+
+27 NC_000017.11:c7687550-7668402 4369 4418 M03848:190:000000000-ARTHA:1:1112:24053:17456 15 64 + 4445
 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc
 ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
 
-19 NC_000017.11:c7687550-7668402 10534 10594 M03848:190:000000000-ARTHA:1:1112:24053:17456 15 75 + 5015
-ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccatc
-ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
+28 NC_000017.11:c7687550-7668402 3754 3812 M03848:190:000000000-ARTHA:1:1112:24053:17456 10 68 + 4709
+ggaggttgcagtgagccgagattgcgccactgcactccagcctgggcaacagagtgaga
+ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgaga
 
-20 NC_000017.11:c7687550-7668402 5672 5726 M03848:190:000000000-ARTHA:1:1112:24053:17456 10 64 + 4975
+29 NC_000017.11:c7687550-7668402 6938 6967 M03848:190:000000000-ARTHA:1:1112:24053:17456 7 36 + 2658
+ggtggaggttgcagtgagctgagatcatgc
+ggtggagcttgcagtgagctgagatcatgc
+
+30 NC_000017.11:c7687550-7668402 16191 16222 M03848:190:000000000-ARTHA:1:1112:24053:17456 37 68 + 2839
+cactgcactccagcctgggcgatagagtgaga
+cactgcactccagcctgggcgacagagcgaga
+
+31 NC_000017.11:c7687550-7668402 5672 5726 M03848:190:000000000-ARTHA:1:1112:24053:17456 10 64 + 4975
 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc
 ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
 
-21 NC_000017.11:c7687550-7668402 13098 13172 M03848:190:000000000-ARTHA:1:1112:24053:17456 1 75 + 7117
+32 NC_000017.11:c7687550-7668402 10584 10594 M03848:190:000000000-ARTHA:1:1112:24053:17456 65 75 + 924
+gagactccatc
+gagattccatc
+
+33 NC_000017.11:c7687550-7668402 13098 13172 M03848:190:000000000-ARTHA:1:1112:24053:17456 1 75 + 7117
 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgacagagcgagattccatc
 ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
 
-22 NC_000017.11:c7687550-7668402 15171 15209 M03848:190:000000000-ARTHA:1:1116:10371:23728 8 46 - 3634
+34 NC_000017.11:c7687550-7668402 15171 15209 M03848:190:000000000-ARTHA:1:1116:10371:23728 8 46 - 3634
 tctcactctgtcgcccaggctggagtgcagtggcatgat
 tctcgctctgtcgcccaggctggagtgcagtggcatgat
 
-23 NC_000017.11:c7687550-7668402 15510 15523 M03848:190:000000000-ARTHA:1:1116:10371:23728 47 60 - 1346
+35 NC_000017.11:c7687550-7668402 15510 15523 M03848:190:000000000-ARTHA:1:1116:10371:23728 47 60 - 1346
 ctcagctcactgca
 ctcagctcactgca
 
-24 NC_000017.11:c7687550-7668402 9506 9549 M03848:190:000000000-ARTHA:1:1116:10371:23728 15 58 + 3274
+36 NC_000017.11:c7687550-7668402 14436 14494 M03848:190:000000000-ARTHA:1:1116:10371:23728 8 66 - 4757
+tctcactctgtcacccaggctggagtgcagtggcgggatctcggctcactgcaacctcc
+tctcgctctgtcgcccaggctggagtgcagtggcatgatctcagctcactgcaagctcc
+
+37 NC_000017.11:c7687550-7668402 17570 17611 M03848:190:000000000-ARTHA:1:1116:10371:23728 15 56 + 3196
+ttgcggtgagctgagatctcaccattacactccagcctgggc
+ttgcagtgagctgagatcatgccactgcactccagcctgggc
+
+38 NC_000017.11:c7687550-7668402 9506 9549 M03848:190:000000000-ARTHA:1:1116:10371:23728 15 58 + 3274
 ttgcagtgagcctagactgcaccactgcactccagcctgggcga
 ttgcagtgagctgagatcatgccactgcactccagcctgggcga
 
-25 NC_000017.11:c7687550-7668402 9552 9556 M03848:190:000000000-ARTHA:1:1116:10371:23728 60 64 + 482
+39 NC_000017.11:c7687550-7668402 9552 9556 M03848:190:000000000-ARTHA:1:1116:10371:23728 60 64 + 482
 agagc
 agagc
 
-26 NC_000017.11:c7687550-7668402 4369 4418 M03848:190:000000000-ARTHA:1:1116:10371:23728 15 64 + 4445
+40 NC_000017.11:c7687550-7668402 5272 5312 M03848:190:000000000-ARTHA:1:1116:10371:23728 28 68 + 3572
+agatcgtgccactgcactccagcctgggtgacagagtgaga
+agatcatgccactgcactccagcctgggcgacagagcgaga
+
+41 NC_000017.11:c7687550-7668402 2023 2068 M03848:190:000000000-ARTHA:1:1116:10371:23728 15 60 + 3923
+ttgcagtgagccaagatcgtgccactacactccagcctgggcgaca
+ttgcagtgagctgagatcatgccactgcactccagcctgggcgaca
+
+42 NC_000017.11:c7687550-7668402 4369 4418 M03848:190:000000000-ARTHA:1:1116:10371:23728 15 64 + 4445
 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc
 ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
 
-27 NC_000017.11:c7687550-7668402 10534 10594 M03848:190:000000000-ARTHA:1:1116:10371:23728 15 75 + 5015
-ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccatc
-ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
+43 NC_000017.11:c7687550-7668402 3754 3812 M03848:190:000000000-ARTHA:1:1116:10371:23728 10 68 + 4709
+ggaggttgcagtgagccgagattgcgccactgcactccagcctgggcaacagagtgaga
+ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgaga
 
-28 NC_000017.11:c7687550-7668402 5672 5726 M03848:190:000000000-ARTHA:1:1116:10371:23728 10 64 + 4975
+44 NC_000017.11:c7687550-7668402 6938 6967 M03848:190:000000000-ARTHA:1:1116:10371:23728 7 36 + 2658
+ggtggaggttgcagtgagctgagatcatgc
+ggtggagcttgcagtgagctgagatcatgc
+
+45 NC_000017.11:c7687550-7668402 16191 16222 M03848:190:000000000-ARTHA:1:1116:10371:23728 37 68 + 2839
+cactgcactccagcctgggcgatagagtgaga
+cactgcactccagcctgggcgacagagcgaga
+
+46 NC_000017.11:c7687550-7668402 5672 5726 M03848:190:000000000-ARTHA:1:1116:10371:23728 10 64 + 4975
 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc
 ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
 
-29 NC_000017.11:c7687550-7668402 13098 13172 M03848:190:000000000-ARTHA:1:1116:10371:23728 1 75 + 7117
+47 NC_000017.11:c7687550-7668402 10584 10594 M03848:190:000000000-ARTHA:1:1116:10371:23728 65 75 + 924
+gagactccatc
+gagattccatc
+
+48 NC_000017.11:c7687550-7668402 13098 13172 M03848:190:000000000-ARTHA:1:1116:10371:23728 1 75 + 7117
 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgacagagcgagattccatc
 ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
 
-30 NC_000017.11:c7687550-7668402 15171 15209 M03848:190:000000000-ARTHA:1:1117:15534:14750 8 46 - 3634
+49 NC_000017.11:c7687550-7668402 15171 15209 M03848:190:000000000-ARTHA:1:1117:15534:14750 8 46 - 3634
 tctcactctgtcgcccaggctggagtgcagtggcatgat
 tctcgctctgtcgcccaggctggagtgcagtggcatgat
 
-31 NC_000017.11:c7687550-7668402 15510 15523 M03848:190:000000000-ARTHA:1:1117:15534:14750 47 60 - 1346
+50 NC_000017.11:c7687550-7668402 15510 15523 M03848:190:000000000-ARTHA:1:1117:15534:14750 47 60 - 1346
 ctcagctcactgca
 ctcagctcactgca
 
-32 NC_000017.11:c7687550-7668402 9506 9549 M03848:190:000000000-ARTHA:1:1117:15534:14750 15 58 + 3274
+51 NC_000017.11:c7687550-7668402 14436 14494 M03848:190:000000000-ARTHA:1:1117:15534:14750 8 66 - 4757
+tctcactctgtcacccaggctggagtgcagtggcgggatctcggctcactgcaacctcc
+tctcgctctgtcgcccaggctggagtgcagtggcatgatctcagctcactgcaagctcc
+
+52 NC_000017.11:c7687550-7668402 17570 17611 M03848:190:000000000-ARTHA:1:1117:15534:14750 15 56 + 3196
+ttgcggtgagctgagatctcaccattacactccagcctgggc
+ttgcagtgagctgagatcatgccactgcactccagcctgggc
+
+53 NC_000017.11:c7687550-7668402 9506 9549 M03848:190:000000000-ARTHA:1:1117:15534:14750 15 58 + 3274
 ttgcagtgagcctagactgcaccactgcactccagcctgggcga
 ttgcagtgagctgagatcatgccactgcactccagcctgggcga
 
-33 NC_000017.11:c7687550-7668402 9552 9556 M03848:190:000000000-ARTHA:1:1117:15534:14750 60 64 + 482
+54 NC_000017.11:c7687550-7668402 9552 9556 M03848:190:000000000-ARTHA:1:1117:15534:14750 60 64 + 482
 agagc
 agagc
 
-34 NC_000017.11:c7687550-7668402 4369 4418 M03848:190:000000000-ARTHA:1:1117:15534:14750 15 64 + 4445
+55 NC_000017.11:c7687550-7668402 5272 5312 M03848:190:000000000-ARTHA:1:1117:15534:14750 28 68 + 3572
+agatcgtgccactgcactccagcctgggtgacagagtgaga
+agatcatgccactgcactccagcctgggcgacagagcgaga
+
+56 NC_000017.11:c7687550-7668402 2023 2068 M03848:190:000000000-ARTHA:1:1117:15534:14750 15 60 + 3923
+ttgcagtgagccaagatcgtgccactacactccagcctgggcgaca
+ttgcagtgagctgagatcatgccactgcactccagcctgggcgaca
+
+57 NC_000017.11:c7687550-7668402 4369 4418 M03848:190:000000000-ARTHA:1:1117:15534:14750 15 64 + 4445
 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc
 ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
 
-35 NC_000017.11:c7687550-7668402 10534 10594 M03848:190:000000000-ARTHA:1:1117:15534:14750 15 75 + 5015
-ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccatc
-ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
+58 NC_000017.11:c7687550-7668402 3754 3812 M03848:190:000000000-ARTHA:1:1117:15534:14750 10 68 + 4709
+ggaggttgcagtgagccgagattgcgccactgcactccagcctgggcaacagagtgaga
+ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgaga
 
-36 NC_000017.11:c7687550-7668402 5672 5726 M03848:190:000000000-ARTHA:1:1117:15534:14750 10 64 + 4975
+59 NC_000017.11:c7687550-7668402 6938 6967 M03848:190:000000000-ARTHA:1:1117:15534:14750 7 36 + 2658
+ggtggaggttgcagtgagctgagatcatgc
+ggtggagcttgcagtgagctgagatcatgc
+
+60 NC_000017.11:c7687550-7668402 16191 16222 M03848:190:000000000-ARTHA:1:1117:15534:14750 37 68 + 2839
+cactgcactccagcctgggcgatagagtgaga
+cactgcactccagcctgggcgacagagcgaga
+
+61 NC_000017.11:c7687550-7668402 5672 5726 M03848:190:000000000-ARTHA:1:1117:15534:14750 10 64 + 4975
 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc
 ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
 
-37 NC_000017.11:c7687550-7668402 13098 13172 M03848:190:000000000-ARTHA:1:1117:15534:14750 1 75 + 7117
+62 NC_000017.11:c7687550-7668402 10584 10594 M03848:190:000000000-ARTHA:1:1117:15534:14750 65 75 + 924
+gagactccatc
+gagattccatc
+
+63 NC_000017.11:c7687550-7668402 13098 13172 M03848:190:000000000-ARTHA:1:1117:15534:14750 1 75 + 7117
 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgacagagcgagattccatc
 ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
 
-38 NC_000017.11:c7687550-7668402 15171 15209 M03848:190:000000000-ARTHA:1:2109:17847:21775 8 46 - 3634
+64 NC_000017.11:c7687550-7668402 15171 15209 M03848:190:000000000-ARTHA:1:2109:17847:21775 8 46 - 3634
 tctcactctgtcgcccaggctggagtgcagtggcatgat
 tctcgctctgtcgcccaggctggagtgcagtggcatgat
 
-39 NC_000017.11:c7687550-7668402 15510 15523 M03848:190:000000000-ARTHA:1:2109:17847:21775 47 60 - 1346
+65 NC_000017.11:c7687550-7668402 15510 15523 M03848:190:000000000-ARTHA:1:2109:17847:21775 47 60 - 1346
 ctcagctcactgca
 ctcagctcactgca
 
-40 NC_000017.11:c7687550-7668402 9506 9549 M03848:190:000000000-ARTHA:1:2109:17847:21775 15 58 + 3274
+66 NC_000017.11:c7687550-7668402 14436 14494 M03848:190:000000000-ARTHA:1:2109:17847:21775 8 66 - 4757
+tctcactctgtcacccaggctggagtgcagtggcgggatctcggctcactgcaacctcc
+tctcgctctgtcgcccaggctggagtgcagtggcatgatctcagctcactgcaagctcc
+
+67 NC_000017.11:c7687550-7668402 17570 17611 M03848:190:000000000-ARTHA:1:2109:17847:21775 15 56 + 3196
+ttgcggtgagctgagatctcaccattacactccagcctgggc
+ttgcagtgagctgagatcatgccactgcactccagcctgggc
+
+68 NC_000017.11:c7687550-7668402 9506 9549 M03848:190:000000000-ARTHA:1:2109:17847:21775 15 58 + 3274
 ttgcagtgagcctagactgcaccactgcactccagcctgggcga
 ttgcagtgagctgagatcatgccactgcactccagcctgggcga
 
-41 NC_000017.11:c7687550-7668402 9552 9556 M03848:190:000000000-ARTHA:1:2109:17847:21775 60 64 + 482
+69 NC_000017.11:c7687550-7668402 9552 9556 M03848:190:000000000-ARTHA:1:2109:17847:21775 60 64 + 482
 agagc
 agagc
 
-42 NC_000017.11:c7687550-7668402 4369 4418 M03848:190:000000000-ARTHA:1:2109:17847:21775 15 64 + 4445
+70 NC_000017.11:c7687550-7668402 5272 5312 M03848:190:000000000-ARTHA:1:2109:17847:21775 28 68 + 3572
+agatcgtgccactgcactccagcctgggtgacagagtgaga
+agatcatgccactgcactccagcctgggcgacagagcgaga
+
+71 NC_000017.11:c7687550-7668402 2023 2068 M03848:190:000000000-ARTHA:1:2109:17847:21775 15 60 + 3923
+ttgcagtgagccaagatcgtgccactacactccagcctgggcgaca
+ttgcagtgagctgagatcatgccactgcactccagcctgggcgaca
+
+72 NC_000017.11:c7687550-7668402 4369 4418 M03848:190:000000000-ARTHA:1:2109:17847:21775 15 64 + 4445
 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc
 ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
 
-43 NC_000017.11:c7687550-7668402 10534 10594 M03848:190:000000000-ARTHA:1:2109:17847:21775 15 75 + 5015
-ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccatc
-ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
+73 NC_000017.11:c7687550-7668402 3754 3812 M03848:190:000000000-ARTHA:1:2109:17847:21775 10 68 + 4709
+ggaggttgcagtgagccgagattgcgccactgcactccagcctgggcaacagagtgaga
+ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgaga
 
-44 NC_000017.11:c7687550-7668402 5672 5726 M03848:190:000000000-ARTHA:1:2109:17847:21775 10 64 + 4975
+74 NC_000017.11:c7687550-7668402 6938 6967 M03848:190:000000000-ARTHA:1:2109:17847:21775 7 36 + 2658
+ggtggaggttgcagtgagctgagatcatgc
+ggtggagcttgcagtgagctgagatcatgc
+
+75 NC_000017.11:c7687550-7668402 16191 16222 M03848:190:000000000-ARTHA:1:2109:17847:21775 37 68 + 2839
+cactgcactccagcctgggcgatagagtgaga
+cactgcactccagcctgggcgacagagcgaga
+
+76 NC_000017.11:c7687550-7668402 5672 5726 M03848:190:000000000-ARTHA:1:2109:17847:21775 10 64 + 4975
 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc
 ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
 
-45 NC_000017.11:c7687550-7668402 13098 13172 M03848:190:000000000-ARTHA:1:2109:17847:21775 1 75 + 7117
+77 NC_000017.11:c7687550-7668402 10584 10594 M03848:190:000000000-ARTHA:1:2109:17847:21775 65 75 + 924
+gagactccatc
+gagattccatc
+
+78 NC_000017.11:c7687550-7668402 13098 13172 M03848:190:000000000-ARTHA:1:2109:17847:21775 1 75 + 7117
 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgacagagcgagattccatc
 ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
 
-46 NC_000017.11:c7687550-7668402 15171 15209 M03848:190:000000000-ARTHA:1:2115:15976:15346 8 46 - 3634
+79 NC_000017.11:c7687550-7668402 15171 15209 M03848:190:000000000-ARTHA:1:2115:15976:15346 8 46 - 3634
 tctcactctgtcgcccaggctggagtgcagtggcatgat
 tctcgctctgtcgcccaggctggagtgcagtggcatgat
 
-47 NC_000017.11:c7687550-7668402 15510 15523 M03848:190:000000000-ARTHA:1:2115:15976:15346 47 60 - 1346
+80 NC_000017.11:c7687550-7668402 15510 15523 M03848:190:000000000-ARTHA:1:2115:15976:15346 47 60 - 1346
 ctcagctcactgca
 ctcagctcactgca
 
-48 NC_000017.11:c7687550-7668402 9506 9549 M03848:190:000000000-ARTHA:1:2115:15976:15346 15 58 + 3274
+81 NC_000017.11:c7687550-7668402 14436 14494 M03848:190:000000000-ARTHA:1:2115:15976:15346 8 66 - 4757
+tctcactctgtcacccaggctggagtgcagtggcgggatctcggctcactgcaacctcc
+tctcgctctgtcgcccaggctggagtgcagtggcatgatctcagctcactgcaagctcc
+
+82 NC_000017.11:c7687550-7668402 17570 17611 M03848:190:000000000-ARTHA:1:2115:15976:15346 15 56 + 3196
+ttgcggtgagctgagatctcaccattacactccagcctgggc
+ttgcagtgagctgagatcatgccactgcactccagcctgggc
+
+83 NC_000017.11:c7687550-7668402 9506 9549 M03848:190:000000000-ARTHA:1:2115:15976:15346 15 58 + 3274
 ttgcagtgagcctagactgcaccactgcactccagcctgggcga
 ttgcagtgagctgagatcatgccactgcactccagcctgggcga
 
-49 NC_000017.11:c7687550-7668402 9552 9556 M03848:190:000000000-ARTHA:1:2115:15976:15346 60 64 + 482
+84 NC_000017.11:c7687550-7668402 9552 9556 M03848:190:000000000-ARTHA:1:2115:15976:15346 60 64 + 482
 agagc
 agagc
 
-50 NC_000017.11:c7687550-7668402 4369 4418 M03848:190:000000000-ARTHA:1:2115:15976:15346 15 64 + 4445
+85 NC_000017.11:c7687550-7668402 5272 5312 M03848:190:000000000-ARTHA:1:2115:15976:15346 28 68 + 3572
+agatcgtgccactgcactccagcctgggtgacagagtgaga
+agatcatgccactgcactccagcctgggcgacagagcgaga
+
+86 NC_000017.11:c7687550-7668402 2023 2068 M03848:190:000000000-ARTHA:1:2115:15976:15346 15 60 + 3923
+ttgcagtgagccaagatcgtgccactacactccagcctgggcgaca
+ttgcagtgagctgagatcatgccactgcactccagcctgggcgaca
+
+87 NC_000017.11:c7687550-7668402 4369 4418 M03848:190:000000000-ARTHA:1:2115:15976:15346 15 64 + 4445
 ttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagc
 ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
 
-51 NC_000017.11:c7687550-7668402 10534 10594 M03848:190:000000000-ARTHA:1:2115:15976:15346 15 75 + 5015
-ttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccatc
-ttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
+88 NC_000017.11:c7687550-7668402 3754 3812 M03848:190:000000000-ARTHA:1:2115:15976:15346 10 68 + 4709
+ggaggttgcagtgagccgagattgcgccactgcactccagcctgggcaacagagtgaga
+ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgaga
 
-52 NC_000017.11:c7687550-7668402 5672 5726 M03848:190:000000000-ARTHA:1:2115:15976:15346 10 64 + 4975
+89 NC_000017.11:c7687550-7668402 6938 6967 M03848:190:000000000-ARTHA:1:2115:15976:15346 7 36 + 2658
+ggtggaggttgcagtgagctgagatcatgc
+ggtggagcttgcagtgagctgagatcatgc
+
+90 NC_000017.11:c7687550-7668402 16191 16222 M03848:190:000000000-ARTHA:1:2115:15976:15346 37 68 + 2839
+cactgcactccagcctgggcgatagagtgaga
+cactgcactccagcctgggcgacagagcgaga
+
+91 NC_000017.11:c7687550-7668402 5672 5726 M03848:190:000000000-ARTHA:1:2115:15976:15346 10 64 + 4975
 ggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagc
 ggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagc
 
-53 NC_000017.11:c7687550-7668402 13098 13172 M03848:190:000000000-ARTHA:1:2115:15976:15346 1 75 + 7117
+92 NC_000017.11:c7687550-7668402 10584 10594 M03848:190:000000000-ARTHA:1:2115:15976:15346 65 75 + 924
+gagactccatc
+gagattccatc
+
+93 NC_000017.11:c7687550-7668402 13098 13172 M03848:190:000000000-ARTHA:1:2115:15976:15346 1 75 + 7117
 ctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgacagagcgagattccatc
 ctgggcggtggagcttgcagtgagctgagatcatgccactgcactccagcctgggcgacagagcgagattccatc
 
-54 NC_000017.11:c7687550-7668402 13296 13370 M03848:190:000000000-ARTHA:1:2102:20955:15668 1 75 - 7203
+94 NC_000017.11:c7687550-7668402 13296 13370 M03848:190:000000000-ARTHA:1:2102:20955:15668 1 75 - 7203
 catgtgtaacagttcctgcatgggcggcatgaaccggaggcccatcctcaccatcatcacactggaagactccag
 catgtgtaacagttcctgcatgggcggcatgaaccggaggcccatcctcaccatcatcacactggaagactccag
 
-55 NC_000017.11:c7687550-7668402 13244 13318 M03848:190:000000000-ARTHA:1:1112:24053:17456 1 75 - 7149
+95 NC_000017.11:c7687550-7668402 13244 13318 M03848:190:000000000-ARTHA:1:1112:24053:17456 1 75 - 7149
 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
 
-56 NC_000017.11:c7687550-7668402 13244 13318 M03848:190:000000000-ARTHA:1:1116:10371:23728 1 75 - 7149
+96 NC_000017.11:c7687550-7668402 13244 13318 M03848:190:000000000-ARTHA:1:1116:10371:23728 1 75 - 7149
 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
 
-57 NC_000017.11:c7687550-7668402 13244 13318 M03848:190:000000000-ARTHA:1:1117:15534:14750 1 75 - 7149
+97 NC_000017.11:c7687550-7668402 13244 13318 M03848:190:000000000-ARTHA:1:1117:15534:14750 1 75 - 7149
 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
 
-58 NC_000017.11:c7687550-7668402 13244 13318 M03848:190:000000000-ARTHA:1:2109:17847:21775 1 75 - 7149
+98 NC_000017.11:c7687550-7668402 13244 13318 M03848:190:000000000-ARTHA:1:2109:17847:21775 1 75 - 7149
 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
 
-59 NC_000017.11:c7687550-7668402 13244 13318 M03848:190:000000000-ARTHA:1:2115:15976:15346 1 75 - 7149
+99 NC_000017.11:c7687550-7668402 13244 13318 M03848:190:000000000-ARTHA:1:2115:15976:15346 1 75 - 7149
 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
 cctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgg
 
