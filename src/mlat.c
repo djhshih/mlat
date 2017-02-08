@@ -223,7 +223,7 @@ int main(int argc, char *argv[])
   /* Get tile size and related parameters from user and make sure
    * they are within range. */
   p->tileSize = optionInt("tileSize", p->tileSize);
-  p->stepSize = optionInt("stepSize", p->tileSize);
+  p->stepSize = optionInt("stepSize", p->stepSize);
   p->minMatch = optionInt("minMatch", p->minMatch);
   p->oneOff = optionExists("oneOff");
   p->fastMap = optionExists("fastMap");
