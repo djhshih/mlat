@@ -21,12 +21,12 @@ subject to the terms of the BLAT non-commercial license (see
 There are no dependencies other than GNU build tools (e.g. `gcc` and `make`),
 and you can simply
 
-    make
+    make install
 
 Thereupon, binaries, libraries, and headers will be installed in `build/`. To
 install to some other location (e.g. `/usr/local`),
 
-    make DESTDIR=/usr/local
+    make install DESTDIR=/usr/local
 
 
 # Known bugs
