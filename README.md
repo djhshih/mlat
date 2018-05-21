@@ -15,11 +15,11 @@ This package itself is licensed under GPLv3. Use of BLAT (and hence MLAT) is
 subject to the terms of the BLAT non-commercial license (see
 `LICENSE_blat.txt`).
 
-
 # Installation
 
-There are no dependencies other than GNU build tools (e.g. `gcc` and `make`),
-and you can simply
+Required: `gcc >= 5.2`, `make`
+
+You can simply
 
     make
 
@@ -35,13 +35,14 @@ Code compilation was tested with
 
 ```
 gcc-4.4.7
+gcc-5.2.0
 gcc-5.4.0
 gcc-6.3.0
 clang-3.5
 ```
 
 The code is not compatible with `-O2` and `-O3` optimization flags when compiled
-with `gcc-4.4.7`. Use `-O2` or `-O3` only when compiling with `gcc-5.4.0` or
+with `gcc-4.4.7`. Use `-O2` or `-O3` only when compiling with `gcc-5.2.0` or
 higher.
 
 Unit tests were built using programs compiled with `clang-3.5`. Moderate
