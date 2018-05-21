@@ -21,12 +21,12 @@ Required: `gcc >= 5.2`, `make`
 
 You can simply
 
-    make
+    make install
 
 Thereupon, binaries, libraries, and headers will be installed in `build/`. To
 install to some other location (e.g. `/usr/local`),
 
-    make DESTDIR=/usr/local
+    make install DESTDIR=/usr/local
 
 
 # Known bugs

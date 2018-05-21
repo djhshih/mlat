@@ -2,7 +2,7 @@ ROOT = .
 
 include $(ROOT)/common.mk
 
-targets = mlat 2bit blatc blatd
+targets = mlat 2bit
 headers = aliType.h gfDb.h gfResult.h mlatParams.h
 DESTDIR ?= build
 

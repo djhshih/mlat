@@ -7,3 +7,6 @@
 *.gcno
 *.gcda
 *.log
+build
+src/2bit
+src/mlat
